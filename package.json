@@ -1,0 +1,26 @@
+{
+  "name": "publikator-playground",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@project-r/styleguide": "^5.49.0",
+    "glamor": "^2.20.40",
+    "immutable": "^3.8.2",
+    "next": "^4.2.3",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "slate": "^0.32.1",
+    "slate-react": "^0.11.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "prettier": "^1.10.2"
+  }
+}
