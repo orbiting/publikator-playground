@@ -1,12 +1,5 @@
-import TreeUtils from 'immutable-treeutils'
-import { Seq, List, Map } from 'immutable'
+import { getSelectionPath } from '../utils'
 import actionTypes from '../constants/actionTypes'
-
-const tree = new TreeUtils(
-  Seq.of('document'),
-  'key',
-  'nodes'
-)
 
 const initialState = {
   selectedNode: null,
@@ -24,28 +17,15 @@ export default (
       if (value.startBlock !== value.endBlock) {
         return initialState
       }
-      const selectionPath = value.blocks
-        .map(n => tree.byId(value, n.key))
-        .reduce(
-          (memo, path) =>
-            memo
-              .push(path)
-              .concat(tree.ancestors(value, path)),
-          List()
-        )
-        .reduceRight(
-          (memo, path) =>
-            memo.set(tree.id(value, path), path),
-          Map()
-        )
-        .map(value.getIn.bind(value))
-        .toList()
-
-      const res = Object.assign({}, state, {
+      const selectionPath = getSelectionPath(value)
+      return Object.assign({}, state, {
         selectionPath,
         selectedNode: selectionPath.last()
       })
-      return res
+    case actionTypes.SELECT_NODE:
+      return Object.assign({}, state, {
+        selectedNode: payload.node
+      })
 
     default:
       return state

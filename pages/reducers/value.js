@@ -67,19 +67,13 @@ const initialValue = Value.fromJSON({
           },
           {
             object: 'block',
-            type: 'infoboxBody',
+            type: 'infoboxText',
             nodes: [
               {
-                object: 'block',
-                type: 'paragraph',
-                nodes: [
+                object: 'text',
+                leaves: [
                   {
-                    object: 'text',
-                    leaves: [
-                      {
-                        text: 'A paragraph in an infobox.'
-                      }
-                    ]
+                    text: 'A paragraph in an infobox.'
                   }
                 ]
               }

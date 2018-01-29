@@ -1,5 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
 import { css } from 'glamor'
+import { selectNode } from '../actions'
 import withUI from './hoc/withUI'
 
 const styles = {
@@ -11,13 +15,31 @@ const styles = {
     minHeight: '60px'
   }),
   nodeLink: css({
-    padding: '0px 5px 0px 5px'
+    cursor: 'pointer',
+    padding: '0px 5px 0px 5px',
+    '&[data-active="true"]': {
+      color: '#f00',
+      cursor: 'default'
+    }
   })
 }
 
-const SelectionPath = ({ selectedNode, selectionPath }) => {
+const mouseDownHandler = (node, onSelect) => event => {
+  event.preventDefault()
+  onSelect(node)
+}
+
+const SelectionPath = ({
+  selectedNode,
+  selectionPath,
+  onSelect
+}) => {
   if (!selectionPath) {
-    return <div {...styles.container}>No node selected</div>
+    return (
+      <div {...styles.container}>
+        Multiple nodes selected
+      </div>
+    )
   }
   return (
     <div {...styles.container}>
@@ -25,9 +47,8 @@ const SelectionPath = ({ selectedNode, selectionPath }) => {
         <a
           {...styles.nodeLink}
           key={n.key}
-          style={{
-            color: n === selectedNode ? '#f00' : '#000'
-          }}
+          onMouseDown={mouseDownHandler(n, onSelect)}
+          data-active={n === selectedNode}
         >
           {n.type || n.object}
         </a>
@@ -36,4 +57,17 @@ const SelectionPath = ({ selectedNode, selectionPath }) => {
   )
 }
 
-export default withUI(SelectionPath)
+SelectionPath.propTypes = {
+  selectedNode: PropTypes.object,
+  selectionPath: PropTypes.object,
+  onSelect: PropTypes.func.isRequired
+}
+
+const mapDispatchToProps = dispatch => ({
+  onSelect: node => dispatch(selectNode(node))
+})
+
+export default compose(
+  connect(null, mapDispatchToProps),
+  withUI
+)(SelectionPath)

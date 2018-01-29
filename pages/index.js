@@ -3,10 +3,21 @@ import React, { Component } from 'react'
 import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 
+import { exec } from './utils'
+
 import Editor from './components/Editor'
 
 import reducers from './reducers'
-import { BlockElement } from './plugins'
+import {
+  blockSchema,
+  renderBlock,
+  renderPlaceholder
+} from './plugins'
+import {
+  staticText,
+  softBreak,
+  removeEmpty
+} from './plugins/keyHandlers'
 import Frame from './components/Frame'
 
 import PropertyForm from './components/PropertyForm'
@@ -27,86 +38,128 @@ const styles = {
   })
 }
 
-const Paragraph = BlockElement({
+const Paragraph = {
   type: 'paragraph',
-  component: ({ node, children, attributes }) => [
-    <PropertyForm key={`ui-${node.key}`} node={node}>
-      Slot {node.key}
-    </PropertyForm>,
-    <p key={`content-${node.key}`} {...attributes}>
-      {children}
-    </p>
-  ]
-})
-
-const Blockquote = BlockElement({
-  type: 'blockquote',
-  component: ({ children, attributes }) => (
-    <blockquote {...attributes}>{children}</blockquote>
+  renderNode: renderBlock(
+    'paragraph',
+    ({ node, children, attributes }) => [
+      <PropertyForm key={`ui-${node.key}`} node={node}>
+        Paragraph {node.key}
+      </PropertyForm>,
+      <p key={`content-${node.key}`} {...attributes}>
+        {children}
+      </p>
+    ]
   )
-})
+}
 
-const Title = BlockElement({
-  type: 'title',
-  component: ({ children, attributes }) => (
-    <h1 {...attributes}>{children}</h1>
+const Blockquote = {
+  renderNode: renderBlock(
+    'blockquote',
+    ({ children, attributes }) => (
+      <blockquote {...attributes}>{children}</blockquote>
+    )
   )
-})
+}
 
-const InfoboxTitle = BlockElement({
-  type: 'infoboxTitle',
-  component: ({ children, attributes }) => (
-    <h4 {...attributes}>{children}</h4>
+const Title = {
+  renderNode: renderBlock(
+    'title',
+    ({ children, attributes }) => (
+      <h1 {...attributes}>{children}</h1>
+    )
   ),
-  schema: {
+  onKeyDown: staticText({
+    type: 'title',
+    afterType: 'paragraph'
+  }),
+  renderPlaceholder: renderPlaceholder('title', 'Title')
+}
+
+const InfoboxTitle = {
+  renderNode: renderBlock(
+    'infoboxTitle',
+    ({ children, attributes }) => (
+      <h4 {...attributes}>{children}</h4>
+    )
+  ),
+  schema: blockSchema('infoboxTitle', {
     nodes: [{ objects: ['text'] }],
     parent: {
       types: ['infobox']
     }
-  }
-})
+  }),
+  onKeyDown: staticText({
+    type: 'infoboxTitle',
+    afterType: 'infoboxText',
+    insertAfterType: 'infobox'
+  }),
+  renderPlaceholder: renderPlaceholder(
+    'infoboxTitle',
+    'Infobox'
+  )
+}
 
-const InfoboxBody = BlockElement({
-  type: 'infoboxBody',
-  component: ({ children, attributes }) => (
-    <div className="infobox-body" {...attributes}>
-      {children}
-    </div>
+const InfoboxText = {
+  renderNode: renderBlock(
+    'infoboxText',
+    ({ children, attributes }) => (
+      <p {...attributes}>{children}</p>
+    )
   ),
-  schema: {
-    nodes: [{ types: ['paragraph'], min: 1 }],
+  schema: blockSchema('infoboxText', {
+    nodes: [{ objects: ['text'] }],
     parent: {
       types: ['infobox']
     }
-  }
-})
-
-const Infobox = BlockElement({
-  type: 'infobox',
-  component: ({ children, attributes }) => (
-    <div
-      style={{ backgroundColor: '#ccc', padding: '15px' }}
-      className="infobox"
-      {...attributes}
-    >
-      {children}
-    </div>
+  }),
+  onKeyDown: exec(
+    softBreak({
+      type: 'infoboxText'
+    }),
+    staticText({
+      type: 'infoboxText',
+      afterType: 'paragraph'
+    })
   ),
-  schema: {
+  renderPlaceholder: renderPlaceholder(
+    'infoboxText',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in aliquet lacus, nec semper libero.'
+  )
+}
+
+const Infobox = {
+  renderNode: renderBlock(
+    'infobox',
+    ({ children, attributes }) => (
+      <div
+        style={{ backgroundColor: '#ccc', padding: '15px' }}
+        className="infobox"
+        {...attributes}
+      >
+        {children}
+      </div>
+    )
+  ),
+  schema: blockSchema('infobox', {
     nodes: [
       { types: ['infoboxTitle'], min: 1, max: 1 },
-      { types: ['infoboxBody'], min: 1, max: 1 }
+      { types: ['infoboxText'], min: 1 }
     ]
-  }
-})
+  }),
+  onKeyDown: removeEmpty({
+    type: 'infobox',
+    isEmpty: node => !node.text
+  })
+}
 
 const plugins = [
   Blockquote,
   Paragraph,
   Title,
-  InfoboxTitle,
-  InfoboxBody,
-  Infobox
+  Infobox,
+  InfoboxText,
+  InfoboxTitle
 ]
 
 class Publikator extends Component {
