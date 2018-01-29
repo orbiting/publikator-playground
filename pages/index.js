@@ -7,6 +7,7 @@ import Editor from './components/Editor'
 
 import reducers from './reducers'
 import { BlockElement } from './plugins'
+import Frame from './components/Frame'
 import { PropertyFormContainer } from './components/ui'
 import { PropertyForm } from './components/ui'
 
@@ -102,16 +103,22 @@ class Publikator extends Component {
   }
 
   render() {
-    return [
-      <div key="ui" className="ui">
-        <PropertyFormContainer
-          style={{ position: 'absolute', bottom: '0' }}
-        />
-      </div>,
-      <Provider key="editoe" store={this.store}>
-        <Editor plugins={plugins} />
+    return (
+      <Provider store={this.store}>
+        <div>
+          <div key="ui" className="ui">
+            <PropertyFormContainer
+              style={{ position: 'absolute', bottom: '0' }}
+            />
+          </div>
+          <Frame
+            style={{ width: '100vw', height: '100vw' }}
+          >
+            <Editor plugins={plugins} />
+          </Frame>
+        </div>
       </Provider>
-    ]
+    )
   }
 }
 

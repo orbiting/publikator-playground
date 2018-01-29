@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Portal from './Portal'
+import Portal from '../Portal'
 
 const getContainer = id => {
   let el = document.getElementById(id)
