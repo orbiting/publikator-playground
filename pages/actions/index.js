@@ -5,7 +5,7 @@ export const change = t => ({
   payload: { change: t }
 })
 
-export const select = t => ({
-  type: actionTypes.SELECT,
+export const selectNode = t => ({
+  type: actionTypes.SELECT_NODE,
   payload: { change: t }
 })

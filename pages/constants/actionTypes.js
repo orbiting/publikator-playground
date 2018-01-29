@@ -1,4 +1,4 @@
 export default {
   CHANGE: 'CHANGE',
-  SELECT: 'SELECT'
+  SELECT_NODE: 'SELECT_NODE'
 }

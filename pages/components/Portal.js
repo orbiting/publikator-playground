@@ -14,7 +14,7 @@ const getContainer = (container, defaultContainer) => {
   return ReactDOM.findDOMNode(container) || defaultContainer
 }
 
-const getOwnerDocument = element => {
+export const getOwnerDocument = element => {
   return ownerDocument(ReactDOM.findDOMNode(element))
 }
 

@@ -36,6 +36,7 @@ export default class MyDocument extends Document {
           />
           {css ? (
             <style
+              id="css"
               dangerouslySetInnerHTML={{ __html: css }}
             />
           ) : null}

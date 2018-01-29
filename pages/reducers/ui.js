@@ -45,7 +45,6 @@ export default (
         selectionPath,
         selectedNode: selectionPath.last()
       })
-      console.log(res.selectedNode.type)
       return res
 
     default:

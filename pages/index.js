@@ -8,14 +8,30 @@ import Editor from './components/Editor'
 import reducers from './reducers'
 import { BlockElement } from './plugins'
 import Frame from './components/Frame'
-import { PropertyFormContainer } from './components/ui'
-import { PropertyForm } from './components/ui'
+
+import PropertyForm from './components/PropertyForm'
+import PropertyFormContainer from './components/PropertyFormContainer'
+import SelectionPath from './components/SelectionPath'
+import { css } from 'glamor'
+
+css.global('html, body', { padding: 0, margin: 0 })
+const styles = {
+  root: css({
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    fontFamily: 'sans-serif, Arial, Helvetica'
+  }),
+  doc: css({
+    flex: '1 100%'
+  })
+}
 
 const Paragraph = BlockElement({
   type: 'paragraph',
   component: ({ node, children, attributes }) => [
-    <PropertyForm key={`ui-${node.key}`}>
-      <p>Slot {node.key}</p>
+    <PropertyForm key={`ui-${node.key}`} node={node}>
+      Slot {node.key}
     </PropertyForm>,
     <p key={`content-${node.key}`} {...attributes}>
       {children}
@@ -105,15 +121,10 @@ class Publikator extends Component {
   render() {
     return (
       <Provider store={this.store}>
-        <div>
-          <div key="ui" className="ui">
-            <PropertyFormContainer
-              style={{ position: 'absolute', bottom: '0' }}
-            />
-          </div>
-          <Frame
-            style={{ width: '100vw', height: '100vw' }}
-          >
+        <div {...styles.root}>
+          <SelectionPath />
+          <PropertyFormContainer />
+          <Frame {...styles.doc}>
             <Editor plugins={plugins} />
           </Frame>
         </div>
