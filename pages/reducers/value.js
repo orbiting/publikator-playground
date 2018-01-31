@@ -35,6 +35,15 @@ const initialValue = Value.fromJSON({
       },
       {
         object: 'block',
+        type: 'image',
+        isVoid: true,
+        data: {
+          src: '/static/images/guild_wars_2_artwork_1.jpg',
+          title: 'Foo'
+        }
+      },
+      {
+        object: 'block',
         type: 'blockquote',
         nodes: [
           {

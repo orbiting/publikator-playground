@@ -62,6 +62,32 @@ const Blockquote = {
   )
 }
 
+const Image = {
+  renderNode: renderBlock(
+    'image',
+    ({ node, attributes }) => [
+      <PropertyForm key={`ui-${node.key}`} node={node}>
+        <label htmlFor={`fileinput-${node.key}`}>
+          Select image
+          <input
+            style={{ display: 'none' }}
+            id={`fileinput-${node.key}`}
+            type="file"
+          />
+        </label>
+      </PropertyForm>,
+      <img
+        key={`content-${node.key}`}
+        src={node.data.get('src')}
+        title={node.data.get('title')}
+        style={{ maxWidth: '600px' }}
+        {...attributes}
+      />
+    ]
+  ),
+  schema: blockSchema('image', { isVoid: true })
+}
+
 const Title = {
   renderNode: renderBlock(
     'title',
@@ -155,6 +181,7 @@ const Infobox = {
 
 const plugins = [
   Blockquote,
+  Image,
   Paragraph,
   Title,
   Infobox,
