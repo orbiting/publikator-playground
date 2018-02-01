@@ -1,7 +1,7 @@
 import { resetKeyGenerator } from 'slate'
 import { Editor } from 'slate-react'
 import { connect } from 'react-redux'
-import { change } from '../actions'
+import { change } from '../actions/redux'
 
 resetKeyGenerator()
 

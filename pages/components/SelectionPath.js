@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { css } from 'glamor'
-import { selectNode } from '../actions'
+import { selectNode } from '../actions/redux'
 import withUI from '../hoc/withUI'
 
 const styles = {
