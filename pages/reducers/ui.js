@@ -18,15 +18,15 @@ export default (
         return initialState
       }
       const selectionPath = getSelectionPath(value)
-      return Object.assign({}, state, {
+      return {
         selectionPath,
         selectedNode: selectionPath.last()
-      })
+      }
     case actionTypes.SELECT_NODE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         selectedNode: payload.node
-      })
-
+      }
     default:
       return state
   }

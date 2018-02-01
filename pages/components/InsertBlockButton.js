@@ -7,9 +7,9 @@ import withInsertBlock from '../hoc/withInsertBlock'
 const InsertBlockButton = ({
   icon: Icon,
   // eslint-disable-next-line
-  block,
+  block, // remove invalid props to pass
   // eslint-disable-next-line
-  insertAfter,
+  insertAfter, // remove invalid props to pass
   ...props
 }) => (
   <Button {...props} {...buttonStyles.iconButton}>

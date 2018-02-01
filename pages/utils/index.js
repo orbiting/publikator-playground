@@ -1,12 +1,6 @@
 import { curry } from 'ramda'
 import { Mark, Block, Inline, Document } from 'slate'
 
-export const composePlugin = (...fns) => opts =>
-  fns.reduce(
-    (memo, fn) => Object.assign(memo, fn(opts)),
-    {}
-  )
-
 export const exec = (...fns) => (...args) => {
   return fns.reduce((memo, fn) => {
     return memo || fn(...args)
