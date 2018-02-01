@@ -20,7 +20,7 @@ import MarkButton from './components/MarkButton'
 import InlineButton from './components/InlineButton'
 import Input from './components/Input'
 
-import withDataKey from './components/hoc/withDataKey'
+import withDataKey from './hoc/withDataKey'
 
 const Marks = {
   renderMark: exec(

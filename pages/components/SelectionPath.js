@@ -4,7 +4,7 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { css } from 'glamor'
 import { selectNode } from '../actions'
-import withUI from './hoc/withUI'
+import withUI from '../hoc/withUI'
 
 const styles = {
   container: css({

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Slot from './Slot'
-import withIsSelected from './hoc/withIsSelected'
+import withIsSelected from '../hoc/withIsSelected'
 
 export const ID = 'PROPERTY_FORM'
 
