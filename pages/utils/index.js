@@ -1,13 +1,5 @@
-import TreeUtils from 'immutable-treeutils'
 import { curry } from 'ramda'
-import { Seq, List, Map } from 'immutable'
 import { Mark, Block, Inline, Document } from 'slate'
-
-const tree = new TreeUtils(
-  Seq.of('document'),
-  'key',
-  'nodes'
-)
 
 export const composePlugin = (...fns) => opts =>
   fns.reduce(
@@ -58,61 +50,3 @@ export const isMark = curry((type, node) => {
 })
 
 export const isDocument = node => Document.isDocument(node)
-
-export const getSelectedBlocks = value => {
-  return value.blocks
-    .map(n => tree.byId(value, n.key))
-    .reduce(
-      (memo, path) =>
-        memo.push(path).concat(tree.ancestors(value, path)),
-      List()
-    )
-    .reduceRight(
-      (memo, path) => memo.set(tree.id(value, path), path),
-      Map()
-    )
-    .map(value.getIn.bind(value))
-    .toList()
-}
-
-export const getSelectionPath = value => {
-  return List([value.startKey])
-    .map(key => tree.byId(value, key))
-    .reduce(
-      (memo, path) =>
-        memo.push(path).concat(tree.ancestors(value, path)),
-      List()
-    )
-    .reduceRight(
-      (memo, path) => memo.set(tree.id(value, path), path),
-      Map()
-    )
-    .map(value.getIn.bind(value))
-    .filter(n => n.object !== 'text')
-    .toList()
-}
-
-const getClosest = curry((filter, node, value) =>
-  value.document.getClosest(node.key, filter)
-)
-const getFurthest = curry((filter, node, value) =>
-  value.document.getClosest(node.key, filter)
-)
-
-const getInSelection = curry((selector, filter, value) => {
-  return value.blocks.reduce((memo, node) => {
-    const res = selector(filter, node, value)
-    if (res) {
-      return memo.set(res.key, res)
-    }
-    return memo
-  }, Map())
-})
-
-export const getClosestInSelection = getInSelection(
-  getClosest
-)
-
-export const getFurthestInSelection = getInSelection(
-  getFurthest
-)
