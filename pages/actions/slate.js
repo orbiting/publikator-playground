@@ -13,6 +13,17 @@ export const addMark = (change, mark) => {
   return change.addMark(mark)
 }
 
+export const convertBlock = (
+  change,
+  node,
+  block,
+  conversionStrategy
+) =>
+  change.setNodeByKey(
+    node.key,
+    conversionStrategy(change, node, block)
+  )
+
 export const removeMark = (change, mark) => {
   const value = change.value
   if (value.isEmpty) {

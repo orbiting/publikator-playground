@@ -15,14 +15,17 @@ import {
   removeEmpty
 } from './utils/keyHandlers'
 import PropertyForm from './components/PropertyForm'
-import BoldIcon from 'react-icons/lib/md/format-bold'
-import ItalicIcon from 'react-icons/lib/md/format-italic'
-import LinkIcon from 'react-icons/lib/md/insert-link'
+import BoldIcon from 'react-icons/lib/fa/bold'
+import ItalicIcon from 'react-icons/lib/fa/italic'
+import LinkIcon from 'react-icons/lib/fa/chain'
+import ParagraphIcon from 'react-icons/lib/fa/paragraph'
+import QuoteIcon from 'react-icons/lib/fa/quote-right'
 import MarkButton from './components/MarkButton'
 import InlineButton from './components/InlineButton'
+import BlockButton from './components/BlockButton'
 import Input from './components/Input'
 
-import withData from './hoc/withDataKey'
+import withData from './hoc/withData'
 
 const Marks = {
   renderMark: exec(
@@ -84,6 +87,22 @@ const LinkButton = props => (
   />
 )
 
+const ParagraphButton = props => (
+  <BlockButton
+    block="paragraph"
+    icon={ParagraphIcon}
+    {...props}
+  />
+)
+
+const BlockquoteButton = props => (
+  <BlockButton
+    block="blockquote"
+    icon={QuoteIcon}
+    {...props}
+  />
+)
+
 const Paragraph = {
   renderNode: renderBlock(
     'paragraph',
@@ -96,6 +115,8 @@ const Paragraph = {
         <BoldButton editor={editor} />
         <ItalicButton editor={editor} />
         <LinkButton editor={editor} />
+        <ParagraphButton node={node} editor={editor} />
+        <BlockquoteButton node={node} editor={editor} />
       </PropertyForm>,
       <p key={`content-${node.key}`} {...attributes}>
         {children}
@@ -107,9 +128,25 @@ const Paragraph = {
 const Blockquote = {
   renderNode: renderBlock(
     'blockquote',
-    ({ children, attributes }) => (
-      <blockquote {...attributes}>{children}</blockquote>
-    )
+    ({ node, children, attributes, editor }) => [
+      <PropertyForm
+        offset={1}
+        key={`ui-${node.key}`}
+        node={node}
+      >
+        <BoldButton editor={editor} />
+        <ItalicButton editor={editor} />
+        <LinkButton editor={editor} />
+        <ParagraphButton node={node} editor={editor} />
+        <BlockquoteButton node={node} editor={editor} />
+      </PropertyForm>,
+      <blockquote
+        key={`content-${node.key}`}
+        {...attributes}
+      >
+        {children}
+      </blockquote>
+    ]
   )
 }
 
