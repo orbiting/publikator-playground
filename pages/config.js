@@ -51,9 +51,9 @@ const Link = {
     // (...args) => console.log(args),
     renderInline(
       'link',
-      ({ node, children, attributes }) => [
+      ({ node, children, attributes, editor }) => [
         <PropertyForm key={`ui-${node.key}`} node={node}>
-          <LinkUrlInput node={node} />
+          <LinkUrlInput node={node} editor={editor} />
         </PropertyForm>,
         <a
           key={`content-${node.key}`}

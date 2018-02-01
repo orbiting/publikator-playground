@@ -6,8 +6,9 @@ const mapStateToProps = dataKey => (
   { editor, node }
 ) => ({
   value: node.data.get(dataKey),
-  onClick: value =>
+  onChange: value => {
     editor.change(updateData, node, { [dataKey]: value })
+  }
 })
 
 export default dataKey =>
