@@ -22,7 +22,7 @@ import MarkButton from './components/MarkButton'
 import InlineButton from './components/InlineButton'
 import Input from './components/Input'
 
-import withDataKey from './hoc/withDataKey'
+import withData from './hoc/withDataKey'
 
 const Marks = {
   renderMark: exec(
@@ -42,7 +42,7 @@ const ItalicButton = props => (
   <MarkButton mark="italic" icon={ItalicIcon} {...props} />
 )
 
-const LinkUrlInput = withDataKey('url')(props => (
+const LinkUrlInput = withData('url')(props => (
   <Input type="text" label="URL" {...props} />
 ))
 
