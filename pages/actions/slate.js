@@ -1,0 +1,55 @@
+import { Mark } from 'slate'
+import { isMark } from '../utils'
+
+export const addInline = (change, inline) => {
+  return change.wrapInline(inline)
+}
+
+export const removeInline = (change, inline) => {
+  return change.unwrapInline(inline)
+}
+
+export const addMark = (change, mark) => {
+  return change.addMark(mark)
+}
+
+export const removeMark = (change, mark) => {
+  const value = change.value
+  if (value.isEmpty) {
+    const key = value.startKey
+    const offset = value.startOffset
+    const characters = value.texts.first().characters
+    let i = offset
+    let has = true
+    while (has) {
+      i--
+      has = characters.get(i).marks.some(isMark(mark))
+    }
+    const start = i
+    i = offset
+    has = true
+    while (has) {
+      i++
+      has = characters.get(i).marks.some(isMark(mark))
+    }
+    const end = i
+    const length = end - start
+    return change.removeMarkByKey(
+      key,
+      start,
+      length,
+      typeof mark === 'string'
+        ? Mark.create({ type: mark })
+        : mark
+    )
+  } else {
+    return change.removeMark(mark)
+  }
+}
+
+export const updateData = (change, node, data) => {
+  return change.setNodeByKey(
+    node.key,
+    node.update('data', v => v.merge(data))
+  )
+}

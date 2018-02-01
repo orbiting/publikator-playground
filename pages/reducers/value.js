@@ -1,8 +1,8 @@
-import actionTypes from '../constants/actionTypes'
-
 import { Value } from 'slate'
 
-const initialValue = Value.fromJSON({
+import actionTypes from '../constants/actionTypes'
+
+export const initialState = Value.fromJSON({
   document: {
     nodes: [
       {
@@ -95,12 +95,13 @@ const initialValue = Value.fromJSON({
 })
 
 export default (
-  value = initialValue,
+  value = initialState,
   { type, payload }
 ) => {
   switch (type) {
     case actionTypes.CHANGE:
       return payload.change.value
+
     default:
       return value
   }

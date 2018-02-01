@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import Portal from './Portal'
 
 class Frame extends Component {
-  container = null
-
-  componentWillUnmount() {
-    // this.container = null
+  constructor(props) {
+    super(props)
+    this.container = null
   }
 
   render() {

@@ -19,6 +19,13 @@ export const getOwnerDocument = element => {
 }
 
 class Portal extends React.Component {
+  constructor(props) {
+    super(props)
+    this.getMountNode = () => {
+      return this.mountNode
+    }
+  }
+
   componentDidMount() {
     this.setContainer(this.props.container)
     this.forceUpdate(this.props.onRendered)
@@ -39,10 +46,6 @@ class Portal extends React.Component {
       container,
       getOwnerDocument(this).body
     )
-  }
-
-  getMountNode = () => {
-    return this.mountNode
   }
 
   render() {

@@ -8,9 +8,8 @@ export const ID = 'PROPERTY_FORM'
 const PropertyForm = withIsSelected(
   ({ children, isSelected }) => {
     return (
-      <div>
-        {isSelected && <Slot id={ID}>{children}</Slot>}
-      </div>
+      (isSelected && <Slot id={ID}>{children}</Slot>) ||
+      null
     )
   }
 )

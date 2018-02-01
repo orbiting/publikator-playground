@@ -32,23 +32,34 @@ export const any = (...fns) => (...args) =>
 
 export const getType = node => node.type
 
+export const typeOrTypeProp = maybeString =>
+  (typeof maybeString === 'string' && maybeString) ||
+  (maybeString && maybeString.type)
+
 export const isBlock = curry((type, node) => {
-  return Block.isBlock(node) && getType(node) === type
+  return (
+    Block.isBlock(node) &&
+    getType(node) === typeOrTypeProp(type)
+  )
 })
 
-export const isInline = curry(
-  (type, node) =>
-    Inline.isInline(node) && getType(node) === type
-)
+export const isInline = curry((type, node) => {
+  return (
+    Inline.isInline(node) &&
+    getType(node) === typeOrTypeProp(type)
+  )
+})
 
-export const isMark = curry(
-  (type, node) =>
-    Mark.isMark(node) && getType(node) === type
-)
-export const isDocument = () => node =>
-  Document.isDocument(node)
+export const isMark = curry((type, node) => {
+  return (
+    Mark.isMark(node) &&
+    getType(node) === typeOrTypeProp(type)
+  )
+})
 
-export const getSelectionPath = value => {
+export const isDocument = node => Document.isDocument(node)
+
+export const getSelectedBlocks = value => {
   return value.blocks
     .map(n => tree.byId(value, n.key))
     .reduce(
@@ -61,6 +72,23 @@ export const getSelectionPath = value => {
       Map()
     )
     .map(value.getIn.bind(value))
+    .toList()
+}
+
+export const getSelectionPath = value => {
+  return List([value.startKey])
+    .map(key => tree.byId(value, key))
+    .reduce(
+      (memo, path) =>
+        memo.push(path).concat(tree.ancestors(value, path)),
+      List()
+    )
+    .reduceRight(
+      (memo, path) => memo.set(tree.id(value, path), path),
+      Map()
+    )
+    .map(value.getIn.bind(value))
+    .filter(n => n.object !== 'text')
     .toList()
 }
 
