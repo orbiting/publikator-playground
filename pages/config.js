@@ -25,7 +25,7 @@ import InlineButton from './components/InlineButton'
 import FormatBlockButton from './components/FormatBlockButton'
 import Input from './components/Input'
 
-import withData from './hoc/withData'
+import withNodeData from './hoc/withNodeData'
 
 const Marks = {
   renderMark: exec(
@@ -45,7 +45,7 @@ const ItalicButton = props => (
   <MarkButton mark="italic" icon={ItalicIcon} {...props} />
 )
 
-const LinkUrlInput = withData('url')(props => (
+const LinkUrlInput = withNodeData('url')(props => (
   <Input type="text" label="URL" {...props} />
 ))
 
