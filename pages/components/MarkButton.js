@@ -3,23 +3,19 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import { addMark, removeMark } from '../actions/slate'
-import IconButton from './IconButton'
 import { isMark } from '../utils'
 
-const MarkButton = ({ icon: Icon, onClick, ...props }) => (
-  <IconButton
-    onClick={() => onClick(props.active)}
-    {...props}
-  >
+import ToggleButton from './ToggleButton'
+import buttonStyles from '../styles/buttonStyles'
+
+const MarkButton = ({ icon: Icon, ...props }) => (
+  <ToggleButton {...props} {...buttonStyles.iconButton}>
     <Icon size={24} />
-  </IconButton>
+  </ToggleButton>
 )
 
 MarkButton.propTypes = {
-  mark: PropTypes.string.isRequired,
-  icon: PropTypes.func.isRequired,
-  active: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired
+  icon: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state, { editor, mark }) => {

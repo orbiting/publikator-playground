@@ -2,28 +2,19 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { addInline, removeInline } from '../actions/slate'
-import IconButton from './IconButton'
 import { isInline } from '../utils'
+import { addInline, removeInline } from '../actions/slate'
+import ToggleButton from './ToggleButton'
+import buttonStyles from '../styles/buttonStyles'
 
-const InlineButton = ({
-  icon: Icon,
-  onClick,
-  ...props
-}) => (
-  <IconButton
-    onClick={() => onClick(props.active)}
-    {...props}
-  >
+const InlineButton = ({ icon: Icon, ...props }) => (
+  <ToggleButton {...props} {...buttonStyles.iconButton}>
     <Icon size={24} />
-  </IconButton>
+  </ToggleButton>
 )
 
 InlineButton.propTypes = {
-  inline: PropTypes.any.isRequired,
-  icon: PropTypes.func.isRequired,
-  active: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired
+  icon: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state, ownProps) => {
