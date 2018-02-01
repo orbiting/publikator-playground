@@ -22,7 +22,7 @@ import ParagraphIcon from 'react-icons/lib/fa/paragraph'
 import QuoteIcon from 'react-icons/lib/fa/quote-right'
 import MarkButton from './components/MarkButton'
 import InlineButton from './components/InlineButton'
-import BlockButton from './components/BlockButton'
+import FormatBlockButton from './components/FormatBlockButton'
 import Input from './components/Input'
 
 import withData from './hoc/withData'
@@ -88,7 +88,7 @@ const LinkButton = props => (
 )
 
 const ParagraphButton = props => (
-  <BlockButton
+  <FormatBlockButton
     block="paragraph"
     icon={ParagraphIcon}
     {...props}
@@ -96,7 +96,7 @@ const ParagraphButton = props => (
 )
 
 const BlockquoteButton = props => (
-  <BlockButton
+  <FormatBlockButton
     block="blockquote"
     icon={QuoteIcon}
     {...props}
