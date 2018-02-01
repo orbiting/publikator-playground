@@ -4,7 +4,7 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { css } from 'glamor'
 import { selectNode } from '../actions/redux'
-import withUI from '../hoc/withUI'
+import withUIState from '../hoc/withUIState'
 
 const styles = {
   container: css({
@@ -69,5 +69,5 @@ const mapDispatchToProps = dispatch => ({
 
 export default compose(
   connect(null, mapDispatchToProps),
-  withUI
+  withUIState
 )(SelectionPath)
