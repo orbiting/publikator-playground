@@ -1,5 +1,9 @@
 import { Mark } from 'slate'
 import { isMark } from '../utils'
+import {
+  getChildIndex,
+  getParent
+} from '../utils/selection'
 
 export const addInline = (change, inline) => {
   return change.wrapInline(inline)
@@ -62,5 +66,17 @@ export const updateData = (change, node, data) => {
   return change.setNodeByKey(
     node.key,
     node.update('data', v => v.merge(data))
+  )
+}
+
+export const insertBlock = (change, block) => {
+  return change.insertBlock(block)
+}
+
+export const insertBlockAfter = (change, block, target) => {
+  return change.insertNodeByKey(
+    getParent(change.value, target).key,
+    getChildIndex(change.value, target) + 1,
+    block
   )
 }

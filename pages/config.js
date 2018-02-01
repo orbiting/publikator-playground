@@ -1,4 +1,6 @@
 import React from 'react'
+import { Block, Text } from 'slate'
+
 import { exec } from './utils'
 import {
   renderBlock,
@@ -6,23 +8,25 @@ import {
   renderPlaceholder,
   renderInline
 } from './utils/renderers'
-
 import { blockSchema } from './utils/schema'
-
 import {
   staticText,
   softBreak,
   removeEmpty
 } from './utils/keyHandlers'
-import PropertyForm from './components/PropertyForm'
+
 import BoldIcon from 'react-icons/lib/fa/bold'
 import ItalicIcon from 'react-icons/lib/fa/italic'
 import LinkIcon from 'react-icons/lib/fa/chain'
 import ParagraphIcon from 'react-icons/lib/fa/paragraph'
 import QuoteIcon from 'react-icons/lib/fa/quote-right'
+import InfoboxIcon from 'react-icons/lib/fa/info-circle'
+
+import PropertyForm from './components/PropertyForm'
 import MarkButton from './components/MarkButton'
 import InlineButton from './components/InlineButton'
 import FormatBlockButton from './components/FormatBlockButton'
+import InsertBlockButton from './components/InsertBlockButton'
 import Input from './components/Input'
 
 import withNodeData from './hoc/withNodeData'
@@ -48,6 +52,28 @@ const ItalicButton = props => (
 const LinkUrlInput = withNodeData('url')(props => (
   <Input type="text" label="URL" {...props} />
 ))
+
+const InsertInfoboxButton = props => (
+  <InsertBlockButton
+    icon={InfoboxIcon}
+    block={() =>
+      Block.create({
+        type: 'infobox',
+        nodes: [
+          Block.create({
+            type: 'infoboxTitle',
+            nodes: [Text.create('')]
+          }),
+          Block.create({
+            type: 'infoboxText',
+            nodes: [Text.create('')]
+          })
+        ]
+      })
+    }
+    {...props}
+  />
+)
 
 const Link = {
   renderNode: exec(
@@ -117,6 +143,7 @@ const Paragraph = {
         <LinkButton editor={editor} />
         <ParagraphButton node={node} editor={editor} />
         <BlockquoteButton node={node} editor={editor} />
+        <InsertInfoboxButton node={node} editor={editor} />
       </PropertyForm>,
       <p key={`content-${node.key}`} {...attributes}>
         {children}
@@ -180,7 +207,9 @@ const Title = {
   renderNode: renderBlock(
     'title',
     ({ children, attributes }) => (
-      <h1 {...attributes}>{children}</h1>
+      <h1 style={{ position: 'relative' }} {...attributes}>
+        {children}
+      </h1>
     )
   ),
   onKeyDown: staticText({
@@ -194,7 +223,9 @@ const InfoboxTitle = {
   renderNode: renderBlock(
     'infoboxTitle',
     ({ children, attributes }) => (
-      <h4 {...attributes}>{children}</h4>
+      <h4 style={{ position: 'relative' }} {...attributes}>
+        {children}
+      </h4>
     )
   ),
   schema: blockSchema('infoboxTitle', {
@@ -218,7 +249,9 @@ const InfoboxText = {
   renderNode: renderBlock(
     'infoboxText',
     ({ children, attributes }) => (
-      <p {...attributes}>{children}</p>
+      <p style={{ position: 'relative' }} {...attributes}>
+        {children}
+      </p>
     )
   ),
   schema: blockSchema('infoboxText', {
@@ -245,15 +278,31 @@ const InfoboxText = {
 const Infobox = {
   renderNode: renderBlock(
     'infobox',
-    ({ children, attributes }) => (
+    ({ node, children, attributes, editor }) => [
+      <PropertyForm
+        key={`ui-${node.key}`}
+        node={node}
+        offset={2}
+      >
+        <InsertInfoboxButton
+          insertAfter={true}
+          node={node}
+          editor={editor}
+        />
+      </PropertyForm>,
       <div
-        style={{ backgroundColor: '#ccc', padding: '15px' }}
+        key={`content-${node.key}`}
+        style={{
+          backgroundColor: '#ddd',
+          padding: '15px',
+          margin: '15px'
+        }}
         className="infobox"
         {...attributes}
       >
         {children}
       </div>
-    )
+    ]
   ),
   schema: blockSchema('infobox', {
     nodes: [

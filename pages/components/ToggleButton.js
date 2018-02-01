@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Button from './Button'
 
-const mouseDownHandler = (onClick, active) => event => {
-  event.preventDefault()
+const clickHandler = (onClick, active) => () => {
   onClick && onClick(active)
 }
 
@@ -12,19 +12,17 @@ const ToggleButton = ({
   children,
   ...props
 }) => (
-  <button
-    onMouseDown={mouseDownHandler(onClick, active)}
+  <Button
+    onClick={clickHandler(onClick, active)}
     {...props}
     data-active={active}
   >
     {children}
-  </button>
+  </Button>
 )
 
 ToggleButton.propTypes = {
-  active: PropTypes.bool.isRequired,
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func.isRequired
+  active: PropTypes.bool.isRequired
 }
 
 export default ToggleButton

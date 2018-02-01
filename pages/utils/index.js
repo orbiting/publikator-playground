@@ -13,6 +13,9 @@ export const exec = (...fns) => (...args) => {
   }, undefined)
 }
 
+export const callOrJust = maybeFn =>
+  typeof maybeFn === 'function' ? maybeFn() : maybeFn
+
 export const when = (matcher, fn) => (...args) =>
   (matcher(...args) && fn(...args)) || undefined
 

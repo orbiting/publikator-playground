@@ -5,14 +5,14 @@ import ToggleButton from './ToggleButton'
 import buttonStyles from '../styles/buttonStyles'
 import withFormatBlock from '../hoc/withFormatBlock'
 
-const BlockButton = ({ icon: Icon, ...props }) => (
+const FormatBlockButton = ({ icon: Icon, ...props }) => (
   <ToggleButton {...props} {...buttonStyles.iconButton}>
     <Icon size={24} />
   </ToggleButton>
 )
 
-BlockButton.propTypes = {
+FormatBlockButton.propTypes = {
   icon: PropTypes.func.isRequired
 }
 
-export default withFormatBlock(BlockButton)
+export default withFormatBlock(FormatBlockButton)
