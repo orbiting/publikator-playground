@@ -1,5 +1,7 @@
 import { when, isBlock, isMark, isInline } from './'
-import Placeholder from '../components/Placeholder'
+import Placeholder, {
+  InlinePlaceholder
+} from '../components/Placeholder'
 
 export const renderBlock = (type, component) =>
   when(({ node }) => isBlock(type, node), component)
@@ -18,4 +20,10 @@ export const renderPlaceholder = (type, text) =>
   when(
     ({ node }) => isBlock(type, node) && !node.text,
     () => <Placeholder>{text}</Placeholder>
+  )
+
+export const renderInlinePlaceholder = (type, text) =>
+  when(
+    ({ node }) => isBlock(type, node) && !node.text,
+    () => <InlinePlaceholder>{text}</InlinePlaceholder>
   )

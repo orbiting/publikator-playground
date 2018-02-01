@@ -71,7 +71,6 @@ export const staticText = ({
     }
     const { value } = change
     const inSelection = value.blocks.some(isBlock(type))
-
     if (
       inSelection &&
       value.startBlock !== value.endBlock &&

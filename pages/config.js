@@ -5,8 +5,9 @@ import { exec } from './utils'
 import {
   renderBlock,
   renderMark,
+  renderInline,
   renderPlaceholder,
-  renderInline
+  renderInlinePlaceholder
 } from './utils/renderers'
 import { blockSchema } from './utils/schema'
 import {
@@ -21,6 +22,7 @@ import LinkIcon from 'react-icons/lib/fa/chain'
 import ParagraphIcon from 'react-icons/lib/fa/paragraph'
 import QuoteIcon from 'react-icons/lib/fa/quote-right'
 import InfoboxIcon from 'react-icons/lib/fa/info-circle'
+import FigureIcon from 'react-icons/lib/fa/image'
 
 import PropertyForm from './components/PropertyForm'
 import MarkButton from './components/MarkButton'
@@ -75,9 +77,43 @@ const InsertInfoboxButton = props => (
   />
 )
 
+const InsertFigureButton = props => (
+  <InsertBlockButton
+    icon={FigureIcon}
+    block={() =>
+      Block.create({
+        type: 'figure',
+        nodes: [
+          Block.create({
+            type: 'image',
+            isVoid: true,
+            data: {
+              url: '',
+              title: ''
+            }
+          }),
+          Block.create({
+            type: 'caption',
+            nodes: [
+              Block.create({
+                type: 'captionText',
+                nodes: [Text.create('')]
+              }),
+              Block.create({
+                type: 'byline',
+                nodes: [Text.create('')]
+              })
+            ]
+          })
+        ]
+      })
+    }
+    {...props}
+  />
+)
+
 const Link = {
   renderNode: exec(
-    // (...args) => console.log(args),
     renderInline(
       'link',
       ({ node, children, attributes, editor }) => [
@@ -144,6 +180,7 @@ const Paragraph = {
         <ParagraphButton node={node} editor={editor} />
         <BlockquoteButton node={node} editor={editor} />
         <InsertInfoboxButton node={node} editor={editor} />
+        <InsertFigureButton node={node} editor={editor} />
       </PropertyForm>,
       <p key={`content-${node.key}`} {...attributes}>
         {children}
@@ -177,6 +214,35 @@ const Blockquote = {
   )
 }
 
+const Figure = {
+  renderNode: renderBlock(
+    'figure',
+    ({ node, attributes, children }) => [
+      <PropertyForm
+        key={`ui-${node.key}`}
+        node={node}
+        offset={2}
+      >
+        {' '}
+      </PropertyForm>,
+      <figure {...attributes} key={`content-${node.key}`}>
+        {children}
+      </figure>
+    ]
+  ),
+  schema: blockSchema('figure', {
+    nodes: [
+      { types: ['figureImage'], min: 1, max: 1 },
+      { types: ['caption'], min: 1, max: 1 }
+    ]
+  }),
+  onKeyDown: removeEmpty({
+    type: 'figure',
+    isEmpty: n =>
+      !n.text.trim() && !n.nodes.first().data.get('url')
+  })
+}
+
 const Image = {
   renderNode: renderBlock(
     'image',
@@ -193,14 +259,87 @@ const Image = {
       </PropertyForm>,
       <img
         key={`content-${node.key}`}
-        src={node.data.get('src')}
+        src={node.data.get('url')}
         title={node.data.get('title')}
         style={{ maxWidth: '600px' }}
         {...attributes}
       />
     ]
   ),
-  schema: blockSchema('image', { isVoid: true })
+  schema: blockSchema('image', {
+    isVoid: true
+  })
+}
+
+const Caption = {
+  renderNode: exec(
+    renderBlock(
+      'caption',
+      ({ node, children, attributes }) => [
+        <PropertyForm key={`ui-${node.key}`} node={node}>
+          Caption
+        </PropertyForm>,
+        <figcaption
+          key={`content-${node.key}`}
+          {...attributes}
+        >
+          {children}
+        </figcaption>
+      ]
+    ),
+    renderBlock(
+      'captionText',
+      ({ node, children, attributes, editor }) => [
+        <PropertyForm
+          key={`ui-${node.key}`}
+          node={node}
+          offset={1}
+        >
+          <BoldButton editor={editor} />
+          <LinkButton editor={editor} />
+        </PropertyForm>,
+        <span key={`content-${node.key}`} {...attributes}>
+          {children}
+        </span>
+      ]
+    ),
+    renderBlock(
+      'byline',
+      ({ node, children, attributes, editor }) => [
+        <PropertyForm
+          key={`ui-${node.key}`}
+          node={node}
+          offset={1}
+        >
+          <LinkButton editor={editor} />
+        </PropertyForm>,
+        <cite key={`content-${node.key}`} {...attributes}>
+          {children}
+        </cite>
+      ]
+    )
+  ),
+  onKeyDown: exec(
+    staticText({
+      type: 'byline',
+      afterType: 'paragraph'
+    }),
+    staticText({
+      type: 'captionText',
+      afterType: 'byline',
+      insertAfter: 'caption'
+    })
+  ),
+  renderPlaceholder: exec(
+    renderInlinePlaceholder('captionText', 'Legende'),
+    renderInlinePlaceholder('byline', ' Credits')
+  ),
+  schema: blockSchema('caption', {
+    nodes: [
+      { types: ['captionText'], min: 1, max: 1 },
+      { types: ['byline'], min: 1, max: 1 }
+    ]
+  })
 }
 
 const Title = {
@@ -289,6 +428,11 @@ const Infobox = {
           node={node}
           editor={editor}
         />
+        <InsertFigureButton
+          insertAfter={true}
+          node={node}
+          editor={editor}
+        />
       </PropertyForm>,
       <div
         key={`content-${node.key}`}
@@ -297,7 +441,6 @@ const Infobox = {
           padding: '15px',
           margin: '15px'
         }}
-        className="infobox"
         {...attributes}
       >
         {children}
@@ -307,12 +450,12 @@ const Infobox = {
   schema: blockSchema('infobox', {
     nodes: [
       { types: ['infoboxTitle'], min: 1, max: 1 },
-      { types: ['infoboxText'], min: 1 }
+      { types: ['infoboxText'], min: 1, max: 1 }
     ]
   }),
   onKeyDown: removeEmpty({
     type: 'infobox',
-    isEmpty: node => !node.text
+    isEmpty: node => !node.text.trim()
   })
 }
 
@@ -320,6 +463,8 @@ export const plugins = [
   Marks,
   Link,
   Blockquote,
+  Figure,
+  Caption,
   Image,
   Paragraph,
   Title,

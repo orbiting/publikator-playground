@@ -28,7 +28,7 @@ export default ({ children }) => {
   )
 }
 
-export const Inline = ({ children }) => {
+export const InlinePlaceholder = ({ children }) => {
   return (
     <span
       {...styles.inline}

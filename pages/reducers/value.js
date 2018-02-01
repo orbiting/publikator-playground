@@ -35,12 +35,53 @@ export const initialState = Value.fromJSON({
       },
       {
         object: 'block',
-        type: 'image',
-        isVoid: true,
-        data: {
-          src: '/static/images/guild_wars_2_artwork_1.jpg',
-          title: 'Foo'
-        }
+        type: 'figure',
+        nodes: [
+          {
+            object: 'block',
+            type: 'image',
+            isVoid: true,
+            data: {
+              src:
+                '/static/images/guild_wars_2_artwork_1.jpg',
+              title: 'Foo'
+            }
+          },
+          {
+            object: 'block',
+            type: 'caption',
+            nodes: [
+              {
+                object: 'block',
+                type: 'captionText',
+                nodes: [
+                  {
+                    object: 'text',
+                    leaves: [
+                      {
+                        text: ''
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                object: 'block',
+                type: 'byline',
+                nodes: [
+                  {
+                    object: 'text',
+                    leaves: [
+                      {
+                        text: ''
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       },
       {
         object: 'block',
