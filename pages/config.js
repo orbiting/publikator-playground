@@ -1,17 +1,19 @@
 import React from 'react'
 import { exec } from './utils'
 import {
-  blockSchema,
   renderBlock,
   renderMark,
   renderPlaceholder,
   renderInline
-} from './plugins'
+} from './utils/renderers'
+
+import { blockSchema } from './utils/schema'
+
 import {
   staticText,
   softBreak,
   removeEmpty
-} from './plugins/keyHandlers'
+} from './utils/keyHandlers'
 import PropertyForm from './components/PropertyForm'
 import BoldIcon from 'react-icons/lib/md/format-bold'
 import ItalicIcon from 'react-icons/lib/md/format-italic'

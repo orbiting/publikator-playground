@@ -1,5 +1,5 @@
 import { Block } from 'slate'
-import { isBlock, getClosestInSelection } from '../utils'
+import { isBlock, getClosestInSelection } from './'
 
 const focusNext = change => {
   const { value } = change
