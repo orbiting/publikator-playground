@@ -38,6 +38,49 @@ import ImageInput from './components/ImageInput'
 
 import buttonStyles from './styles/buttonStyles'
 
+const newInfoBox = () =>
+  Block.create({
+    type: 'infobox',
+    nodes: [
+      Block.create({
+        type: 'infoboxTitle',
+        nodes: [Text.create('')]
+      }),
+      Block.create({
+        type: 'infoboxText',
+        nodes: [Text.create('')]
+      })
+    ]
+  })
+
+const newFigure = () => () =>
+  Block.create({
+    type: 'figure',
+    nodes: [
+      Block.create({
+        type: 'image',
+        isVoid: true,
+        data: {
+          url: '',
+          title: ''
+        }
+      }),
+      Block.create({
+        type: 'caption',
+        nodes: [
+          Block.create({
+            type: 'captionText',
+            nodes: [Text.create('')]
+          }),
+          Block.create({
+            type: 'byline',
+            nodes: [Text.create('')]
+          })
+        ]
+      })
+    ]
+  })
+
 const Marks = {
   renderMark: exec(
     renderMark('bold', ({ children, attributes }) => (
@@ -108,21 +151,7 @@ const BlockquoteButton = props => (
 
 const InsertInfoboxButton = props => (
   <InsertBlockButton
-    block={() =>
-      Block.create({
-        type: 'infobox',
-        nodes: [
-          Block.create({
-            type: 'infoboxTitle',
-            nodes: [Text.create('')]
-          }),
-          Block.create({
-            type: 'infoboxText',
-            nodes: [Text.create('')]
-          })
-        ]
-      })
-    }
+    block={newInfoBox}
     {...props}
     {...buttonStyles.iconButton}
   >
@@ -132,34 +161,7 @@ const InsertInfoboxButton = props => (
 
 const InsertFigureButton = props => (
   <InsertBlockButton
-    block={() =>
-      Block.create({
-        type: 'figure',
-        nodes: [
-          Block.create({
-            type: 'image',
-            isVoid: true,
-            data: {
-              url: '',
-              title: ''
-            }
-          }),
-          Block.create({
-            type: 'caption',
-            nodes: [
-              Block.create({
-                type: 'captionText',
-                nodes: [Text.create('')]
-              }),
-              Block.create({
-                type: 'byline',
-                nodes: [Text.create('')]
-              })
-            ]
-          })
-        ]
-      })
-    }
+    block={newFigure}
     {...props}
     {...buttonStyles.iconButton}
   >
