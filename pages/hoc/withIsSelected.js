@@ -12,4 +12,19 @@ const mapStateToProps = (state, { offset, node }) => {
   }
 }
 
-export default connect(mapStateToProps)
+const mergeProps = (
+  stateProps,
+  dispatchProps,
+  // eslint-disable-next-line
+  { offset, node, ...ownProps }
+) => ({
+  ...stateProps,
+  ...dispatchProps,
+  ...ownProps
+})
+
+export default connect(
+  mapStateToProps,
+  /* empty */ () => ({}),
+  mergeProps
+)

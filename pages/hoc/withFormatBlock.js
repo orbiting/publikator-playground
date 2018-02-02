@@ -13,25 +13,37 @@ const mapStateToProps = (state, ownProps) => {
     block,
     conversionStrategy = defaultConversionStrategy
   } = ownProps
-  const onClick = isActive => {
-    return (
-      !isActive &&
-      editor.change(
-        convertBlock,
-        node,
-        block,
-        conversionStrategy
-      )
-    )
-  }
-
   const active = isBlock(block, node)
-  const disabled = active
   return {
     active,
-    disabled,
-    onClick
+    disabled: active,
+    onClick: isActive => {
+      return (
+        !isActive &&
+        editor.change(
+          convertBlock,
+          node,
+          block,
+          conversionStrategy
+        )
+      )
+    }
   }
 }
 
-export default connect(mapStateToProps, () => ({}))
+const mergeProps = (
+  stateProps,
+  dispatchProps,
+  // eslint-disable-next-line
+  { editor, node, block, conversionStrategy, ...ownProps }
+) => ({
+  ...stateProps,
+  ...dispatchProps,
+  ...ownProps
+})
+
+export default connect(
+  mapStateToProps,
+  /* empty */ () => ({}),
+  mergeProps
+)

@@ -1,18 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import ToggleButton from './ToggleButton'
-import buttonStyles from '../styles/buttonStyles'
 import withToggleMark from '../hoc/withToggleMark'
 
-const MarkButton = ({ icon: Icon, ...props }) => (
-  <ToggleButton {...props} {...buttonStyles.iconButton}>
-    <Icon size={24} />
-  </ToggleButton>
-)
-
-MarkButton.propTypes = {
-  icon: PropTypes.func.isRequired
-}
+const MarkButton = ({
+  children,
+  // eslint-disable-next-line
+  mark, // remove invalid props to pass
+  ...props
+}) => <ToggleButton {...props}>{children}</ToggleButton>
 
 export default withToggleMark(MarkButton)

@@ -15,5 +15,20 @@ const mapStateToProps = dataKey => (
   }
 })
 
+const mergeProps = (
+  stateProps,
+  dispatchProps,
+  // eslint-disable-next-line
+  { editor, node, ...ownProps }
+) => ({
+  ...stateProps,
+  ...dispatchProps,
+  ...ownProps
+})
+
 export default dataKey =>
-  connect(mapStateToProps(dataKey), () => ({}))
+  connect(
+    mapStateToProps(dataKey),
+    /* empty */ () => ({}),
+    mergeProps
+  )

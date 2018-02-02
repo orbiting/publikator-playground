@@ -19,4 +19,19 @@ const mapStateToProps = (
     : () => editor.change(insertBlock, callOrJust(block))
 })
 
-export default connect(mapStateToProps, () => ({}))
+const mergeProps = (
+  stateProps,
+  dispatchProps,
+  // eslint-disable-next-line
+  { editor, node, block, insertAfter, ...ownProps }
+) => ({
+  ...stateProps,
+  ...dispatchProps,
+  ...ownProps
+})
+
+export default connect(
+  mapStateToProps,
+  /* empty */ () => ({}),
+  mergeProps
+)
