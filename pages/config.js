@@ -53,7 +53,7 @@ const newInfoBox = () =>
     ]
   })
 
-const newFigure = () => () =>
+const newFigure = () =>
   Block.create({
     type: 'figure',
     nodes: [
@@ -178,11 +178,11 @@ const Link = {
     renderInline(
       'link',
       ({ node, children, attributes, editor }) => [
-        <PropertyForm key={`ui-${node.key}`} node={node}>
+        <PropertyForm key="ui" node={node}>
           <LinkUrlInput node={node} editor={editor} />
         </PropertyForm>,
         <a
-          key={`content-${node.key}`}
+          key="content"
           style={{ color: '#00f' }}
           href={node.data.get('url')}
           title={node.data.get('title')}
@@ -199,20 +199,19 @@ const Paragraph = {
   renderNode: renderBlock(
     'paragraph',
     ({ node, children, attributes, editor }) => [
-      <PropertyForm
-        offset={1}
-        key={`ui-${node.key}`}
-        node={node}
-      >
+      <PropertyForm offset={1} key="ui" node={node}>
+        <label>Insert</label>
+        <InsertInfoboxButton node={node} editor={editor} />
+        <InsertFigureButton node={node} editor={editor} />
+        <label>Block format</label>
+        <ParagraphButton node={node} editor={editor} />
+        <BlockquoteButton node={node} editor={editor} />
+        <label>Text format</label>
         <BoldButton editor={editor} />
         <ItalicButton editor={editor} />
         <LinkButton editor={editor} />
-        <ParagraphButton node={node} editor={editor} />
-        <BlockquoteButton node={node} editor={editor} />
-        <InsertInfoboxButton node={node} editor={editor} />
-        <InsertFigureButton node={node} editor={editor} />
       </PropertyForm>,
-      <p key={`content-${node.key}`} {...attributes}>
+      <p key="content" {...attributes}>
         {children}
       </p>
     ]
@@ -223,21 +222,14 @@ const Blockquote = {
   renderNode: renderBlock(
     'blockquote',
     ({ node, children, attributes, editor }) => [
-      <PropertyForm
-        offset={1}
-        key={`ui-${node.key}`}
-        node={node}
-      >
+      <PropertyForm offset={1} key="ui" node={node}>
         <BoldButton editor={editor} />
         <ItalicButton editor={editor} />
         <LinkButton editor={editor} />
         <ParagraphButton node={node} editor={editor} />
         <BlockquoteButton node={node} editor={editor} />
       </PropertyForm>,
-      <blockquote
-        key={`content-${node.key}`}
-        {...attributes}
-      >
+      <blockquote key="content" {...attributes}>
         {children}
       </blockquote>
     ]
@@ -248,14 +240,10 @@ const Figure = {
   renderNode: renderBlock(
     'figure',
     ({ node, attributes, children }) => [
-      <PropertyForm
-        key={`ui-${node.key}`}
-        node={node}
-        offset={2}
-      >
+      <PropertyForm key="ui" node={node} offset={2}>
         {' '}
       </PropertyForm>,
-      <figure {...attributes} key={`content-${node.key}`}>
+      <figure {...attributes} key="content">
         {children}
       </figure>
     ]
@@ -279,7 +267,7 @@ const Image = {
   renderNode: renderBlock(
     'image',
     ({ node, attributes, editor }) => [
-      <PropertyForm key={`ui-${node.key}`} node={node}>
+      <PropertyForm key="ui" node={node}>
         <SelectImageButton
           node={node}
           editor={editor}
@@ -290,7 +278,7 @@ const Image = {
       </PropertyForm>,
       !!node.data.get('url') ? (
         <img
-          key={`content-${node.key}`}
+          key="content"
           src={node.data.get('url')}
           title={node.data.get('title')}
           style={{ maxWidth: '600px' }}
@@ -298,7 +286,7 @@ const Image = {
         />
       ) : (
         <SelectImageButton
-          key={`content-${node.key}`}
+          key="content"
           node={node}
           editor={editor}
         >
@@ -321,13 +309,10 @@ const Caption = {
     renderBlock(
       'caption',
       ({ node, children, attributes }) => [
-        <PropertyForm key={`ui-${node.key}`} node={node}>
+        <PropertyForm key="ui" node={node}>
           Caption
         </PropertyForm>,
-        <figcaption
-          key={`content-${node.key}`}
-          {...attributes}
-        >
+        <figcaption key="content" {...attributes}>
           {children}
         </figcaption>
       ]
@@ -335,15 +320,11 @@ const Caption = {
     renderBlock(
       'captionText',
       ({ node, children, attributes, editor }) => [
-        <PropertyForm
-          key={`ui-${node.key}`}
-          node={node}
-          offset={1}
-        >
+        <PropertyForm key="ui" node={node} offset={1}>
           <BoldButton editor={editor} />
           <LinkButton editor={editor} />
         </PropertyForm>,
-        <span key={`content-${node.key}`} {...attributes}>
+        <span key="content" {...attributes}>
           {children}
         </span>
       ]
@@ -351,14 +332,10 @@ const Caption = {
     renderBlock(
       'byline',
       ({ node, children, attributes, editor }) => [
-        <PropertyForm
-          key={`ui-${node.key}`}
-          node={node}
-          offset={1}
-        >
+        <PropertyForm key="ui" node={node} offset={1}>
           <LinkButton editor={editor} />
         </PropertyForm>,
-        <cite key={`content-${node.key}`} {...attributes}>
+        <cite key="content" {...attributes}>
           {children}
         </cite>
       ]
@@ -370,9 +347,7 @@ const Caption = {
       afterType: 'paragraph'
     }),
     staticText({
-      type: 'captionText',
-      afterType: 'byline',
-      insertAfter: 'caption'
+      type: 'captionText'
     })
   ),
   renderPlaceholder: exec(
@@ -432,11 +407,18 @@ const InfoboxTitle = {
 const InfoboxText = {
   renderNode: renderBlock(
     'infoboxText',
-    ({ children, attributes }) => (
-      <p style={{ position: 'relative' }} {...attributes}>
+    ({ node, children, attributes, editor }) => [
+      <PropertyForm key="ui" node={node}>
+        <BoldButton editor={editor} />
+      </PropertyForm>,
+      <p
+        key="content"
+        style={{ position: 'relative' }}
+        {...attributes}
+      >
         {children}
       </p>
-    )
+    ]
   ),
   schema: blockSchema('infoboxText', {
     nodes: [{ objects: ['text'] }],
@@ -463,11 +445,7 @@ const Infobox = {
   renderNode: renderBlock(
     'infobox',
     ({ node, children, attributes, editor }) => [
-      <PropertyForm
-        key={`ui-${node.key}`}
-        node={node}
-        offset={2}
-      >
+      <PropertyForm key="ui" node={node} offset={2}>
         <InsertInfoboxButton
           insertAfter={true}
           node={node}
@@ -480,7 +458,7 @@ const Infobox = {
         />
       </PropertyForm>,
       <div
-        key={`content-${node.key}`}
+        key="content"
         style={{
           backgroundColor: '#ddd',
           padding: '15px',
