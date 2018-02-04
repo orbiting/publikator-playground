@@ -13,7 +13,8 @@ import { blockSchema } from './utils/schema'
 import {
   staticText,
   softBreak,
-  removeEmpty
+  removeEmpty,
+  removeImage
 } from './utils/keyHandlers'
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
@@ -301,7 +302,8 @@ const Image = {
   ),
   schema: blockSchema('image', {
     isVoid: true
-  })
+  }),
+  onKeyDown: removeImage({ type: 'image' })
 }
 
 const Caption = {

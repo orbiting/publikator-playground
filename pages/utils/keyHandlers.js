@@ -1,5 +1,6 @@
 import { Block } from 'slate'
 import { isBlock } from './'
+import { updateData } from '../actions/slate'
 import { getClosestInSelection } from './selection'
 
 const focusNext = change => {
@@ -176,4 +177,25 @@ export const removeEmpty = ({ type, isEmpty }) => (
   return emptyNodes.reduce((t, node) => {
     return t.removeNodeByKey(node.key)
   }, change)
+}
+
+export const removeImage = ({ type }) => (
+  event,
+  change,
+  editor
+) => {
+  if (event.key !== 'Backspace' && event.key !== 'Delete') {
+    return
+  }
+  const { value } = change
+  if (
+    isBlock(type, value.startBlock) &&
+    !!value.startBlock.data.get('url')
+  ) {
+    event.preventDefault()
+    editor.change(updateData, value.startBlock, {
+      url: null
+    })
+    return true
+  }
 }
