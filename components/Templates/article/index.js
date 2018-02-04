@@ -1,21 +1,21 @@
 import React from 'react'
 import { Block, Text } from 'slate'
 
-import { exec } from '../components/Editor/utils'
+import { exec } from '../../Editor/utils'
 import {
   renderBlock,
   renderMark,
   renderInline,
   renderPlaceholder,
   renderInlinePlaceholder
-} from '../components/Editor/utils/renderers'
-import { blockSchema } from '../components/Editor/utils/schema'
+} from '../../Editor/utils/renderers'
+import { blockSchema } from '../../Editor/utils/schema'
 import {
   staticText,
   softBreak,
   removeEmpty,
   removeImage
-} from '../components/Editor/utils/keyHandlers'
+} from '../../Editor/utils/keyHandlers'
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faBold from '@fortawesome/fontawesome-free-solid/faBold'
@@ -27,17 +27,17 @@ import faInfoCircle from '@fortawesome/fontawesome-free-solid/faInfoCircle'
 import faImage from '@fortawesome/fontawesome-free-solid/faImage'
 import faFileImage from '@fortawesome/fontawesome-free-solid/faFileImage'
 
-import withNodeData from '../components/Editor/hoc/withNodeData'
+import withNodeData from '../../Editor/hoc/withNodeData'
 
-import PropertyForm from '../components/Editor/components/PropertyForm'
-import MarkButton from '../components/Editor/components/MarkButton'
-import InlineButton from '../components/Editor/components/InlineButton'
-import FormatBlockButton from '../components/Editor/components/FormatBlockButton'
-import InsertBlockButton from '../components/Editor/components/InsertBlockButton'
-import TextInput from '../components/Editor/components/TextInput'
-import ImageInput from '../components/Editor/components/ImageInput'
+import PropertyForm from '../../Editor/components/PropertyForm'
+import MarkButton from '../../Editor/components/MarkButton'
+import InlineButton from '../../Editor/components/InlineButton'
+import FormatBlockButton from '../../Editor/components/FormatBlockButton'
+import InsertBlockButton from '../../Editor/components/InsertBlockButton'
+import TextInput from '../../Editor/components/TextInput'
+import ImageInput from '../../Editor/components/ImageInput'
 
-import buttonStyles from '../components/Editor/styles/buttonStyles'
+import buttonStyles from '../../Editor/styles/buttonStyles'
 
 const newInfoBox = () =>
   Block.create({
