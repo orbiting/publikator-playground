@@ -1,5 +1,4 @@
 import { resetKeyGenerator } from 'slate'
-import { Editor } from 'slate-react'
 import { connect } from 'react-redux'
 import { change } from '../actions/redux'
 
@@ -19,6 +18,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  Editor
-)
+export default connect(mapStateToProps, mapDispatchToProps)

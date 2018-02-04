@@ -1,21 +1,21 @@
 import React from 'react'
 import { Block, Text } from 'slate'
 
-import { exec } from './utils'
+import { exec } from '../components/Editor/utils'
 import {
   renderBlock,
   renderMark,
   renderInline,
   renderPlaceholder,
   renderInlinePlaceholder
-} from './utils/renderers'
-import { blockSchema } from './utils/schema'
+} from '../components/Editor/utils/renderers'
+import { blockSchema } from '../components/Editor/utils/schema'
 import {
   staticText,
   softBreak,
   removeEmpty,
   removeImage
-} from './utils/keyHandlers'
+} from '../components/Editor/utils/keyHandlers'
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faBold from '@fortawesome/fontawesome-free-solid/faBold'
@@ -27,17 +27,17 @@ import faInfoCircle from '@fortawesome/fontawesome-free-solid/faInfoCircle'
 import faImage from '@fortawesome/fontawesome-free-solid/faImage'
 import faFileImage from '@fortawesome/fontawesome-free-solid/faFileImage'
 
-import withNodeData from './hoc/withNodeData'
+import withNodeData from '../components/Editor/hoc/withNodeData'
 
-import PropertyForm from './components/PropertyForm'
-import MarkButton from './components/MarkButton'
-import InlineButton from './components/InlineButton'
-import FormatBlockButton from './components/FormatBlockButton'
-import InsertBlockButton from './components/InsertBlockButton'
-import TextInput from './components/TextInput'
-import ImageInput from './components/ImageInput'
+import PropertyForm from '../components/Editor/components/PropertyForm'
+import MarkButton from '../components/Editor/components/MarkButton'
+import InlineButton from '../components/Editor/components/InlineButton'
+import FormatBlockButton from '../components/Editor/components/FormatBlockButton'
+import InsertBlockButton from '../components/Editor/components/InsertBlockButton'
+import TextInput from '../components/Editor/components/TextInput'
+import ImageInput from '../components/Editor/components/ImageInput'
 
-import buttonStyles from './styles/buttonStyles'
+import buttonStyles from '../components/Editor/styles/buttonStyles'
 
 const newInfoBox = () =>
   Block.create({
