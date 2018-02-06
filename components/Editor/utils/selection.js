@@ -34,6 +34,7 @@ export const getParent = (value, node) => {
 
 const getClosest = (filter, node, value) =>
   value.document.getClosest(node.key, filter)
+
 const getFurthest = (filter, node, value) =>
   value.document.getClosest(node.key, filter)
 
