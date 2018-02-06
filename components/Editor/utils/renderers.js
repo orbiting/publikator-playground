@@ -7,14 +7,10 @@ export const renderBlock = (type, component) =>
   when(({ node }) => isBlock(type, node), component)
 
 export const renderMark = (type, component) =>
-  when(({ mark }) => {
-    return isMark(type, mark)
-  }, component)
+  when(({ mark }) => isMark(type, mark), component)
 
 export const renderInline = (type, component) =>
-  when(({ node }) => {
-    return isInline(type, node)
-  }, component)
+  when(({ node }) => isInline(type, node), component)
 
 export const renderPlaceholder = (type, text) =>
   when(
