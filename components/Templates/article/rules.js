@@ -41,14 +41,14 @@ const textRule = {
     return {
       object: 'text',
       leaves: [
-        { kind: 'leaf', text: node.value, marks: [] }
+        { object: 'leaf', text: node.value, marks: [] }
       ]
     }
   },
   toMdast(node) {
     return {
       type: 'text',
-      text: node.leaves.reduce(
+      value: node.leaves.reduce(
         (memo, leaf) => memo.concat(leaf.text),
         ''
       )
@@ -313,7 +313,7 @@ const infoboxRule = {
     const [infoboxTitle, infoboxText] = node.children
     return {
       object: 'block',
-      type: 'figure',
+      type: 'infobox',
       nodes: [
         infoboxTitleRule.fromMdast(
           infoboxTitle,

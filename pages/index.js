@@ -1,7 +1,9 @@
 import React from 'react'
 import Serializer from 'slate-mdast-serializer'
-
 import Editor from '../components/Editor'
+
+import initial from './kitchensink'
+
 import {
   plugins,
   rules
@@ -12,6 +14,6 @@ const serializer = new Serializer({ rules })
 export default () => (
   <Editor
     plugins={plugins}
-    onChange={v => console.log(serializer.serialize(v))}
+    value={serializer.deserialize(initial)}
   />
 )

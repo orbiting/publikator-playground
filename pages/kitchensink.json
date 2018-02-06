@@ -1,0 +1,74 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [{ "type": "text", "value": "A title." }]
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        { "type": "text", "value": "A paragraph." }
+      ]
+    },
+    {
+      "type": "zone",
+      "identifier": "FIGURE",
+      "data": {},
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "image",
+              "url":
+                "/static/images/guild_wars_2_artwork_1.jpg",
+              "title": "Foo"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            { "type": "text", "value": "" },
+            {
+              "type": "emphasis",
+              "children": [{ "type": "text", "value": "" }]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blockquote",
+      "children": [
+        { "type": "text", "value": "A blockquote." }
+      ]
+    },
+    {
+      "type": "zone",
+      "identifier": "INFOBOX",
+      "data": {},
+      "children": [
+        {
+          "type": "heading",
+          "depth": 2,
+          "children": [
+            { "type": "text", "value": "An infobox title" }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "A paragraph in an infobox."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {}
+}
