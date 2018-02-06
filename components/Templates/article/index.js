@@ -1,2 +1,2 @@
-export plugins from './plugins'
-export rules from './rules'
+export { default as plugins } from './plugins'
+export { default as rules } from './rules'
