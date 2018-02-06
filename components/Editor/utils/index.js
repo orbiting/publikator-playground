@@ -1,5 +1,4 @@
 import { curry } from 'ramda'
-import { Mark, Block, Inline, Document } from 'slate'
 
 export const exec = (...fns) => (...args) => {
   return fns.reduce((memo, fn) => {
@@ -22,6 +21,7 @@ export const any = (...fns) => (...args) =>
   fns.some(fn => fn(...args))
 
 export const getType = node => node.type
+export const getObject = node => node.object
 
 export const typeOrTypeProp = maybeString =>
   (typeof maybeString === 'string' && maybeString) ||
@@ -29,23 +29,30 @@ export const typeOrTypeProp = maybeString =>
 
 export const isBlock = curry((type, node) => {
   return (
-    Block.isBlock(node) &&
+    node &&
+    getObject(node) === 'block' &&
     getType(node) === typeOrTypeProp(type)
   )
 })
 
 export const isInline = curry((type, node) => {
   return (
-    Inline.isInline(node) &&
+    node &&
+    getObject(node) === 'inline' &&
     getType(node) === typeOrTypeProp(type)
   )
 })
 
 export const isMark = curry((type, node) => {
   return (
-    Mark.isMark(node) &&
+    node &&
+    getObject(node) === 'mark' &&
     getType(node) === typeOrTypeProp(type)
   )
 })
 
-export const isDocument = node => Document.isDocument(node)
+export const isDocument = node =>
+  node && getObject(node) === 'document'
+
+export const isText = node =>
+  node && getObject(node) === 'text'

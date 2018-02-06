@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
@@ -34,7 +35,15 @@ class PublikatorEditor extends Component {
     super(props)
     this.store = createStore(
       combineReducers(reducers),
-      props.state
+      props.value && { value: props.value }
+    )
+
+    this.changeHandler = () =>
+      this.props.onChange &&
+      this.props.onChange(this.store.getState().value)
+
+    this.unsubscribe = this.store.subscribe(
+      this.changeHandler
     )
   }
 
@@ -51,6 +60,12 @@ class PublikatorEditor extends Component {
       </Provider>
     )
   }
+}
+
+PublikatorEditor.propTypes = {
+  onChange: PropTypes.func,
+  value: PropTypes.object,
+  plugins: PropTypes.array
 }
 
 export default PublikatorEditor

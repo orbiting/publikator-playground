@@ -3,12 +3,13 @@ import {
   isBlock,
   isInline,
   isMark,
+  isText,
   not
 } from '../../Editor/utils'
 
 import {
   isOfType,
-  isImageParagraph,
+  // isImageParagraph,
   isZone,
   isHeading
 } from '../../Editor/utils/mdast'
@@ -27,8 +28,30 @@ const documentRule = {
   toMdast(node, index, parent, { visitChildren }) {
     return {
       type: 'root',
-      children: visitChildren(node.nodes),
+      children: visitChildren(node),
       meta: node.data
+    }
+  }
+}
+
+const textRule = {
+  matchMdast: isOfType('text'),
+  match: isText,
+  fromMdast(node) {
+    return {
+      object: 'text',
+      leaves: [
+        { kind: 'leaf', text: node.value, marks: [] }
+      ]
+    }
+  },
+  toMdast(node) {
+    return {
+      type: 'text',
+      text: node.leaves.reduce(
+        (memo, leaf) => memo.concat(leaf.text),
+        ''
+      )
     }
   }
 }
@@ -150,7 +173,7 @@ const blockquoteRule = {
 }
 
 const imageRule = {
-  matchMdast: isImageParagraph,
+  matchMdast: () => false,
   match: isBlock('image'),
   fromMdast(node) {
     return {
@@ -167,8 +190,8 @@ const imageRule = {
       children: [
         {
           type: 'image',
-          url: node.data.get('src'),
-          title: node.data.get('title')
+          url: node.data.src,
+          title: node.data.title
         }
       ]
     }
@@ -176,7 +199,7 @@ const imageRule = {
 }
 
 const captionRule = {
-  matchMdast: isOfType('paragraph'),
+  matchMdast: () => false,
   match: isBlock('caption'),
   fromMdast(node, index, parent, { visitChildren }) {
     const captionText = {
@@ -247,7 +270,7 @@ const figureRule = {
 }
 
 const infoboxTitleRule = {
-  matchMdast: isHeading(2),
+  matchMdast: () => false,
   match: isBlock('infoboxTitle'),
   fromMdast(node, index, parent, { visitChildren }) {
     return {
@@ -266,7 +289,7 @@ const infoboxTitleRule = {
 }
 
 const infoboxTextRule = {
-  matchMdast: isOfType('paragraph'),
+  matchMdast: () => false,
   match: isBlock('infoboxText'),
   fromMdast(node, index, parent, { visitChildren }) {
     return {
@@ -319,7 +342,12 @@ const infoboxRule = {
 
 export default [
   documentRule,
+  textRule,
+  infoboxTitleRule,
+  infoboxTextRule,
   infoboxRule,
+  imageRule,
+  captionRule,
   figureRule,
   paragraphRule,
   titleRule,
