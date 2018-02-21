@@ -4,7 +4,7 @@ import {
   FigureByline
 } from '@project-r/styleguide'
 
-import { exec } from '../../../Editor/utils'
+import { returnFirst } from '../../../Editor/utils'
 import {
   renderBlock,
   renderInlinePlaceholder
@@ -39,7 +39,7 @@ export const newCaption = () =>
   })
 
 export const CaptionPlugin = {
-  renderNode: exec(
+  renderNode: returnFirst(
     renderBlock(
       CAPTION,
       ({ node, children, attributes }) => [
@@ -75,7 +75,7 @@ export const CaptionPlugin = {
       ]
     )
   ),
-  onKeyDown: exec(
+  onKeyDown: returnFirst(
     staticText({
       type: CAPTION_BYLINE,
       enforceNext: PARAGRAPH
@@ -84,7 +84,7 @@ export const CaptionPlugin = {
       type: CAPTION_TEXT
     })
   ),
-  renderPlaceholder: exec(
+  renderPlaceholder: returnFirst(
     renderInlinePlaceholder(CAPTION_TEXT, 'Legende'),
     renderInlinePlaceholder(CAPTION_BYLINE, ' Credits')
   ),

@@ -6,7 +6,7 @@ import {
 import { Block } from 'slate'
 import InfoBoxIcon from 'react-icons/lib/fa/info'
 
-import { exec } from '../../../Editor/utils'
+import { returnFirst } from '../../../Editor/utils'
 import {
   renderBlock,
   renderPlaceholder,
@@ -102,7 +102,7 @@ export const InfoboxTextPlugin = {
       types: [INFOBOX]
     }
   }),
-  onKeyDown: exec(
+  onKeyDown: returnFirst(
     softBreak({
       type: INFOBOX_TEXT
     }),

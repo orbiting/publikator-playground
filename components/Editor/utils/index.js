@@ -1,7 +1,7 @@
 import { curry } from 'ramda'
 
 // #TODO: Change name
-export const exec = (...fns) => (...args) => {
+export const returnFirst = (...fns) => (...args) => {
   return fns.reduce((memo, fn) => {
     return memo || fn(...args)
   }, undefined)

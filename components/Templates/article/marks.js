@@ -4,7 +4,7 @@ import SupIcon from 'react-icons/lib/fa/superscript'
 import SubIcon from 'react-icons/lib/fa/subscript'
 
 import buttonStyles from '../../Editor/styles/buttonStyles'
-import { isMark, exec } from '../../Editor/utils'
+import { isMark, returnFirst } from '../../Editor/utils'
 import { renderMark } from '../../Editor/utils/renderers'
 import { isOfType } from '../../Editor/utils/mdast'
 import MarkButton from '../../Editor/components/MarkButton'
@@ -92,7 +92,7 @@ export const SubscriptRule = {
 }
 
 export const MarksPlugin = {
-  renderMark: exec(
+  renderMark: returnFirst(
     renderMark(BOLD, ({ children, attributes }) => (
       <Editorial.Emphasis {...attributes}>
         {children}
