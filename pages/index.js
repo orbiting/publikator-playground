@@ -2,7 +2,7 @@ import React from 'react'
 import Serializer from 'slate-mdast-serializer'
 import Editor from '../components/Editor'
 
-import initial from './kitchensink'
+import initial from './usa'
 
 import {
   plugins,

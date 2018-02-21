@@ -1,5 +1,6 @@
 import { curry } from 'ramda'
 
+// #TODO: Change name
 export const exec = (...fns) => (...args) => {
   return fns.reduce((memo, fn) => {
     return memo || fn(...args)
@@ -13,12 +14,6 @@ export const not = fn => (...args) => !fn(...args)
 
 export const when = (matcher, fn) => (...args) =>
   (matcher(...args) && fn(...args)) || undefined
-
-export const all = (...fns) => (...args) =>
-  fns.every(fn => fn(...args))
-
-export const any = (...fns) => (...args) =>
-  fns.some(fn => fn(...args))
 
 export const getType = node => node.type
 export const getObject = node => node.object

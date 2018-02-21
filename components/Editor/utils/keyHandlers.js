@@ -27,15 +27,15 @@ const focusPrevious = change => {
 
 const insertAfter = (
   change,
-  afterType,
-  insertAfterType
+  enforceNext,
+  enforceNextIn
 ) => {
   const { value } = change
   const rootNode =
-    (insertAfterType &&
+    (enforceNextIn &&
       value.document.getClosest(
         value.endBlock.key,
-        isBlock(insertAfterType)
+        isBlock(enforceNextIn)
       )) ||
     value.document
 
@@ -50,16 +50,17 @@ const insertAfter = (
     return change.insertNodeByKey(
       rootNode.key,
       index + 1,
-      Block.create({ type: afterType })
+      Block.create({ type: enforceNext })
     )
   }
   return change
 }
 
+// #TODO: Rename
 export const staticText = ({
   type,
-  afterType,
-  insertAfterType
+  enforceNext,
+  enforceNextIn
 }) => {
   return (event, change) => {
     const isBackspace = event.key === 'Backspace'
@@ -111,13 +112,13 @@ export const staticText = ({
     }
 
     if (isEnter) {
-      if (!afterType) {
+      if (!enforceNext) {
         return focusNext(change)
       }
 
-      if (!isBlock(afterType, nextBlock)) {
+      if (!isBlock(enforceNext, nextBlock)) {
         return focusNext(
-          insertAfter(change, afterType, insertAfterType)
+          insertAfter(change, enforceNext, enforceNextIn)
         )
       }
       return focusNext(change)

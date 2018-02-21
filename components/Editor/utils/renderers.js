@@ -23,3 +23,8 @@ export const renderInlinePlaceholder = (type, text) =>
     ({ node }) => isBlock(type, node) && !node.text,
     () => <InlinePlaceholder>{text}</InlinePlaceholder>
   )
+
+export const withRelativeStyle = obj => ({
+  style: { position: 'relative' },
+  ...obj
+})

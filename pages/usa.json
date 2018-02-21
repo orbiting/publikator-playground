@@ -1,0 +1,1675 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "zone",
+      "identifier": "FIGURE",
+      "data": {},
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "image",
+              "title": null,
+              "url":
+                "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/cbc5a9cd6178aab496bd575647973a3e3a9e9387.jpeg?size=3840x2563",
+              "alt":
+                "leerer Parkplatz mit einer Strassenlampe über zwei Autostaubsaugern"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Brüchiger Asphalt, ausgebrannte Strassenlampen und defekte Auto-Staubsauger: Der Zustand von West Virginias Infrastruktur spiegelt den Zustand des ganzen Staates."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "zone",
+      "identifier": "TITLE",
+      "data": {},
+      "children": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "children": [
+            { "type": "text", "value": "Ground Zero" }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "West Virginia, das ist Amerika ohne Traum. Hier lebt die weisse Arbeiterklasse, die Donald Trump zum Sieg verhalf. Nirgendwo sonst geht es ihr so schlecht wie im kleinen Bergbaustaat. Wo früher schwarzer Kohlestaub tötete, tötet heute weisses Pulver im Epizentrum der grössten Drogenkrise in der US-Geschichte."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            { "type": "text", "value": "Von " },
+            {
+              "type": "link",
+              "title": "Anja Conzett",
+              "url":
+                "/~4040f438-db05-483f-b64c-75e385218a58",
+              "children": [
+                { "type": "text", "value": "Anja Conzett" }
+              ]
+            },
+            { "type": "text", "value": ", " },
+            {
+              "type": "link",
+              "title": "Yvonne Kunz",
+              "url":
+                "/~c641d9bf-9996-4b38-807b-8c1c1148943c",
+              "children": [
+                { "type": "text", "value": "Yvonne Kunz" }
+              ]
+            },
+            { "type": "text", "value": " (Text) und " },
+            {
+              "type": "link",
+              "title": null,
+              "url": "https://www.republik.ch/~retosterchi",
+              "children": [
+                { "type": "text", "value": "Reto Sterchi" }
+              ]
+            },
+            {
+              "type": "text",
+              "value": " (Bilder), 19.01.2018"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "zone",
+      "identifier": "CENTER",
+      "data": {},
+      "children": [
+        {
+          "type": "heading",
+          "depth": 2,
+          "children": [
+            {
+              "type": "text",
+              "value": "Pharmageddon in den Appalachen"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            { "type": "text", "value": "Tag 3, " },
+            {
+              "type": "link",
+              "title": "Yvonne Kunz",
+              "url":
+                "/~c641d9bf-9996-4b38-807b-8c1c1148943c",
+              "children": [
+                { "type": "text", "value": "Yvonne Kunz" }
+              ]
+            },
+            {
+              "type": "text",
+              "value": ", Charleston, West Virginia"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Schlafen, sagt Anja, sei ihre Superpower. Sie kann überall und unter allen Umständen schlafen. Und wenn sie mal schläft, könnte sich die Apokalypse vollziehen, und sie würde als einzige Überlebende frischen Gesichtes aufwachen. Jetzt schläft sie das eben erlittene Trauma bei der Sonntagspredigt der Heart of God Church weg. Die kleine schwarze Gemeinde trifft sich in einem Theater zur wöchentlichen Seelenrettung. Vierzig Minuten lang schrie die Pastorin in der Stimmlage einer betrunkenen Janis Joplin und einer besessenen Aretha Franklin gegen die dunklen Kräfte in uns an, während die Gläubigen in sich versunken vor sich hin murmelten. Auch mir ist noch ganz anders."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Die Tourismuswerbung beschreibt West Virginia als «wild und wunderbar». Ökonomen nennen es «einen sterbenden Staat». Im Volksmund heisst die Gegend «Ground Zero». Hier findet man, wie sonst nur in einem Bibelkapitel versammelt, die amerikanischen Plagen. Von Deindustrialisierung bis Diabetes, von Rassismus bis Nepotismus. Die Vetternwirtschaft war so ausser Kontrolle, dass der Staat Anfang 2017 eigens Gesetze dagegen erliess. West Virginia ist nach Mississippi der zweitärmste Bundesstaat, hier leben die fettesten Amerikaner."
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "INFOBOX",
+          "data": { "figureSize": "M" },
+          "children": [
+            {
+              "type": "heading",
+              "depth": 3,
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Charleston, West Virginia"
+                }
+              ]
+            },
+            {
+              "type": "zone",
+              "identifier": "FIGURE",
+              "data": {},
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "image",
+                      "title": null,
+                      "url":
+                        "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/14f7603f86ed0d7762b04e1ade5ecaa3b7280b55.png?size=748x508",
+                      "alt": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "In West Virginia bricht den Leuten der Boden unter den Füssen weg, ganz direkt: Immer wieder fallen ausgehöhlte Kohlenberge in sich zusammen und verschlingen halbe Landschaften. West Virginia, das ist Amerika ohne Traum."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Ich ziehe alleine los. Schon als ich um die erste Ecke biege, beginnt es zu regnen. Der Obdachlose auf der Bank vorn an der Ecke spannt einen zeltgrossen Schirm auf. Im Zentrum, zwischen gläsernen Skyscrapern und Prachtbauten aus der Zeit des Kohlebooms, ist kaum jemand unterwegs. Einsam piepen die Signale an den Zebrastreifen. 50'000 Menschen leben in Charleston, 350'000 rundherum, und doch ist es gespenstisch still hier. Kein Puls, kein Atem, kein urbanes Wummern. Die Dutzenden blauen Fahnen, die über der Stadt flattern, wirken mit ihrem Aufdruck wie Spott: ENJOY!"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Ich schlendere hinüber zur Town Center Mall, mehr als einen halben Kilometer lang. Im Schatten des brutalen, dunklen Baus ziehen blasse Drogenzombies ihre Runden. Die offene Drogenszene erstreckt sich an verrammelten Ladenlokalen vorbei bis zu einem kleinen Park. Ein schwarz gekleideter Mann geht ein paar Schritte eng an meiner Seite und fragt mich, ob ich «etwas» brauche. Der Nächste, der mich anspricht, braucht Cash fürs Busticket. Während ich aus meiner Hosentasche Kleingeld klaube, erzählt er eine hektische Geschichte, in der seine Cousine, das vergangene Wochenende und eine Fussverletzung vorkommen."
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/7ddc81535c701e34a5b337d76705a878214eb5eb.jpeg?size=3840x2563",
+                  "alt":
+                    "Ein Mann geht an einer Kreuzung über den Fussgängerstreifen"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Offroader, Pick-up-Trucks und breite Strassen prägen das rurale Amerika. Hier geht niemand zu Fuss – es sei denn, er kann sich kein Auto leisten."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/9a668fff161aad576c0451b8c7af706a73d6639b.jpeg?size=3840x2563",
+                  "alt":
+                    "Ausgebrannte und verfallene Häuser"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Einst voller Hoffnung als Heim für die Familien von Charlestons aufstrebender Arbeiterschaft errichtet, verfallen die Häuser heute im Dutzend. Explodierende Meth-Küchen und Obdachlose, die sich im Winter an einem Feuer wärmen wollen, lassen die Ruinen in Brand aufgehen."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Ob das da seine Cousine ist? Im kleinen Park sitzt eine ausgezehrte Frau auf einer Bank und versucht, den Verband an ihrem Fuss neu zu wickeln. Immer wieder setzt sie an, rollt den Verband zusammen, streicht sich die langen Haare hinter die Ohren und bückt sich zu ihrem Fuss hinunter. Dabei fallen ihr die Haare wie ein Vorhang vors Gesicht. Dann beginnt sie zu zetern, reisst sich den Verband vom Fuss, und alles beginnt von vorn."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Stundenlang laufe ich durch Charleston. Meine Wahrnehmung ist überdehnt, weil nichts zueinander passt. Abgebrannte Ruinen neben Small-Town-Niedlichkeit, vermüllte Brachen neben liebevoll hergerichteten Häuschen mit Blumenschmuck, eine Frau, die mit ihren Taschen auf dem nassen Boden sitzt, dahinter leuchtet das Dach des Kapitols, eben für 2,8 Millionen Dollar renoviert und mit Blattgold überzogen."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Erst schlossen die Minen. Dann brach eine weitere Plage über West Virginia herein: Der kleine Bergstaat wurde zum Synonym für die Opiatekrise, die sich inzwischen über die ganzen USA ausgebreitet hat. In manchen Gegenden West Virginias ist jeder Vierte drogenabhängig, wird jedes zehnte Baby süchtig geboren. 884 Menschen starben hier 2016 an einer Überdosis, alle zehn Stunden einer. Das entspricht rund 52 Toten pro 100'000 Einwohner. Rekord. Während der Heroinkrise in Zürich waren es 1992 knapp 6 pro 100'000 Einwohner in der Schweiz."
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/5de978bb18bf9fbb146bcb5832aac7f03493510b.jpeg?size=3840x2563",
+                  "alt":
+                    "Ein Einkaufswagen eines Supermarkts steht gefüllt mit Habseligkeiten eines Obdachlosen an der Strasse"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Wie viele Menschen in Charleston WV auf der Strasse leben, ist nicht verifizierbar. Sicher ist, die Zahl steigt seit Jahren kontinuierlich."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/9cfdc25462305eafe946da280f89d12c7e7ae923.jpeg?size=3840x2563",
+                  "alt":
+                    "Ladenfront mit einem grossen Plakat, dass eine Bar in Echtgrösse zeigt. Daneben ein Schild mit einem For Sale Schild"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Verrammelte Ladenlokale gehören zum Stadtbild Charleston wie leere Gehsteige. West Virginia hat den Sprung von der Industrie- zur Dienstleistungsgesellschaft versäumt. Wo einst pulsierende Orte waren, sind heute nur noch Geisterstädte."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Es begann mit Oxycontin Ende der 1990er-Jahre. Ein Opiat, im Labor nachgebaut, ein Schmerzmittel, das den Wirkstoff zeitverzögert abgibt. Ein Himmelsgeschenk für West Virginia, wo sich so viele Männer in den Minen die Knochen ruiniert hatten, mit geringem Suchtrisiko. So schien es zunächst. Doch schon bald machte ein Trick die Runde: Zu Pulver zerrieben, gesnifft oder gespritzt, lassen die Tabletten nicht nur Schmerzen verschwinden. Das High wirkt auch gegen Sinnlosigkeit und Scham. Das synthetische Opium wurde Opium fürs Volk."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Es ist eine grausame Wiederholung der Geschichte: Schon von den Bodenschätzen profitierten immer nur andere. In der alten Kohlenkumpel-Hymne «Sixteen Tons» lamentiert der Erzähler, nicht mal das Sterben könne er sich leisten, denn er schulde seine Seele der Company. Heute beklagt der Folksänger Marcus Oglesby, dass die Seele der Menschen dem «white coat man» gehöre, dem Mann mit dem weissen Kittel."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Pharmakonzerne, Grosshändler, Ärzte und Apotheker verketteten sich zu einer Art Pillenkartell, das den labilen Staat mit Tabletten vollpumpte. Neun Millionen Pillen wurden binnen zwei Jahren an eine Apotheke in Kermit geliefert, einem Kaff mit 392 Einwohnern. 17 Milliarden Dollar Gewinn saugten die drei grössten Pharmaverteiler McKesson Corp., Cardinal Health and AmerisourceBergen binnen fünf Jahren aus West Virginia."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Die roten Flaggen der Aufsichtsbehörden gingen erst hoch, als die Leute reihenweise mitten am Tag umkippten, an Tankstellen, in der McDonald’s-Toilette, beim Footballtraining ihrer Kinder. «Oxycuted», wie es auf der Strasse heisst. Zu spät. Sucht lässt sich nicht mit Patientenregistern und strengeren Gesetzen bekämpfen. Erst handelte man mit illegalen Pillen, dann flutete billiges Heroin aus Mexiko die Gegend. Zwischen 2010 und 2015 nahmen die tödlichen Überdosierungen nochmals sprunghaft zu. 2016 kehrte sich der Trend kurz um. Doch dann kam Fentanyl. Ein neues Opiat, fünfzigmal stärker als der bisherige Stoff. Ebenfalls legal."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Angesprochen auf die vielen Süchtigen, antworten die West Virginians stets wissend: «Oh yeah.» Und erzählen von der Tochter, die sich Heroin spritzt, vom Nachbarn, der eine Überdosis nicht überlebte. Der Uber-Fahrer weiss von einem 75-Jährigen, in dessen Auto die Polizei verdächtige weisse Krümel fand. Drei Tage wurde der Mann festgehalten, bis klar war, dass sie vom Zuckerguss eines Donuts stammten."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "depth": 2,
+          "children": [
+            { "type": "text", "value": "Im Stollen" }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            { "type": "text", "value": "Tag 4, " },
+            {
+              "type": "link",
+              "title": "Anja Conzett",
+              "url":
+                "/~4040f438-db05-483f-b64c-75e385218a58",
+              "children": [
+                { "type": "text", "value": "Anja Conzett" }
+              ]
+            },
+            {
+              "type": "text",
+              "value": ", Racine, West Virginia"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Es ist Labor Day, der amerikanische Tag der Arbeit, gleichzeitig inoffizielles Ende des Sommers. Der Himmel klärt auf, während wir uns auf die Suche nach der unausgebildeten weissen Arbeiterschaft machen, die Trump zum Sieg verhalf. Wir fahren nach Racine, eine 250-Seelen-Ortschaft, 35 Kilometer ausserhalb. Die Gewerkschaft der Minenarbeiter lädt dort zum Labor Day Picnic."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Kaum endet die Stadt, verschluckt das Grün alles. Die Strommasten, die Leitungen, die Strassen; den Himmel bis zur Hälfte. The Green Hell, die grüne Hölle, heisst der Parasit, der hier alles überwuchert. Eine Schlingpflanze aus Asien, deren Lianen ersticken, was sie erreichen können. Die kurvige Strasse ist gepflastert mit Roadkills – platt gefahrenen Eichhörnchen, Opossums, Wiesel, die schon so lange auf dem Asphalt liegen, dass sie nur noch unkenntliche Teller aus Fleisch und Fell sind. Dörfer ziehen vorbei, meist nur eine Handvoll loser Fertigbau-Bungalows. Am Horizont flache Bergkuppen – ganze Hügel hat man in West Virginia für die Braunkohle abgetragen."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Wer Amerika begreifen will, muss nach West Virginia. Es ist der nördlichste der Südstaaten, der südlichste der Nordstaaten, der östlichste der Weststaaten, der westlichste der Oststaaten und liegt mitten im Bibelgürtel. Jeder glaubt hier an Gott. Nur Gott nicht an jeden."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "In diesem Fegefeuer, das der zweitärmste Staat der USA bedeutet, leben 1,8 Millionen Menschen. 15 Prozent der Erwerbstätigen haben keinen Schulabschluss, mehr als die Hälfte der erwachsenen Bevölkerung arbeitet nicht. Wer einen Job hat, erhält die zweitniedrigsten Durchschnittslöhne in den USA. Ein Fünftel der Kinder wächst in Armut auf, kein Staat hat mehr Herzkranke, nur ein Staat mehr Raucher."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Wenn Trump von den vergessenen Menschen Amerikas spricht, dann meint er die Menschen von West Virginia, Michigan, Ohio, die Bewohner des Rustbelts, des Rostgürtels, einst das industrielle Herz Amerikas. Heute ist diese Gegend nur noch ein Kollateralschaden der Globalisierung. Die Jungen ziehen weg, die Gesellschaft vergreist. In den USA sind die Menschen im Schnitt 37 Jahre alt. In West Virginia sind es vier Jahre mehr."
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/bd28eb6a1f089efa8f4e66a5d1194a086728352d.jpeg?size=3197x2132",
+                  "alt":
+                    "Blick auf die Industriegebäude einer Kohlemine"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "«Black Gold» – schwarzes Gold – wurden die glasigen Briketts der Braunkohle hier einst genannt. Dass diese Zeiten zurückkommen, glauben selbst die eingefleischtesten Mineure nicht mehr wirklich. Trump gewählt haben sie trotzdem."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/f1c4135d28e98eae4e46ec43a52d59dfd082567d.jpeg?size=3840x2563",
+                  "alt":
+                    "Eine Gruppe von Arbeitern an einer Versammlung"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Gesichter und Körper, gezeichnet von der Arbeit in den Minen: Das körperliche Leiden brachte die Schmerzmittel in den zweitärmsten Bundesstaat der USA. Auf die Dealer im Kittel folgten die Dealer auf der Strasse."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "West Virginia ist eines von Trumps wichtigsten Schlachtfeldern. Immer wieder hält er hier seine Rallys ab, vor der Wahl, nach der Wahl. Immer wieder verspricht er, die Drogenepidemie zur nationalen Krise auszurufen, die Jobs in den Kohleminen zurückzubringen. Sie haben sich in den letzten fünf Jahren halbiert, von 23'000 auf 11'500."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "In dieser Gegend nahm die amerikanische Arbeiterbewegung vor hundert Jahren ihren Anfang. Hier standen die Wähler lange Zeit fest hinter den Demokraten. Doch dann kam Trump und holte in West Virginia 68,5 Prozent der Stimmen. «Die vergessenen Männer und Frauen unseres Landes werden nicht länger vergessen sein!», rief er bei seiner Antrittsrede."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Dreimal fahren wir an Racine vorbei. So lose, so winzig ist die Siedlung, gerade noch am hölzernen Kirchturm zu erkennen, der die versprengten Häuser wie eine trutzige Faust zusammenhält. Eine halbe Stunde zu spät betreten wir das riesige Baseballfeld. Die Frauen der Minenarbeiter stehen am Herd und servieren Hotdogs, Coleslaw und Brownies. Etwas abseits hat der Verein der Angehörigen von Kriegsveteranen sein Zelt aufgeschlagen. In der Mitte des Felds steht etwas verloren eine Bühne. Rund 300 Menschen sind gekommen, fast alle sind weiss, die Männer tragen Einheitslook: Jeans und T-Shirt, Basecap und Schuhe mit Stahlkappen."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Erst wenn man näher kommt, sieht man es. Die abstehenden Ohren, prankenhaften Hände, krummen Beine, hängenden Lider und die auffallend vielen Menschen mit geistiger Behinderung – als seien sie in Dörfern gezeugt worden, in denen seit Jahrhunderten die gleichen Familien Familien gründen. Andere sind gezeichnet von der Arbeit in den Minen: massige Männer, die unter der Last ihrer eigenen Körper humpeln, ausgezehrte Männer, die aus Sauerstoffflaschen atmen, hustende Männer, keuchende Männer, Männer im Rollstuhl. Die Sonne brennt auf die schattenlose Wiese. Vorn, auf der Bühne, singt eine Bluegrass-Band: «Solidarity forever, for the union makes us strong!»"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "West Virginias goldene Zeit liegt über ein Jahrhundert zurück. Mitte des 19. Jahrhunderts begann die Kohleförderung, der Erste Weltkrieg, mit seinem Hunger nach Feuer und Stahl, heizte den Aufschwung an. Doch zunächst floss der Reichtum an wenige. 1912 hatten die Gewerkschaften genug und zettelten den «Kohlekrieg» an. Angeführt von der Primarschullehrerin und Näherin Mary Harris «Mother» Jones, organisierten die Minenarbeiter den ersten Streik in West Virginia. Gekämpft wurde mit Waffen, das Ziel: Zucker und Mehl, Kleider und Geschirr nicht länger in den Läden der Minenbosse kaufen zu müssen. Der Streik war so erfolgreich, dass auch alle anderen Löhne stiegen, auf Farmen, in den Werkstätten und Fabriken."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Die Dörfer explodierten. Mancherorts wohnten 50'000 Menschen, wo eben noch ein paar Hütten gestanden hatten. Doch in den Jahrzehnten nach dem Zweiten Weltkrieg sank der Hunger nach Kohle und Stahl. Die ersten Minen schlossen. Der Run war vorbei. Heute sind viele der einstigen Boomtowns Geisterstädte, in denen nur noch Kojoten hausen."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Auf der Tribüne setze ich mich neben den Alten Mann. Er ist 70 Jahre alt und immer noch kräftig genug, um mich mit einem Arm über seine Schulter zu hieven. Er sagt, mein Name sei ihm zu fremd, er nenne mich lieber «Little Lady». «Nun gut», sage ich, «dann nenne ich dich Alten Mann.» Er nimmt es mir nicht übel, ich ihm auch nicht. Der Alte Mann besitzt zwei gewaltige Pick-up-Trucks, aber weder Smartphone noch Internet. Er war 18, als er in der Mine anfing. Wie schon sein Vater und dessen Vater, er war immer ein Gewerkschafter und immer ein Demokrat."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Woher die tiefe Narbe auf seiner Stirn stamme? Dort habe man ihm den Hautkrebs wegoperiert, ein Karzinom, gross wie eine Viertel-Dollar-Münze. Wenn man vierzig Jahre unter Tage gearbeitet habe und dann als Rentner plötzlich ständig Sonne abbekomme, mache das die Haut nicht mit. Er lacht kehlig, glucksend. Wie das Rauschen eines Bergbachs, tief unterm Fels."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Die Band auf der Bühne spielt «Take me home, country roads, to the place, where I belong». Den Song von John Denver, an Millionen Lagerfeuern gesungen, seit 2014 eine der offiziellen Hymnen West Virginias. Der Alte Mann schlägt sich die rechte Pranke vor die Brust und singt mit."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Und dann sagt er: Früher habe er für Obama gestimmt, aber geändert habe sich nichts. Und dann sei Trump gekommen und habe gesagt, was alle dachten. In einer Sprache, die alle verstehen. Mit dem Versprechen, die Arbeit zurückzubringen. Also habe er ihn gewählt. Ob Trump seine Versprechen halten wird? Der Alte Mann hebt die schweren Schultern."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Die Frau zu meiner Rechten hat lange genug zugehört. Sie packt mich am Arm. «Schätzchen, hör nicht auf den alten Schwätzer», sagt sie lachend. «Ich habe auch Trump gewählt und habe nur eine Bitte an dich – wenn du zurückgehst nach Europa, nimm diesen Kerl mit.» Die beiden kennen sich seit Ewigkeiten. So wie jeder hier jeden kennt. Gestatten: Abigail. Blonde Locken säumen das runde Gesicht. Ihr erster Mann, ein Minenarbeiter, kippte mit 54 Jahren um, das Herz. Ihr Vater wurde nur 44, verendet an «black lung», der Staublunge. Sie sagt das alles mit jener kühlen Schwere, die Menschen vorbehalten ist, die wissen, dass ihr Alltag nicht alltäglich ist."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Abigail erinnert sich, wie sie als Kind den Hügel hoch zur Schule lief, in einer Wolke aus dunklem Staub, die weisse Kleider binnen Minuten ruinierte. Sie sei weder Demokratin noch Republikanerin. Mit diesen Parteien sei es immer das Gleiche: «An einem Tag bist du das Huhn, am nächsten nur noch die Federn.» Und dann sagt Abigail, dass sie es bereue, Trump gewählt zu haben, diesen Rüpel ohne Anstand. Aber was hätte sie denn tun sollen? Hillary? Niemals. So verlogen und geldgierig, wie die war."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Auch in West Virginia war der Rohstoffreichtum Fluch und Segen zugleich. Erz und Kohle machten die Gegend reich – und die Politiker faul. Sie versäumten es, in Schulen und Universitäten zu investieren. Der Staat hielt nicht mit, als der Rest der westlichen Hemisphäre zur Dienstleistung überging, blieb ein Industriestaat und fiel zurück. Politiker machten Fehler: Man schloss Verträge für den Abbau von Kohle auf zwanzig Jahre, ohne Rücksicht auf Inflation oder Marktveränderung. Von den Milliarden, die aus den Bergen West Virginias geschürft wurden, blieb den West Virginians am Ende wenig. Das durchschnittliche Jahreseinkommen beträgt 24'800 Dollar pro Kopf, gut ein Fünftel – 6400 Dollar – weniger als im Landesdurchschnitt. Kein Wunder, dass hier, wer auch immer kann, der Heimat den Rücken kehrt."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Wir wandern weiter übers Baseballfeld. Hinter der Bühne stossen wir auf Jerry Kerns. Ein weichstimmiger Bär mit schüchtern-neugierigen Augen. Er hat das Picknick organisiert. Er sagt, dass man ihn hier einen «Felskrabbler» nennt. Weil er nicht im Schacht gearbeitet habe, da er dort unten Platzangst bekommt. Statt Minenarbeiter wurde er Gewerkschaftssekretär. Einer, der mit dem Megafon Reden auf Parkplätzen hält, Flugblätter verteilt und zu konspirativen Treffen in Bars einlädt. In West Virginia stimmen die Arbeiter einer Mine gesammelt darüber ab, ob sie der Gewerkschaft beitreten wollen oder nicht. Meist verliert Jerry Kerns."
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/2dce41aee556ca843726bb735c2ade18b6abab1a.jpeg?size=3840x2563",
+                  "alt": "Jerry Kerns vor seinem Pickup"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Strahlend weiss ragt der Südstaatenpalast, in dem die United Coal Miners of America ihren Sitz in Charleston haben, in den grauen Himmel. Davor: Gewerkschafter Jerry Kerns."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/a8f5e026d472a14d3b96f48cf8e789114147d231.jpeg?size=3840x2563",
+                  "alt": "heruntergekommene Bungalows"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Ein Haus in der Nähe des Arbeitsplatzes: Der Traum vom Eigenheim hat sich für viele Bewohner West Virginias als Falle entpuppt. Als die Fabriken und Minen in den 1980er-Jahren reihenweise schlossen, verlor der Mittelstand den Boden – das Dach über dem Kopf an Wert."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Vor ein paar Monaten tobte der Kampf um eine Mine im Norden von Charleston. Jerry Kerns stand auf einem Parkplatz vor den Männern der Frühschicht und beschwor sie: dass sie zusammenhalten müssen, dass auf die Kohlenbarone kein Verlass sei. Just in diesem Moment flog der Minenboss mit seinem Helikopter über die versammelte Menge, kreiste fünfmal über die Köpfe. Dann drohte er den Arbeitern der Spätschicht, er werde die Mine dichtmachen, wenn die Arbeiter der Gewerkschaft beitreten würden. Das Resultat der Abstimmung war klar. Fünf Monate später schloss die Mine trotzdem. Die Arbeiter standen mit leeren Händen da. Ohne Abfindung, ohne Rente, mit lächerlicher Gesundheitsversicherung."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "«Jobs, Jobs, Jobs», versprach Donald Trump während des Wahlkampfes. Klimawandel? Ein chinesischer Hoax, er werde dafür sorgen, dass die Kohleminen wieder produzieren. Jerry Kerns zieht sich die Camouflage-Schiebermütze tiefer ins Gesicht. Er schätzt, dass die Hälfte seiner Gewerkschafter Trump gewählt haben."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Jerry Kerns wird alle Jahre wieder die leidige Aufgabe zuteil, seinen Minenarbeitern zu verkünden, dass es «okay» sei, demokratisch zu wählen. Bei Hillary fiel ihm das besonders schwer. Ihre Sprache, ihre Themen, ihr ganzer Wahlkampf – viel zu weit Weg für die Kohlekumpel in den Appalachen. Elitär wirkte sie, man nahm ihr ihre Nähe zur Wallstreet übel, ihre Sermone für offene Märkte. Und dann ihr unbedachter Ausspruch, er fiel an einem Spendenanlass und wurde seither Abertausende Male wiederholt: «Wir werden die Kohleminenarbeiter arbeitslos machen!»"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Für Bernie Sanders, den Globalisierungsfeind, der wie Trump um die Stimmen der Arbeiter warb, hätte Jerry Kerns mit Verve Werbung machen können. Auch Abigails Augen und diejenigen des Alten Mannes beginnen zu leuchten, wenn der Name Sanders fällt. Jerry Kerns seufzt, als er seinen Blick über die Menge schweifen lässt. Er sagt: «Man kann sich darauf verlassen, dass diese guten Menschen gegen ihre eigenen Interessen stimmen. Jedes Mal.»"
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/eab1bd5962832fb5278704bedda1dffcf92f1245.jpeg?size=3840x2563",
+                  "alt":
+                    "Frau gibt an einer Veranstaltung für Gewerkschafter Essen aus"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Frauen an den Herd, Männer in die Minen: Die Rollenbilder in West Virginia stammen aus der Zeit, in der es dem Staat noch gut ging, damals in den Fünfzigern. Das hat Konsequenzen für die Wirtschaft: Mehr als die Hälfte der erwerbsfähigen Bevölkerung arbeitet nicht."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/0830482fea0f05d0935d4254357656992b8a274e.jpeg?size=3840x2563",
+                  "alt":
+                    "müder Gewerkschafter hört einer Rede zu"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Alte Männer und Frauen sind in West Virginia überproportional vertreten. Besonders die gut ausgebildeten jungen Erwachsenen zieht es in die benachbarten Bundesstaaten und Grossstädte. Mit der Jugend schwindet die Hoffnung auf einen Strukturwandel."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Später, als die Sonne bereits wieder hinter einem dicken Wolkenfeld verschwunden ist, machen wir uns auf den Rückweg. Auf dem Highway ziehen Fastfood-Restaurants vorbei, Pizza Hut, McDonald’s, Wendy’s, Dunkin’ Donuts. Dazwischen immer wieder private Herzkliniken, Mahnmale einer Gesellschaft, die aus dem Takt geraten ist. Unter Herzchirurgen hat West Virginia den Ruf eines perfekten Trainingslagers. Hier lässt es sich üben."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Clint, unserer Fahrer, echauffiert sich über Hillary Clinton, die im Verwaltungsrat von Walmart sass; dem Supermarktriesen, der hier so viele «mom ’n’ pop shops», so viele Tante-Emma-Läden, in den Ruin getrieben hat. Ich höre nur mit einem Ohr zu. Ich muss jetzt ehrlich zu mir sein."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Wenn ich ehrlich bin, habe ich mich bei diesem Picknick in Racine auf die Suche nach den «lowlifes» begeben – nach der rassistischen, sexistischen, rückständigen Unterschicht. Ein Teil von mir wollte die Männer und Frauen, die auf Trumps Versprechen und Lügen hereingefallen sind, in ihrem natürlichen Habitat beobachten. Wie auf einer Safari. Um dann ihr Leben als gestrig zu entlarven, sie als aussterbende Rasse zu benennen – ihrer Stimme für Trump so den Schrecken zu nehmen. Aber so einfach ist es nicht."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Die weisse Arbeiterschicht Amerikas unterscheidet sich von der nichtweissen vor allem in einem Punkt: Für sie ging es in den letzten Jahren nicht voran, während sich die Lebensumstände für Schwarze, Latinas und andere Minderheiten verbesserte, weil sie stückweise näher an die Gerechtigkeit rückten, die ihnen schon immer zusteht. Das Wohlbefinden der weissen Arbeiterschaft hingegen stagnierte. Mehr noch: Die Formel, nach der sie ihr Leben geführt haben, geht plötzlich nicht mehr auf. Abigail, der Alte Mann und all die anderen haben aus ihrer Sicht alles richtig gemacht. Sie haben hart gearbeitet, Familien gegründet, ein Haus gebaut, sind zur Kirche gegangen und wären irgendwann auf dem Friedhof ihres Dorfes begraben worden, so wie ihre Mütter und Väter vor ihnen. Als ehrenwerte Menschen. Doch plötzlich gelten diese Versprechen nicht mehr. Ihre Mütter und Väter hatten Gewissheit. Sie blicken ohne Hoffnung in die Zukunft."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Clint, unser Fahrer, echauffiert sich weiter, dieses Mal über die Goldkuppel des Kapitols in Charleston, was für eine Verschwendung. Ich sinke tiefer in den Beifahrersitz und ziehe mich zurück in meinen Hinterkopf. Dort spielt gerade "
+            },
+            {
+              "type": "link",
+              "title": null,
+              "url":
+                "https://open.spotify.com/track/0Gl3aXrZlKglqm6ySgdJiV",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "der Song «Howl» von Black Rebel Motorcycle Club"
+                }
+              ]
+            },
+            { "type": "text", "value": "." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Bis vor einigen Stunden wusste ich nicht, dass es Abigail und den Alten Mann gibt. Und doch habe ich das Gefühl, als würde ich sie seit Langem kennen, seit meiner Kindheit in den Bergen Graubündens. Sie sind der Bauer, bei dem ich als Achtjährige Milch holen ging. Die Grosstante, die mir sagte, ich müsse stricken lernen, um einen Mann zu finden. Sie sind mein Onkel, meine Primarschulfreundinnen, der erste Junge, den ich geküsst habe. Es sind Menschen, die nie aus dem Tal wegziehen, in dem sie geboren sind. Menschen, die nach zwölf oder mehr Stunden körperlicher Arbeit zu müde sind, eine Zeitung aufzuschlagen. Die nicht in die Stadt gezogen sind, um mit dem Fortschritt zu schwimmen, sondern Heimat rufen und Tradition darunter verstehen. Unter ihnen leben? Himmel, nein. Aber mit ihnen leben muss ich trotzdem. Sie sind ein Teil von mir. Wenn sie scheitern, scheitere ich mit. Wie könnte ich sie da blossstellen?"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Wir haben, wie stets, ein Doppelzimmer gebucht. An diesem Abend muss ich dich bitten, das letzte Kapitel deines Buches im Nebenzimmer zu lesen. Ich habe Mühe, einzuschlafen. Das passiert mir selten."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "depth": 2,
+          "children": [
+            {
+              "type": "text",
+              "value": "Lobbyistinnen der Hoffnung"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            { "type": "text", "value": "Tag 5, " },
+            {
+              "type": "link",
+              "title": "Yvonne Kunz",
+              "url":
+                "/~c641d9bf-9996-4b38-807b-8c1c1148943c",
+              "children": [
+                { "type": "text", "value": "Yvonne Kunz" }
+              ]
+            },
+            {
+              "type": "text",
+              "value": ", Charleston, West Virginia"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "In Notsituationen, bei Hurrikanen, Waldbränden oder der Wahl von Donald Trump laufen Amerikanerinnen und Amerikaner zur Höchstform auf. Das gilt auch für die Opiatekrise. Auch jetzt stemmen sich Menschen gegen Sucht und Drogenelend. Wie in der Recovery-Entzugsstation, wo an die hundert Frauen versuchen, sich aus der Abhängigkeit in ein neues Leben zu kämpfen."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Es ist kurz nach zehn, als uns das Taxi immer tiefer in den heruntergekommenen Westen Charlestons bringt, jenseits der breiten Umgehungsstrasse. An den Auffahrten stehen abgerissene Gestalten, die wegwollen: «Cincinnati» haben sie auf ihre Pappschilder gekritzelt oder «Lafayette». Wind peitscht Müll über die Parkplätze der Lagerhäuser, die Wolken in tiefstem Dunkelgrau. Brachen wechseln sich ab mit bröckelnden Wohnquartieren. Schliesslich halten wir vor einem barackenhaften Flachbau. Meine Güte, denke ich, als wir aus dem Taxi steigen. Diese Tristesse wäre für mich eher Anlass, mit Drogen anzufangen, als damit aufzuhören."
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/771f428db632f79922eed3697d57651f228f64b4.jpeg?size=3599x2399",
+                  "alt":
+                    "Lara Lawson sitzt im Schlafraum des Recovery Zentrums"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Lara Lawson liebt Pastellfarben wie das Rosa im Schlafraum des Charleston Recovery Point. Die Entzugseinrichtung für Frauen wurde von Frauen aufgebaut und wird auch weiter von ihnen geführt. Es ist ihr Stück heile Welt."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "An der Rezeption – einem Bürotisch vor einem grossen Recovery-Logo – begrüsst uns freundlich eine Frau. Dann stehen wir vor Lara Lawson, der jungen Programmleiterin. Ihr Blick hat dieselbe unkomplizierte Klarheit wie ihre E-Mails. Um ihre runde Gestalt wiegt mit jedem Schritt das leuchtende Yves-Klein-Blau ihres Kleids."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Sie führt uns herum, durch Schlafsäle, Waschräume, Büros, Aufenthaltsraum und Küche. Im Detox-Raum, einem Schlafsaal mit 15 Betten, setzen wir uns zum Interview an einen Tisch. Hier verbringen die Süchtigen die ersten Nächte, hier durchleiden sie den körperlichen Entzug, den ersten Schritt in die Abstinenz."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Wobei, schränkt Lawson ein, etwa 60 Prozent kämen aus dem Strafvollzug und seien schon relativ clean. Anders als bei der Crack-Epidemie der Achtzigerjahre, als Süchtige grossflächig in den Knast gesteckt wurden, schwenkt der Staat in diesem «War on Drugs» die weisse Fahne: Rehab statt Repression. Wer mit einer geringen Menge Drogen erwischt wird und nicht wegen Gewaltdelikten vorbestraft ist, darf eine Therapie machen."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "«Das ist eine Zeitenwende im amerikanischen Rechtssystem», sagt Lawson. Sie hofft, das bleibe auch unter der neuen Regierung so. Recovery erhält einen guten Teil seiner Mittel aus Washington."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Der Tagesablauf für die hundert Frauen ist bis ins Detail geplant. Um fünf Uhr gehen die Lichter an, dann beginnt die Arbeit: an sich selbst. Schon mit dem ersten Blick in den Spiegel: «You are looking at the problem» steht da am unteren Rand. Dann gibt es Frühstück, dann wird gearbeitet, gekocht, geputzt, gewaschen. Das hält die Kosten tief und die Frauen beschäftigt. Hier arbeiten keine Ärzte, Psychologen, nur eine Handvoll Sozialarbeiterinnen."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Wer hier landet, kommt meist aus einem Leben voller Chaos. Mit einigen Frauen plaudern wir im Vorbeigehen, mit anderen beim Händewaschen auf dem Klo oder in der Zigarettenpause. Zwei Frauen, Lara hat sie vorab darum gebeten, stellen sich für ein ausführliches Gespräch zur Verfügung."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Toni Pantoja hatte nie wirklich eine Chance. 34 Jahre ist sie alt und wirkt so zäh, so abgewetzt und unverwüstlich schön wie altes Leder. Ihr Vater war Soldat, ihre Mutter eine Berserkerin, die Toni misshandelte, seit sie denken kann. Der Vater lief davon, die Mutter lebte davon, dass sie zusammen mit ihrer Schwester und den Kindern in der Küche Cristal Meth kochten. Toni war 13, als sie das erste Mal probierte. War 19, als ihre Mutter von ihrem Lover im Drogenrausch erwürgt wurde. Man fand ihre Leiche in einen Teppich gerollt, in einen Müllsack gesteckt. Da stürzte Toni endgültig ab. In den Abgrund der Lieblosigkeit ihres bisherigen Lebens. «Die Drogen halfen mir, nichts zu fühlen», sagt sie. «Und nichts zu fühlen, fühlte sich gut an.» Sie landete auf der Strasse."
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGUREGROUP",
+          "data": { "columns": 2, "module": "figuregroup" },
+          "children": [
+            {
+              "type": "zone",
+              "identifier": "FIGURE",
+              "data": {},
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "image",
+                      "title": null,
+                      "url":
+                        "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/32fd842f7708cf93057861e6dc136e47f6a0f7ba.jpeg?size=2392x3584",
+                      "alt": "Portrait von Toni Pantoja"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value":
+                        "Toni Pantoja wurde in ein Leben voller Drogen und Missbrauch geboren. Im Recovery Center ist sie das erste Mal seit 21 Jahren clean."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "zone",
+              "identifier": "FIGURE",
+              "data": {},
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "image",
+                      "title": null,
+                      "url":
+                        "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/a1fbc0c7e26603ac6543d9a0d4e2a3acbf96eaf8.jpeg?size=1390x2083",
+                      "alt": "Portrait von Kelsey Smith"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value":
+                        "Kelsey Smith sieht man ihre Sucht nicht an. Das wurde ihr zum Verhängnis: Zu lange konnte sie sich vormachen, sie hätte kein Problem."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Wenig später überfiel sie mit ihrem damaligen Freund ein Casino. Sie stand nur Schmiere, landete aber trotzdem für drei Jahre im Knast. «Fürchterlich. Andererseits schlief ich erstmals nach Jahren wieder in einem Bett, konnte duschen und zum Arzt gehen.» Sie macht den Entzug und durfte nach zwei Jahren Haft ins Recovery-Programm. Neun Monate ist das her. Sie ist nun clean. Und ihr ist klar, was sie nun will: Sozialhelferin werden. Misshandelten Frauen helfen, Frauen wie sie, die in die Ausweglosigkeit geprügelt wurden."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Auf dem Tisch, an dem wir sitzen, steht die «God Box». Eine strassbesetzte, türkis-violett bemalte Kartonschachtel mit Schlitz, wie eine Wahlurne. Ich spreche sie darauf an, als wir uns verabschieden. Die Box war Kelseys Idee: «Hier kann man Zettel reinwerfen, auf die man schreibt, womit man nicht zurechtkommt.» Und wenn sie voll ist? «Dann stellen wir einfach die nächste Box hin», sagt Toni. So einfach ist das."
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/af46ffa1c7d98b4e75148031a097a2a046387e5e.jpeg?size=3840x2563",
+                  "alt": "verzierte Kartonschachtel"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Die Gott-Schachtel war Kelseys Idee. Sie enthält all die Geheimnisse, die man niemandem sagen kann und doch so dringend loswerden muss."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Als Nächste nimmt Kelsey Smith Platz. Sie ist 25 Jahre alt und hat den Groove des unbekümmerten All-American Girl aus einer Cola-Werbung. Des coolen Darlings auf dem Pausenplatz der Highschool. Selbstsicher, unterhaltsam, locker sitzendes Lachen. Und erstmals ist in ihrem Leben alles gut. Die Mutter Hausfrau, der Vater bis zu seiner Pension Offizier bei den Marines. Wegen ihm zieht die Familie alle zwei Jahre um. Paris, Naher Osten, Ohio. Schon als Teenager trinkt Kelsey mehr, als gut für sie ist. Auf den House-Partys ihrer Highschool-Zeit gehört sie zur Gang, die Pillen schmeisst und Pülverchen schnupft. Als sie mit dem Studium beginnt, ist das weniger ein Lehrgang in Grafikdesign und Fotografie. Mehr ein Fortgeschrittenenkurs in Feiern."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "«Wo immer ich auch hinkam, ich musste schnell neue Bekanntschaften schliessen», sagt Kelsey. «Alkohol und Drogen haben mir dabei geholfen. Und wenn niemand da war: Der Rausch war immer da.» Sie bricht das Studium ab, jobbt in einer Fabrik. Immer weiter gleitet sie in die Unterwelt der Drogen ab. Gerade will sie sich einem Drogenhändlerring anschliessen, als Kurierin, die Heroin von Detroit nach West Virginia transportiert – da jagt sich ihre ältere Schwester, Mutter von zwei Kindern, eine Kugel in den Kopf. Der Vater stürzt sich kurz danach von einer Brücke, überlebt und landet in der geschlossenen Psychiatrie. Kelseys Mutter nimmt die Kinder, ist aber rasch mit den Nerven am Ende, droht mit Selbstmord und ist nun ebenfalls in der Psychiatrie. Kelsey springt auf, rennt zu der Plastikbox am Fuss ihrer Pritsche und kommt mit Bildern der beiden Kinder zurück. «Für die beiden mache ich das hier. Jemand muss für sie sorgen.» Sie lächelt. Auf ihrem T-Shirt steht Weiss auf Schwarz: «Hope Dealer»."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Es ist Mittag. Lara Lawson fragt uns, ob wir mit ihr essen wollen. Gern. Sie führt uns in die Küche. Es gibt Kartoffeln, Chicken-Nuggets und verkochtes Gemüse. Wir setzen uns in den neonbeleuchteten Aufenthaltsraum. An grossen, runden Tischen sitzen die Frauen und beugen sich über ihre Schreibhefte. «Sie büffeln sich durch das 12-Schritte-Programm der Anonymen Alkoholiker», erklärt Lawson. Recovery folgt dieser Entzugstradition, die hier aber nicht christlich, sondern spirituell ausgelegt wird. Schritt vier sei der schwierigste: die schonungslose Selbst-Inventur."
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/9e7bc8c7fd66729d5649ad65d24344c411379dfa.jpeg?size=3840x2563",
+                  "alt":
+                    "Frauen sitzen im Kreis und reden miteinander"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Der Umgang im Recovery Point ist liebevoll, fast zärtlich. Das ist kein Zufall, sondern Strategie. Jede Süchtige erhält eine Patin, die sie durch den Entzug trägt."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/37e54360efa49a30f2b882cd1bd27d6d424cf6a6.jpeg?size=3840x2563",
+                  "alt": "Kuscheltier auf einem Bett"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Der Plüschaffe gehört in das Zimmer, das den Namen eines jungen Mannes trägt. Er starb vor einem Jahr an einer Überdosis. Seine Familie hat das Zimmer gespendet und selbst hergerichtet – bis zum letzten Detail. Ein lebbares Mausoleum."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Drei, vier Stunden verbringen wir mit Lara Lawson. Sie erzählt mit einer Nüchternheit, die schmerzt. Und doch schimmert immer wieder Hoffnung durch. Ihre Hoffnung ist nicht blauäugig, sondern ein Werkzeug. Ein Werkzeug, mit dem man üble Verbindungen in die Vergangenheit kappen, die Gegenwart polstern, eine Brücke in die Zukunft bauen kann."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Radikale Pragmatik ist hier genauso Programm wie ein an Illusion grenzender Glaube an die innere Kraft eines Menschen. Recovery setzt stur darauf, Schwächen zu Stärken umzudeuten. So wie bei Lawson selbst. Sie hatte Soziologie studiert und einen guten Job in einer Verwaltung. Doch dann brachte eine schwere Manie ihr Leben durcheinander. Sie tickte aus. Am Ende hatte sie weder Job noch Haus, noch Zukunft. Auch ihre Rettung war Recovery. «Es tut gut, hier zu arbeiten», sagt Lawson, «hier gibt es gegenüber psychischen Krankheiten kein Stigma, nur Verständnis.»"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Je länger ich hier bin, desto weniger spüre ich die Verzweiflung, die mir in den beiden letzten Tagen zuvor in die Knochen gekrochen ist wie eine kommende Grippe. Ausgerechnet hierher hat sich der einst so unkaputtbare amerikanische Optimismus also verzogen, der Amerika so gross und so grossartig macht. In diesen unscheinbaren Flachbau, in diese vergessene Ecke einer vergessenen Stadt."
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/d85cc6061d834ef2c89bf606235245ee4d270715.jpeg?size=3840x2563",
+                  "alt":
+                    "eine weisse und eine schwarze Frau sitzen im Kreis nebeneinander"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Zuunterst in der Rangordnung verschwinden die Grenzen zwischen Schwarz und Weiss. Auch im Staat mit den «rassistischsten Wählern»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/540929896736e80d04eb96d88bbbe56a82d8e495.jpeg?size=3840x2563",
+                  "alt":
+                    "Frau mit geschlossen Augen im Kreis der andern"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Die eingefallenen Wangen geben Auskunft darüber, wie lange jemand schon im Recovery Point stationiert ist. Der Meth-Konsum hat vielen, die hier sind, das Gebiss vollständig zerfressen. Zahnprothesen werden nach ein paar Monaten von der Auffangstätte bezahlt."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Zurück in den Regen, raus ins Tiefgrau. Im überdachten Eingang lehnt eine Handvoll Recovery-Frauen am Geländer. Zwei Jüngere stützen eine zahnlos Lächelnde, sie könnte 35 sein oder 53. Denn vor dem Eingang singt jetzt ein Mädchen. Steht einfach da und singt. Ohne grosse Gesten oder kunstvolle Schnörkel zieht sie das zarte Lied aus ihrem Innern. Ein Lied wie eine Umarmung, die sagt: Es ist okay. Auch wenn nichts okay ist. Tränen funkeln auf den Wangen der Zuhörerinnen, und als das Lied verklingt, klatschen sie dankbar. Das Mädchen lächelt leise. Es ist der unspektakulärste Moment der Magie, den man sich vorstellen kann."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Wir laufen zurück ins Stadtzentrum. Ich denke an einen Satz des Schriftstellers David Foster Wallaces: «Es gibt vielleicht keine Engel, aber es gibt Menschen, die Engel sind.»"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "depth": 2,
+          "children": [
+            {
+              "type": "text",
+              "value": "Stranger than Fiction"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            { "type": "text", "value": "Tag 5, " },
+            {
+              "type": "link",
+              "title": "Anja Conzett",
+              "url":
+                "/~4040f438-db05-483f-b64c-75e385218a58",
+              "children": [
+                { "type": "text", "value": "Anja Conzett" }
+              ]
+            },
+            {
+              "type": "text",
+              "value": ", Charleston, West Virginia"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Es regnet, ich verfluche mich dafür, vorgeschlagen zu haben, die drei Meilen zum Hotel zu Fuss zu gehen. Noch tiefer als die Wolken hängen über mir die Geschichten von Toni, Kelsey und Lara Lawson. Es ist verdammt ermüdend zu sehen, wie Frauen und Kinder an der Front stehen, wenn Krisen eine Gesellschaft zerrütten. Du bist guter Dinge. Der Besuch in der Klinik hat dich zuversichtlich gestimmt. Ich wage es nicht, dir zu widersprechen. Meine Ahnung mit dir zu teilen, dass keine der Frauen einem Leben ohne Drogen standhält. Nicht in diesem Umfeld. Ich schweige vielleicht auch, weil ich mir wünsche, es wäre anders."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Wir marschieren durch eine Einfamilienhausgegend, reden kaum, hängen unseren Gedanken nach. Du machst Fotos. Ausgebrannte Ruinen, verrammelte Häuser, daneben die Wohnträume der Mittelschicht, mit Blumenbeeten, durch die Plastik-Flamingos staksen."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Die Tür eines Hauses steht offen, der Lack blättert vom Holz, der Briefkasten quillt über, eine Frau mit glasigem Blick sitzt auf der Schwelle des Eingangs. Du fotografierst etwas auf der anderen Strassenseite, und so bleibe ich mit dem Bild alleine. Mit dem Bild, wie sie mit dem Oberkörper nach hinten kippt. Einfach so. Als gäbe es nichts mehr, was sie aufrecht hält. Und wie sie nach hinten kippt, gibt sie den Blick frei auf ein nacktes Kleinkind, das hinter ihr im Hausflur spielt. Ist das echt? Passiert das gerade wirklich?"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Nicht lange, da ruft uns ein Mann von seiner Terrasse aus heran. Er ist klein, dick, ungepflegt und winkt mit einem Schirm. «Hey», ruft er, «es regnet!» Ob wir einen Schirm haben wollten? Ich laufe rüber, folge ihm in sein Wohnzimmer: Auf dem Flachbildfernseher läuft Fox News, auf dem Boden liegen Pizzaschachteln, leere Sodadosen und Chipstüten. In einer Ecke türmen sich Hunderte Plüschtiere auf, etliche schimmeln. Es stinkt. Der Mann lächelt mich durch dicke, schmierige Brillengläser an und reicht mir den Schirm. Dann bückt er sich über eine Truhe, um einen zweiten Schirm herauszukramen. Ich wünschte, ich hätte es ausgehalten. Ich wünschte, ich wäre dageblieben. Hätte gewartet, bis er sich umdreht und mir den zweiten Schirm reicht. Wünschte, ich hätte gefragt, wie er heisst, wie es ihm geht, wie er die Dinge sieht, die sich um ihn herum abspielen. Was es mit den Plüschtieren auf sich hat. Ich finde die Grösse nicht."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Ich bedanke mich hastig, während er mir noch immer den Rücken zukehrt, und laufe davon, zurück auf die Strasse. Wir sind schon um die Ecke verschwunden, als er uns nachruft, dass er den zweiten Schirm gefunden habe. Ich schäme mich. Schäme mich für meine Berührungsangst. Dass ich es nicht schaffe, mich auf diesen Menschen, der so wenig hat und doch bereit ist, das wenige mit zwei Fremden zu teilen, aufrichtig einzulassen. Scheisse, was bin ich für ein Snob."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Wir laufen weiter, du fotografierst weiter, wir fragen einen Pöstler nach dem Weg. Er telefoniert in die Zentrale, statt die Adresse auf seinem Smartphone zu googeln, und sagt, dass wir eine Meile in jene Richtung gehen müssen. «Seid ihr sicher, dass ihr laufen wollt?» Nein. Rennen wäre mir lieber."
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "FIGURE",
+          "data": { "size": "breakout" },
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "title": null,
+                  "url":
+                    "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/c6e38bb523e8c386efdf82706910635415d8d1e2.jpeg?size=3840x2563",
+                  "alt": "leere Strasse im Regen"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Selbst die Sonne hält es in Charleston nicht lange aus. Nur an 176 Tagen lässt sie sich hier im Schnitt blicken. 15 Prozent weniger als im Rest des Landes."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Abends lässt der Regen nach. Noch drei Stunden, dann fährt unser Bus nach Atlanta. Ich gehe hinunter zum Fluss, auf dem tagsüber die Kohlefrachter schippern. Charleston ist eine Stadt von gespenstischer Schönheit. Opulente Kinos, in der seit Jahren keine Filme mehr spielen, heruntergekommene Art-déco-Türme, in denen nachts nur auf einem Stockwerk noch Licht brennt, zusammenfallende Ziegelsteinpaläste, auf deren Fassade handgemalte Cola-Werbung verwittert – Zeugen von zerronnener Grösse. Unterdessen ist jedes zweite Ladenlokal mit Spanplatten verrammelt. Der Kanawha River teilt die Stadt in Arm und Reich. Villen an den Hängen im Osten, Hütten in den Hügeln im Westen."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Laufe vorbei an den Flaggen, die vor dem Amphitheater der Stadt in der Flaute durchhängen. Steige über die Stufen, auf denen letzte Nacht die Obdachlosen geschlafen haben. Klettere durchs Schilf hinunter zum sandigen Ufer, an dem überall Spritzen liegen, und höre "
+            },
+            {
+              "type": "link",
+              "title": null,
+              "url":
+                "https://open.spotify.com/track/6gNjs7u2xgeQ5rq10UqHjU",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Johnny Cashs Version von «Your Own Personal Jesus»"
+                }
+              ]
+            },
+            { "type": "text", "value": "." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Ich frage mich, was Donald Trump und seine Working-Class-Wähler in West Virginia gemeinsam haben. Mir fällt nur eine Sache ein: Fox News. Der Showman in Washington weiss, wie er perfekt im Boulevardfernsehen rüberkommt. Die verknappte Sprache, die fahrige Gestik, der knallbunte Kitsch, das gewissenlose Ignorieren von Fakten. Fox News liebt Trump, und Trump liebt Fox News. Und Trumps Wähler informieren sich fast immer dort: auf dem rechtskonservativen Nachrichtenkanal von Rupert Murdoch."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Menschen wie der Alte Mann können keinen Computer bedienen. Noch nicht einmal Funktionäre wie Jerry Kerns haben hier eine E-Mail-Adresse. Ihre Kultur ist von der Sprache und der Lebenswelt der Städte meilenweit entfernt. Wie soll eine Gesellschaft unter dem Damoklesschwert der vierten industriellen Revolution bestehen können, wenn sie schon die dritte verpasst hat?"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Weisse Arbeiter sprechen auf Trumps Rallys davon, sich ihr Land zurückholen zu wollen. Aus der Ferne wirken sie wie Rassisten. Aber was, wenn es ihnen gar nicht darum geht, wer ihnen das Land weggenommen hat? Was, wenn es ihnen vor allem um das Gefühl geht, dass ihnen die Welt entglitten ist? Dass ihre Werte nichts mehr wert sind und sie keinen Platz mehr haben in einer Gegenwart, die sich im Virtuellen aufzulösen beginnt?"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value":
+                "Ich laufe die Stufen wieder hoch zum Hotel, grüsse den Obdachlosen, der schon am Vortag dort geschlafen hat. Und ich frage mich: Was tut ein Mensch, wenn er glaubt, dass er nichts mehr zu verlieren hat? Er geht aufs Ganze. Flüchtet in den Rausch. Überquert Ozeane in einer Nussschale, auf der Suche nach neuem Land. Überfällt eine Bank. Wählt Trump?"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "sub",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Diese Reportage wurde zur Entwicklung eines Serien-Prototyps aus dem Etat für grosse Recherchen, grosse Geschichten und grosse Ideen der Project R Genossenschaft realisiert."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "zone",
+          "identifier": "INFOBOX",
+          "data": {},
+          "children": [
+            {
+              "type": "heading",
+              "depth": 3,
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Debatte: Was führte zur Wahl von Donald Trump – Rassismus oder Klassenkampf?"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value":
+                    "Heute dominieren zwei Erklärungsansätze. War es ein Aufstand des weissen Amerikas? Oder waren es die zunehmenden Einkommensunterschiede, der Niedergang der Mittelschicht, die Trump ermöglicht haben? Diskutieren Sie mit den beiden Autorinnen Anja Conzett und Yvonne Kunz – hier gehts zur "
+                },
+                {
+                  "type": "link",
+                  "title":
+                    "USA-Serie: Was führte zur Wahl von Donald Trump – Rassismus oder Klassenkampf?",
+                  "url":
+                    "https://github.com/republik/discussion-debatte-usa?autoSlug",
+                  "children": [
+                    { "type": "text", "value": "Debatte" }
+                  ]
+                },
+                { "type": "text", "value": "." }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "coverText": {
+      "anchor": "top",
+      "color": "#fff",
+      "fontSize": "100",
+      "offset": "12%"
+    },
+    "description":
+      "West Virginia, das ist Amerika ohne Traum. Hier lebt die weisse Arbeiterklasse, die Donald Trump zum Sieg verhalf. Wo früher schwarzer Kohlestaub tötete, tötet heute weisses Pulver im Epizentrum der grössten Drogenkrise in der US-Geschichte.",
+    "discussion":
+      "https://github.com/republik/discussion-debatte-usa",
+    "facebookDescription":
+      "West Virginia, das ist Amerika ohne Traum. Hier lebt die weisse Arbeiterklasse, die Donald Trump zum Sieg verhalf. Wo früher schwarzer Kohlestaub tötete, tötet heute weisses Pulver im Epizentrum der grössten Drogenkrise in der US-Geschichte.",
+    "facebookImage":
+      "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/6288ff51ea8e75b07ac7e1bb6bac6bf8634f3b8a.jpeg?size=3840x2160",
+    "facebookTitle": "USA-Serie, Episode 1 – Ground Zero",
+    "feed": true,
+    "image":
+      "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/cbc5a9cd6178aab496bd575647973a3e3a9e9387.jpeg?size=3840x2563",
+    "series":
+      "https://github.com/republik/article-usa-auftakt",
+    "slug": "usa-serie-1",
+    "template": "article",
+    "title": "USA-Serie, Episode 1 – Ground Zero",
+    "twitterDescription":
+      "West Virginia, das ist Amerika ohne Traum. Hier lebt die weisse Arbeiterklasse, die Donald Trump zum Sieg verhalf.",
+    "twitterImage":
+      "https://cdn.republik.space/s3/republik-assets/github/republik/article-usa-1-ground-zero/images/6288ff51ea8e75b07ac7e1bb6bac6bf8634f3b8a.jpeg?size=3840x2160",
+    "twitterTitle": "USA-Serie, Episode 1 – Ground Zero"
+  }
+}

@@ -3,6 +3,7 @@ import Document, {
   Main,
   NextScript
 } from 'next/document'
+import { fontFaces } from '@project-r/styleguide'
 import { renderStatic } from 'glamor/server'
 
 export default class MyDocument extends Document {
@@ -36,10 +37,14 @@ export default class MyDocument extends Document {
           />
           {css ? (
             <style
-              id="css"
               dangerouslySetInnerHTML={{ __html: css }}
             />
           ) : null}
+          <style
+            dangerouslySetInnerHTML={{
+              __html: fontFaces()
+            }}
+          />
           <meta name="author" content="Republik" />
         </Head>
         <body>

@@ -1,10 +1,23 @@
 import React, { Component } from 'react'
 import Portal from './Portal'
+import { styleSheet } from 'glamor'
 
 class Frame extends Component {
   constructor(props) {
     super(props)
     this.container = null
+  }
+
+  transferCSS() {
+    const css = styleSheet
+      .rules()
+      .map(r => r.cssText)
+      .join('')
+    if (css !== this.state.css) {
+      this.setState({
+        css
+      })
+    }
   }
 
   render() {
@@ -19,12 +32,15 @@ class Frame extends Component {
           if (this.container) {
             return
           }
-          const styles = document.getElementById('css')
+          const css = styleSheet
+            .rules()
+            .map(r => r.cssText)
+            .join('')
+          const style = document.createElement('style')
           const frameBody = node.contentDocument.body
           const container = document.createElement('div')
-          if (styles) {
-            frameBody.appendChild(styles.cloneNode(true))
-          }
+          style.textContent = css
+          frameBody.appendChild(style)
           frameBody.appendChild(container)
           this.container = container
         }}
