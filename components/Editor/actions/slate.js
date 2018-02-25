@@ -5,6 +5,26 @@ import {
   getParent
 } from '../utils/selection'
 
+export const focusNextBlock = (change, node) => {
+  const { value } = change
+  const nextBlock = value.document.getNextBlock(node.key)
+  if (nextBlock) {
+    return change.collapseToStartOf(nextBlock)
+  }
+  return change
+}
+
+export const focusPreviousBlock = (change, node) => {
+  const { value } = change
+  const nextBlock = value.document.getPreviousBlock(
+    node.key
+  )
+  if (nextBlock) {
+    return change.collapseToEndOf(nextBlock)
+  }
+  return change
+}
+
 export const addInline = (change, inline) => {
   return change.wrapInline(inline)
 }

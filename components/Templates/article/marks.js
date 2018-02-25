@@ -4,7 +4,11 @@ import SupIcon from 'react-icons/lib/fa/superscript'
 import SubIcon from 'react-icons/lib/fa/subscript'
 
 import buttonStyles from '../../Editor/styles/buttonStyles'
-import { isMark, returnFirst } from '../../Editor/utils'
+import {
+  isMark,
+  returnFirst,
+  when
+} from '../../Editor/utils'
 import { renderMark } from '../../Editor/utils/renderers'
 import { isOfType } from '../../Editor/utils/mdast'
 import MarkButton from '../../Editor/components/MarkButton'
@@ -50,45 +54,39 @@ export const SubButton = props => (
 )
 
 export const BoldRule = {
-  match: isMark(BOLD),
-  matchMdast: isOfType('strong'),
-  fromMdast: (node, index, parent, { visitChildren }) => ({
-    kind: 'mark',
+  fromMdast: when(isOfType('strong'), (node, next) => ({
+    object: 'mark',
     type: BOLD,
-    nodes: visitChildren(node)
-  }),
-  toMdast: (mark, index, parent, { visitChildren }) => ({
+    nodes: next(node.children)
+  })),
+  toMdast: when(isMark(BOLD), (node, next) => ({
     type: 'strong',
-    children: visitChildren(mark)
-  })
+    children: next(node.nodes)
+  }))
 }
 
 export const SuperscriptRule = {
-  match: isMark(SUP),
-  matchMdast: isOfType('sup'),
-  fromMdast: (node, index, parent, { visitChildren }) => ({
-    kind: 'mark',
+  fromMdast: when(isOfType('sup'), (node, next) => ({
+    object: 'mark',
     type: SUP,
-    nodes: visitChildren(node)
-  }),
-  toMdast: (mark, index, parent, { visitChildren }) => ({
+    nodes: next(node.children)
+  })),
+  toMdast: when(isMark(SUP), (node, next) => ({
     type: 'sup',
-    children: visitChildren(mark)
-  })
+    children: next(node.nodes)
+  }))
 }
 
 export const SubscriptRule = {
-  match: isMark(SUB),
-  matchMdast: isOfType('sub'),
-  fromMdast: (node, index, parent, { visitChildren }) => ({
-    kind: 'mark',
+  fromMdast: when(isOfType('sub'), (node, next) => ({
+    object: 'mark',
     type: SUB,
-    nodes: visitChildren(node)
-  }),
-  toMdast: (mark, index, parent, { visitChildren }) => ({
+    nodes: next(node.children)
+  })),
+  toMdast: when(isMark(SUB), (node, next) => ({
     type: 'sub',
-    children: visitChildren(mark)
-  })
+    children: next(node.nodes)
+  }))
 }
 
 export const MarksPlugin = {

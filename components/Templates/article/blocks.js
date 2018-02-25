@@ -2,7 +2,7 @@ import { Editorial } from '@project-r/styleguide'
 import ParagraphIcon from 'react-icons/lib/fa/paragraph'
 import SubheadIcon from 'react-icons/lib/fa/header'
 
-import { isBlock } from '../../Editor/utils'
+import { isBlock, when } from '../../Editor/utils'
 import { renderBlock } from '../../Editor/utils/renderers'
 import {
   isParagraph,
@@ -54,40 +54,28 @@ const BlockButtons = ({ node, editor }) => (
 )
 
 export const ParagraphRule = {
-  matchMdast: isParagraph,
-  match: isBlock(PARAGRAPH),
-  fromMdast(node, index, parent, { visitChildren }) {
-    return {
-      object: 'block',
-      type: PARAGRAPH,
-      nodes: visitChildren(node)
-    }
-  },
-  toMdast(node, index, parent, { visitChildren }) {
-    return {
-      type: PARAGRAPH,
-      children: visitChildren(node)
-    }
-  }
+  fromMdast: when(isParagraph, (node, next) => ({
+    object: 'block',
+    type: PARAGRAPH,
+    nodes: next(node.children)
+  })),
+  toMdast: when(isBlock(PARAGRAPH), (node, next) => ({
+    type: 'paragraph',
+    children: next(node.nodes)
+  }))
 }
 
 export const SubheadRule = {
-  matchMdast: isHeading(2),
-  match: isBlock(SUBHEAD),
-  fromMdast(node, index, parent, { visitChildren }) {
-    return {
-      object: 'block',
-      type: SUBHEAD,
-      nodes: visitChildren(node)
-    }
-  },
-  toMdast(node, index, parent, { visitChildren }) {
-    return {
-      type: 'heading',
-      depth: 2,
-      children: visitChildren(node)
-    }
-  }
+  fromMdast: when(isHeading(2), (node, next) => ({
+    object: 'block',
+    type: SUBHEAD,
+    nodes: next(node.children)
+  })),
+  toMdast: when(isBlock(SUBHEAD), (node, next) => ({
+    type: 'heading',
+    depth: 2,
+    children: next(node.nodes)
+  }))
 }
 
 export const ParagraphPlugin = {

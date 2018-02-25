@@ -73,10 +73,11 @@ export const staticText = ({
     }
     const { value } = change
     const inSelection = value.blocks.some(isBlock(type))
+    const isCollapsed = value.isCollapsed
     if (
       inSelection &&
       value.startBlock !== value.endBlock &&
-      value.isExpanded
+      !isCollapsed
     ) {
       if (isBackspace || isDelete) {
         return change.collapseToStart()
@@ -87,7 +88,6 @@ export const staticText = ({
     const previousBlock = value.document.getPreviousBlock(
       value.startBlock.key
     )
-    const isCollapsed = value.isCollapsed
     const cursorAtStart =
       isCollapsed &&
       value.selection.hasStartAtStartOf(value.startBlock)

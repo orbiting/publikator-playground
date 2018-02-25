@@ -1,32 +1,29 @@
 import { Center } from '@project-r/styleguide'
-import { isBlock } from '../../Editor/utils'
+import { isBlock, when } from '../../Editor/utils'
 import { isZone } from '../../Editor/utils/mdast'
 import { renderBlock } from '../../Editor/utils/renderers'
 
+export const CENTER = 'center'
+export const CENTER_ZONE = 'CENTER'
+
 export const CenterRule = {
-  matchMdast: isZone('CENTER'),
-  match: isBlock('center'),
-  fromMdast(node, index, parent, { visitChildren }) {
-    return {
-      object: 'block',
-      type: 'center',
-      data: node.data,
-      nodes: visitChildren(node)
-    }
-  },
-  toMdast(node, index, parent, { visitChildren }) {
-    return {
-      type: 'zone',
-      identifier: 'CENTER',
-      data: node.data,
-      children: visitChildren(node)
-    }
-  }
+  fromMdast: when(isZone(CENTER_ZONE), (node, next) => ({
+    object: 'block',
+    type: CENTER,
+    data: node.data,
+    nodes: next(node.children)
+  })),
+  toMdast: when(isBlock(CENTER), (node, next) => ({
+    type: 'zone',
+    identifier: CENTER_ZONE,
+    data: node.data,
+    children: next(node.nodes)
+  }))
 }
 
 export const CenterPlugin = {
   renderNode: renderBlock(
-    'center',
+    CENTER,
     ({ attributes, children }) => (
       <Center {...attributes}>{children}</Center>
     )

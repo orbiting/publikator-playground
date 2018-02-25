@@ -6,18 +6,25 @@ import {
 import { Block } from 'slate'
 import InfoBoxIcon from 'react-icons/lib/fa/info'
 
-import { returnFirst } from '../../../Editor/utils'
+import { returnFirst, isBlock } from '../../../Editor/utils'
 import {
   renderBlock,
   renderPlaceholder,
   withRelativeStyle
 } from '../../../Editor/utils/renderers'
 import { blockSchema } from '../../../Editor/utils/schema'
+
 import {
-  staticText,
   softBreak,
   removeEmpty
 } from '../../../Editor/utils/keyHandlers'
+
+import {
+  preventSplit,
+  preventForwardMerge,
+  preventBackwardMerge
+} from '../../../Editor/utils/keyDown'
+
 import buttonStyles from '../../../Editor/styles/buttonStyles'
 import PropertyForm from '../../../Editor/components/PropertyForm'
 import InsertBlockButton from '../../../Editor/components/InsertBlockButton'
@@ -71,9 +78,11 @@ export const InfoboxTitlePlugin = {
       types: [INFOBOX]
     }
   }),
-  onKeyDown: staticText({
-    type: INFOBOX_TITLE
-  }),
+  onKeyDown: returnFirst(
+    preventSplit(isBlock(INFOBOX_TITLE)),
+    preventBackwardMerge(isBlock(INFOBOX_TITLE)),
+    preventForwardMerge(isBlock(INFOBOX_TITLE))
+  ),
   renderPlaceholder: renderPlaceholder(
     INFOBOX_TITLE,
     'Infobox'
@@ -106,11 +115,9 @@ export const InfoboxTextPlugin = {
     softBreak({
       type: INFOBOX_TEXT
     }),
-    staticText({
-      type: INFOBOX_TEXT,
-      enforceNext: 'paragraph',
-      enforceNextIn: 'center'
-    })
+    preventSplit(isBlock(INFOBOX_TEXT)),
+    preventBackwardMerge(isBlock(INFOBOX_TEXT)),
+    preventForwardMerge(isBlock(INFOBOX_TEXT))
   ),
   renderPlaceholder: renderPlaceholder(
     INFOBOX_TEXT,
@@ -136,8 +143,10 @@ export const InfoboxPlugin = {
       { types: [INFOBOX_TEXT], min: 1, max: 1 }
     ]
   }),
-  onKeyDown: removeEmpty({
-    type: INFOBOX,
-    isEmpty: node => !node.text.trim()
-  })
+  onKeyDown: returnFirst(
+    removeEmpty({
+      type: INFOBOX,
+      isEmpty: node => !node.text.trim()
+    })
+  )
 }

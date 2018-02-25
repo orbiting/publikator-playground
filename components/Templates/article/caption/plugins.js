@@ -9,8 +9,14 @@ import {
   renderBlock,
   renderInlinePlaceholder
 } from '../../../Editor/utils/renderers'
+import { isBlock } from '../../../Editor/utils'
 import { blockSchema } from '../../../Editor/utils/schema'
-import { staticText } from '../../../Editor/utils/keyHandlers'
+
+import {
+  preventSplit,
+  preventBackwardMerge,
+  preventForwardMerge
+} from '../../../Editor/utils/keyDown'
 
 import PropertyForm from '../../../Editor/components/PropertyForm'
 
@@ -19,8 +25,6 @@ import {
   CAPTION_TEXT,
   CAPTION_BYLINE
 } from './constants'
-
-import { PARAGRAPH } from '../blocks'
 
 import { BoldButton } from '../marks'
 import { LinkButton } from '../link'
@@ -76,13 +80,12 @@ export const CaptionPlugin = {
     )
   ),
   onKeyDown: returnFirst(
-    staticText({
-      type: CAPTION_BYLINE,
-      enforceNext: PARAGRAPH
-    }),
-    staticText({
-      type: CAPTION_TEXT
-    })
+    preventSplit(isBlock(CAPTION_BYLINE)),
+    preventBackwardMerge(isBlock(CAPTION_BYLINE)),
+    preventForwardMerge(isBlock(CAPTION_BYLINE)),
+    preventSplit(isBlock(CAPTION_TEXT)),
+    preventBackwardMerge(isBlock(CAPTION_TEXT)),
+    preventForwardMerge(isBlock(CAPTION_TEXT))
   ),
   renderPlaceholder: returnFirst(
     renderInlinePlaceholder(CAPTION_TEXT, 'Legende'),

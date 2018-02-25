@@ -8,17 +8,26 @@ import {
   isParagraph,
   isHeading,
   getExactNodes,
-  matchOrNew,
-  matchOrSkip
+  transformOrNew,
+  transformOrSkip
 } from '../../Editor/utils/mdast'
 
-import { isBlock } from '../../Editor/utils'
+import {
+  isBlock,
+  when,
+  returnFirst
+} from '../../Editor/utils'
 
 import {
   renderBlock,
   renderPlaceholder
 } from '../../Editor/utils/renderers'
-import { staticText } from '../../Editor/utils/keyHandlers'
+
+import {
+  preventSplit,
+  preventForwardMerge,
+  preventBackwardMerge
+} from '../../Editor/utils/keyDown'
 
 export const TITLE = 'title'
 export const LEAD = 'lead'
@@ -28,22 +37,16 @@ export const TITLE_BLOCK = 'titleBlock'
 export const TITLE_BLOCK_ZONE = 'TITLE'
 
 export const TitleRule = {
-  matchMdast: isHeading(1),
-  match: isBlock(TITLE),
-  fromMdast(node, index, parent, { visitChildren }) {
-    return {
-      object: 'block',
-      type: TITLE,
-      nodes: visitChildren(node)
-    }
-  },
-  toMdast(node, index, parent, { visitChildren }) {
-    return {
-      type: 'heading',
-      depth: 1,
-      children: visitChildren(node)
-    }
-  },
+  fromMdast: when(isHeading(1), (node, next) => ({
+    object: 'block',
+    type: TITLE,
+    nodes: next(node.children)
+  })),
+  toMdast: when(isBlock(TITLE), (node, next) => ({
+    type: 'heading',
+    depth: 1,
+    children: next(node.nodes)
+  })),
   newNode() {
     return {
       object: 'block',
@@ -53,21 +56,15 @@ export const TitleRule = {
 }
 
 export const LeadRule = {
-  matchMdast: isParagraph,
-  match: isBlock(LEAD),
-  fromMdast(node, index, parent, { visitChildren }) {
-    return {
-      object: 'block',
-      type: LEAD,
-      nodes: visitChildren(node)
-    }
-  },
-  toMdast(node, index, parent, { visitChildren }) {
-    return {
-      type: 'paragraph',
-      children: visitChildren(node)
-    }
-  },
+  fromMdast: when(isParagraph, (node, next) => ({
+    object: 'block',
+    type: LEAD,
+    nodes: next(node.children)
+  })),
+  toMdast: when(isBlock(LEAD), (node, next) => ({
+    type: 'paragraph',
+    children: next(node.nodes)
+  })),
   newNode() {
     return {
       object: 'block',
@@ -77,21 +74,15 @@ export const LeadRule = {
 }
 
 export const CreditsRule = {
-  matchMdast: isParagraph,
-  match: isBlock(CREDITS),
-  fromMdast(node, index, parent, { visitChildren }) {
-    return {
-      object: 'block',
-      type: CREDITS,
-      nodes: visitChildren(node)
-    }
-  },
-  toMdast(node, index, parent, { visitChildren }) {
-    return {
-      type: 'paragraph',
-      children: visitChildren(node)
-    }
-  },
+  fromMdast: when(isParagraph, (node, next) => ({
+    object: 'block',
+    type: CREDITS,
+    nodes: next(node.children)
+  })),
+  toMdast: when(isBlock(CREDITS), (node, next) => ({
+    type: 'paragraph',
+    children: next(node.nodes)
+  })),
   newNode() {
     return {
       object: 'block',
@@ -100,31 +91,34 @@ export const CreditsRule = {
   }
 }
 
-export const getTitleBlockNodes = getExactNodes(
-  matchOrNew(TitleRule),
-  matchOrSkip(LeadRule),
-  matchOrNew(CreditsRule)
-)
+export const getTitleBlockNodes = getExactNodes([
+  transformOrNew(TitleRule.fromMdast, TitleRule.newNode),
+  transformOrSkip(LeadRule.fromMdast),
+  transformOrNew(CreditsRule.fromMdast, CreditsRule.newNode)
+])
+
+export const getTitleBlockChildren = getExactNodes([
+  TitleRule.toMdast,
+  transformOrSkip(LeadRule.toMdast),
+  CreditsRule.toMdast
+])
 
 export const TitleBlockRule = {
-  matchMdast: isZone(TITLE_BLOCK_ZONE),
-  match: isBlock(TITLE_BLOCK),
-  fromMdast(node, index, parent, rest) {
-    return {
+  fromMdast: when(
+    isZone(TITLE_BLOCK_ZONE),
+    (node, next) => ({
       object: 'block',
       type: TITLE_BLOCK,
       data: node.data,
-      nodes: getTitleBlockNodes(node, index, parent, rest)
-    }
-  },
-  toMdast(node, index, parent, { visitChildren }) {
-    return {
-      type: 'zone',
-      identifier: TITLE_BLOCK_ZONE,
-      data: node.data,
-      nodes: visitChildren(node)
-    }
-  }
+      nodes: getTitleBlockNodes(node.children, next)
+    })
+  ),
+  toMdast: when(isBlock(TITLE_BLOCK), (node, next) => ({
+    type: 'zone',
+    identifier: TITLE_BLOCK_ZONE,
+    data: node.data,
+    children: getTitleBlockChildren(node.nodes, next)
+  }))
 }
 
 export const TitlePlugin = {
@@ -139,11 +133,11 @@ export const TitlePlugin = {
       </Editorial.Headline>
     )
   ),
-  onKeyDown: staticText({
-    type: TITLE,
-    enforceNext: LEAD,
-    enforceNextIn: TITLE_BLOCK
-  }),
+  onKeyDown: returnFirst(
+    preventSplit(isBlock(TITLE)),
+    preventBackwardMerge(isBlock(TITLE)),
+    preventForwardMerge(isBlock(TITLE))
+  ),
   renderPlaceholder: renderPlaceholder(TITLE, 'Title')
 }
 
@@ -159,9 +153,11 @@ export const LeadPlugin = {
       </Editorial.Lead>
     )
   ),
-  onKeyDown: staticText({
-    type: LEAD
-  }),
+  onKeyDown: returnFirst(
+    preventSplit(isBlock(LEAD)),
+    preventBackwardMerge(isBlock(LEAD)),
+    preventForwardMerge(isBlock(LEAD))
+  ),
   renderPlaceholder: renderPlaceholder(LEAD, 'Lead')
 }
 
@@ -177,9 +173,11 @@ export const CreditsPlugin = {
       </Editorial.Credit>
     )
   ),
-  onKeyDown: staticText({
-    type: CREDITS
-  }),
+  onKeyDown: returnFirst(
+    preventSplit(isBlock(CREDITS)),
+    preventBackwardMerge(isBlock(CREDITS)),
+    preventForwardMerge(isBlock(CREDITS))
+  ),
   renderPlaceholder: renderPlaceholder(
     CREDITS,
     'Autoren, Datum'

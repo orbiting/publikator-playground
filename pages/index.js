@@ -1,5 +1,6 @@
 import React from 'react'
-import Serializer from 'slate-mdast-serializer'
+import { Value } from 'slate'
+import { create as createDeserialize } from '../lib/transforms/mdastToSlate'
 import Editor from '../components/Editor'
 
 import initial from './usa'
@@ -9,11 +10,15 @@ import {
   rules
 } from '../components/Templates/article'
 
-const serializer = new Serializer({ rules })
+const deserialize = createDeserialize(
+  rules.map(r => r.fromMdast)
+)
 
 export default () => (
   <Editor
     plugins={plugins}
-    value={serializer.deserialize(initial)}
+    value={Value.fromJSON({
+      document: deserialize(initial)
+    })}
   />
 )

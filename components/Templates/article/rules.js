@@ -1,6 +1,6 @@
-import { isDocument, isBlock } from '../../Editor/utils'
+import { isBlock, when } from '../../Editor/utils'
 
-import { isOfType, isZone } from '../../Editor/utils/mdast'
+import { isZone } from '../../Editor/utils/mdast'
 
 import { FigureRule } from './figure/rules'
 import { LinkRule } from './link'
@@ -17,38 +17,38 @@ import { CenterRule } from './center'
 import { DocumentRule } from './document'
 
 const figureGroupRule = {
-  matchMdast: isZone('FIGUREGROUP'),
-  match: isBlock('figureGroup'),
-  fromMdast(node, index, parent, { visitChildren }) {
-    return {
+  fromMdast: when(
+    isZone('FIGUREGROUP'),
+    (node, next) => ({
       object: 'block',
       type: 'figureGroup',
       data: node.data,
-      nodes: visitChildren(node)
-    }
-  },
-  toMdast(node, index, parent, { visitChildren }) {
-    return {
+      nodes: next(node.children)
+    })
+  ),
+  toMdast: when(
+    isBlock('figureGroup'),
+    (node, next) => ({
       type: 'zone',
       identifier: 'FIGUREGROUP',
       data: node.data,
-      children: visitChildren(node)
-    }
-  }
+      children: next(node.nodes)
+    })
+  )
 }
 
 export default [
   DocumentRule,
-  TextRule,
-  CenterRule,
   InfoboxRule,
+  CenterRule,
   FigureRule,
   figureGroupRule,
+  TitleBlockRule,
   ParagraphRule,
   SubheadRule,
-  TitleBlockRule,
   BoldRule,
   SuperscriptRule,
   SubscriptRule,
-  LinkRule
+  LinkRule,
+  TextRule
 ]

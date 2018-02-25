@@ -1,22 +1,14 @@
 import { isOfType } from '../../Editor/utils/mdast'
-import { isDocument } from '../../Editor/utils'
+import { isDocument, when } from '../../Editor/utils'
 
 export const DocumentRule = {
-  matchMdast: isOfType('root'),
-  match: isDocument,
-  fromMdast(node, index, parent, { visitChildren }) {
-    return {
-      document: {
-        nodes: visitChildren(node),
-        data: node.meta
-      }
-    }
-  },
-  toMdast(node, index, parent, { visitChildren }) {
-    return {
-      type: 'root',
-      children: visitChildren(node),
-      meta: node.data
-    }
-  }
+  fromMdast: when(isOfType('root'), (node, next) => ({
+    nodes: next(node.children),
+    data: node.meta
+  })),
+  toMdast: when(isDocument, (node, next) => ({
+    type: 'root',
+    children: next(node.nodes),
+    meta: node.data
+  }))
 }

@@ -1,4 +1,4 @@
-import { not, isBlock } from '../../../Editor/utils'
+import { when, isBlock } from '../../../Editor/utils'
 import {
   isParagraph,
   isOfType
@@ -11,64 +11,69 @@ import {
 } from './constants'
 
 export const CaptionRule = {
-  matchMdast: isParagraph,
-  match: isBlock(CAPTION),
-  fromMdast(node, index, parent, { visitChildren }) {
-    const captionText = {
-      type: 'paragraph',
-      children: node.children.filter(
-        not(isOfType('emphasis'))
-      )
-    }
+  fromMdast: when(isParagraph, (node, next) => {
+    const [lastChild, ...rest] = node.children.reverse()
 
-    const captionByline = node.children.find(
-      isOfType('emphasis')
-    ) || { type: 'emphasis', children: [] }
+    const textNodes = isOfType('emphasis', lastChild)
+      ? rest.reverse()
+      : node.children
+
+    const bylineNodes = isOfType('emphasis', lastChild)
+      ? lastChild.children
+      : []
 
     return {
       object: 'block',
       type: CAPTION,
       nodes: [
         {
-          kind: 'block',
+          object: 'block',
           type: CAPTION_TEXT,
-          nodes: visitChildren(captionText)
+          nodes: next(textNodes)
         },
         {
-          kind: 'block',
+          object: 'block',
           type: CAPTION_BYLINE,
-          nodes: visitChildren(captionByline)
+          nodes: next(bylineNodes)
         }
       ]
     }
-  },
-  toMdast(node, index, parent, { visitChildren }) {
-    const [captionBlock, bylineBlock] = node.nodes
+  }),
+  toMdast: when(isBlock(CAPTION), (node, next) => {
+    const [text, byline] = node.nodes
+    let children = next(text.nodes) || []
+    if (byline.nodes && byline.nodes.length) {
+      children = children.concat({
+        type: 'emphasis',
+        children: next(byline.nodes)
+      })
+    }
     return {
       type: 'paragraph',
-      children: [
-        ...visitChildren(captionBlock),
-        {
-          type: 'emphasis',
-          children: visitChildren(bylineBlock)
-        }
-      ]
+      children
     }
-  },
+  }),
   newNode() {
     return {
       object: 'block',
       type: CAPTION,
       nodes: [
         {
-          kind: 'block',
+          object: 'block',
           type: CAPTION_TEXT
         },
         {
-          kind: 'block',
+          object: 'block',
           type: CAPTION_BYLINE
         }
       ]
     }
+  },
+  isEmpty(node) {
+    const [text, byline] = node.nodes
+    return !(
+      (text.nodes && text.nodes.length) ||
+      (byline.nodes && byline.nodes.lengh)
+    )
   }
 }

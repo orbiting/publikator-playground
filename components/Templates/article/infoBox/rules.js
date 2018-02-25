@@ -2,11 +2,12 @@ import {
   isHeading,
   isParagraph,
   isZone,
-  getNodes,
-  matchOrNew,
-  matchOrSkip
+  getExactNodes,
+  transformOrNew,
+  transformOrSkip,
+  transformIfNotEmpty
 } from '../../../Editor/utils/mdast'
-import { isBlock } from '../../../Editor/utils'
+import { isBlock, when } from '../../../Editor/utils'
 
 import { FigureRule } from '../figure/rules'
 
@@ -18,22 +19,16 @@ import {
 } from './constants'
 
 export const InfoboxTitleRule = {
-  matchMdast: isHeading(3),
-  match: isBlock(INFOBOX_TITLE),
-  fromMdast(node, index, parent, { visitChildren }) {
-    return {
-      object: 'block',
-      type: INFOBOX_TITLE,
-      nodes: visitChildren(node)
-    }
-  },
-  toMdast(node, index, parent, { visitChildren }) {
-    return {
-      type: 'heading',
-      depth: 3,
-      children: visitChildren(node)
-    }
-  },
+  fromMdast: when(isHeading(3), (node, next) => ({
+    object: 'block',
+    type: INFOBOX_TITLE,
+    nodes: next(node.children)
+  })),
+  toMdast: when(isBlock(INFOBOX_TITLE), (node, next) => ({
+    type: 'heading',
+    depth: 3,
+    nodes: next(node.nodes)
+  })),
   newNode() {
     return {
       object: 'block',
@@ -43,51 +38,71 @@ export const InfoboxTitleRule = {
 }
 
 export const InfoboxTextRule = {
-  matchMdast: isParagraph,
-  match: isBlock(INFOBOX_TEXT),
-  fromMdast(node, index, parent, { visitChildren }) {
-    return {
-      object: 'block',
-      type: INFOBOX_TEXT,
-      nodes: visitChildren(node)
-    }
-  },
-  toMdast(node, index, parent, { visitChildren }) {
+  fromMdast: when(isParagraph, (node, next) => ({
+    object: 'block',
+    type: INFOBOX_TEXT,
+    nodes: next(node.children)
+  })),
+  toMdast: when(isBlock(INFOBOX_TEXT), (node, next) => {
     return {
       type: 'paragraph',
-      children: visitChildren(node)
+      children: next(node.nodes)
     }
-  },
+  }),
   newNode() {
     return {
       object: 'block',
       type: INFOBOX_TEXT
     }
+  },
+  isEmpty(node) {
+    return !node || !node.nodes || !node.nodes.length
   }
 }
 
-const getInfoboxNodes = getNodes(
-  matchOrNew(InfoboxTitleRule),
-  matchOrSkip(FigureRule),
-  matchOrNew(InfoboxTextRule)
-)
+export const InfoboxNodesRule = {
+  fromMdast: getExactNodes([
+    transformOrNew(
+      InfoboxTitleRule.fromMdast,
+      InfoboxTitleRule.newNode
+    ),
+    transformOrSkip(FigureRule.fromMdast),
+    transformOrNew(
+      InfoboxTextRule.fromMdast,
+      InfoboxTextRule.newNode
+    )
+  ]),
+  toMdast: getExactNodes([
+    InfoboxTitleRule.toMdast,
+    transformOrSkip(FigureRule.toMdast),
+    transformIfNotEmpty(
+      InfoboxTextRule.toMdast,
+      InfoboxTextRule.isEmpty
+    )
+  ]),
+  isEmpty(nodes) {
+    return (
+      !nodes ||
+      [
+        InfoboxTitleRule.isEmpty,
+        FigureRule.isEmpty,
+        InfoboxTextRule.isEmpty
+      ].every((fn, i) => fn(nodes[i]))
+    )
+  }
+}
 
 export const InfoboxRule = {
-  matchMdast: isZone(INFOBOX_ZONE),
-  match: isBlock(INFOBOX),
-  fromMdast(node, index, parent, rest) {
-    return {
-      object: 'block',
-      type: INFOBOX,
-      nodes: getInfoboxNodes(node, index, parent, rest)
-    }
-  },
-  toMdast(node, index, parent, { visitChildren }) {
-    return {
-      type: 'zone',
-      identifier: INFOBOX_ZONE,
-      data: node.data,
-      children: visitChildren(node)
-    }
-  }
+  fromMdast: when(isZone(INFOBOX_ZONE), (node, next) => ({
+    object: 'block',
+    type: INFOBOX,
+    data: node.data,
+    nodes: InfoboxNodesRule.fromMdast(node.children, next)
+  })),
+  toMdast: when(isBlock(INFOBOX), (node, next) => ({
+    type: 'zone',
+    identifier: INFOBOX_ZONE,
+    data: node.data,
+    children: InfoboxNodesRule.toMdast(node.nodes, next)
+  }))
 }

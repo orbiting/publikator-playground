@@ -3,7 +3,7 @@ import LinkIcon from 'react-icons/lib/fa/chain'
 
 import buttonStyles from '../../Editor/styles/buttonStyles'
 import withNodeData from '../../Editor/hoc/withNodeData'
-import { isInline } from '../../Editor/utils'
+import { isInline, when } from '../../Editor/utils'
 import { renderInline } from '../../Editor/utils/renderers'
 import { isOfType } from '../../Editor/utils/mdast'
 import PropertyForm from '../../Editor/components/PropertyForm'
@@ -11,6 +11,24 @@ import InlineButton from '../../Editor/components/InlineButton'
 import TextInput from '../../Editor/components/TextInput'
 
 export const LINK = 'link'
+
+export const LinkRule = {
+  fromMdast: when(isOfType('link'), (node, next) => ({
+    object: 'inline',
+    type: LINK,
+    data: {
+      title: node.title,
+      url: node.url
+    },
+    nodes: next(node.children)
+  })),
+  toMdast: when(isInline(LINK), (node, next) => ({
+    type: 'link',
+    title: node.data.title,
+    url: node.data.url,
+    children: next(node.nodes)
+  }))
+}
 
 export const LinkButton = props => (
   <InlineButton
@@ -50,29 +68,4 @@ export const LinkPlugin = {
       </A>
     ]
   )
-}
-
-export const LinkRule = {
-  matchMdast: isOfType('link'),
-  match: isInline(LINK),
-  fromMdast(node, index, parent, { visitChildren }) {
-    return {
-      object: 'inline',
-      type: LINK,
-      data: {
-        title: node.title,
-        url: node.url
-      },
-      nodes: visitChildren(node)
-    }
-  },
-  toMdast(node, index, parent, { visitChildren }) {
-    const { title, url } = node.data
-    return {
-      type: 'link',
-      title,
-      url,
-      children: visitChildren(node)
-    }
-  }
 }
