@@ -8,7 +8,7 @@ import initial from './usa'
 import {
   plugins,
   rules
-} from '../components/Templates/article'
+} from '../components/Templates/Article'
 
 const deserialize = createDeserialize(
   rules.map(r => r.fromMdast)

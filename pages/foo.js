@@ -5,7 +5,7 @@ import { create as createSerialize } from '../lib/transforms/slateToMdast'
 
 import initial from './usa'
 
-import { rules } from '../components/Templates/article'
+import { rules } from '../components/Templates/Article'
 
 const deserialize = createDeserialize(
   rules.map(r => r.fromMdast)
