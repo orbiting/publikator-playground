@@ -4,7 +4,7 @@ import Editor from '../components/Editor'
 
 import initial from './usa'
 
-import { plugins } from '../components/Templates/article'
+import plugins from '../components/Templates/article/plugins'
 import Article from '../lib/rules'
 import { deserialize } from '../lib/serializer'
 
