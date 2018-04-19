@@ -2,6 +2,8 @@
 
 [Read more](https://trello.com/c/ZSqgnFrM/8-publikator-new-schema-prototype-it-l)
 
+This is a prototype. Stuff will change.
+
 #### App
 
 ```
