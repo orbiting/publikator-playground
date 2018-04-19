@@ -1,7 +1,7 @@
 import React from 'react'
 import { Value } from 'slate'
 import Editor from '../components/Editor'
-
+import { parse } from '@orbiting/remark-preset'
 import initial from './usa'
 
 import plugins from '../components/Templates/article/plugins'
@@ -14,7 +14,7 @@ export default () => (
     value={Value.fromJSON({
       document: deserialize(
         Article.fromMdast,
-        initial
+        parse(initial)
       )
     })}
   />

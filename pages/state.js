@@ -8,6 +8,7 @@ import {
   serialize
 } from '../lib/serializer'
 import { prettyPrint } from '../lib/transform/common'
+import { parse } from '@orbiting/remark-preset'
 
 const deserializeArticle = deserialize(
   Article.fromMdast
@@ -26,7 +27,7 @@ export default () => (
         overflow: 'hidden'
       }}
     >
-      {prettyPrint(initial)}
+      {prettyPrint(parse(initial))}
     </pre>
     <pre
       style={{
@@ -35,7 +36,9 @@ export default () => (
         overflow: 'hidden'
       }}
     >
-      {prettyPrint(deserializeArticle(initial))}
+      {prettyPrint(
+        deserializeArticle(parse(initial))
+      )}
     </pre>
     <pre
       style={{
@@ -46,7 +49,7 @@ export default () => (
     >
       {prettyPrint(
         serializeArticle(
-          deserializeArticle(initial)
+          deserializeArticle(parse(initial))
         )
       )}
     </pre>
