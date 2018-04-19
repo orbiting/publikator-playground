@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "analyze": "cross-env ANALYZE=1 next build"
   },
   "dependencies": {
     "@project-r/styleguide": "^5.72.2",
@@ -35,6 +36,8 @@
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.7.0",
     "npm-check-updates": "^2.14.1",
-    "prettier": "^1.12.1"
+    "prettier": "^1.12.1",
+    "cross-env": "5.1.4",
+    "webpack-bundle-analyzer": "2.11.1"
   }
 }
