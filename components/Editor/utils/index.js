@@ -1,5 +1,3 @@
-import { curry } from 'ramda'
-
 export {
   isText,
   isDocument,
