@@ -9,36 +9,32 @@
     "start": "next start"
   },
   "dependencies": {
-    "@project-r/styleguide": "^5.61.1",
-    "d3-color": "^1.0.3",
+    "@project-r/styleguide": "^5.72.2",
+    "@orbiting/remark-preset": "^1.2.3",
+    "d3-color": "^1.1.0",
     "d3-time-format": "^2.1.1",
-    "downshift": "^1.28.0",
+    "downshift": "^1.31.9",
     "glamor": "^2.20.40",
     "immutable": "^3.8.2",
     "immutable-treeutils": "^1.1.0",
-    "js-yaml": "^3.10.0",
     "mdast-react-render": "^1.2.0",
-    "next": "^5.0.0",
-    "prop-types": "^15.6.0",
+    "next": "^5.1.0",
+    "prop-types": "^15.6.1",
     "ramda": "^0.25.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
     "react-icons": "^2.2.7",
     "react-redux": "^5.0.7",
-    "react-textarea-autosize": "^5.2.1",
-    "redux": "^3.7.2",
-    "remark-frontmatter": "^1.1.0",
-    "remark-parse": "^4.0.0",
-    "remark-stringify": "^4.0.0",
-    "slate": "^0.32.4",
-    "slate-react": "^0.11.4",
-    "type-of": "^2.0.1",
-    "unified": "^6.1.5"
+    "react-textarea-autosize": "^6.1.0",
+    "redux": "^4.0.0",
+    "slate": "^0.33.4",
+    "slate-react": "^0.12.4"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.2",
-    "eslint": "^4.18.1",
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.7.0",
-    "prettier": "^1.10.2"
+    "npm-check-updates": "^2.14.1",
+    "prettier": "^1.12.1"
   }
 }
