@@ -10,6 +10,7 @@ npm run dev
 ```
 
 `http://localhost:3000` shows the editor prototype
+
 `http://localhost:3000/state` shows the different transformed states
 
 #### Bundle analysis
