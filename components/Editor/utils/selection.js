@@ -12,11 +12,14 @@ export const getSelectionPath = value => {
     .map(key => tree.byId(value, key))
     .reduce(
       (memo, path) =>
-        memo.push(path).concat(tree.ancestors(value, path)),
+        memo
+          .push(path)
+          .concat(tree.ancestors(value, path)),
       List()
     )
     .reduceRight(
-      (memo, path) => memo.set(tree.id(value, path), path),
+      (memo, path) =>
+        memo.set(tree.id(value, path), path),
       Map()
     )
     .map(value.getIn.bind(value))
@@ -38,7 +41,10 @@ const getClosest = (filter, node, value) =>
 const getFurthest = (filter, node, value) =>
   value.document.getClosest(node.key, filter)
 
-const getInSelection = selector => (filter, value) => {
+const getInSelection = selector => (
+  filter,
+  value
+) => {
   return value.blocks.reduce((memo, node) => {
     const res = selector(filter, node, value)
     if (res) {

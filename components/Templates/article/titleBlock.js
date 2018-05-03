@@ -38,11 +38,11 @@ export const TitlePlugin = {
       </Editorial.Headline>
     )
   ),
-  onKeyDown: returnFirst(
-    preventSplit(isBlock(TITLE)),
-    preventBackwardMerge(isBlock(TITLE)),
-    preventForwardMerge(isBlock(TITLE))
-  ),
+  // onKeyDown: returnFirst(
+  //   preventSplit(isBlock(TITLE)),
+  //   preventBackwardMerge(isBlock(TITLE)),
+  //   preventForwardMerge(isBlock(TITLE))
+  // ),
   renderPlaceholder: renderPlaceholder(
     TITLE,
     'Title'
@@ -61,11 +61,11 @@ export const LeadPlugin = {
       </Editorial.Lead>
     )
   ),
-  onKeyDown: returnFirst(
-    preventSplit(isBlock(LEAD)),
-    preventBackwardMerge(isBlock(LEAD)),
-    preventForwardMerge(isBlock(LEAD))
-  ),
+  // onKeyDown: returnFirst(
+  //   preventSplit(isBlock(LEAD)),
+  //   preventBackwardMerge(isBlock(LEAD)),
+  //   preventForwardMerge(isBlock(LEAD))
+  // ),
   renderPlaceholder: renderPlaceholder(
     LEAD,
     'Lead'
@@ -84,11 +84,11 @@ export const CreditsPlugin = {
       </Editorial.Credit>
     )
   ),
-  onKeyDown: returnFirst(
-    preventSplit(isBlock(CREDITS)),
-    preventBackwardMerge(isBlock(CREDITS)),
-    preventForwardMerge(isBlock(CREDITS))
-  ),
+  // onKeyDown: returnFirst(
+  //   preventSplit(isBlock(CREDITS)),
+  //   preventBackwardMerge(isBlock(CREDITS)),
+  //   preventForwardMerge(isBlock(CREDITS))
+  // ),
   renderPlaceholder: renderPlaceholder(
     CREDITS,
     'Autoren, Datum'

@@ -9,16 +9,10 @@ import {
   renderBlock,
   renderInlinePlaceholder
 } from '../../../Editor/utils/renderers'
-import { isBlock } from '../../../Editor/utils'
-import { blockSchema } from '../../../Editor/utils/schema'
-
-import {
-  preventSplit,
-  preventBackwardMerge,
-  preventForwardMerge
-} from '../../../Editor/utils/keyDown'
 
 import PropertyForm from '../../../Editor/components/PropertyForm'
+
+import onKeyDown from './onKeyDown'
 
 import {
   CAPTION,
@@ -50,15 +44,27 @@ export const CaptionPlugin = {
         <PropertyForm key="ui" node={node}>
           Caption
         </PropertyForm>,
-        <FigureCaption key="content" {...attributes}>
+        <FigureCaption
+          key="content"
+          {...attributes}
+        >
           {children}
         </FigureCaption>
       ]
     ),
     renderBlock(
       CAPTION_TEXT,
-      ({ node, children, attributes, editor }) => [
-        <PropertyForm key="ui" node={node} offset={1}>
+      ({
+        node,
+        children,
+        attributes,
+        editor
+      }) => [
+        <PropertyForm
+          key="ui"
+          node={node}
+          offset={1}
+        >
           <BoldButton editor={editor} />
           <LinkButton editor={editor} />
         </PropertyForm>,
@@ -69,32 +75,37 @@ export const CaptionPlugin = {
     ),
     renderBlock(
       CAPTION_BYLINE,
-      ({ node, children, attributes, editor }) => [
-        <PropertyForm key="ui" node={node} offset={1}>
+      ({
+        node,
+        children,
+        attributes,
+        editor
+      }) => [
+        <PropertyForm
+          key="ui"
+          node={node}
+          offset={1}
+        >
           <LinkButton editor={editor} />
         </PropertyForm>,
-        <FigureByline key="content" {...attributes}>
+        <FigureByline
+          key="content"
+          {...attributes}
+        >
           {children}
         </FigureByline>
       ]
     )
   ),
-  onKeyDown: returnFirst(
-    preventSplit(isBlock(CAPTION_BYLINE)),
-    preventBackwardMerge(isBlock(CAPTION_BYLINE)),
-    preventForwardMerge(isBlock(CAPTION_BYLINE)),
-    preventSplit(isBlock(CAPTION_TEXT)),
-    preventBackwardMerge(isBlock(CAPTION_TEXT)),
-    preventForwardMerge(isBlock(CAPTION_TEXT))
-  ),
+  onKeyDown,
   renderPlaceholder: returnFirst(
-    renderInlinePlaceholder(CAPTION_TEXT, 'Legende'),
-    renderInlinePlaceholder(CAPTION_BYLINE, ' Credits')
-  ),
-  schema: blockSchema(CAPTION, {
-    nodes: [
-      { types: [CAPTION_TEXT], min: 1, max: 1 },
-      { types: [CAPTION_BYLINE], min: 1, max: 1 }
-    ]
-  })
+    renderInlinePlaceholder(
+      CAPTION_TEXT,
+      'Legende'
+    ),
+    renderInlinePlaceholder(
+      CAPTION_BYLINE,
+      ' Credits'
+    )
+  )
 }

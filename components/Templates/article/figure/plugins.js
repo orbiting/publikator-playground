@@ -1,13 +1,11 @@
 import { Block } from 'slate'
-import { FigureImage, Figure } from '@project-r/styleguide'
+import {
+  FigureImage,
+  Figure
+} from '@project-r/styleguide'
 import ImageIcon from 'react-icons/lib/fa/image'
 
 import { renderBlock } from '../../../Editor/utils/renderers'
-import { blockSchema } from '../../../Editor/utils/schema'
-import {
-  removeImage,
-  removeEmpty
-} from '../../../Editor/utils/keyHandlers'
 
 import buttonStyles from '../../../Editor/styles/buttonStyles'
 
@@ -20,8 +18,11 @@ import withNodeData from '../../../Editor/hoc/withNodeData'
 import { newCaption } from '../caption/plugins'
 
 import { FIGURE, FIGURE_IMAGE } from './constants'
+import onKeyDown from './onKeyDown'
 
-const SelectImageButton = withNodeData('url')(ImageInput)
+const SelectImageButton = withNodeData('url')(
+  ImageInput
+)
 
 export const newFigure = () =>
   Block.create({
@@ -84,18 +85,18 @@ export const ImagePlugin = {
         </SelectImageButton>
       )
     ]
-  ),
-  schema: blockSchema(FIGURE_IMAGE, {
-    isVoid: true
-  }),
-  onKeyDown: removeImage({ type: FIGURE_IMAGE })
+  )
 }
 
 export const FigurePlugin = {
   renderNode: renderBlock(
     FIGURE,
     ({ node, attributes, children }) => [
-      <PropertyForm key="ui" node={node} offset={2}>
+      <PropertyForm
+        key="ui"
+        node={node}
+        offset={2}
+      >
         {' '}
       </PropertyForm>,
       <Figure {...attributes} key="content">
@@ -103,15 +104,5 @@ export const FigurePlugin = {
       </Figure>
     ]
   ),
-  schema: blockSchema('figure', {
-    nodes: [
-      { types: ['image'], min: 1, max: 1 },
-      { types: ['caption'], min: 1, max: 1 }
-    ]
-  }),
-  onKeyDown: removeEmpty({
-    type: 'figure',
-    isEmpty: n =>
-      !n.text.trim() && !n.nodes.first().data.get('url')
-  })
+  onKeyDown
 }

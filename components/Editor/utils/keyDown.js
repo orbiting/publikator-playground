@@ -10,13 +10,18 @@ export const getStartOrEndBlock = isBlock => (
 ) =>
   (isBlock(change.value.startBlock) &&
     change.value.startBlock) ||
-  (isBlock(change.value.endBlock) && change.value.endBlock)
+  (isBlock(change.value.endBlock) &&
+    change.value.endBlock)
 
 export const getAncestor = isBlock => (
   event,
   change,
   node
-) => change.value.document.getClosest(node.key, isBlock)
+) =>
+  change.value.document.getClosest(
+    node.key,
+    isBlock
+  )
 
 export const callAction = action => (
   event,
@@ -50,14 +55,16 @@ export const isEnter = isKey('Enter')
 export const isBackspace = isKey('Backspace')
 export const isDelete = isKey('Delete')
 
-export const onEvent = curry((isEvent, handler) => {
-  return (event, change) => {
-    if (!isEvent(event)) {
-      return
+export const onEvent = curry(
+  (isEvent, handler) => {
+    return (event, change) => {
+      if (!isEvent(event)) {
+        return
+      }
+      return handler(event, change)
     }
-    return handler(event, change)
   }
-})
+)
 
 export const handleNodes = (...args) => {
   const [handler, ...rest] = args.reverse()
@@ -87,7 +94,9 @@ export const handleSelection = curry(
       let handler
       if (value.isCollapsed) {
         handler = collapsedHandler
-      } else if (value.startBlock !== value.endBlock) {
+      } else if (
+        value.startBlock !== value.endBlock
+      ) {
         handler = expandedMixedHandler
       } else {
         handler = expandedHandler
@@ -107,12 +116,19 @@ export const handleCursorPosition = curry(
     let handler
     if (value.selection.hasStartAtStartOf(node)) {
       handler = collapsedAtStartHandler
-    } else if (value.selection.hasEndAtEndOf(node)) {
+    } else if (
+      value.selection.hasEndAtEndOf(node)
+    ) {
       handler = collapsedAtEndHandler
     } else {
       handler = collapsedHandler
     }
-    return handler(event, change, node, contextNode)
+    return handler(
+      event,
+      change,
+      node,
+      contextNode
+    )
   }
 )
 

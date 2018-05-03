@@ -7,14 +7,41 @@ import {
 
 export const focusNextBlock = (change, node) => {
   const { value } = change
-  const nextBlock = value.document.getNextBlock(node.key)
+  const nextBlock = value.document.getNextBlock(
+    node.key
+  )
   if (nextBlock) {
     return change.collapseToStartOf(nextBlock)
   }
   return change
 }
 
-export const focusPreviousBlock = (change, node) => {
+export const focusNext = change => {
+  const { value } = change
+  const nextBlock = value.document.getNextBlock(
+    value.endBlock.key
+  )
+  if (nextBlock) {
+    return change.collapseToStartOf(nextBlock)
+  }
+  return change
+}
+
+export const focusPrevious = change => {
+  const { value } = change
+  const nextBlock = value.document.getPreviousBlock(
+    value.startBlock.key
+  )
+  if (nextBlock) {
+    return change.collapseToEndOf(nextBlock)
+  }
+  return change
+}
+
+export const focusPreviousBlock = (
+  change,
+  node
+) => {
   const { value } = change
   const nextBlock = value.document.getPreviousBlock(
     node.key
@@ -53,19 +80,24 @@ export const removeMark = (change, mark) => {
   if (value.isEmpty) {
     const key = value.startKey
     const offset = value.startOffset
-    const characters = value.texts.first().characters
+    const characters = value.texts.first()
+      .characters
     let i = offset
     let has = true
     while (has) {
       i--
-      has = characters.get(i).marks.some(isMark(mark))
+      has = characters
+        .get(i)
+        .marks.some(isMark(mark))
     }
     const start = i
     i = offset
     has = true
     while (has) {
       i++
-      has = characters.get(i).marks.some(isMark(mark))
+      has = characters
+        .get(i)
+        .marks.some(isMark(mark))
     }
     const end = i
     const length = end - start
@@ -82,7 +114,11 @@ export const removeMark = (change, mark) => {
   }
 }
 
-export const updateData = (change, node, data) => {
+export const updateData = (
+  change,
+  node,
+  data
+) => {
   return change.setNodeByKey(
     node.key,
     node.update('data', v => v.merge(data))
@@ -93,10 +129,30 @@ export const insertBlock = (change, block) => {
   return change.insertBlock(block)
 }
 
-export const insertBlockAfter = (change, block, target) => {
+export const removeBlock = (change, block) => {
+  return change.removeNodeByKey(block.key)
+}
+
+export const insertBlockAfter = (
+  change,
+  block,
+  target
+) => {
   return change.insertNodeByKey(
     getParent(change.value, target).key,
     getChildIndex(change.value, target) + 1,
+    block
+  )
+}
+
+export const insertBlockBefore = (
+  change,
+  block,
+  target
+) => {
+  return change.insertNodeByKey(
+    getParent(change.value, target).key,
+    getChildIndex(change.value, target),
     block
   )
 }

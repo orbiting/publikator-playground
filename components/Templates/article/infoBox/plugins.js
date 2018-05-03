@@ -6,7 +6,10 @@ import {
 import { Block } from 'slate'
 import InfoBoxIcon from 'react-icons/lib/fa/info'
 
-import { returnFirst, isBlock } from '../../../Editor/utils'
+import {
+  returnFirst,
+  isBlock
+} from '../../../Editor/utils'
 import {
   renderBlock,
   renderPlaceholder,
@@ -78,11 +81,11 @@ export const InfoboxTitlePlugin = {
       types: [INFOBOX]
     }
   }),
-  onKeyDown: returnFirst(
-    preventSplit(isBlock(INFOBOX_TITLE)),
-    preventBackwardMerge(isBlock(INFOBOX_TITLE)),
-    preventForwardMerge(isBlock(INFOBOX_TITLE))
-  ),
+  // onKeyDown: returnFirst(
+  //   preventSplit(isBlock(INFOBOX_TITLE)),
+  //   preventBackwardMerge(isBlock(INFOBOX_TITLE)),
+  //   preventForwardMerge(isBlock(INFOBOX_TITLE))
+  // ),
   renderPlaceholder: renderPlaceholder(
     INFOBOX_TITLE,
     'Infobox'
@@ -111,14 +114,14 @@ export const InfoboxTextPlugin = {
       types: [INFOBOX]
     }
   }),
-  onKeyDown: returnFirst(
-    softBreak({
-      type: INFOBOX_TEXT
-    }),
-    preventSplit(isBlock(INFOBOX_TEXT)),
-    preventBackwardMerge(isBlock(INFOBOX_TEXT)),
-    preventForwardMerge(isBlock(INFOBOX_TEXT))
-  ),
+  // onKeyDown: returnFirst(
+  //   softBreak({
+  //     type: INFOBOX_TEXT
+  //   }),
+  //   preventSplit(isBlock(INFOBOX_TEXT)),
+  //   preventBackwardMerge(isBlock(INFOBOX_TEXT)),
+  //   preventForwardMerge(isBlock(INFOBOX_TEXT))
+  // ),
   renderPlaceholder: renderPlaceholder(
     INFOBOX_TEXT,
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in aliquet lacus, nec semper libero.'
@@ -129,10 +132,17 @@ export const InfoboxPlugin = {
   renderNode: renderBlock(
     INFOBOX,
     ({ node, children, attributes }) => [
-      <PropertyForm key="ui" node={node} offset={2}>
+      <PropertyForm
+        key="ui"
+        node={node}
+        offset={2}
+      >
         Hello
       </PropertyForm>,
-      <InfoBox key="content" attributes={attributes}>
+      <InfoBox
+        key="content"
+        attributes={attributes}
+      >
         {children}
       </InfoBox>
     ]
@@ -142,11 +152,11 @@ export const InfoboxPlugin = {
       { types: [INFOBOX_TITLE], min: 1, max: 1 },
       { types: [INFOBOX_TEXT], min: 1, max: 1 }
     ]
-  }),
-  onKeyDown: returnFirst(
-    removeEmpty({
-      type: INFOBOX,
-      isEmpty: node => !node.text.trim()
-    })
-  )
+  })
+  // onKeyDown: returnFirst(
+  //   removeEmpty({
+  //     type: INFOBOX,
+  //     isEmpty: node => !node.text.trim()
+  //   })
+  // )
 }

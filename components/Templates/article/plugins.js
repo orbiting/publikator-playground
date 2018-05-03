@@ -1,8 +1,14 @@
 import { LinkPlugin } from './link'
-import { ImagePlugin, FigurePlugin } from './figure/plugins'
+import {
+  ImagePlugin,
+  FigurePlugin
+} from './figure/plugins'
 import { CaptionPlugin } from './caption/plugins'
 import { MarksPlugin } from './marks'
-import { ParagraphPlugin, SubheadPlugin } from './blocks'
+import {
+  ParagraphPlugin,
+  SubheadPlugin
+} from './blocks'
 import {
   CreditsPlugin,
   TitlePlugin,
