@@ -9,8 +9,6 @@ import {
   always
 } from 'ramda'
 
-import { isBlock } from '../../../Editor/utils'
-
 import {
   focusNext,
   focusPrevious,
@@ -33,7 +31,8 @@ import {
   isEnter,
   isDelete,
   isBackspace,
-  iSafePath
+  iSafePath,
+  isBlock
 } from '../../../Editor/utils/foo'
 
 import { newCaption } from '../caption/plugins'
@@ -78,7 +77,6 @@ const onEnter = compose(
   )
 )(always(undefined))
 
-// #TODO: clear image, empty element
 const onDeleteOrBackspace = compose(
   ifElse(
     both(
