@@ -13,7 +13,7 @@ import {
 } from './marks'
 
 import { LinkButton } from './link'
-import { InsertFigureButton } from './figure/plugins'
+import { InsertFigureButton } from './figure/ui'
 import { InsertInfoBoxButton } from './infoBox/plugins'
 
 export const PARAGRAPH = 'paragraph'
