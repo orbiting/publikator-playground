@@ -1,5 +1,5 @@
 import { Mark } from 'slate'
-import { isMark } from '../utils'
+import { isMark } from '../utils/foo'
 import {
   getChildIndex,
   getParent

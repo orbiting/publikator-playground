@@ -10,7 +10,7 @@ import {
   InfoBoxText
 } from '@project-r/styleguide'
 
-import { withRelativeStyle } from '../../../Editor/utils/renderers'
+import withRelativeStyle from '../../../Editor/styles/withRelativeStyle'
 import Placeholder from '../../../Editor/components/Placeholder'
 
 import {
@@ -21,6 +21,7 @@ import {
 
 import { BoldButton } from '../bold/ui'
 import { LinkButton } from '../link/ui'
+import { TextButtons } from '../common/ui'
 
 import PropertyForm from '../../../Editor/components/PropertyForm'
 
@@ -48,13 +49,17 @@ export const renderNode = compose(
       isBlock('infoBoxTitle'),
       safeProp('node')
     ),
-    ({ children, attributes }) => (
+    ({ node, editor, children, attributes }) => [
+      <PropertyForm key="ui" node={node}>
+        <TextButtons editor={editor} />
+      </PropertyForm>,
       <InfoBoxTitle
+        key="content"
         attributes={withRelativeStyle(attributes)}
       >
         {children}
       </InfoBoxTitle>
-    )
+    ]
   ),
   ifElse(
     compose(
@@ -65,6 +70,7 @@ export const renderNode = compose(
       <PropertyForm key="ui" node={node}>
         <BoldButton editor={editor} />
         <LinkButton editor={editor} />
+        <TextButtons editor={editor} />
       </PropertyForm>,
       <InfoBoxText
         key="content"

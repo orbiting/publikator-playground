@@ -1,32 +1,40 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { createStore, combineReducers } from 'redux'
+import {
+  createStore,
+  combineReducers
+} from 'redux'
 import { Provider } from 'react-redux'
 import { Editor as SlateEditor } from 'slate-react'
 
 import withValue from './hoc/withValue'
 
 import reducers from './reducers'
-import Frame from './components/Frame'
+
+// import Frame from './components/Frame'
 
 import PropertyFormContainer from './components/PropertyFormContainer'
 import SelectionPath from './components/SelectionPath'
 import { css } from 'glamor'
 
-css.global('html, body', { padding: 0, margin: 0 })
+css.global('html, body', {
+  padding: 0,
+  margin: 0
+})
 
 const Editor = withValue(SlateEditor)
 
 const styles = {
   root: css({
-    minHeight: '100vh',
+    height: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    fontFamily: 'sans-serif, Arial, Helvetica'
+    fontFamily: 'sans-serif, Arial, Helvetica',
+    overflow: 'hidden'
   }),
   doc: css({
-    flex: '1 100%'
+    overflow: 'scroll'
   })
 }
 
@@ -40,7 +48,9 @@ class PublikatorEditor extends Component {
 
     this.changeHandler = () =>
       this.props.onChange &&
-      this.props.onChange(this.store.getState().value)
+      this.props.onChange(
+        this.store.getState().value
+      )
 
     this.unsubscribe = this.store.subscribe(
       this.changeHandler
@@ -53,9 +63,11 @@ class PublikatorEditor extends Component {
         <div {...styles.root}>
           <SelectionPath />
           <PropertyFormContainer />
-          <Frame {...styles.doc}>
-            <Editor plugins={this.props.plugins} />
-          </Frame>
+          <div {...styles.doc}>
+            <Editor
+              plugins={this.props.plugins}
+            />
+          </div>
         </div>
       </Provider>
     )

@@ -19,16 +19,14 @@ import {
 import { InlinePlaceholder } from '../../../Editor/components/Placeholder'
 import PropertyForm from '../../../Editor/components/PropertyForm'
 
+import { TextButtons } from '../common/ui'
 import { BoldButton } from '../bold/ui'
 import { LinkButton } from '../link/ui'
 
 export const renderNode = compose(
   ifElse(
     compose(isBlock('caption'), safeProp('node')),
-    ({ node, children, attributes }) => [
-      <PropertyForm key="ui" node={node}>
-        Caption
-      </PropertyForm>,
+    ({ children, attributes }) => [
       <FigureCaption
         key="content"
         {...attributes}
@@ -50,6 +48,10 @@ export const renderNode = compose(
       >
         <BoldButton editor={editor} />
         <LinkButton editor={editor} />
+        <TextButtons
+          editor={editor}
+          node={node}
+        />
       </PropertyForm>,
       <span key="content" {...attributes}>
         {children}
@@ -68,6 +70,10 @@ export const renderNode = compose(
         offset={1}
       >
         <LinkButton editor={editor} />
+        <TextButtons
+          editor={editor}
+          node={node}
+        />
       </PropertyForm>,
       <FigureByline key="content" {...attributes}>
         {children}

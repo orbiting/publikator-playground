@@ -1,10 +1,13 @@
 import { connect } from 'react-redux'
 
-import { isBlock, typeOrTypeProp } from '../utils'
+import { isBlock } from '../utils/foo'
 import { convertBlock } from '../actions/slate'
 
-const defaultConversionStrategy = (change, node, block) =>
-  node.set('type', typeOrTypeProp(block))
+const defaultConversionStrategy = (
+  change,
+  node,
+  type
+) => node.set('type', type)
 
 const mapStateToProps = (state, ownProps) => {
   const {
@@ -34,8 +37,17 @@ const mapStateToProps = (state, ownProps) => {
 const mergeProps = (
   stateProps,
   dispatchProps,
-  // eslint-disable-next-line
-  { editor, node, block, conversionStrategy, ...ownProps }
+  {
+    // eslint-disable-next-line
+    editor,
+    // eslint-disable-next-line
+    node,
+    // eslint-disable-next-line
+    block,
+    // eslint-disable-next-line
+    conversionStrategy,
+    ...ownProps
+  }
 ) => ({
   ...stateProps,
   ...dispatchProps,

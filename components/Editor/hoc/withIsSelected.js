@@ -1,6 +1,9 @@
 import { connect } from 'react-redux'
 
-const mapStateToProps = (state, { offset, node }) => {
+const mapStateToProps = (
+  state,
+  { offset, node }
+) => {
   return {
     isSelected:
       !!state.ui.selectedNode &&

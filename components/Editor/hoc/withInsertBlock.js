@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { callOrJust } from '../utils'
 import {
   insertBlock,
   insertBlockAfter
@@ -13,17 +12,26 @@ const mapStateToProps = (
     ? () =>
         editor.change(
           insertBlockAfter,
-          callOrJust(block),
+          block(),
           node
         )
-    : () => editor.change(insertBlock, callOrJust(block))
+    : () => editor.change(insertBlock, block())
 })
 
 const mergeProps = (
   stateProps,
   dispatchProps,
-  // eslint-disable-next-line
-  { editor, node, block, insertAfter, ...ownProps }
+  {
+    // eslint-disable-next-line
+    editor,
+    // eslint-disable-next-line
+    node,
+    // eslint-disable-next-line
+    block,
+    // eslint-disable-next-line
+    insertAfter,
+    ...ownProps
+  }
 ) => ({
   ...stateProps,
   ...dispatchProps,

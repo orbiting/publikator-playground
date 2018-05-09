@@ -5,7 +5,9 @@ const mapStateToProps = dataKey => (
   state,
   { editor, node }
 ) => ({
-  value: dataKey ? node.data.get(dataKey) : node.data,
+  value: dataKey
+    ? node.data.get(dataKey)
+    : node.data,
   onChange: value => {
     editor.change(
       updateData,

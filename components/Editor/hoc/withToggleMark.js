@@ -1,11 +1,16 @@
 import { connect } from 'react-redux'
 
-import { isMark } from '../utils'
-import { addMark, removeMark } from '../actions/slate'
+import { isMark } from '../utils/foo'
+import {
+  addMark,
+  removeMark
+} from '../actions/slate'
 
 const mapStateToProps = (state, ownProps) => {
   const { editor, mark } = ownProps
-  const active = state.value.activeMarks.some(isMark(mark))
+  const active = state.value.activeMarks.some(
+    isMark(mark)
+  )
   return {
     active,
     disabled: !active && state.value.isCollapsed,

@@ -11,7 +11,7 @@ import TitleBlockPlugin from './titleBlock'
 
 import InfoboxPlugin from './infoBox'
 
-import { CenterPlugin } from './center'
+import CenterPlugin from './center'
 
 export default [
   CenterPlugin,

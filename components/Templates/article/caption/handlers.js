@@ -12,8 +12,6 @@ import {
 
 import { Block } from 'slate'
 
-import { isBlock } from '../../../Editor/utils'
-
 import {
   focusNext,
   focusPrevious,
@@ -23,6 +21,7 @@ import {
 } from '../../../Editor/actions/slate'
 
 import {
+  isBlock,
   isExpanded,
   notIsMixed,
   isMixed,

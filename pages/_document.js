@@ -35,17 +35,22 @@ export default class MyDocument extends Document {
             httpEquiv="X-UA-Compatible"
             content="IE=edge"
           />
-          {css ? (
-            <style
-              dangerouslySetInnerHTML={{ __html: css }}
-            />
-          ) : null}
           <style
             dangerouslySetInnerHTML={{
               __html: fontFaces()
             }}
           />
-          <meta name="author" content="Republik" />
+          {css ? (
+            <style
+              dangerouslySetInnerHTML={{
+                __html: css
+              }}
+            />
+          ) : null}
+          <meta
+            name="author"
+            content="Republik"
+          />
         </Head>
         <body>
           <Main />
