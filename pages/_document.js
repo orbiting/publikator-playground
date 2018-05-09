@@ -6,8 +6,6 @@ import Document, {
 import { renderStatic } from 'glamor/server'
 import { fontFaces } from '@project-r/styleguide'
 
-console.log(fontFaces())
-
 export default class MyDocument extends Document {
   static async getInitialProps({ renderPage }) {
     const page = renderPage()
