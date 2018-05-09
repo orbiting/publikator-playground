@@ -8,7 +8,7 @@ This is a prototype. Stuff will change.
 
 ```
 npm install
-npm run dev
+npx next
 ```
 
 `http://localhost:3000` shows the editor prototype
@@ -17,10 +17,4 @@ npm run dev
 
 #### Bundle analysis
 
-```
-npm run analyze
-```
-
-`http://127.0.0.1:888[8|9]/` shows a graphic representation of a webpack bundle.
-
-For now, simply a copy of [this next config](https://github.com/zeit/next.js/tree/canary/examples/with-webpack-bundle-analyzer)
+`.next/stats.html` always shows a static snapshot of the last build, courtesy of [Webpack Visualizer](https://github.com/chrisbateman/webpack-visualizer).
