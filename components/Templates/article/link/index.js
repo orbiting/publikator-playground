@@ -1,4 +1,4 @@
-import { A } from '@project-r/styleguide'
+import { Editorial } from '@project-r/styleguide'
 
 import { ifElse, compose, always } from 'ramda'
 
@@ -20,14 +20,14 @@ export default {
           editor={editor}
         />
       </PropertyForm>,
-      <A
+      <Editorial.A
         key="content"
         href={node.data.get('url')}
         title={node.data.get('title')}
         {...attributes}
       >
         {children}
-      </A>
+      </Editorial.A>
     ],
     always(undefined)
   )
