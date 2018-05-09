@@ -7,14 +7,7 @@ import TextInput from '../../../Editor/components/TextInput'
 
 export const LinkButton = props => (
   <InlineButton
-    inline={{
-      object: 'inline',
-      type: 'link',
-      data: {
-        url: '',
-        title: ''
-      }
-    }}
+    inline={'link'}
     {...props}
     {...buttonStyles.iconButton}
   >
