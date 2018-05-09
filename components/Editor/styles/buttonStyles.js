@@ -1,4 +1,5 @@
 import { css } from 'glamor'
+import { colors } from '@project-r/styleguide'
 
 export const iconButton = css({
   minWidth: '40px',
@@ -9,12 +10,13 @@ export const iconButton = css({
   alignItems: 'center',
   flexDirection: 'row',
   cursor: 'pointer',
+  transition: 'color .3s',
   '&[disabled]': {
     cursor: 'default',
-    color: '#ccc'
+    color: colors.disabled
   },
   '&[data-active="true"]': {
-    color: '#f00'
+    color: colors.primary
   }
 })
 
