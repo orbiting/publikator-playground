@@ -1,7 +1,4 @@
-const {
-  BundleAnalyzerPlugin
-} = require('webpack-bundle-analyzer')
-const { ANALYZE } = process.env
+const Visualizer = require('webpack-visualizer-plugin')
 
 const webpack = require('webpack')
 
@@ -13,17 +10,7 @@ require('dotenv').config({
 })
 
 module.exports = {
-  webpack: function(config, { isServer }) {
-    if (ANALYZE) {
-      config.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'server',
-          analyzerPort: isServer ? 8888 : 8889,
-          openAnalyzer: true
-        })
-      )
-    }
-
+  webpack: function(config) {
     const env = Object.keys(process.env).reduce(
       (acc, curr) => {
         acc[
@@ -37,6 +24,7 @@ module.exports = {
     config.plugins.push(
       new webpack.DefinePlugin(env)
     )
+    config.plugins.push(new Visualizer())
 
     return config
   }

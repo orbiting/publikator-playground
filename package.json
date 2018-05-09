@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
-    "analyze": "cross-env ANALYZE=1 next build"
+    "start": "next start"
   },
   "dependencies": {
     "@orbiting/remark-preset": "^1.2.3",
@@ -38,7 +37,6 @@
     "eslint-plugin-react": "^7.7.0",
     "npm-check-updates": "^2.14.2",
     "prettier": "^1.12.1",
-    "cross-env": "5.1.4",
-    "webpack-bundle-analyzer": "2.11.1"
+    "webpack-visualizer-plugin": "^0.1.11"
   }
 }
