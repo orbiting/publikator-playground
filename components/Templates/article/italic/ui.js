@@ -4,7 +4,7 @@ import MarkButton from '../../../Editor/components/MarkButton'
 
 export const ItalicButton = props => (
   <MarkButton
-    mark={'sup'}
+    mark={'italic'}
     {...props}
     {...buttonStyles.iconButton}
   >

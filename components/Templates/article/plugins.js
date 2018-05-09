@@ -14,6 +14,7 @@ import InfoboxPlugin from './infoBox'
 import CenterPlugin from './center'
 
 export default [
+  BoldPlugin,
   CenterPlugin,
   InfoboxPlugin,
   TitleBlockPlugin,
@@ -22,7 +23,6 @@ export default [
   ParagraphPlugin,
   SubheadPlugin,
   LinkPlugin,
-  BoldPlugin,
   SuperscriptPlugin,
   SubscriptPlugin,
   ItalicPlugin

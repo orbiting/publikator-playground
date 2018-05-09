@@ -10,10 +10,11 @@
     "analyze": "cross-env ANALYZE=1 next build"
   },
   "dependencies": {
-    "@project-r/styleguide": "^5.73.1",
     "@orbiting/remark-preset": "^1.2.3",
+    "@project-r/styleguide": "^5.73.1",
     "d3-color": "^1.1.0",
     "d3-time-format": "^2.1.1",
+    "dotenv": "^5.0.1",
     "downshift": "^1.31.14",
     "glamor": "^2.20.40",
     "immutable": "^3.8.2",

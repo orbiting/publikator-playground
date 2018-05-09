@@ -6,13 +6,15 @@ import {
 } from '../../../Editor/lib'
 
 export default {
-  renderNode: ifElse(
-    compose(isMark('bold'), safeProp('node')),
-    ({ children, attributes }) => (
-      <Editorial.Emphasis {...attributes}>
-        {children}
-      </Editorial.Emphasis>
-    ),
+  renderMark: ifElse(
+    compose(isMark('bold'), safeProp('mark')),
+    ({ children, attributes }) => {
+      return (
+        <Editorial.Emphasis {...attributes}>
+          {children}
+        </Editorial.Emphasis>
+      )
+    },
     always(undefined)
   )
 }

@@ -57,10 +57,6 @@ export const removeInline = (change, inline) => {
   return change.unwrapInline(inline)
 }
 
-export const addMark = (change, mark) => {
-  return change.addMark(mark)
-}
-
 export const convertBlock = (
   change,
   node,
@@ -71,6 +67,10 @@ export const convertBlock = (
     node.key,
     conversionStrategy(change, node, block)
   )
+
+export const addMark = (change, mark) => {
+  return change.addMark(mark)
+}
 
 export const removeMark = (change, mark) => {
   const value = change.value

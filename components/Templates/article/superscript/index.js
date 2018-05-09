@@ -1,4 +1,4 @@
-import { Editorial } from '@project-r/styleguide'
+import { Sup } from '@project-r/styleguide'
 import { ifElse, compose, always } from 'ramda'
 import {
   safeProp,
@@ -6,12 +6,10 @@ import {
 } from '../../../Editor/lib'
 
 export default {
-  renderNode: ifElse(
-    compose(isMark('sup'), safeProp('node')),
+  renderMark: ifElse(
+    compose(isMark('sup'), safeProp('mark')),
     ({ children, attributes }) => (
-      <Editorial.Sup {...attributes}>
-        {children}
-      </Editorial.Sup>
+      <Sup {...attributes}>{children}</Sup>
     ),
     always(undefined)
   )

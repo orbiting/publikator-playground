@@ -3,8 +3,10 @@ import Document, {
   Main,
   NextScript
 } from 'next/document'
-import { fontFaces } from '@project-r/styleguide'
 import { renderStatic } from 'glamor/server'
+import { fontFaces } from '@project-r/styleguide'
+
+console.log(fontFaces())
 
 export default class MyDocument extends Document {
   static async getInitialProps({ renderPage }) {
@@ -12,14 +14,15 @@ export default class MyDocument extends Document {
     const styles = renderStatic(() => page.html)
     return {
       ...page,
-      ...styles
+      ...styles,
+      env: require('../lib/settings')
     }
   }
   constructor(props) {
     super(props)
     const { __NEXT_DATA__, env } = props
-    if (typeof window !== 'undefined') {
-      window.__NEXT_DATA__.env = env
+    if (env) {
+      __NEXT_DATA__.env = this.props.env
     }
   }
   render() {

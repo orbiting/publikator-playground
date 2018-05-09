@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-
 import {
   createStore,
   combineReducers
@@ -12,16 +11,9 @@ import withValue from './hoc/withValue'
 
 import reducers from './reducers'
 
-// import Frame from './components/Frame'
-
 import PropertyFormContainer from './components/PropertyFormContainer'
 import SelectionPath from './components/SelectionPath'
 import { css } from 'glamor'
-
-css.global('html, body', {
-  padding: 0,
-  margin: 0
-})
 
 const Editor = withValue(SlateEditor)
 

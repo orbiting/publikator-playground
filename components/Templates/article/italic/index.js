@@ -6,8 +6,8 @@ import {
 } from '../../../Editor/lib'
 
 export default {
-  renderNode: ifElse(
-    compose(isMark('italic'), safeProp('node')),
+  renderMark: ifElse(
+    compose(isMark('italic'), safeProp('mark')),
     ({ children, attributes }) => (
       <Editorial.Italic {...attributes}>
         {children}
