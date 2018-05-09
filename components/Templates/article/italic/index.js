@@ -9,9 +9,9 @@ export default {
   renderMark: ifElse(
     compose(isMark('italic'), safeProp('mark')),
     ({ children, attributes }) => (
-      <Editorial.Italic {...attributes}>
+      <Editorial.Cursive {...attributes}>
         {children}
-      </Editorial.Italic>
+      </Editorial.Cursive>
     ),
     always(undefined)
   )
