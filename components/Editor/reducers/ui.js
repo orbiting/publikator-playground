@@ -1,4 +1,4 @@
-import { getSelectionPath } from '../utils/selection'
+import { getSelectionPath } from '../lib/selection'
 import actionTypes from '../constants/actionTypes'
 
 const initialState = {

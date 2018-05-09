@@ -1,9 +1,6 @@
 import { Mark } from 'slate'
-import { isMark } from '../utils/foo'
-import {
-  getChildIndex,
-  getParent
-} from '../utils/selection'
+import { isMark } from '../lib'
+import { getChildIndex } from '../lib/selection'
 
 export const focusNextBlock = (change, node) => {
   const { value } = change
@@ -139,7 +136,7 @@ export const insertBlockAfter = (
   target
 ) => {
   return change.insertNodeByKey(
-    getParent(change.value, target).key,
+    change.value.document.getParent(target).key,
     getChildIndex(change.value, target) + 1,
     block
   )
@@ -151,7 +148,7 @@ export const insertBlockBefore = (
   target
 ) => {
   return change.insertNodeByKey(
-    getParent(change.value, target).key,
+    change.value.document.getParent(target).key,
     getChildIndex(change.value, target),
     block
   )

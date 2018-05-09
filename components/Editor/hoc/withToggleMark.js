@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { isMark } from '../utils/foo'
+import { isMark } from '../lib'
 import {
   addMark,
   removeMark

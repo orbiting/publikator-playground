@@ -17,7 +17,7 @@ import {
   safeProp,
   isBlock,
   hasEmptyText
-} from '../../../Editor/utils/foo'
+} from '../../../Editor/lib'
 
 import { BoldButton } from '../bold/ui'
 import { LinkButton } from '../link/ui'

@@ -14,7 +14,7 @@ import {
   safeProp,
   hasEmptyText,
   isBlock
-} from '../../../Editor/utils/foo'
+} from '../../../Editor/lib'
 
 import { InlinePlaceholder } from '../../../Editor/components/Placeholder'
 import PropertyForm from '../../../Editor/components/PropertyForm'

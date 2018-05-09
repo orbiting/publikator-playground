@@ -37,7 +37,7 @@ import {
   isEnter,
   isDelete,
   isBackspace
-} from '../../../Editor/utils/foo'
+} from '../../../Editor/lib'
 
 const onEnter = compose(
   ifElse(

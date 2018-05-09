@@ -5,7 +5,7 @@ import { ifElse, compose, always } from 'ramda'
 import {
   safeProp,
   isInline
-} from '../../../Editor/utils/foo'
+} from '../../../Editor/lib'
 
 import PropertyForm from '../../../Editor/components/PropertyForm'
 import { LinkUrlInput } from './ui'

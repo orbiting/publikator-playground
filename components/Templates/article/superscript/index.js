@@ -3,7 +3,7 @@ import { ifElse, compose, always } from 'ramda'
 import {
   safeProp,
   isMark
-} from '../../../Editor/utils/foo'
+} from '../../../Editor/lib'
 
 export default {
   renderNode: ifElse(

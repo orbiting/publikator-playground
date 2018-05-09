@@ -33,7 +33,7 @@ import {
   isBackspace,
   iSafePath,
   isBlock
-} from '../../../Editor/utils/foo'
+} from '../../../Editor/lib'
 
 import { create as createCaption } from '../caption/data'
 

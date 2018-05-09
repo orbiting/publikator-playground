@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
-
-import { isBlock } from '../utils/foo'
+import { isBlock } from '../lib'
 import { convertBlock } from '../actions/slate'
 
 const defaultConversionStrategy = (

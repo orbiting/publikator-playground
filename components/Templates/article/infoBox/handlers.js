@@ -43,7 +43,7 @@ import {
   isCollapsedAtStart,
   isCollapsedAtEnd,
   getPreviousBlockOf
-} from '../../../Editor/utils/foo'
+} from '../../../Editor/lib'
 
 import { create as createFigure } from '../figure/data'
 

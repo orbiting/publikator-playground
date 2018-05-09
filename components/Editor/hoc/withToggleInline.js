@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { isInline } from '../utils/foo'
+import { isInline } from '../lib'
 import {
   addInline,
   removeInline

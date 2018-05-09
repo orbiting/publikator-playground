@@ -9,7 +9,7 @@ import { compose, always, ifElse } from 'ramda'
 import {
   safeProp,
   isBlock
-} from '../../../Editor/utils/foo'
+} from '../../../Editor/lib'
 
 import buttonStyles from '../../../Editor/styles/buttonStyles'
 

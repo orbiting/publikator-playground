@@ -13,7 +13,7 @@ import {
   safeProp,
   isBlock,
   hasEmptyText
-} from '../../../Editor/utils/foo'
+} from '../../../Editor/lib'
 
 import Placeholder from '../../../Editor/components/Placeholder'
 

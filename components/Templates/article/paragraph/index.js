@@ -4,7 +4,7 @@ import { ifElse, compose, always } from 'ramda'
 import {
   isBlock,
   safeProp
-} from '../../../Editor/utils/foo'
+} from '../../../Editor/lib'
 
 import PropertyForm from '../../../Editor/components/PropertyForm'
 import {
