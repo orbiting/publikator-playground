@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { css } from 'glamor'
+import { fontFamilies } from '@project-r/styleguide'
 import {
   createStore,
   combineReducers
@@ -8,14 +10,23 @@ import { Provider } from 'react-redux'
 import { Editor as SlateEditor } from 'slate-react'
 
 import withValue from './hoc/withValue'
-
 import reducers from './reducers'
-
 import PropertyFormContainer from './components/PropertyFormContainer'
+import Frame from './components/Frame'
 import SelectionPath from './components/SelectionPath'
-import { css } from 'glamor'
 
 const Editor = withValue(SlateEditor)
+
+import 'glamor/reset'
+
+css.global('html', { boxSizing: 'border-box' })
+css.global('*, *:before, *:after', {
+  boxSizing: 'inherit'
+})
+
+css.global('body', {
+  fontFamily: fontFamilies.sansSerifRegular
+})
 
 const styles = {
   root: css({
@@ -26,7 +37,7 @@ const styles = {
     overflow: 'hidden'
   }),
   doc: css({
-    overflow: 'scroll'
+    flex: '1 100%'
   })
 }
 
@@ -55,11 +66,11 @@ class PublikatorEditor extends Component {
         <div {...styles.root}>
           <SelectionPath />
           <PropertyFormContainer />
-          <div {...styles.doc}>
+          <Frame {...styles.doc}>
             <Editor
               plugins={this.props.plugins}
             />
-          </div>
+          </Frame>
         </div>
       </Provider>
     )
