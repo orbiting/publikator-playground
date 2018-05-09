@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { fontFaces } from '@project-r/styleguide'
 import Portal from './Portal'
 import { styleSheet } from 'glamor'
 
@@ -46,7 +47,7 @@ class Frame extends Component {
             this.container = container
             this.style = style
           }
-          this.style.textContent = css
+          this.style.textContent = `${fontFaces()}${css}`
         }}
       />,
       <Portal
