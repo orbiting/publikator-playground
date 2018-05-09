@@ -6,16 +6,24 @@ const ownerDocument = node => {
   return (node && node.ownerDocument) || document
 }
 
-const getContainer = (container, defaultContainer) => {
+const getContainer = (
+  container,
+  defaultContainer
+) => {
   container =
     typeof container === 'function'
       ? container()
       : container
-  return ReactDOM.findDOMNode(container) || defaultContainer
+  return (
+    ReactDOM.findDOMNode(container) ||
+    defaultContainer
+  )
 }
 
 export const getOwnerDocument = element => {
-  return ownerDocument(ReactDOM.findDOMNode(element))
+  return ownerDocument(
+    ReactDOM.findDOMNode(element)
+  )
 }
 
 class Portal extends React.Component {
@@ -32,7 +40,9 @@ class Portal extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.container !== this.props.container) {
+    if (
+      nextProps.container !== this.props.container
+    ) {
       this.setContainer(nextProps.container)
     }
   }
@@ -52,7 +62,10 @@ class Portal extends React.Component {
     const { children } = this.props
 
     return this.mountNode
-      ? ReactDOM.createPortal(children, this.mountNode)
+      ? ReactDOM.createPortal(
+          children,
+          this.mountNode
+        )
       : null
   }
 }

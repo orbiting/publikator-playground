@@ -24,7 +24,10 @@ const styles = {
   })
 }
 
-const mouseDownHandler = (node, onSelect) => event => {
+const mouseDownHandler = (
+  node,
+  onSelect
+) => event => {
   event.preventDefault()
   onSelect(node)
 }
@@ -47,7 +50,10 @@ const SelectionPath = ({
         <a
           {...styles.nodeLink}
           key={n.key}
-          onMouseDown={mouseDownHandler(n, onSelect)}
+          onMouseDown={mouseDownHandler(
+            n,
+            onSelect
+          )}
           data-active={n === selectedNode}
         >
           {n.type || n.object}

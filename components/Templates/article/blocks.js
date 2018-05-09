@@ -6,15 +6,13 @@ import buttonStyles from '../../Editor/styles/buttonStyles'
 import PropertyForm from '../../Editor/components/PropertyForm'
 import FormatBlockButton from '../../Editor/components/FormatBlockButton'
 
-import {
-  BoldButton,
-  SupButton,
-  SubButton
-} from './marks'
+import { BoldButton } from './bold/ui'
+import { SubButton } from './subscript/ui'
+import { SupButton } from './superscript/ui'
 
-import { LinkButton } from './link'
+import { LinkButton } from './link/ui'
 import { InsertFigureButton } from './figure/ui'
-import { InsertInfoBoxButton } from './infoBox/plugins'
+import { InsertInfoBoxButton } from './infoBox/ui'
 
 export const PARAGRAPH = 'paragraph'
 export const SUBHEAD = 'subhead'

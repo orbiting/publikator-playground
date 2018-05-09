@@ -22,13 +22,18 @@ const styles = {
 
 export default ({ children }) => {
   return (
-    <span contentEditable={false} {...styles.absolute}>
+    <span
+      contentEditable={false}
+      {...styles.absolute}
+    >
       {children}
     </span>
   )
 }
 
-export const InlinePlaceholder = ({ children }) => {
+export const InlinePlaceholder = ({
+  children
+}) => {
   return (
     <span
       {...styles.inline}

@@ -11,13 +11,19 @@ const styles = {
   })
 }
 
-export default ({ label, onChange, ...props }) => (
+export default ({
+  label,
+  onChange,
+  ...props
+}) => (
   <label>
     {label}
     <input
       {...props}
       {...styles.input}
-      onChange={e => onChange && onChange(e.target.value)}
+      onChange={e =>
+        onChange && onChange(e.target.value)
+      }
     />
   </label>
 )

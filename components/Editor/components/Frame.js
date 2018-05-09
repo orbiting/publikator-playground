@@ -33,9 +33,14 @@ class Frame extends Component {
         {...props}
         ref={node => {
           if (!this.container) {
-            const style = document.createElement('style')
-            const frameBody = node.contentDocument.body
-            const container = document.createElement('div')
+            const style = document.createElement(
+              'style'
+            )
+            const frameBody =
+              node.contentDocument.body
+            const container = document.createElement(
+              'div'
+            )
             frameBody.appendChild(style)
             frameBody.appendChild(container)
             this.container = container

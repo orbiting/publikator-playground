@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Portal, { getOwnerDocument } from './Portal'
+import Portal, {
+  getOwnerDocument
+} from './Portal'
 
 const getContainer = (id, doc) => {
   const el = doc.getElementById(id)

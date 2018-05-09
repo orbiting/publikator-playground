@@ -35,7 +35,10 @@ export default ({
 }) => {
   const key = getKey()
   return (
-    <label htmlFor={`fileinput-${key}`} {...props}>
+    <label
+      htmlFor={`fileinput-${key}`}
+      {...props}
+    >
       {children}
       <input
         onChange={readImage(onChange)}

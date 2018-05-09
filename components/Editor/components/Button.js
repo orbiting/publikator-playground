@@ -6,7 +6,11 @@ const mouseDownHandler = onClick => event => {
   onClick && onClick(event)
 }
 
-const Button = ({ onClick, children, ...props }) => (
+const Button = ({
+  onClick,
+  children,
+  ...props
+}) => (
   <button
     onMouseDown={mouseDownHandler(onClick)}
     {...props}

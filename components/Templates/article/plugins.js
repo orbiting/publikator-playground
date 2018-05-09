@@ -1,31 +1,29 @@
-import { LinkPlugin } from './link'
+import LinkPlugin from './link'
 import FigurePlugin from './figure'
 import CaptionPlugin from './caption'
-import { MarksPlugin } from './marks'
-import {
-  ParagraphPlugin,
-  SubheadPlugin
-} from './blocks'
+import BoldPlugin from './bold'
+import SuperscriptPlugin from './superscript'
+import SubscriptPlugin from './subscript'
+import ItalicPlugin from './italic'
+import ParagraphPlugin from './paragraph'
+import SubheadPlugin from './subhead'
 import TitleBlockPlugin from './titleBlock'
 
-import {
-  InfoboxPlugin,
-  InfoboxTextPlugin,
-  InfoboxTitlePlugin
-} from './infoBox/plugins'
+import InfoboxPlugin from './infoBox'
 
 import { CenterPlugin } from './center'
 
 export default [
-  MarksPlugin,
   CenterPlugin,
-  LinkPlugin,
+  InfoboxPlugin,
+  TitleBlockPlugin,
   FigurePlugin,
   CaptionPlugin,
   ParagraphPlugin,
   SubheadPlugin,
-  TitleBlockPlugin,
-  InfoboxPlugin,
-  InfoboxTextPlugin,
-  InfoboxTitlePlugin
+  LinkPlugin,
+  BoldPlugin,
+  SuperscriptPlugin,
+  SubscriptPlugin,
+  ItalicPlugin
 ]

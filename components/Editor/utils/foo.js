@@ -91,6 +91,44 @@ export const getNumNodes = safePath([
   'size'
 ])
 
+export const getFurthestOf = curry(
+  (filter, getter) =>
+    converge(
+      (doc, target) =>
+        doc.getFurthest(target, filter),
+      [
+        getDocument,
+        compose(safeProp('key'), getter)
+      ]
+    )
+)
+
+export const getClosestOf = curry(
+  (filter, getter) =>
+    converge(
+      (doc, target) =>
+        doc.getClosest(target, filter),
+      [
+        getDocument,
+        compose(safeProp('key'), getter)
+      ]
+    )
+)
+
+export const getChildIndexOf = getter =>
+  converge(
+    (doc, target) =>
+      doc
+        .getParent(target)
+        .nodes.findIndex(
+          compose(equals(target), safeProp('key'))
+        ),
+    [
+      getDocument,
+      compose(safeProp('key'), getter)
+    ]
+  )
+
 export const getNextBlockOf = getter =>
   converge(
     (doc, target) => doc.getNextBlock(target),
@@ -127,7 +165,8 @@ export const getNthAncestorOf = curry(
             doc.getParent(safeProp('key', node)),
           target,
           times(identity, n)
-        )[(getDocument, getter)]
+        ),
+      [getDocument, getter]
     )
 )
 
@@ -193,7 +232,7 @@ export const isCollapsedAtStart = isCollapsedAtStartOf(
   getStartBlock
 )
 
-export const isCollapsedAtEnd = isCollapsedAtStartOf(
+export const isCollapsedAtEnd = isCollapsedAtEndOf(
   getEndBlock
 )
 
