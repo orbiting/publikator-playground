@@ -3,6 +3,10 @@ import PropTypes from 'prop-types'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { css } from 'glamor'
+import {
+  fontStyles,
+  colors
+} from '@project-r/styleguide'
 import { selectNode } from '../../actions/redux'
 import withUIState from '../../hoc/withUIState'
 
@@ -12,14 +16,17 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'row',
-    minHeight: '60px'
+    ...fontStyles.sansSerifRegular15,
+    lineHeight: '40px',
+    borderBottom: `1px solid ${colors.divider}`
   }),
   nodeLink: css({
     cursor: 'pointer',
     padding: '0px 5px 0px 5px',
     '&[data-active="true"]': {
-      color: '#f00',
-      cursor: 'default'
+      color: colors.primary,
+      cursor: 'default',
+      textDecoration: 'underline'
     }
   })
 }

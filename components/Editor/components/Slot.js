@@ -41,6 +41,7 @@ class Slot extends Component {
 }
 
 Slot.propTypes = {
+  id: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   onRendered: PropTypes.func
 }

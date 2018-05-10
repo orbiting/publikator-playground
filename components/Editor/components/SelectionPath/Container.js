@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from 'glamor'
-import SlotContainer from '../SlotContainer'
+import { Interaction } from '@project-r/styleguide'
 import { ID } from './Options'
 
 const styles = {
@@ -10,10 +10,5 @@ const styles = {
 }
 
 export default () => {
-  return (
-    <SlotContainer
-      {...styles.container}
-      id={ID}
-    />
-  )
+  return <div {...styles.container} id={ID} />
 }

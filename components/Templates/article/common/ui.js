@@ -1,3 +1,4 @@
+import OptionGroup from '../../../Editor/components/SelectionPath/OptionGroup'
 import { ParagraphButton } from '../paragraph/ui'
 import { SubheadButton } from '../subhead/ui'
 import { InsertFigureButton } from '../figure/ui'
@@ -9,20 +10,20 @@ export const BlockButtons = ({
   node,
   editor
 }) => (
-  <span>
+  <OptionGroup label={'Block'}>
     <ParagraphButton
       node={node}
       editor={editor}
     />
     <SubheadButton node={node} editor={editor} />
-  </span>
+  </OptionGroup>
 )
 
 export const InsertButtons = ({
   node,
   editor
 }) => (
-  <span>
+  <OptionGroup label={'Einfügen'}>
     <InsertFigureButton
       node={node}
       editor={editor}
@@ -31,12 +32,12 @@ export const InsertButtons = ({
       node={node}
       editor={editor}
     />
-  </span>
+  </OptionGroup>
 )
 
 export const TextButtons = ({ editor }) => (
-  <span>
+  <OptionGroup label={'Text'}>
     <SupButton editor={editor} />
     <SubButton editor={editor} />
-  </span>
+  </OptionGroup>
 )

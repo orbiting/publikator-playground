@@ -36,12 +36,22 @@ export default {
           node={node}
           editor={editor}
         />
-        <BoldButton node={node} editor={editor} />
-        <ItalicButton
-          node={node}
-          editor={editor}
-        />
-        <LinkButton node={node} editor={editor} />
+        <SelectionPath.OptionGroup
+          label={'Format'}
+        >
+          <BoldButton
+            node={node}
+            editor={editor}
+          />
+          <ItalicButton
+            node={node}
+            editor={editor}
+          />
+          <LinkButton
+            node={node}
+            editor={editor}
+          />
+        </SelectionPath.OptionGroup>
         <TextButtons
           node={node}
           editor={editor}
