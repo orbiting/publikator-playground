@@ -11,7 +11,6 @@ import { Editor as SlateEditor } from 'slate-react'
 
 import withValue from './hoc/withValue'
 import reducers from './reducers'
-import PropertyFormContainer from './components/PropertyFormContainer'
 import Frame from './components/Frame'
 import SelectionPath from './components/SelectionPath'
 
