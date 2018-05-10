@@ -23,19 +23,19 @@ import { BoldButton } from '../bold/ui'
 import { LinkButton } from '../link/ui'
 import { TextButtons } from '../common/ui'
 
-import PropertyForm from '../../../Editor/components/PropertyForm'
+import SelectionPath from '../../../Editor/components/SelectionPath'
 
 export const renderNode = compose(
   ifElse(
     compose(isBlock('infoBox'), safeProp('node')),
     ({ node, children, attributes }) => [
-      <PropertyForm
+      <SelectionPath.Options
         key="ui"
         node={node}
         offset={2}
       >
         Infobox
-      </PropertyForm>,
+      </SelectionPath.Options>,
       <InfoBox
         key="content"
         attributes={attributes}
@@ -50,9 +50,9 @@ export const renderNode = compose(
       safeProp('node')
     ),
     ({ node, editor, children, attributes }) => [
-      <PropertyForm key="ui" node={node}>
+      <SelectionPath.Options key="ui" node={node}>
         <TextButtons editor={editor} />
-      </PropertyForm>,
+      </SelectionPath.Options>,
       <InfoBoxTitle
         key="content"
         attributes={withRelativeStyle(attributes)}
@@ -67,11 +67,11 @@ export const renderNode = compose(
       safeProp('node')
     ),
     ({ node, children, attributes, editor }) => [
-      <PropertyForm key="ui" node={node}>
+      <SelectionPath.Options key="ui" node={node}>
         <BoldButton editor={editor} />
         <LinkButton editor={editor} />
         <TextButtons editor={editor} />
-      </PropertyForm>,
+      </SelectionPath.Options>,
       <InfoBoxText
         key="content"
         attributes={withRelativeStyle(attributes)}

@@ -13,7 +13,7 @@ import {
 
 import buttonStyles from '../../../Editor/styles/buttonStyles'
 
-import PropertyForm from '../../../Editor/components/PropertyForm'
+import SelectionPath from '../../../Editor/components/SelectionPath'
 import ImageInput from '../../../Editor/components/ImageInput'
 
 import withNodeData from '../../../Editor/hoc/withNodeData'
@@ -29,7 +29,7 @@ export const renderNode = compose(
       safeProp('node')
     ),
     ({ node, attributes, editor }) => [
-      <PropertyForm key="ui" node={node}>
+      <SelectionPath.Options key="ui" node={node}>
         <SelectImageButton
           node={node}
           editor={editor}
@@ -37,7 +37,7 @@ export const renderNode = compose(
         >
           <ImageIcon />
         </SelectImageButton>
-      </PropertyForm>,
+      </SelectionPath.Options>,
       !!node.data.get('url') ? (
         <FigureImage
           key="content"
@@ -63,13 +63,13 @@ export const renderNode = compose(
   ifElse(
     compose(isBlock('figure'), safeProp('node')),
     ({ node, attributes, children }) => [
-      <PropertyForm
+      <SelectionPath.Options
         key="ui"
         node={node}
         offset={2}
       >
         {' '}
-      </PropertyForm>,
+      </SelectionPath.Options>,
       <Figure {...attributes} key="content">
         {children}
       </Figure>

@@ -17,7 +17,7 @@ import {
 } from '../../../Editor/lib'
 
 import { InlinePlaceholder } from '../../../Editor/components/Placeholder'
-import PropertyForm from '../../../Editor/components/PropertyForm'
+import SelectionPath from '../../../Editor/components/SelectionPath'
 
 import { TextButtons } from '../common/ui'
 import { BoldButton } from '../bold/ui'
@@ -41,7 +41,7 @@ export const renderNode = compose(
       safeProp('node')
     ),
     ({ node, children, attributes, editor }) => [
-      <PropertyForm
+      <SelectionPath.Options
         key="ui"
         node={node}
         offset={1}
@@ -52,7 +52,7 @@ export const renderNode = compose(
           editor={editor}
           node={node}
         />
-      </PropertyForm>,
+      </SelectionPath.Options>,
       <span key="content" {...attributes}>
         {children}
       </span>
@@ -64,7 +64,7 @@ export const renderNode = compose(
       safeProp('node')
     ),
     ({ node, children, attributes, editor }) => [
-      <PropertyForm
+      <SelectionPath.Options
         key="ui"
         node={node}
         offset={1}
@@ -74,7 +74,7 @@ export const renderNode = compose(
           editor={editor}
           node={node}
         />
-      </PropertyForm>,
+      </SelectionPath.Options>,
       <FigureByline key="content" {...attributes}>
         {children}
       </FigureByline>

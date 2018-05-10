@@ -6,7 +6,7 @@ import {
   safeProp
 } from '../../../Editor/lib'
 
-import PropertyForm from '../../../Editor/components/PropertyForm'
+import SelectionPath from '../../../Editor/components/SelectionPath'
 import {
   BlockButtons,
   TextButtons,
@@ -23,7 +23,7 @@ export default {
       safeProp('node')
     ),
     ({ node, children, attributes, editor }) => [
-      <PropertyForm
+      <SelectionPath.Options
         offset={1}
         key="ui"
         node={node}
@@ -46,7 +46,7 @@ export default {
           node={node}
           editor={editor}
         />
-      </PropertyForm>,
+      </SelectionPath.Options>,
       <Editorial.P key="content" {...attributes}>
         {children}
       </Editorial.P>

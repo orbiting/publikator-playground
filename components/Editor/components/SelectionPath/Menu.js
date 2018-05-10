@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { css } from 'glamor'
-import { selectNode } from '../actions/redux'
-import withUIState from '../hoc/withUIState'
+import { selectNode } from '../../actions/redux'
+import withUIState from '../../hoc/withUIState'
 
 const styles = {
   container: css({
@@ -32,7 +32,7 @@ const mouseDownHandler = (
   onSelect(node)
 }
 
-const SelectionPath = ({
+const SelectionPathMenu = ({
   selectedNode,
   selectionPath,
   onSelect
@@ -63,7 +63,7 @@ const SelectionPath = ({
   )
 }
 
-SelectionPath.propTypes = {
+SelectionPathMenu.propTypes = {
   selectedNode: PropTypes.object,
   selectionPath: PropTypes.object,
   onSelect: PropTypes.func.isRequired
@@ -76,4 +76,4 @@ const mapDispatchToProps = dispatch => ({
 export default compose(
   connect(null, mapDispatchToProps),
   withUIState
-)(SelectionPath)
+)(SelectionPathMenu)

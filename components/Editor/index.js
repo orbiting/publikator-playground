@@ -64,8 +64,8 @@ class PublikatorEditor extends Component {
     return (
       <Provider store={this.store}>
         <div {...styles.root}>
-          <SelectionPath />
-          <PropertyFormContainer />
+          <SelectionPath.Menu />
+          <SelectionPath.Container />
           <Frame {...styles.doc}>
             <Editor
               plugins={this.props.plugins}

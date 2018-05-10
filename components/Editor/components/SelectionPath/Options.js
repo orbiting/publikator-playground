@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Slot from './Slot'
-import withIsSelected from '../hoc/withIsSelected'
+import Slot from '../Slot'
+import withIsSelected from '../../hoc/withIsSelected'
 
-export const ID = 'PUBLIKATOR_PROPERTY_FORM'
+export const ID = 'PUBLIKATOR_SELECTION_PATH'
 
-const PropertyForm = withIsSelected(
+const SelectionPathOptions = withIsSelected(
   ({ children, isSelected }) => {
     return (
       (isSelected && (
@@ -16,8 +16,8 @@ const PropertyForm = withIsSelected(
   }
 )
 
-PropertyForm.propTypes = {
+SelectionPathOptions.propTypes = {
   node: PropTypes.object.isRequired
 }
 
-export default PropertyForm
+export default SelectionPathOptions

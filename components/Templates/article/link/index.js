@@ -7,19 +7,19 @@ import {
   isInline
 } from '../../../Editor/lib'
 
-import PropertyForm from '../../../Editor/components/PropertyForm'
+import SelectionPath from '../../../Editor/components/SelectionPath'
 import { LinkUrlInput } from './ui'
 
 export default {
   renderNode: ifElse(
     compose(isInline('link'), safeProp('node')),
     ({ node, children, attributes, editor }) => [
-      <PropertyForm key="ui" node={node}>
+      <SelectionPath.Options key="ui" node={node}>
         <LinkUrlInput
           node={node}
           editor={editor}
         />
-      </PropertyForm>,
+      </SelectionPath.Options>,
       <Editorial.A
         key="content"
         href={node.data.get('url')}
