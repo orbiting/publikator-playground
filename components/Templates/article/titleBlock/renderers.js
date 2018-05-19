@@ -15,6 +15,11 @@ import {
   hasEmptyText
 } from '../../../Editor/lib'
 
+import SelectionPath from '../../../Editor/components/SelectionPath'
+
+import { TextButtons } from '../common/ui'
+import { LinkButton } from '../link/ui'
+
 import Placeholder from '../../../Editor/components/Placeholder'
 
 export const renderNode = compose(
@@ -42,14 +47,28 @@ export const renderNode = compose(
   ),
   ifElse(
     compose(isBlock('credits'), safeProp('node')),
-    ({ children, attributes }) => (
+    ({ children, attributes, editor, node }) => [
+      <SelectionPath.Options
+        key="ui"
+        node={node}
+        offset={1}
+      >
+        <SelectionPath.OptionGroup label="Format">
+          <LinkButton editor={editor} />
+        </SelectionPath.OptionGroup>
+        <TextButtons
+          editor={editor}
+          node={node}
+        />
+      </SelectionPath.Options>,
       <Editorial.Credit
+        key="content"
         style={{ position: 'relative' }}
         {...attributes}
       >
         {children}
       </Editorial.Credit>
-    )
+    ]
   ),
   ifElse(
     compose(

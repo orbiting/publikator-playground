@@ -136,7 +136,8 @@ export const insertBlockAfter = (
   target
 ) => {
   return change.insertNodeByKey(
-    change.value.document.getParent(target).key,
+    change.value.document.getParent(target.key)
+      .key,
     getChildIndex(change.value, target) + 1,
     block
   )
@@ -149,7 +150,7 @@ export const insertBlockBefore = (
 ) => {
   return change.insertNodeByKey(
     change.value.document.getParent(target).key,
-    getChildIndex(change.value, target),
+    getChildIndex(change.value, target).key,
     block
   )
 }

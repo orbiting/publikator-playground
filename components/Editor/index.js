@@ -7,7 +7,10 @@ import {
   combineReducers
 } from 'redux'
 import { Provider } from 'react-redux'
-import { Editor as SlateEditor } from 'slate-react'
+import {
+  Editor as SlateEditor,
+  findDOMRange
+} from 'slate-react'
 
 import withValue from './hoc/withValue'
 import reducers from './reducers'
@@ -34,6 +37,10 @@ const styles = {
     flexDirection: 'column',
     fontFamily: 'sans-serif, Arial, Helvetica',
     overflow: 'hidden'
+  }),
+  ui: css({
+    position: 'fixed',
+    width: 0
   }),
   doc: css({
     flex: '1 100%'
@@ -63,8 +70,10 @@ class PublikatorEditor extends Component {
     return (
       <Provider store={this.store}>
         <div {...styles.root}>
-          <SelectionPath.Menu />
-          <SelectionPath.Container />
+          <div {...styles.ui}>
+            <SelectionPath.Menu />
+            <SelectionPath.Container />
+          </div>
           <Frame {...styles.doc}>
             <Editor
               plugins={this.props.plugins}

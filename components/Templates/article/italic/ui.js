@@ -8,6 +8,6 @@ export const ItalicButton = props => (
     {...props}
     {...buttonStyles.iconButton}
   >
-    <ItalicIcon />
+    <ItalicIcon size={22} />
   </MarkButton>
 )

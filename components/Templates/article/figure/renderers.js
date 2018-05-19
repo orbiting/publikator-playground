@@ -2,7 +2,7 @@ import {
   FigureImage,
   Figure
 } from '@project-r/styleguide'
-import ImageIcon from 'react-icons/lib/fa/image'
+import ChangeImageIcon from 'react-icons/lib/fa/exchange'
 
 import { compose, always, ifElse } from 'ramda'
 
@@ -30,13 +30,15 @@ export const renderNode = compose(
     ),
     ({ node, attributes, editor }) => [
       <SelectionPath.Options key="ui" node={node}>
-        <SelectImageButton
-          node={node}
-          editor={editor}
-          {...buttonStyles.iconButton}
-        >
-          <ImageIcon />
-        </SelectImageButton>
+        <SelectionPath.OptionGroup label="Bild">
+          <SelectImageButton
+            node={node}
+            editor={editor}
+            {...buttonStyles.iconButton}
+          >
+            <ChangeImageIcon size={22} />
+          </SelectImageButton>
+        </SelectionPath.OptionGroup>
       </SelectionPath.Options>,
       !!node.data.get('url') ? (
         <FigureImage

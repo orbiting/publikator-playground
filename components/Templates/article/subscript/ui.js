@@ -8,6 +8,6 @@ export const SubButton = props => (
     {...props}
     {...buttonStyles.iconButton}
   >
-    <SubIcon />
+    <SubIcon size={22} /> 
   </MarkButton>
 )

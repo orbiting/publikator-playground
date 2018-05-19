@@ -12,7 +12,6 @@ import {
   TextButtons,
   InsertButtons
 } from '../common/ui'
-import { LinkButton } from '../link/ui'
 
 export default {
   renderNode: ifElse(
@@ -31,7 +30,6 @@ export default {
           node={node}
           editor={editor}
         />
-        <LinkButton node={node} editor={editor} />
         <TextButtons
           node={node}
           editor={editor}

@@ -28,14 +28,7 @@ import SelectionPath from '../../../Editor/components/SelectionPath'
 export const renderNode = compose(
   ifElse(
     compose(isBlock('infoBox'), safeProp('node')),
-    ({ node, children, attributes }) => [
-      <SelectionPath.Options
-        key="ui"
-        node={node}
-        offset={2}
-      >
-        Infobox
-      </SelectionPath.Options>,
+    ({ children, attributes }) => [
       <InfoBox
         key="content"
         attributes={attributes}
@@ -67,9 +60,15 @@ export const renderNode = compose(
       safeProp('node')
     ),
     ({ node, children, attributes, editor }) => [
-      <SelectionPath.Options key="ui" node={node}>
-        <BoldButton editor={editor} />
-        <LinkButton editor={editor} />
+      <SelectionPath.Options
+        key="ui"
+        offset={1}
+        node={node}
+      >
+        <SelectionPath.OptionGroup label="Format">
+          <BoldButton editor={editor} />
+          <LinkButton editor={editor} />
+        </SelectionPath.OptionGroup>
         <TextButtons editor={editor} />
       </SelectionPath.Options>,
       <InfoBoxText

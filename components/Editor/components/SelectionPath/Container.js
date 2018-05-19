@@ -1,14 +1,17 @@
 import React from 'react'
 import { css } from 'glamor'
-import { Interaction } from '@project-r/styleguide'
 import { ID } from './Options'
 
 const styles = {
-  container: css({
-    minHeight: '40px'
+  container: css({}),
+  content: css({
+    width: 0,
+    '&:empty': {
+      height: 0
+    }
   })
 }
 
 export default () => {
-  return <div {...styles.container} id={ID} />
+  return <div {...styles.content} id={ID} />
 }

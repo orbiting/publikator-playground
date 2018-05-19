@@ -8,6 +8,6 @@ export const ParagraphButton = props => (
     {...props}
     {...buttonStyles.iconButton}
   >
-    <ParagraphIcon />
+    <ParagraphIcon size={22} /> 
   </FormatBlockButton>
 )

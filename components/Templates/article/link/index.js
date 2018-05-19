@@ -8,17 +8,23 @@ import {
 } from '../../../Editor/lib'
 
 import SelectionPath from '../../../Editor/components/SelectionPath'
-import { LinkUrlInput } from './ui'
+import {
+  LinkUrlInput,
+  LinkTitleInput,
+  LinkCard
+} from './ui'
 
 export default {
   renderNode: ifElse(
     compose(isInline('link'), safeProp('node')),
     ({ node, children, attributes, editor }) => [
       <SelectionPath.Options key="ui" node={node}>
-        <LinkUrlInput
-          node={node}
-          editor={editor}
-        />
+        <SelectionPath.OptionGroup
+          label="Link"
+          primary
+        >
+          <LinkCard node={node} />
+        </SelectionPath.OptionGroup>
       </SelectionPath.Options>,
       <Editorial.A
         key="content"

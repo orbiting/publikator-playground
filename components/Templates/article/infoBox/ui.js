@@ -11,6 +11,6 @@ export const InsertInfoBoxButton = props => (
     {...props}
     {...buttonStyles.iconButton}
   >
-    <InfoBoxIcon />
+    <InfoBoxIcon size={22} />
   </InsertBlockButton>
 )

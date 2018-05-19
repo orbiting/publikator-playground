@@ -8,6 +8,6 @@ export const SubheadButton = props => (
     {...props}
     {...buttonStyles.iconButton}
   >
-    <SubheadIcon />
+    <SubheadIcon size={22} /> 
   </FormatBlockButton>
 )

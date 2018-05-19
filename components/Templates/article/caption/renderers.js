@@ -46,8 +46,10 @@ export const renderNode = compose(
         node={node}
         offset={1}
       >
-        <BoldButton editor={editor} />
-        <LinkButton editor={editor} />
+        <SelectionPath.OptionGroup label="Format">
+          <BoldButton editor={editor} />
+          <LinkButton editor={editor} />
+        </SelectionPath.OptionGroup>
         <TextButtons
           editor={editor}
           node={node}
@@ -69,7 +71,9 @@ export const renderNode = compose(
         node={node}
         offset={1}
       >
-        <LinkButton editor={editor} />
+        <SelectionPath.OptionGroup label="Format">
+          <LinkButton editor={editor} />
+        </SelectionPath.OptionGroup>
         <TextButtons
           editor={editor}
           node={node}

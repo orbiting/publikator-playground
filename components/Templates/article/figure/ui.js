@@ -11,6 +11,6 @@ export const InsertFigureButton = props => (
     {...props}
     {...buttonStyles.iconButton}
   >
-    <ImageIcon />
+    <ImageIcon size={22} /> 
   </InsertBlockButton>
 )

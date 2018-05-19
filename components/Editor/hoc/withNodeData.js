@@ -9,6 +9,7 @@ const mapStateToProps = dataKey => (
     ? node.data.get(dataKey)
     : node.data,
   onChange: value => {
+    console.log(value)
     editor.change(
       updateData,
       node,

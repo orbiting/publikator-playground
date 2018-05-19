@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { css } from 'glamor'
+import ArrowIcon from 'react-icons/lib/fa/angle-right'
 import {
   fontStyles,
   colors
@@ -12,17 +13,19 @@ import withUIState from '../../hoc/withUIState'
 
 const styles = {
   container: css({
-    backgroundColor: '#fff',
+    backgroundColor: colors.secondaryBg,
+    padding: '0 20px',
+    width: 'max-content',
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'row',
-    ...fontStyles.sansSerifRegular15,
-    lineHeight: '40px',
-    borderBottom: `1px solid ${colors.divider}`
+    // ...fontStyles.sansSerifRegular15,
+    lineHeight: '55px'
+    // borderBottom: `1px solid ${colors.divider}`
   }),
   nodeLink: css({
+    ...fontStyles.sansSerifRegular16,
     cursor: 'pointer',
-    padding: '0px 5px 0px 5px',
     '&[data-active="true"]': {
       color: colors.primary,
       cursor: 'default',
@@ -53,18 +56,24 @@ const SelectionPathMenu = ({
   }
   return (
     <div {...styles.container}>
-      {selectionPath.map(n => (
-        <a
-          {...styles.nodeLink}
-          key={n.key}
-          onMouseDown={mouseDownHandler(
-            n,
-            onSelect
+      {selectionPath.map((n, i) => (
+        <span key={n.key}>
+          {i > 0 && (
+            <ArrowIcon
+              style={{ margin: '0 15px' }}
+            />
           )}
-          data-active={n === selectedNode}
-        >
-          {n.type || n.object}
-        </a>
+          <a
+            {...styles.nodeLink}
+            onMouseDown={mouseDownHandler(
+              n,
+              onSelect
+            )}
+            data-active={n === selectedNode}
+          >
+            {n.type || n.object}
+          </a>
+        </span>
       ))}
     </div>
   )

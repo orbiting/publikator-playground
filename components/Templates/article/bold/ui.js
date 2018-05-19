@@ -8,6 +8,6 @@ export const BoldButton = props => (
     {...props}
     {...buttonStyles.iconButton}
   >
-    <BoldIcon />
+    <BoldIcon size={22} />
   </MarkButton>
 )

@@ -8,6 +8,6 @@ export const SupButton = props => (
     {...props}
     {...buttonStyles.iconButton}
   >
-    <SupIcon />
+    <SupIcon size={22} /> 
   </MarkButton>
 )
