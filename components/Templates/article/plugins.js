@@ -1,4 +1,5 @@
 import LinkPlugin from './link'
+import FigureGroupPlugin from './figureGroup'
 import FigurePlugin from './figure'
 import CaptionPlugin from './caption'
 import BoldPlugin from './bold'
@@ -16,6 +17,7 @@ import CenterPlugin from './center'
 export default [
   BoldPlugin,
   CenterPlugin,
+  FigureGroupPlugin,
   InfoboxPlugin,
   TitleBlockPlugin,
   FigurePlugin,
