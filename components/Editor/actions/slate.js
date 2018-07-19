@@ -77,31 +77,16 @@ export const removeMark = (change, mark) => {
   if (value.isEmpty) {
     const key = value.startKey
     const offset = value.startOffset
-    const characters = value.texts.first()
-      .characters
-    let i = offset
-    let has = true
-    while (has) {
-      i--
-      has = characters
-        .get(i)
-        .marks.some(isMark(mark))
-    }
-    const start = i
-    i = offset
-    has = true
-    while (has) {
-      i++
-      has = characters
-        .get(i)
-        .marks.some(isMark(mark))
-    }
-    const end = i
-    const length = end - start
+    const text = value.texts.first()
+    const {
+      endOffset,
+      startOffset
+    } = text.searchLeafAtOffset(offset)
+
     return change.removeMarkByKey(
       key,
-      start,
-      length,
+      startOffset,
+      endOffset - startOffset,
       typeof mark === 'string'
         ? Mark.create({ type: mark })
         : mark
