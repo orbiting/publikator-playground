@@ -2,7 +2,7 @@ import TreeUtils from 'immutable-treeutils'
 import { Seq, List, Map } from 'immutable'
 
 const tree = new TreeUtils(
-  Seq.of('document'),
+  Seq(['document']),
   'key',
   'nodes'
 )
