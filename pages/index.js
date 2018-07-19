@@ -11,7 +11,7 @@ import { deserialize } from '../lib/serializer'
 export default () => (
   <Editor
     plugins={plugins}
-    value={Value.fromJSON({
+    initialValue={Value.fromJSON({
       document: deserialize(
         Article.fromMdast,
         parse(initial)

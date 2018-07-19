@@ -1,12 +1,19 @@
+import { Value } from 'slate'
 import { resetKeyGenerator } from 'slate'
 import { connect } from 'react-redux'
 import { change } from '../actions/redux'
 
 resetKeyGenerator()
 
-const mapStateToProps = state => {
+const mapStateToProps = (
+  { value: valueFromState },
+  { initialValue }
+) => {
+  const value = valueFromState || initialValue
   return {
-    value: state.value
+    value: Value.isValue(value)
+      ? value
+      : Value.fromJSON(value)
   }
 }
 
@@ -18,4 +25,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)

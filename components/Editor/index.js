@@ -2,18 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'glamor'
 import { fontFamilies } from '@project-r/styleguide'
-import {
-  createStore,
-  combineReducers
-} from 'redux'
-import { Provider } from 'react-redux'
-import {
-  Editor as SlateEditor,
-  findDOMRange
-} from 'slate-react'
 
+import { Editor as SlateEditor } from 'slate-react'
 import withValue from './hoc/withValue'
-import reducers from './reducers'
 import Frame from './components/Frame'
 import SelectionPath from './components/SelectionPath'
 
@@ -48,47 +39,28 @@ const styles = {
 }
 
 class PublikatorEditor extends Component {
-  constructor(props) {
-    super(props)
-    this.store = createStore(
-      combineReducers(reducers),
-      props.value && { value: props.value }
-    )
-
-    this.changeHandler = () =>
-      this.props.onChange &&
-      this.props.onChange(
-        this.store.getState().value
-      )
-
-    this.unsubscribe = this.store.subscribe(
-      this.changeHandler
-    )
-  }
-
   render() {
     return (
-      <Provider store={this.store}>
-        <div {...styles.root}>
-          <div {...styles.ui}>
-            <SelectionPath.Menu />
-            <SelectionPath.Container />
-          </div>
-          <Frame {...styles.doc}>
-            <Editor
-              plugins={this.props.plugins}
-            />
-          </Frame>
+      <div {...styles.root}>
+        <div {...styles.ui}>
+          <SelectionPath.Menu />
+          <SelectionPath.Container />
         </div>
-      </Provider>
+        <Frame {...styles.doc}>
+          <Editor
+            plugins={this.props.plugins}
+            initialValue={this.props.initialValue}
+          />
+        </Frame>
+      </div>
     )
   }
 }
 
 PublikatorEditor.propTypes = {
   onChange: PropTypes.func,
-  value: PropTypes.object,
-  plugins: PropTypes.array
+  initialValue: PropTypes.object.isRequired,
+  plugins: PropTypes.array.isRequired
 }
 
 export default PublikatorEditor
