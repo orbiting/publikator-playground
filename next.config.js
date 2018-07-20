@@ -29,6 +29,10 @@ module.exports = {
       '@orbiting/transform': path.resolve(
         __dirname,
         'lib/transform/'
+      ),
+      '@orbiting/publikator-editor': path.resolve(
+        __dirname,
+        'components/Editor/'
       )
     }
     return config
