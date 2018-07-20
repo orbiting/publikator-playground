@@ -15,7 +15,7 @@ import {
   insertBlockAfter,
   removeBlock,
   updateData
-} from '../../../Editor/actions/slate'
+} from '@orbiting/publikator-editor/actions/slate'
 
 import {
   isMixed,
@@ -33,7 +33,7 @@ import {
   isBackspace,
   iSafePath,
   isBlock
-} from '../../../Editor/lib'
+} from '@orbiting/publikator-editor/lib'
 
 import { create as createCaption } from '../caption/data'
 

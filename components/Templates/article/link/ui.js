@@ -9,11 +9,11 @@ import ExternalLinkIcon from 'react-icons/lib/fa/external-link'
 import DocumentLinkIcon from 'react-icons/lib/fa/file-text-o'
 import AuthorLinkIcon from 'react-icons/lib/fa/user'
 
-import buttonStyles from '../../../Editor/styles/buttonStyles'
-import withNodeData from '../../../Editor/hoc/withNodeData'
-import InlineButton from '../../../Editor/components/InlineButton'
-import TextInput from '../../../Editor/components/TextInput'
-import SelectionPath from '../../../Editor/components/SelectionPath'
+import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
+import withNodeData from '@orbiting/publikator-editor/hoc/withNodeData'
+import InlineButton from '@orbiting/publikator-editor/components/InlineButton'
+import TextInput from '@orbiting/publikator-editor/components/TextInput'
+import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 
 const styles = {
   card: {},

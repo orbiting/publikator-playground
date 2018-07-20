@@ -1,4 +1,4 @@
-import OptionGroup from '../../../Editor/components/SelectionPath/OptionGroup'
+import OptionGroup from '@orbiting/publikator-editor/components/SelectionPath/OptionGroup'
 import { ParagraphButton } from '../paragraph/ui'
 import { SubheadButton } from '../subhead/ui'
 import { InsertFigureButton } from '../figure/ui'

@@ -14,10 +14,10 @@ import {
   safeProp,
   hasEmptyText,
   isBlock
-} from '../../../Editor/lib'
+} from '@orbiting/publikator-editor/lib'
 
-import { InlinePlaceholder } from '../../../Editor/components/Placeholder'
-import SelectionPath from '../../../Editor/components/SelectionPath'
+import { InlinePlaceholder } from '@orbiting/publikator-editor/components/Placeholder'
+import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 
 import { TextButtons } from '../common/ui'
 import { BoldButton } from '../bold/ui'

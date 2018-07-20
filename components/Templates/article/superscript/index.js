@@ -3,7 +3,7 @@ import { ifElse, compose, always } from 'ramda'
 import {
   safeProp,
   isMark
-} from '../../../Editor/lib'
+} from '@orbiting/publikator-editor/lib'
 
 export default {
   renderMark: ifElse(

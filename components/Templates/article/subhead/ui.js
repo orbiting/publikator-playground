@@ -1,6 +1,6 @@
 import SubheadIcon from 'react-icons/lib/fa/header'
-import buttonStyles from '../../../Editor/styles/buttonStyles'
-import FormatBlockButton from '../../../Editor/components/FormatBlockButton'
+import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
+import FormatBlockButton from '@orbiting/publikator-editor/components/FormatBlockButton'
 
 export const SubheadButton = props => (
   <FormatBlockButton

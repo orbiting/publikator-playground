@@ -1,6 +1,6 @@
 import SupIcon from 'react-icons/lib/fa/superscript'
-import buttonStyles from '../../../Editor/styles/buttonStyles'
-import MarkButton from '../../../Editor/components/MarkButton'
+import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
+import MarkButton from '@orbiting/publikator-editor/components/MarkButton'
 
 export const SupButton = props => (
   <MarkButton

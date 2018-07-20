@@ -5,9 +5,9 @@ import { ifElse, compose, always } from 'ramda'
 import {
   safeProp,
   isInline
-} from '../../../Editor/lib'
+} from '@orbiting/publikator-editor/lib'
 
-import SelectionPath from '../../../Editor/components/SelectionPath'
+import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 import {
   LinkUrlInput,
   LinkTitleInput,

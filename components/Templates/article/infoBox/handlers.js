@@ -17,7 +17,7 @@ import {
   focusPrevious,
   insertBlockAfter,
   removeBlock
-} from '../../../Editor/actions/slate'
+} from '@orbiting/publikator-editor/actions/slate'
 
 import {
   isMixed,
@@ -43,7 +43,7 @@ import {
   isCollapsedAtStart,
   isCollapsedAtEnd,
   getPreviousBlockOf
-} from '../../../Editor/lib'
+} from '@orbiting/publikator-editor/lib'
 
 import { create as createFigure } from '../figure/data'
 

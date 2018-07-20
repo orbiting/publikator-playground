@@ -9,14 +9,14 @@ import { compose, always, ifElse } from 'ramda'
 import {
   safeProp,
   isBlock
-} from '../../../Editor/lib'
+} from '@orbiting/publikator-editor/lib'
 
-import buttonStyles from '../../../Editor/styles/buttonStyles'
+import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
 
-import SelectionPath from '../../../Editor/components/SelectionPath'
-import ImageInput from '../../../Editor/components/ImageInput'
+import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
+import ImageInput from '@orbiting/publikator-editor/components/ImageInput'
 
-import withNodeData from '../../../Editor/hoc/withNodeData'
+import withNodeData from '@orbiting/publikator-editor/hoc/withNodeData'
 
 const SelectImageButton = withNodeData('url')(
   ImageInput

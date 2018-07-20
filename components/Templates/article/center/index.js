@@ -3,7 +3,7 @@ import { ifElse, always, compose } from 'ramda'
 import {
   isBlock,
   safeProp
-} from '../../../Editor/lib'
+} from '@orbiting/publikator-editor/lib'
 
 export default {
   renderNode: ifElse(

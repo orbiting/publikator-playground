@@ -10,20 +10,20 @@ import {
   InfoBoxText
 } from '@project-r/styleguide'
 
-import withRelativeStyle from '../../../Editor/styles/withRelativeStyle'
-import Placeholder from '../../../Editor/components/Placeholder'
+import withRelativeStyle from '@orbiting/publikator-editor/styles/withRelativeStyle'
+import Placeholder from '@orbiting/publikator-editor/components/Placeholder'
 
 import {
   safeProp,
   isBlock,
   hasEmptyText
-} from '../../../Editor/lib'
+} from '@orbiting/publikator-editor/lib'
 
 import { BoldButton } from '../bold/ui'
 import { LinkButton } from '../link/ui'
 import { TextButtons } from '../common/ui'
 
-import SelectionPath from '../../../Editor/components/SelectionPath'
+import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 
 export const renderNode = compose(
   ifElse(

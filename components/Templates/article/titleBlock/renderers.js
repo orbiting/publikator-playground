@@ -13,14 +13,14 @@ import {
   safeProp,
   isBlock,
   hasEmptyText
-} from '../../../Editor/lib'
+} from '@orbiting/publikator-editor/lib'
 
-import SelectionPath from '../../../Editor/components/SelectionPath'
+import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 
 import { TextButtons } from '../common/ui'
 import { LinkButton } from '../link/ui'
 
-import Placeholder from '../../../Editor/components/Placeholder'
+import Placeholder from '@orbiting/publikator-editor/components/Placeholder'
 
 export const renderNode = compose(
   ifElse(

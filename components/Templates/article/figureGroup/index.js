@@ -3,10 +3,10 @@ import { ifElse, compose, always } from 'ramda'
 import {
   safeProp,
   isBlock
-} from '../../../Editor/lib'
-import SelectionPath from '../../../Editor/components/SelectionPath'
-import RadioButton from '../../../Editor/components/RadioButton'
-import withNodeData from '../../../Editor/hoc/withNodeData'
+} from '@orbiting/publikator-editor/lib'
+import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
+import RadioButton from '@orbiting/publikator-editor/components/RadioButton'
+import withNodeData from '@orbiting/publikator-editor/hoc/withNodeData'
 
 const FigureGroupForm = withNodeData('size')(
   ({ value, onChange }) => {
@@ -40,7 +40,6 @@ export default {
       safeProp('node')
     ),
     ({ children, attributes, node, editor }) => {
-      console.log(node.data)
       return [
         <SelectionPath.Options
           offset={3}

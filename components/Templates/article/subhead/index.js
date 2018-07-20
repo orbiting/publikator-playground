@@ -4,9 +4,9 @@ import { ifElse, compose, always } from 'ramda'
 import {
   isBlock,
   safeProp
-} from '../../../Editor/lib'
+} from '@orbiting/publikator-editor/lib'
 
-import SelectionPath from '../../../Editor/components/SelectionPath'
+import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 import {
   BlockButtons,
   TextButtons,
