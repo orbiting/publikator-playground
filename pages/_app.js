@@ -1,4 +1,5 @@
 import App, { Container } from 'next/app'
+import { resetKeyGenerator } from 'slate'
 import React from 'react'
 import { compose } from 'redux'
 
@@ -8,6 +9,14 @@ import withReduxStore from '../lib/app/withReduxStore'
 import { ApolloProvider } from 'react-apollo'
 import withApolloClient from '../lib/app/withApolloClient'
 
+let keysReset = false
+const resetSlateKeys = () => {
+  if (!keysReset) {
+    resetKeyGenerator()
+    keysReset = !!process.browser
+  }
+}
+
 class MyApp extends App {
   render() {
     const {
@@ -16,6 +25,7 @@ class MyApp extends App {
       apolloClient,
       reduxStore
     } = this.props
+    resetSlateKeys()
     return (
       <Container>
         <ApolloProvider client={apolloClient}>
