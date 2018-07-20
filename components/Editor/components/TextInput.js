@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { css, merge, simulate } from 'glamor'
+import { css, merge } from 'glamor'
 import {
   colors,
   mediaQueries,
