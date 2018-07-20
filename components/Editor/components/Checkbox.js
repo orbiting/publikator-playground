@@ -1,10 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { css } from 'glamor'
+import colors from '../../theme/colors'
+import { fontStyles } from '../../theme/fonts'
 
-let i = 0
-const getId = () => {
-  i++
-  return `checkbox-${i}`
+let localKey = 0
+const getKey = () => {
+  localKey = localKey + 1
+  return `checkbox-${localKey}`
 }
 
 const mouseDownHandler = event =>
@@ -15,22 +18,25 @@ const changeHandler = onChange => event => {
 }
 
 const Checkbox = ({
+  id,
   name,
   label,
   checked,
   disabled,
-  onChange
+  onChange,
+  ...props
 }) => {
-  const id = getId(9)
+  const id = id || getKey()
   return (
     <label htmlFor={id}>
       <input
+        {...props}
+        onMouseDown={mouseDownHandler}
         id={id}
         name={name}
         type="checkbox"
         checked={checked}
         disabled={disabled}
-        onMouseDown={mouseDownHandler}
         onChange={changeHandler(onChange)}
       />
       {label}
@@ -39,6 +45,7 @@ const Checkbox = ({
 }
 
 Checkbox.propTypes = {
+  id: PropTypes.string,
   name: PropTypes.string.isRequired,
   checked: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,

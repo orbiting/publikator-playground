@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-let i = 0
-const getId = () => {
-  i++
-  return `checkbox-${i}`
+let localKey = 0
+const getKey = () => {
+  localKey++
+  return `checkbox-${localKey}`
 }
 
 const mouseDownHandler = event =>
@@ -22,7 +22,7 @@ const Checkbox = ({
   disabled,
   onChange
 }) => {
-  const id = getId(9)
+  const id = getKey()
   return (
     <label htmlFor={id}>
       <input
