@@ -1,9 +1,6 @@
 import { Value } from 'slate'
-import { resetKeyGenerator } from 'slate'
 import { connect } from 'react-redux'
 import { change } from '../actions/redux'
-
-resetKeyGenerator()
 
 const mapStateToProps = (
   { value: valueFromState },
