@@ -5,7 +5,7 @@ import { parse } from '@orbiting/remark-preset'
 import initial from './usa'
 
 import plugins from '../components/Templates/article/plugins'
-import Article from '../lib/rules'
+import Article from '../lib/transformers'
 import { deserialize } from '../lib/serializer'
 
 export default () => (
