@@ -2,7 +2,7 @@ import React from 'react'
 
 import initial from './usa'
 
-import Article from '../lib/rules'
+import Article from '../lib/transformers'
 import {
   deserialize,
   serialize
