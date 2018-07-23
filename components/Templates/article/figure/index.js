@@ -1,6 +1,6 @@
 import { Block } from 'slate'
-import { onKeyDown } from './handlers'
-import { renderNode } from './renderers'
+import onKeyDown from './onKeyDown'
+import renderNode from './renderNode'
 
 import Caption from '../caption'
 import FigureImage from '../figureImage'

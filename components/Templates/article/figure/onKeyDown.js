@@ -50,7 +50,7 @@ const onDelete = onDeleteOrBackspace(
   always(undefined)
 )
 
-export const onKeyDown = eventHandler(
+export default eventHandler(
   compose(
     ifElse(isBackspace, onBackspace),
     ifElse(isDelete, onDelete)

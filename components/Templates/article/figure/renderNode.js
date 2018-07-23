@@ -9,7 +9,7 @@ import {
 
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 
-export const renderNode = ifElse(
+export default ifElse(
   compose(
     isBlock('figure'),
     safeProp('node')
