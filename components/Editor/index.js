@@ -22,18 +22,19 @@ css.global('body', {
 
 const styles = {
   root: css({
-    height: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    fontFamily: 'sans-serif, Arial, Helvetica',
-    overflow: 'scroll'
+    // height: '100vh',
+    // display: 'flex',
+    // flexDirection: 'column',
+    // fontFamily: 'sans-serif, Arial, Helvetica',
+    // overflow: 'scroll'
   }),
   ui: css({
     position: 'fixed',
-    width: 0
+    width: 0,
+    zIndex: 9999
   }),
   doc: css({
-    flex: '1 100%'
+    // flex: '1 100%'
   })
 }
 
@@ -41,15 +42,15 @@ class PublikatorEditor extends Component {
   render() {
     return (
       <div {...styles.root}>
+        <div {...styles.ui}>
+          <SelectionPath.Menu />
+          <SelectionPath.Container />
+        </div>
         <div {...styles.doc}>
           <Editor
             plugins={this.props.plugins}
             initialValue={this.props.initialValue}
           />
-        </div>
-        <div {...styles.ui}>
-          <SelectionPath.Menu />
-          <SelectionPath.Container />
         </div>
       </div>
     )
