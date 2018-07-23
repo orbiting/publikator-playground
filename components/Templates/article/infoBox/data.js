@@ -1,5 +1,5 @@
 import { Block } from 'slate'
-import { create as createFigure } from '../figure/data'
+import { getNew as getNewFigure } from '../figure'
 
 export const create = () =>
   Block.create({
@@ -8,7 +8,7 @@ export const create = () =>
       Block.create({
         type: 'infoBoxTitle'
       }),
-      createFigure(),
+      getNewFigure(),
       Block.create({
         type: 'infoBoxText'
       })

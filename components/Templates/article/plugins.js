@@ -1,6 +1,7 @@
 import LinkPlugin from './link'
 import FigureGroupPlugin from './figureGroup'
 import FigurePlugin from './figure'
+import FigureImage from './figureImage'
 import CaptionPlugin from './caption'
 import BoldPlugin from './bold'
 import SuperscriptPlugin from './superscript'
@@ -21,6 +22,7 @@ export default [
   InfoboxPlugin,
   TitleBlockPlugin,
   FigurePlugin,
+  FigureImage,
   CaptionPlugin,
   ParagraphPlugin,
   SubheadPlugin,

@@ -1,126 +1,44 @@
 import {
   compose,
-  equals,
-  complement,
   converge,
   both,
   ifElse,
-  either,
-  always
+  always,
+  allPass
 } from 'ramda'
 
-import {
-  focusNext,
-  focusPrevious,
-  insertBlockAfter,
-  removeBlock,
-  updateData
-} from '@orbiting/publikator-editor/actions/slate'
+import { removeBlock } from '@orbiting/publikator-editor/actions/slate'
 
 import {
-  isMixed,
-  hasEdgeInSelection,
   getChange,
   isCollapsed,
-  getEndBlock,
-  getNextBlockOf,
   getParentOf,
   getStartBlock,
   hasEmptyText,
   eventHandler,
-  isEnter,
   isDelete,
   isBackspace,
-  iSafePath,
   isBlock
 } from '@orbiting/publikator-editor/lib'
 
-import { create as createCaption } from '../caption/data'
-
-const onEnter = compose(
-  ifElse(
-    both(
-      isMixed,
-      hasEdgeInSelection([isBlock('figureImage')])
-    ),
-    compose(
-      change => change.collapseToEnd(),
-      getChange
-    )
-  ),
-  ifElse(
-    both(
-      isCollapsed,
-      compose(
-        isBlock('figureImage'),
-        getStartBlock
-      )
-    ),
-    ifElse(
-      compose(
-        either(
-          isBlock('captionText'),
-          isBlock('captionByline')
-        ),
-        getNextBlockOf(getStartBlock)
-      ),
-      compose(focusNext, getChange),
-      compose(
-        focusNext,
-        converge(insertBlockAfter, [
-          getChange,
-          createCaption,
-          getEndBlock
-        ])
-      )
-    )
-  )
-)(always(undefined))
-
 const onDeleteOrBackspace = compose(
   ifElse(
-    both(
-      isMixed,
-      hasEdgeInSelection([isBlock('figureImage')])
-    ),
-    compose(
-      change => change.collapseToStart(),
-      getChange
-    )
-  ),
-  ifElse(
-    both(
+    allPass([
       isCollapsed,
       compose(
         isBlock('figureImage'),
         getStartBlock
-      )
-    ),
-    compose(
-      ifElse(
-        compose(
-          complement(equals('')),
-          iSafePath(['data', 'url']),
-          getStartBlock
-        ),
-        converge(updateData, [
-          getChange,
-          getStartBlock,
-          always({ url: '' })
-        ])
       ),
-      ifElse(
-        compose(
-          both(isBlock('figure'), hasEmptyText),
-          getParentOf(getStartBlock)
-        ),
-        converge(removeBlock, [
-          getChange,
-          getParentOf(getStartBlock),
-          always({ url: '' })
-        ])
+      compose(
+        both(isBlock('figure'), hasEmptyText),
+        getParentOf(getStartBlock)
       )
-    )(compose(focusPrevious, getChange))
+    ]),
+    converge(removeBlock, [
+      getChange,
+      getParentOf(getStartBlock),
+      always({ url: '' })
+    ])
   )
 )
 
@@ -134,7 +52,6 @@ const onDelete = onDeleteOrBackspace(
 
 export const onKeyDown = eventHandler(
   compose(
-    ifElse(isEnter, onEnter),
     ifElse(isBackspace, onBackspace),
     ifElse(isDelete, onDelete)
   )(always(undefined))

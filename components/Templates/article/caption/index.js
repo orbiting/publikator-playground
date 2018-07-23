@@ -9,5 +9,5 @@ export default {
   onKeyDown,
   renderNode,
   renderPlaceholder,
-  create
+  getNew: create
 }

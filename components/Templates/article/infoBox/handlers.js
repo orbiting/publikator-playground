@@ -45,7 +45,7 @@ import {
   getPreviousBlockOf
 } from '@orbiting/publikator-editor/lib'
 
-import { create as createFigure } from '../figure/data'
+import { getNew as getNewFigure } from '../figure'
 
 const onEnter = compose(
   ifElse(
@@ -83,12 +83,15 @@ const onEnter = compose(
         isBlock('figureImage'),
         getNextBlockOf(getStartBlock)
       ),
-      compose(focusNext, getChange),
+      compose(
+        focusNext,
+        getChange
+      ),
       compose(
         focusNext,
         converge(insertBlockAfter, [
           getChange,
-          createFigure,
+          getNewFigure,
           getStartBlock
         ])
       )
@@ -111,7 +114,10 @@ const onEnter = compose(
         isBlock('infoBoxText'),
         getNextBlockOf(getStartBlock)
       ),
-      compose(focusNext, getChange),
+      compose(
+        focusNext,
+        getChange
+      ),
       compose(
         focusNext,
         converge(insertBlockAfter, [
@@ -174,7 +180,10 @@ const onDeleteOrBackspace = compose(
         allPass([
           notIsNil,
           hasEmptyText,
-          compose(equals(1), getNumNodes)
+          compose(
+            equals(1),
+            getNumNodes
+          )
         ]),
         getClosestOf(
           isBlock('infoBox'),
@@ -202,7 +211,10 @@ const onBackspace = compose(
         getStartBlock
       )
     ),
-    compose(focusPrevious, getChange)
+    compose(
+      focusPrevious,
+      getChange
+    )
   ),
   ifElse(
     allPass([

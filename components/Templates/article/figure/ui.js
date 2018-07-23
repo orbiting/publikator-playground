@@ -3,14 +3,14 @@ import ImageIcon from 'react-icons/lib/fa/image'
 import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
 import InsertBlockButton from '@orbiting/publikator-editor/components/InsertBlockButton'
 
-import { create } from './data'
+import { getNew } from './'
 
 export const InsertFigureButton = props => (
   <InsertBlockButton
-    block={create}
+    block={getNew}
     {...props}
     {...buttonStyles.iconButton}
   >
-    <ImageIcon size={22} /> 
+    <ImageIcon size={22} />
   </InsertBlockButton>
 )
