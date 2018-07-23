@@ -8,7 +8,14 @@ import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 import RadioButton from '@orbiting/publikator-editor/components/RadioButton'
 import withNodeData from '@orbiting/publikator-editor/hoc/withNodeData'
 
-const FigureGroupForm = withNodeData('size')(
+const sizeChangeHandler = onChange => v =>
+  onChange({ size: v || null })
+
+const columnsChangeHandler = onChange => e => {
+  e.stopPropagation()
+  onChange({ columns: Number(e.target.value) })
+}
+const FigureGroupForm = withNodeData()(
   ({ value, onChange }) => {
     return (
       <div>
@@ -16,18 +23,31 @@ const FigureGroupForm = withNodeData('size')(
           name="figureGroupSize"
           value=""
           label="Default"
-          checked={value === null}
-          onChange={v =>
-            onChange((!!v && v) || null)
-          }
+          checked={value.get('size') === null}
+          onChange={sizeChangeHandler(onChange)}
         />
         <RadioButton
           name="figureGroupSize"
           value="breakout"
           label="Breakout"
-          checked={value === 'breakout'}
-          onChange={onChange}
+          checked={
+            value.get('size') === 'breakout'
+          }
+          onChange={sizeChangeHandler(onChange)}
         />
+        <label htmlFor="columns-select">
+          Spalten
+          <select
+            value={value.get('columns')}
+            onChange={columnsChangeHandler(
+              onChange
+            )}
+          >
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </label>
       </div>
     )
   }
