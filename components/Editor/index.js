@@ -5,7 +5,6 @@ import { fontFamilies } from '@project-r/styleguide'
 
 import { Editor as SlateEditor } from 'slate-react'
 import withValue from './hoc/withValue'
-import Frame from './components/Frame'
 import SelectionPath from './components/SelectionPath'
 
 const Editor = withValue(SlateEditor)
@@ -27,7 +26,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     fontFamily: 'sans-serif, Arial, Helvetica',
-    overflow: 'hidden'
+    overflow: 'scroll'
   }),
   ui: css({
     position: 'fixed',
@@ -42,16 +41,16 @@ class PublikatorEditor extends Component {
   render() {
     return (
       <div {...styles.root}>
-        <div {...styles.ui}>
-          <SelectionPath.Menu />
-          <SelectionPath.Container />
-        </div>
-        <Frame {...styles.doc}>
+        <div {...styles.doc}>
           <Editor
             plugins={this.props.plugins}
             initialValue={this.props.initialValue}
           />
-        </Frame>
+        </div>
+        <div {...styles.ui}>
+          <SelectionPath.Menu />
+          <SelectionPath.Container />
+        </div>
       </div>
     )
   }
