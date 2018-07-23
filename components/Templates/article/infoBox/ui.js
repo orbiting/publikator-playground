@@ -3,11 +3,11 @@ import InfoBoxIcon from 'react-icons/lib/fa/info'
 import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
 import InsertBlockButton from '@orbiting/publikator-editor/components/InsertBlockButton'
 
-import { create } from './data'
+import getNew from './getNew'
 
 export const InsertInfoBoxButton = props => (
   <InsertBlockButton
-    block={create}
+    block={getNew}
     {...props}
     {...buttonStyles.iconButton}
   >

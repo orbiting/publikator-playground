@@ -14,7 +14,7 @@ import {
   focusPrevious,
   insertBlockAfter,
   updateData
-} from '@orbiting/publikator-editor/actions/slate'
+} from '@orbiting/publikator-editor/changes'
 
 import {
   isMixed,

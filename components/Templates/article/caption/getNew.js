@@ -1,6 +1,6 @@
 import { Block } from 'slate'
 
-export const create = () =>
+export default () =>
   Block.create({
     type: 'caption',
     nodes: [

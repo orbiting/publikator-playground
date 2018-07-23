@@ -1,13 +1,13 @@
 import ItalicIcon from 'react-icons/lib/fa/italic'
 import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
-import MarkButton from '@orbiting/publikator-editor/components/MarkButton'
+import ToggleMarkButton from '@orbiting/publikator-editor/components/ToggleMarkButton'
 
 export const ItalicButton = props => (
-  <MarkButton
+  <ToggleMarkButton
     mark={'italic'}
     {...props}
     {...buttonStyles.iconButton}
   >
     <ItalicIcon size={22} />
-  </MarkButton>
+  </ToggleMarkButton>
 )

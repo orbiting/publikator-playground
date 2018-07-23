@@ -17,7 +17,7 @@ import {
   focusPrevious,
   insertBlockAfter,
   removeBlock
-} from '@orbiting/publikator-editor/actions/slate'
+} from '@orbiting/publikator-editor/changes'
 
 import {
   isMixed,
@@ -45,7 +45,7 @@ import {
   getPreviousBlockOf
 } from '@orbiting/publikator-editor/lib'
 
-import { getNew as getNewFigure } from '../figure'
+import getNewFigure from '../figure/getNew'
 
 const onEnter = compose(
   ifElse(
@@ -278,7 +278,7 @@ const onDelete = compose(
   )
 )(always(undefined))
 
-export const onKeyDown = eventHandler(
+export default eventHandler(
   compose(
     ifElse(isEnter, onEnter),
     ifElse(isBackspace, onBackspace),

@@ -1,7 +1,7 @@
 import { Block } from 'slate'
-import { getNew as getNewFigure } from '../figure'
+import getNewFigure from '../figure/getNew'
 
-export const create = () =>
+export default () =>
   Block.create({
     type: 'infoBox',
     nodes: [

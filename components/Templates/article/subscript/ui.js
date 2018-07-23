@@ -1,13 +1,13 @@
 import SubIcon from 'react-icons/lib/fa/subscript'
 import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
-import MarkButton from '@orbiting/publikator-editor/components/MarkButton'
+import ToggleMarkButton from '@orbiting/publikator-editor/components/ToggleMarkButton'
 
 export const SubButton = props => (
-  <MarkButton
+  <ToggleMarkButton
     mark={'sub'}
     {...props}
     {...buttonStyles.iconButton}
   >
     <SubIcon size={22} /> 
-  </MarkButton>
+  </ToggleMarkButton>
 )

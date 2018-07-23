@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from 'glamor'
-import colors from '../../theme/colors'
-import { fontStyles } from '../../theme/fonts'
+// import { css } from 'glamor'
+// import colors from '../../theme/colors'
+// import { fontStyles } from '../../theme/fonts'
 
 let localKey = 0
 const getKey = () => {

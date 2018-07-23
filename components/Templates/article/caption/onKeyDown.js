@@ -1,11 +1,13 @@
 import {
   compose,
+  equals,
   complement,
   converge,
   both,
   ifElse,
   either,
-  always
+  always,
+  allPass
 } from 'ramda'
 
 import { Block } from 'slate'
@@ -16,7 +18,7 @@ import {
   insertBlockAfter,
   insertBlockBefore,
   removeBlock
-} from '@orbiting/publikator-editor/actions/slate'
+} from '@orbiting/publikator-editor/changes'
 
 import {
   isBlock,
@@ -30,6 +32,8 @@ import {
   getNextBlockOf,
   isCollapsedAtStart,
   isCollapsedAtEnd,
+  getNumNodes,
+  getParentOf,
   getStartBlock,
   hasEmptyText,
   getPreviousBlockOf,
@@ -44,9 +48,8 @@ const onEnter = compose(
     both(
       isExpanded,
       hasEdgeInSelection([
-        isBlock('title'),
-        isBlock('lead'),
-        isBlock('credits')
+        isBlock('captionText'),
+        isBlock('captionByline')
       ])
     ),
     compose(
@@ -58,20 +61,26 @@ const onEnter = compose(
     isCollapsed,
     compose(
       ifElse(
-        compose(isBlock('title'), getStartBlock),
+        compose(
+          isBlock('captionText'),
+          getStartBlock
+        ),
         ifElse(
           compose(
-            isBlock('lead'),
+            isBlock('captionByline'),
             getNextBlockOf(getEndBlock)
           ),
-          compose(focusNext, getChange),
+          compose(
+            focusNext,
+            getChange
+          ),
           compose(
             focusNext,
             converge(insertBlockAfter, [
               getChange,
               () =>
                 Block.create({
-                  type: 'lead'
+                  type: 'captionByline'
                 }),
               getEndBlock
             ])
@@ -79,17 +88,16 @@ const onEnter = compose(
         )
       ),
       ifElse(
-        compose(isBlock('lead'), getEndBlock),
-        compose(focusNext, getChange)
-      ),
-      ifElse(
-        compose(isBlock('credits'), getEndBlock),
+        compose(
+          isBlock('captionByline'),
+          getStartBlock
+        ),
         ifElse(
           both(
             isCollapsedAtStart,
             compose(
-              complement(isBlock('lead')),
-              getPreviousBlockOf(getStartBlock)
+              complement(isBlock('captionText')),
+              getPreviousBlockOf(getEndBlock)
             )
           ),
           compose(
@@ -98,19 +106,22 @@ const onEnter = compose(
               getChange,
               () =>
                 Block.create({
-                  type: 'lead'
+                  type: 'captionText'
                 }),
               getStartBlock
             ])
           ),
-          compose(focusNext, getChange)
+          compose(
+            focusNext,
+            getChange
+          )
         )
       )
     )(always(undefined))
   )
 )(always(undefined))
 
-const onDeleteOrBackspace = compose(
+export const onDeleteOrBackspace = compose(
   ifElse(
     both(notIsMixed, isExpanded),
     always(undefined)
@@ -119,105 +130,117 @@ const onDeleteOrBackspace = compose(
     both(
       isMixed,
       hasEdgeInSelection([
-        isBlock('title'),
-        isBlock('lead'),
-        isBlock('credits')
+        isBlock('captionText'),
+        isBlock('captionByline')
       ])
     ),
     compose(
       change => change.collapseToStart(),
       getChange
     )
+  ),
+  ifElse(
+    compose(
+      allPass([
+        hasEmptyText,
+        isBlock('caption'),
+        compose(
+          equals(1),
+          getNumNodes
+        )
+      ]),
+      getParentOf(getStartBlock)
+    ),
+    converge(removeBlock, [
+      getChange,
+      getParentOf(getStartBlock)
+    ])
   )
 )
 
-const onBackspace = compose(
+export const onBackspace = compose(
   onDeleteOrBackspace,
   ifElse(
     isCollapsedAtStart,
     compose(
       ifElse(
-        compose(isBlock('title'), getStartBlock),
-        compose(focusPrevious, getChange)
+        compose(
+          both(
+            isBlock('caption'),
+            compose(
+              equals(1),
+              getNumNodes
+            )
+          ),
+          getParentOf(getStartBlock)
+        ),
+        compose(
+          focusPrevious,
+          getChange
+        )
       ),
       ifElse(
         compose(
           both(
-            isBlock('lead'),
-            complement(hasEmptyText)
+            isBlock('captionText'),
+            hasEmptyText
           ),
           getStartBlock
         ),
-        compose(focusPrevious, getChange)
+        compose(
+          focusNext,
+          converge(removeBlock, [
+            getChange,
+            getStartBlock
+          ])
+        )
       ),
       ifElse(
-        compose(
-          isBlock('credits'),
-          getStartBlock
-        ),
-        compose(
-          ifElse(
-            compose(
-              isBlock('title'),
-              getPreviousBlockOf(getStartBlock)
-            ),
-            compose(focusPrevious, getChange)
-          ),
-          ifElse(
-            compose(
-              both(
-                isBlock('lead'),
-                complement(hasEmptyText)
-              ),
-              getPreviousBlockOf(getStartBlock)
-            ),
-            compose(focusPrevious, getChange)
-          ),
-          ifElse(
-            compose(
-              both(isBlock('lead'), hasEmptyText),
-              getPreviousBlockOf(getStartBlock)
-            ),
-            converge(removeBlock, [
-              getChange,
-              getPreviousBlockOf(getStartBlock)
-            ])
-          )
-        )(always(undefined))
-      )
-    )(always(undefined))
-  )
-)(always(undefined))
-
-const onDelete = compose(
-  onDeleteOrBackspace,
-  ifElse(
-    isCollapsedAtEnd,
-    compose(
-      ifElse(
-        either(
+        both(
           compose(
             either(
-              isBlock('lead'),
-              isBlock('credits')
+              isBlock('captionByline'),
+              isBlock('captionText')
             ),
-            getEndBlock
+            getPreviousBlockOf(getStartBlock)
           ),
           compose(
-            both(
-              complement(hasEmptyText),
-              isBlock('lead')
-            ),
-            getNextBlockOf(getEndBlock)
+            complement(isBlock('captionByline')),
+            getStartBlock
           )
         ),
-        getChange
+        compose(
+          focusPrevious,
+          getChange
+        )
       )
     )(always(undefined))
   )
 )(always(undefined))
 
-export const onKeyDown = eventHandler(
+export const onDelete = compose(
+  // onDeleteOrBackspace,
+  ifElse(
+    allPass([
+      isCollapsedAtEnd,
+
+      compose(
+        either(
+          isBlock('captionByline'),
+          isBlock('captionText')
+        ),
+        getEndBlock
+      ),
+      compose(
+        complement(isBlock('captionByline')),
+        getNextBlockOf(getEndBlock)
+      )
+    ]),
+    getChange
+  )
+)(always(undefined))
+
+export default eventHandler(
   compose(
     ifElse(isEnter, onEnter),
     ifElse(isBackspace, onBackspace),

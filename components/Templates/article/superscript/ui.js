@@ -1,13 +1,13 @@
 import SupIcon from 'react-icons/lib/fa/superscript'
 import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
-import MarkButton from '@orbiting/publikator-editor/components/MarkButton'
+import ToggleMarkButton from '@orbiting/publikator-editor/components/ToggleMarkButton'
 
 export const SupButton = props => (
-  <MarkButton
+  <ToggleMarkButton
     mark={'sup'}
     {...props}
     {...buttonStyles.iconButton}
   >
     <SupIcon size={22} /> 
-  </MarkButton>
+  </ToggleMarkButton>
 )

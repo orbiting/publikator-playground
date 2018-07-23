@@ -1,4 +1,4 @@
-import { updateData } from '../actions/slate'
+import { updateData } from '../changes'
 import { connect } from 'react-redux'
 
 const mapStateToProps = dataKey => (

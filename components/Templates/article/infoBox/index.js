@@ -1,13 +1,11 @@
-import {
-  renderNode,
-  renderPlaceholder
-} from './renderers'
-import { onKeyDown } from './handlers'
-import { create } from './data'
+import renderNode from './renderNode'
+import renderPlaceholder from './renderPlaceholder'
+import onKeyDown from './onKeyDown'
+import getNew from './getNew'
 
 export default {
   renderNode,
   renderPlaceholder,
   onKeyDown,
-  create
+  getNew
 }

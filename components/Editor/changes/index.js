@@ -1,5 +1,4 @@
 import { Mark } from 'slate'
-import { isMark } from '../lib'
 import { getChildIndex } from '../lib/selection'
 
 export const focusNextBlock = (change, node) => {

@@ -3,29 +3,25 @@ import {
   FigureByline
 } from '@project-r/styleguide'
 
-import {
-  compose,
-  always,
-  ifElse,
-  both
-} from 'ramda'
+import { compose, always, ifElse } from 'ramda'
 
 import {
   safeProp,
-  hasEmptyText,
   isBlock
 } from '@orbiting/publikator-editor/lib'
 
-import { InlinePlaceholder } from '@orbiting/publikator-editor/components/Placeholder'
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 
 import { TextButtons } from '../common/ui'
 import { BoldButton } from '../bold/ui'
 import { LinkButton } from '../link/ui'
 
-export const renderNode = compose(
+export default compose(
   ifElse(
-    compose(isBlock('caption'), safeProp('node')),
+    compose(
+      isBlock('caption'),
+      safeProp('node')
+    ),
     ({ children, attributes }) => [
       <FigureCaption
         key="content"
@@ -83,33 +79,5 @@ export const renderNode = compose(
         {children}
       </FigureByline>
     ]
-  )
-)(always(undefined))
-
-export const renderPlaceholder = compose(
-  ifElse(
-    compose(
-      both(isBlock('captionText'), hasEmptyText),
-      safeProp('node')
-    ),
-    () => (
-      <InlinePlaceholder>
-        Legende
-      </InlinePlaceholder>
-    )
-  ),
-  ifElse(
-    compose(
-      both(
-        isBlock('captionByline'),
-        hasEmptyText
-      ),
-      safeProp('node')
-    ),
-    () => (
-      <InlinePlaceholder>
-        Credits
-      </InlinePlaceholder>
-    )
   )
 )(always(undefined))

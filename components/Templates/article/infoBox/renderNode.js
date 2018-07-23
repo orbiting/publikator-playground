@@ -1,9 +1,4 @@
-import {
-  compose,
-  ifElse,
-  always,
-  both
-} from 'ramda'
+import { compose, ifElse, always } from 'ramda'
 import {
   InfoBox,
   InfoBoxTitle,
@@ -11,12 +6,10 @@ import {
 } from '@project-r/styleguide'
 
 import withRelativeStyle from '@orbiting/publikator-editor/styles/withRelativeStyle'
-import Placeholder from '@orbiting/publikator-editor/components/Placeholder'
 
 import {
   safeProp,
-  isBlock,
-  hasEmptyText
+  isBlock
 } from '@orbiting/publikator-editor/lib'
 
 import { BoldButton } from '../bold/ui'
@@ -25,9 +18,12 @@ import { TextButtons } from '../common/ui'
 
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 
-export const renderNode = compose(
+export default compose(
   ifElse(
-    compose(isBlock('infoBox'), safeProp('node')),
+    compose(
+      isBlock('infoBox'),
+      safeProp('node')
+    ),
     ({ children, attributes }) => [
       <InfoBox
         key="content"
@@ -78,22 +74,5 @@ export const renderNode = compose(
         {children}
       </InfoBoxText>
     ]
-  )
-)(always(undefined))
-
-export const renderPlaceholder = compose(
-  ifElse(
-    compose(
-      both(isBlock('infoBoxTitle'), hasEmptyText),
-      safeProp('node')
-    ),
-    () => <Placeholder>Titel</Placeholder>
-  ),
-  ifElse(
-    compose(
-      both(isBlock('infoBoxText'), hasEmptyText),
-      safeProp('node')
-    ),
-    () => <Placeholder>Text...</Placeholder>
   )
 )(always(undefined))

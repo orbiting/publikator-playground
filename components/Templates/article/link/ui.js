@@ -11,9 +11,8 @@ import AuthorLinkIcon from 'react-icons/lib/fa/user'
 
 import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
 import withNodeData from '@orbiting/publikator-editor/hoc/withNodeData'
-import InlineButton from '@orbiting/publikator-editor/components/InlineButton'
+import ToggleInlineButton from '@orbiting/publikator-editor/components/ToggleInlineButton'
 import TextInput from '@orbiting/publikator-editor/components/TextInput'
-import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 
 const styles = {
   card: {},
@@ -32,7 +31,9 @@ const shortString = (threshold, str) =>
     : str
 
 const shortUrl = str =>
-  str.replace(/^http(s?):\/\/(www.)?/g, '')
+  (str &&
+    str.replace(/^http(s?):\/\/(www.)?/g, '')) ||
+  ''
 
 const getUrlType = str =>
   /^\/~/.test(str)
@@ -42,13 +43,13 @@ const getUrlType = str =>
       : 'Link'
 
 export const LinkButton = props => (
-  <InlineButton
+  <ToggleInlineButton
     inline={'link'}
     {...props}
     {...buttonStyles.iconButton}
   >
     <LinkIcon size={22} />
-  </InlineButton>
+  </ToggleInlineButton>
 )
 
 export const LinkUrlInput = withNodeData('url')(

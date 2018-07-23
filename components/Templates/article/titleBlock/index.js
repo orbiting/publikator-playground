@@ -1,9 +1,6 @@
-import {
-  renderNode,
-  renderPlaceholder
-} from './renderers'
-
-import { onKeyDown } from './handlers'
+import renderNode from './renderNode'
+import renderPlaceholder from './renderPlaceholder'
+import onKeyDown from './onKeyDown'
 
 export default {
   renderNode,
