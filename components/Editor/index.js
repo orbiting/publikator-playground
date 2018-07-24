@@ -4,10 +4,10 @@ import { css } from 'glamor'
 import { fontFamilies } from '@project-r/styleguide'
 
 import { Editor as SlateEditor } from 'slate-react'
-import withValue from './hoc/withValue'
+import { withApp } from './apps/value'
 import SelectionPath from './components/SelectionPath'
 
-const Editor = withValue(SlateEditor)
+const Editor = withApp(SlateEditor)
 
 import 'glamor/reset'
 

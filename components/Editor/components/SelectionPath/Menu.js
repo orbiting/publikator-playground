@@ -1,15 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { compose } from 'redux'
-import { connect } from 'react-redux'
 import { css } from 'glamor'
 import ArrowIcon from 'react-icons/lib/fa/angle-right'
 import {
   fontStyles,
   colors
 } from '@project-r/styleguide'
-import { selectNode } from '../../actions/redux'
-import withUIState from '../../hoc/withUIState'
+
+import { withApp } from '../../apps/selectionPath'
 
 const styles = {
   container: css({
@@ -85,11 +83,4 @@ SelectionPathMenu.propTypes = {
   onSelect: PropTypes.func.isRequired
 }
 
-const mapDispatchToProps = dispatch => ({
-  onSelect: node => dispatch(selectNode(node))
-})
-
-export default compose(
-  connect(null, mapDispatchToProps),
-  withUIState
-)(SelectionPathMenu)
+export default withApp(SelectionPathMenu)

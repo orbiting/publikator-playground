@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Slot from '../Slot'
-import withIsSelected from '../../hoc/withIsSelected'
+import { withSelectedStatus } from '../../apps/selectionPath'
 
 export const ID = 'PUBLIKATOR_SELECTION_PATH'
 
-const SelectionPathOptions = withIsSelected(
+const SelectionPathOptions = withSelectedStatus(
   ({ children, isSelected }) => {
     return (
       (isSelected && (

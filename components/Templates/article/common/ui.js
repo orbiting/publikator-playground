@@ -5,6 +5,15 @@ import { InsertFigureButton } from '../figure/ui'
 import { InsertInfoBoxButton } from '../infoBox/ui'
 import { SubButton } from '../subscript/ui'
 import { SupButton } from '../superscript/ui'
+import {
+  DefaultSizeIcon,
+  BreakoutSizeIcon,
+  EdgeToEdgeSizeIcon
+} from './icons'
+
+import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
+import ToggleButton from '@orbiting/publikator-editor/components/ToggleButton'
+import withNodeData from '@orbiting/publikator-editor/hoc/withNodeData'
 
 export const BlockButtons = ({
   node,
@@ -40,4 +49,57 @@ export const TextButtons = ({ editor }) => (
     <SupButton editor={editor} />
     <SubButton editor={editor} />
   </OptionGroup>
+)
+
+const withSize = withNodeData('size')
+
+export const DefaultSizeButton = withSize(
+  ({ value, onChange, ...props }) => {
+    const active = value === null
+    return (
+      <ToggleButton
+        active={active}
+        disabled={active}
+        onClick={() => onChange(null)}
+        {...buttonStyles.iconButton}
+        {...props}
+      >
+        <DefaultSizeIcon size={24} />
+      </ToggleButton>
+    )
+  }
+)
+
+export const BreakoutSizeButton = withSize(
+  ({ value, onChange, ...props }) => {
+    const active = value === 'breakout'
+    return (
+      <ToggleButton
+        active={active}
+        disabled={active}
+        onClick={() => onChange('breakout')}
+        {...buttonStyles.iconButton}
+        {...props}
+      >
+        <BreakoutSizeIcon size={24} />
+      </ToggleButton>
+    )
+  }
+)
+
+export const EdgeToEdgeSizeButton = withSize(
+  ({ value, onChange, ...props }) => {
+    const active = value === 'edgeToEdge'
+    return (
+      <ToggleButton
+        active={active}
+        disabled={active}
+        onClick={() => onChange('edgeToEdge')}
+        {...buttonStyles.iconButton}
+        {...props}
+      >
+        <EdgeToEdgeSizeIcon size={24} />
+      </ToggleButton>
+    )
+  }
 )

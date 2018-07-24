@@ -56,6 +56,14 @@ export const removeInline = (change, inline) => {
   return change.unwrapInline(inline)
 }
 
+export const unwrap = (change, node) => {
+  return change.unwrapNodeByKey(node.key)
+}
+
+export const wrap = (change, node, parent) => {
+  return change.unwrapNodeByKey(node.key, parent)
+}
+
 export const convertBlock = (
   change,
   node,

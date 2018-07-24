@@ -7,7 +7,10 @@ import {
 
 export default {
   renderMark: ifElse(
-    compose(isMark('sub'), safeProp('mark')),
+    compose(
+      isMark('sub'),
+      safeProp('mark')
+    ),
     ({ children, attributes }) => (
       <Sub {...attributes}>{children}</Sub>
     ),
