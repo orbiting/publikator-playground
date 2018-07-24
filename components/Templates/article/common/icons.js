@@ -10,6 +10,16 @@ export const DefaultSizeIcon = props => (
   </Icon>
 )
 
+export const TinySizeIcon = props => (
+  <Icon viewBox="0 0 24 24" {...props}>
+    <g>
+      <path d="m6,7.16669l12,0l0,10.12494l-12,0l0,-10.12494z" />
+      <path d="m3,2.87505l17.9374,0l0,2.06249l-17.9374,0l0,-2.06249z" />
+      <path d="m3,19.12496l17.9374,0l0,2.06249l-17.9374,0l0,-2.06249z" />
+    </g>
+  </Icon>
+)
+
 export const BreakoutSizeIcon = props => (
   <Icon viewBox="0 0 24 24" {...props}>
     <g>

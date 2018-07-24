@@ -8,7 +8,8 @@ import { SupButton } from '../superscript/ui'
 import {
   DefaultSizeIcon,
   BreakoutSizeIcon,
-  EdgeToEdgeSizeIcon
+  EdgeToEdgeSizeIcon,
+  TinySizeIcon
 } from './icons'
 
 import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
@@ -65,6 +66,40 @@ export const DefaultSizeButton = withSize(
         {...props}
       >
         <DefaultSizeIcon size={24} />
+      </ToggleButton>
+    )
+  }
+)
+
+export const CenterSizeButton = withSize(
+  ({ value, onChange, ...props }) => {
+    const active = value === 'center'
+    return (
+      <ToggleButton
+        active={active}
+        disabled={active}
+        onClick={() => onChange('center')}
+        {...buttonStyles.iconButton}
+        {...props}
+      >
+        <DefaultSizeIcon size={24} />
+      </ToggleButton>
+    )
+  }
+)
+
+export const TinySizeButton = withSize(
+  ({ value, onChange, ...props }) => {
+    const active = value === 'tiny'
+    return (
+      <ToggleButton
+        active={active}
+        disabled={active}
+        onClick={() => onChange('tiny')}
+        {...buttonStyles.iconButton}
+        {...props}
+      >
+        <TinySizeIcon size={24} />
       </ToggleButton>
     )
   }
