@@ -37,6 +37,7 @@ class PublikatorEditor extends Component {
           <SelectionPath.Container />
         </div>
         <Editor
+          spellCheck={false}
           plugins={this.props.plugins}
           initialValue={this.props.initialValue}
         />

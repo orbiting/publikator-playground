@@ -1,5 +1,6 @@
 import LinkPlugin from './link'
 import FigureGroupPlugin from './figureGroup'
+import GroupedFigurePlugin from './groupedFigure'
 import FigurePlugin from './figure'
 import FigureImage from './figureImage'
 import Cover from './cover'
@@ -20,6 +21,7 @@ export default [
   BoldPlugin,
   CenterPlugin,
   FigureGroupPlugin,
+  GroupedFigurePlugin,
   InfoboxPlugin,
   TitleBlockPlugin,
   Cover,
