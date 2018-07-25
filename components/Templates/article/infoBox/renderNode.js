@@ -1,4 +1,8 @@
 import { compose, ifElse, always } from 'ramda'
+
+import NoImageIcon from 'react-icons/lib/fa/check'
+import HasImageIcon from 'react-icons/lib/fa/check-circle'
+
 import {
   InfoBox,
   InfoBoxTitle,
@@ -9,19 +13,68 @@ import {
   isBlock
 } from '@orbiting/publikator-editor/lib'
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
+import SetValueButton from '@orbiting/publikator-editor/components/SetValueButton'
+import ToggleButton from '@orbiting/publikator-editor/components/ToggleButton'
+import withNodeData from '@orbiting/publikator-editor/hoc/withNodeData'
 
 import withRelativeStyle from '@orbiting/publikator-editor/styles/withRelativeStyle'
+import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
+import {
+  removeBlock,
+  insertBlockAfter
+} from '@orbiting/publikator-editor/changes'
+
+import getNewFigure from '../figure/getNew'
 
 import {
-  SizeButton,
   BreakoutLeftIcon,
   FloatLeftIcon,
   DefaultIcon
-} from '../common/breakouts.js'
+} from '../common/breakouts'
+
+import {
+  TinyIcon,
+  SmallIcon,
+  MediumIcon,
+  LargeIcon
+} from '../common/sizes'
 
 import { BoldButton } from '../bold/ui'
 import { LinkButton } from '../link/ui'
 import { TextButtons } from '../common/ui'
+
+const BreakoutButton = withNodeData('size')(
+  SetValueButton
+)
+
+const FigureSizeButton = withNodeData(
+  'figureSize'
+)(SetValueButton)
+
+const FigureToggleButton = ({ node, editor }) => {
+  const figure = node.nodes.get(1)
+  const hasFigure = isBlock('figure', figure)
+  const Icon = hasFigure
+    ? HasImageIcon
+    : NoImageIcon
+  return (
+    <ToggleButton
+      active={hasFigure}
+      {...buttonStyles.iconButton}
+      onClick={isActive =>
+        isActive
+          ? editor.change(removeBlock, figure)
+          : editor.change(
+              insertBlockAfter,
+              getNewFigure(),
+              node.nodes.first()
+            )
+      }
+    >
+      <Icon size={22} />
+    </ToggleButton>
+  )
+}
 
 export default compose(
   ifElse(
@@ -29,67 +82,96 @@ export default compose(
       isBlock('infoBox'),
       safeProp('node')
     ),
-    ({ children, attributes, node, editor }) => [
-      <SelectionPath.Options
-        key="ui"
-        node={node}
-        offset={3}
-      >
-        <SelectionPath.OptionGroup label="Infobox Grösse">
-          <SizeButton
-            name={null}
-            node={node}
-            editor={editor}
-          >
-            <DefaultIcon />
-          </SizeButton>
-          <SizeButton
-            name="breakout"
-            node={node}
-            editor={editor}
-          >
-            <BreakoutLeftIcon />
-          </SizeButton>
-          <SizeButton
-            name="float"
-            node={node}
-            editor={editor}
-          >
-            <FloatLeftIcon />
-          </SizeButton>
-        </SelectionPath.OptionGroup>
-        <SelectionPath.OptionGroup label="Infobox Grösse">
-          <SizeButton
-            name={null}
-            node={node}
-            editor={editor}
-          >
-            <DefaultIcon />
-          </SizeButton>
-          <SizeButton
-            name="breakout"
-            node={node}
-            editor={editor}
-          >
-            <BreakoutLeftIcon />
-          </SizeButton>
-          <SizeButton
-            name="float"
-            node={node}
-            editor={editor}
-          >
-            <FloatLeftIcon />
-          </SizeButton>
-        </SelectionPath.OptionGroup>
-      </SelectionPath.Options>,
-      <InfoBox
-        key="content"
-        attributes={attributes}
-        size={node.data.get('size')}
-      >
-        {children}
-      </InfoBox>
-    ]
+    ({ children, attributes, node, editor }) => {
+      const figure = node.nodes.get(1)
+      const hasFigure = isBlock('figure', figure)
+      return [
+        <SelectionPath.Options
+          key="ui"
+          node={node}
+          offset={3}
+        >
+          <SelectionPath.OptionGroup label="Ausrichtung">
+            <BreakoutButton
+              name={null}
+              node={node}
+              {...buttonStyles.iconButton}
+              editor={editor}
+            >
+              <DefaultIcon />
+            </BreakoutButton>
+            <BreakoutButton
+              name="breakout"
+              node={node}
+              {...buttonStyles.iconButton}
+              editor={editor}
+            >
+              <BreakoutLeftIcon />
+            </BreakoutButton>
+            <BreakoutButton
+              name="float"
+              node={node}
+              {...buttonStyles.iconButton}
+              editor={editor}
+            >
+              <FloatLeftIcon />
+            </BreakoutButton>
+          </SelectionPath.OptionGroup>
+
+          <SelectionPath.OptionGroup label="Mit Bild">
+            <FigureToggleButton
+              node={node}
+              editor={editor}
+            />
+          </SelectionPath.OptionGroup>
+
+          {hasFigure && (
+            <SelectionPath.OptionGroup label="Bildgrösse">
+              <FigureSizeButton
+                name={null}
+                node={node}
+                {...buttonStyles.iconButton}
+                editor={editor}
+              >
+                <LargeIcon />
+              </FigureSizeButton>
+              <FigureSizeButton
+                name="M"
+                node={node}
+                {...buttonStyles.iconButton}
+                editor={editor}
+              >
+                <MediumIcon />
+              </FigureSizeButton>
+              <FigureSizeButton
+                name="S"
+                node={node}
+                {...buttonStyles.iconButton}
+                editor={editor}
+              >
+                <SmallIcon />
+              </FigureSizeButton>
+              <FigureSizeButton
+                name="XS"
+                node={node}
+                {...buttonStyles.iconButton}
+                editor={editor}
+              >
+                <TinyIcon />
+              </FigureSizeButton>
+            </SelectionPath.OptionGroup>
+          )}
+        </SelectionPath.Options>,
+        <InfoBox
+          key="content"
+          attributes={attributes}
+          size={node.data.get('size')}
+          figureSize={node.data.get('figureSize')}
+        >
+          {children}
+        </InfoBox>
+      ]
+    }
   ),
   ifElse(
     compose(

@@ -36,26 +36,26 @@ export default ifElse(
         </SelectImageButton>
       </SelectionPath.OptionGroup>
     </SelectionPath.Options>,
-    !!node.data.get('url') ? (
-      <FigureImage
-        key="content"
-        src={node.data.get('url')}
-        title={node.data.get('title')}
-        title={node.data.get('alt')}
-        {...attributes}
-      />
-    ) : (
-      <SelectImageButton
-        key="content"
-        node={node}
-        editor={editor}
-      >
+    <SelectImageButton
+      key="content"
+      node={node}
+      editor={editor}
+    >
+      {!!node.data.get('url') ? (
+        <FigureImage
+          key="content"
+          src={node.data.get('url')}
+          title={node.data.get('title')}
+          title={node.data.get('alt')}
+          {...attributes}
+        />
+      ) : (
         <FigureImage
           src="static/images/placeholder.png"
           {...attributes}
         />
-      </SelectImageButton>
-    )
+      )}
+    </SelectImageButton>
   ],
   always(undefined)
 )

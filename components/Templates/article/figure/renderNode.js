@@ -63,12 +63,8 @@ export default ifElse(
       </SelectionPath.OptionGroup>
     </SelectionPath.Options>,
     node.data.get('size') === 'edgeToEdge' ? (
-      <div {...styles.edgeToEdge}>
-        <Figure
-          {...attributes}
-          size={node.data.get('size')}
-          key="content"
-        >
+      <div {...styles.edgeToEdge} key="content">
+        <Figure {...attributes} key="content">
           {children}
         </Figure>
       </div>

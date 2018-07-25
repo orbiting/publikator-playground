@@ -36,6 +36,13 @@ export default ({
   const key = getKey()
   return (
     <label
+      onClick={e => {
+        return (
+          e.altKey === true ||
+          (e.preventDefault() &&
+            e.stopPropagation())
+        )
+      }}
       htmlFor={`fileinput-${key}`}
       {...props}
     >
