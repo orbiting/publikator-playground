@@ -4,19 +4,24 @@ import {
   InfoBoxTitle,
   InfoBoxText
 } from '@project-r/styleguide'
-
-import withRelativeStyle from '@orbiting/publikator-editor/styles/withRelativeStyle'
-
 import {
   safeProp,
   isBlock
 } from '@orbiting/publikator-editor/lib'
+import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
+
+import withRelativeStyle from '@orbiting/publikator-editor/styles/withRelativeStyle'
+
+import {
+  SizeButton,
+  BreakoutLeftIcon,
+  FloatLeftIcon,
+  DefaultIcon
+} from '../common/sizes'
 
 import { BoldButton } from '../bold/ui'
 import { LinkButton } from '../link/ui'
 import { TextButtons } from '../common/ui'
-
-import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 
 export default compose(
   ifElse(
@@ -24,10 +29,40 @@ export default compose(
       isBlock('infoBox'),
       safeProp('node')
     ),
-    ({ children, attributes }) => [
+    ({ children, attributes, node, editor }) => [
+      <SelectionPath.Options
+        key="ui"
+        node={node}
+        offset={3}
+      >
+        <SelectionPath.OptionGroup label="Infobox Grösse">
+          <SizeButton
+            name={null}
+            node={node}
+            editor={editor}
+          >
+            <DefaultIcon />
+          </SizeButton>
+          <SizeButton
+            name="breakout"
+            node={node}
+            editor={editor}
+          >
+            <BreakoutLeftIcon />
+          </SizeButton>
+          <SizeButton
+            name="float"
+            node={node}
+            editor={editor}
+          >
+            <FloatLeftIcon />
+          </SizeButton>
+        </SelectionPath.OptionGroup>
+      </SelectionPath.Options>,
       <InfoBox
         key="content"
         attributes={attributes}
+        size={node.data.get('size')}
       >
         {children}
       </InfoBox>
