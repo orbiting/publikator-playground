@@ -13,7 +13,7 @@ import {
   TinyIcon,
   DefaultIcon,
   EdgeToEdgeIcon
-} from '../common/sizes'
+} from '../common/breakouts.js'
 
 export default ifElse(
   compose(

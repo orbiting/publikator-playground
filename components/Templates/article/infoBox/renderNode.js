@@ -17,7 +17,7 @@ import {
   BreakoutLeftIcon,
   FloatLeftIcon,
   DefaultIcon
-} from '../common/sizes'
+} from '../common/breakouts.js'
 
 import { BoldButton } from '../bold/ui'
 import { LinkButton } from '../link/ui'
@@ -35,6 +35,29 @@ export default compose(
         node={node}
         offset={3}
       >
+        <SelectionPath.OptionGroup label="Infobox Grösse">
+          <SizeButton
+            name={null}
+            node={node}
+            editor={editor}
+          >
+            <DefaultIcon />
+          </SizeButton>
+          <SizeButton
+            name="breakout"
+            node={node}
+            editor={editor}
+          >
+            <BreakoutLeftIcon />
+          </SizeButton>
+          <SizeButton
+            name="float"
+            node={node}
+            editor={editor}
+          >
+            <FloatLeftIcon />
+          </SizeButton>
+        </SelectionPath.OptionGroup>
         <SelectionPath.OptionGroup label="Infobox Grösse">
           <SizeButton
             name={null}

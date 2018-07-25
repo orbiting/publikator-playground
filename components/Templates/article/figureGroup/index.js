@@ -10,7 +10,7 @@ import {
   SizeButton,
   DefaultIcon,
   BreakoutIcon
-} from '../common/sizes'
+} from '../common/breakouts.js'
 
 export default {
   renderNode: ifElse(

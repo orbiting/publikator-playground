@@ -1,36 +1,34 @@
 import React from 'react'
 import Icon from 'react-icon-base'
 
-import withNodeData from '@orbiting/publikator-editor/hoc/withNodeData'
-import ToggleButton from '@orbiting/publikator-editor/components/ToggleButton'
-import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
-
-export const DefaultIcon = props => (
+export const ExtraLargeIcon = props => (
   <Icon size={24} viewBox="0 0 24 24" {...props}>
     <g>
-      <path d="m3,7.00002l17.9374,0l0,10.12494l-17.9374,0l0,-10.12494z" />
-      <path d="m3,2.87505l17.9374,0l0,2.06249l-17.9374,0l0,-2.06249z" />
-      <path d="m3,19.12496l17.9374,0l0,2.06249l-17.9374,0l0,-2.06249z" />
+      <path d="m3,3l18,0l0,18l-18,0l0,-18z" />
     </g>
   </Icon>
 )
 
-export const BreakoutLeftIcon = props => (
+export const LargeIcon = props => (
   <Icon size={24} viewBox="0 0 24 24" {...props}>
     <g>
-      <path d="m3,7.00002l17.9374,0l0,10.12494l-17.9374,0l0,-10.12494z" />
-      <path d="m7,2.81255l14,0l0,2.06249l-14,0l0,-2.06249z" />
-      <path d="m7,19.06246l14,0l0,2.06249l-14,0l0,-2.06249z" />
+      <path d="m4,4l16,0l0,16l-16,0l0,-16z" />
     </g>
   </Icon>
 )
 
-export const FloatLeftIcon = props => (
+export const MediumIcon = props => (
   <Icon size={24} viewBox="0 0 24 24" {...props}>
     <g>
-      <path d="m3,7.00002l14.1874,0l0,10.12494l-14.1874,0l0,-10.12494z" />
-      <path d="m7,2.81255l14,0l0,2.06249l-14,0l0,-2.06249z" />
-      <path d="m7,19.06246l14,0l0,2.06249l-14,0l0,-2.06249z" />
+      <path d="m6,6l12,0l0,12l-12,0l0,-12z" />
+    </g>
+  </Icon>
+)
+
+export const SmallIcon = props => (
+  <Icon size={24} viewBox="0 0 24 24" {...props}>
+    <g>
+      <path d="m7,7l10,0l0,10l-10,0l0,-10z" />
     </g>
   </Icon>
 )
@@ -38,54 +36,7 @@ export const FloatLeftIcon = props => (
 export const TinyIcon = props => (
   <Icon size={24} viewBox="0 0 24 24" {...props}>
     <g>
-      <path d="m6,7.16669l12,0l0,10.12494l-12,0l0,-10.12494z" />
-      <path d="m3,2.87505l17.9374,0l0,2.06249l-17.9374,0l0,-2.06249z" />
-      <path d="m3,19.12496l17.9374,0l0,2.06249l-17.9374,0l0,-2.06249z" />
+      <path d="m8,8l8,0l0,8l-8,0l0,-8z" />
     </g>
   </Icon>
-)
-
-export const BreakoutIcon = props => (
-  <Icon size={24} viewBox="0 0 24 24" {...props}>
-    <g>
-      <path d="m3,7.00002l17.9374,0l0,10.12494l-17.9374,0l0,-10.12494z" />
-      <path d="m5,2.87505l14,0l0,2.06249l-14,0l0,-2.06249z" />
-      <path d="m5,19.12496l14,0l0,2.06249l-14,0l0,-2.06249z" />
-    </g>
-  </Icon>
-)
-
-export const EdgeToEdgeIcon = props => (
-  <Icon size={24} viewBox="0 0 24 24" {...props}>
-    <g>
-      <path d="m0,7l24,0l0,10.12494l-24,0l0,-10.12494z" />
-      <path d="m6,2.87505l12,0l0,2.06249l-12,0l0,-2.06249z" />
-      <path d="m6,19.12496l12,0l0,2.06249l-12,0l0,-2.06249z" />
-    </g>
-  </Icon>
-)
-
-const withSize = withNodeData('size')
-
-export const SizeButton = withSize(
-  ({
-    children,
-    name,
-    value,
-    onChange,
-    ...props
-  }) => {
-    const active = value === name
-    return (
-      <ToggleButton
-        active={active}
-        disabled={active}
-        onClick={() => onChange(name)}
-        {...buttonStyles.iconButton}
-        {...props}
-      >
-        {children}
-      </ToggleButton>
-    )
-  }
 )

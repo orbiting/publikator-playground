@@ -14,7 +14,7 @@ import {
   BreakoutIcon,
   DefaultIcon,
   EdgeToEdgeIcon
-} from '../common/sizes'
+} from '../common/breakouts.js'
 
 const styles = {
   edgeToEdge: css({
