@@ -9,10 +9,11 @@ import {
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 
 import {
-  TinySizeButton,
-  CenterSizeButton,
-  EdgeToEdgeSizeButton
-} from '../common/ui'
+  SizeButton,
+  TinyIcon,
+  DefaultIcon,
+  EdgeToEdgeIcon
+} from '../common/sizes'
 
 export default ifElse(
   compose(
@@ -26,18 +27,27 @@ export default ifElse(
       offset={2}
     >
       <SelectionPath.OptionGroup label="Bildgrösse">
-        <TinySizeButton
+        <SizeButton
+          name="tiny"
           node={node}
           editor={editor}
-        />
-        <CenterSizeButton
+        >
+          <TinyIcon />
+        </SizeButton>
+        <SizeButton
+          name="center"
           node={node}
           editor={editor}
-        />
-        <EdgeToEdgeSizeButton
+        >
+          <DefaultIcon />
+        </SizeButton>
+        <SizeButton
+          name={null}
           node={node}
           editor={editor}
-        />
+        >
+          <EdgeToEdgeIcon />
+        </SizeButton>
       </SelectionPath.OptionGroup>
     </SelectionPath.Options>,
     <FigureCover

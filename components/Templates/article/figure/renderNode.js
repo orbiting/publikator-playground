@@ -10,10 +10,11 @@ import {
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 
 import {
-  DefaultSizeButton,
-  BreakoutSizeButton,
-  EdgeToEdgeSizeButton
-} from '../common/ui'
+  SizeButton,
+  BreakoutIcon,
+  DefaultIcon,
+  EdgeToEdgeIcon
+} from '../common/sizes'
 
 const styles = {
   edgeToEdge: css({
@@ -38,18 +39,27 @@ export default ifElse(
       offset={2}
     >
       <SelectionPath.OptionGroup label="Bildgrösse">
-        <DefaultSizeButton
+        <SizeButton
+          name={null}
           node={node}
           editor={editor}
-        />
-        <BreakoutSizeButton
+        >
+          <DefaultIcon />
+        </SizeButton>
+        <SizeButton
+          name={'breakout'}
           node={node}
           editor={editor}
-        />
-        <EdgeToEdgeSizeButton
+        >
+          <BreakoutIcon />
+        </SizeButton>
+        <SizeButton
+          name={'edgeToEdge'}
           node={node}
           editor={editor}
-        />
+        >
+          <EdgeToEdgeIcon />
+        </SizeButton>
       </SelectionPath.OptionGroup>
     </SelectionPath.Options>,
     node.data.get('size') === 'edgeToEdge' ? (

@@ -32,7 +32,7 @@ import {
   isBlock
 } from '@orbiting/publikator-editor/lib'
 
-import Caption from '../caption'
+import getNewCaption from '../caption/getNew'
 
 const onEnter = compose(
   ifElse(
@@ -69,7 +69,7 @@ const onEnter = compose(
         focusNext,
         converge(insertBlockAfter, [
           getChange,
-          Caption.getNew,
+          getNewCaption,
           getEndBlock
         ])
       )

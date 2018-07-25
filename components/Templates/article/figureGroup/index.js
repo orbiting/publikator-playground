@@ -7,9 +7,10 @@ import {
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 
 import {
-  DefaultSizeButton,
-  BreakoutSizeButton
-} from '../common/ui'
+  SizeButton,
+  DefaultIcon,
+  BreakoutIcon
+} from '../common/sizes'
 
 export default {
   renderNode: ifElse(
@@ -25,14 +26,20 @@ export default {
           node={node}
         >
           <SelectionPath.OptionGroup label="Bildergruppe">
-            <DefaultSizeButton
+            <SizeButton
+              name={null}
               node={node}
               editor={editor}
-            />
-            <BreakoutSizeButton
+            >
+              <DefaultIcon />
+            </SizeButton>
+            <SizeButton
+              name={'breakout'}
               node={node}
               editor={editor}
-            />
+            >
+              <BreakoutIcon />
+            </SizeButton>
           </SelectionPath.OptionGroup>
         </SelectionPath.Options>,
         <FigureGroup
