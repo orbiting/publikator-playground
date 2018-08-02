@@ -24,7 +24,7 @@ import {
   insertBlockAfter
 } from '@orbiting/publikator-editor/changes'
 
-import getNewFigure from '../figure/getNew'
+import getNewFigure from '../infoBoxFigure/getNew'
 
 import {
   BreakoutLeftIcon,
@@ -53,7 +53,10 @@ const FigureSizeButton = withNodeData(
 
 const FigureToggleButton = ({ node, editor }) => {
   const figure = node.nodes.get(1)
-  const hasFigure = isBlock('figure', figure)
+  const hasFigure = isBlock(
+    'infoBoxFigure',
+    figure
+  )
   const Icon = hasFigure
     ? HasImageIcon
     : NoImageIcon
