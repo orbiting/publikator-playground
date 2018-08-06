@@ -87,7 +87,12 @@ export default compose(
     ),
     ({ children, attributes, node, editor }) => {
       const figure = node.nodes.get(1)
-      const hasFigure = isBlock('figure', figure)
+      const hasFigure = isBlock(
+        'infoBoxFigure',
+        figure
+      )
+      const infoBoxSize = node.data.get('size')
+
       return [
         <SelectionPath.Options
           key="ui"
@@ -146,22 +151,26 @@ export default compose(
               >
                 <MediumIcon />
               </FigureSizeButton>
-              <FigureSizeButton
-                name="S"
-                node={node}
-                {...buttonStyles.iconButton}
-                editor={editor}
-              >
-                <SmallIcon />
-              </FigureSizeButton>
-              <FigureSizeButton
-                name="XS"
-                node={node}
-                {...buttonStyles.iconButton}
-                editor={editor}
-              >
-                <TinyIcon />
-              </FigureSizeButton>
+              {infoBoxSize !== 'float' && [
+                <FigureSizeButton
+                  key="small-button"
+                  name="S"
+                  node={node}
+                  {...buttonStyles.iconButton}
+                  editor={editor}
+                >
+                  <SmallIcon />
+                </FigureSizeButton>,
+                <FigureSizeButton
+                  key="tiny-button"
+                  name="XS"
+                  node={node}
+                  {...buttonStyles.iconButton}
+                  editor={editor}
+                >
+                  <TinyIcon />
+                </FigureSizeButton>
+              ]}
             </SelectionPath.OptionGroup>
           )}
         </SelectionPath.Options>,
