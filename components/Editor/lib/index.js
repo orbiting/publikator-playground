@@ -26,6 +26,13 @@ import {
   notIsNil
 } from '../../../lib/transform/common'
 
+import {
+  isBlock,
+  isMark,
+  isInline,
+  isDocument
+} from '../../../lib/transform/slate'
+
 export {
   log,
   safePropEq,
@@ -33,13 +40,6 @@ export {
   safeProp,
   notIsNil
 }
-
-import {
-  isBlock,
-  isMark,
-  isInline,
-  isDocument
-} from '../../../lib/transform/slate'
 
 export { isBlock, isMark, isInline, isDocument }
 
@@ -98,7 +98,10 @@ export const getFurthestOf = curry(
         doc.getFurthest(target, filter),
       [
         getDocument,
-        compose(safeProp('key'), getter)
+        compose(
+          safeProp('key'),
+          getter
+        )
       ]
     )
 )
@@ -110,7 +113,10 @@ export const getClosestOf = curry(
         doc.getClosest(target, filter),
       [
         getDocument,
-        compose(safeProp('key'), getter)
+        compose(
+          safeProp('key'),
+          getter
+        )
       ]
     )
 )
@@ -118,14 +124,18 @@ export const getClosestOf = curry(
 export const getChildIndexOf = getter =>
   converge(
     (doc, target) =>
-      doc
-        .getParent(target)
-        .nodes.findIndex(
-          compose(equals(target), safeProp('key'))
-        ),
+      doc.getParent(target).nodes.findIndex(
+        compose(
+          equals(target),
+          safeProp('key')
+        )
+      ),
     [
       getDocument,
-      compose(safeProp('key'), getter)
+      compose(
+        safeProp('key'),
+        getter
+      )
     ]
   )
 
@@ -134,7 +144,10 @@ export const getNextBlockOf = getter =>
     (doc, target) => doc.getNextBlock(target),
     [
       getDocument,
-      compose(safeProp('key'), getter)
+      compose(
+        safeProp('key'),
+        getter
+      )
     ]
   )
 
@@ -143,7 +156,10 @@ export const getPreviousBlockOf = getter =>
     (doc, target) => doc.getPreviousBlock(target),
     [
       getDocument,
-      compose(safeProp('key'), getter)
+      compose(
+        safeProp('key'),
+        getter
+      )
     ]
   )
 
@@ -152,7 +168,10 @@ export const getParentOf = getter =>
     (doc, target) => doc.getParent(target),
     [
       getDocument,
-      compose(safeProp('key'), getter)
+      compose(
+        safeProp('key'),
+        getter
+      )
     ]
   )
 
@@ -204,8 +223,14 @@ export const notIsMixed = complement(isMixed)
 
 export const hasEdgeInSelection = predicates =>
   either(
-    compose(anyPass(predicates), getStartBlock),
-    compose(anyPass(predicates), getEndBlock)
+    compose(
+      anyPass(predicates),
+      getStartBlock
+    ),
+    compose(
+      anyPass(predicates),
+      getEndBlock
+    )
   )
 
 export const isCollapsedAtStartOf = getter =>
@@ -237,7 +262,10 @@ export const isCollapsedAtEnd = isCollapsedAtEndOf(
 )
 
 export const isKey = key =>
-  compose(equals(key), safePath(['event', 'key']))
+  compose(
+    equals(key),
+    safePath(['event', 'key'])
+  )
 
 export const isEnter = isKey('Enter')
 export const isBackspace = isKey('Backspace')
