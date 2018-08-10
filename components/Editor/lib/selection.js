@@ -30,3 +30,11 @@ export const getSelectionPath = value => {
 export const getChildIndex = (value, node) => {
   return tree.childIndex(value, node.key)
 }
+
+export const isCompleteBlockSelected = value =>
+  value.startBlock === value.endBlock ||
+  (value.document.getNextBlock(
+    value.startBlock.key
+  ) === value.endBlock &&
+    value.startOffset === 0 &&
+    value.endOffset === 0)

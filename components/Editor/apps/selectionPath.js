@@ -1,5 +1,8 @@
 import { connect } from 'react-redux'
-import { getSelectionPath } from '../lib/selection'
+import {
+  getSelectionPath,
+  isCompleteBlockSelected
+} from '../lib/selection'
 
 import { CHANGE } from './value'
 export const SELECT_NODE = 'SELECT_NODE'
@@ -59,16 +62,17 @@ export const reducer = (
   switch (type) {
     case CHANGE:
       value = payload.change.value
-      if (value.startBlock !== value.endBlock) {
-        return initialState
+
+      if (isCompleteBlockSelected(value)) {
+        const selectionPath = getSelectionPath(
+          value
+        )
+        return {
+          selectionPath,
+          selectedNode: selectionPath.last()
+        }
       }
-      const selectionPath = getSelectionPath(
-        value
-      )
-      return {
-        selectionPath,
-        selectedNode: selectionPath.last()
-      }
+      return initialState
     case SELECT_NODE:
       return {
         ...state,
