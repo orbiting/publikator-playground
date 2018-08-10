@@ -165,7 +165,8 @@ const onDeleteOrBackspace = compose(
     both(
       isMixed,
       hasEdgeInSelection([
-        isBlock('infoBoxText', 'infoBoxTitle')
+        isBlock('infoBoxText'),
+        isBlock('infoBoxTitle')
       ])
     ),
     compose(
