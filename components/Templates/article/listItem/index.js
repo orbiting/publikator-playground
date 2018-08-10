@@ -7,12 +7,14 @@ import {
   safeProp
 } from '@orbiting/publikator-editor/lib'
 
+import onKeyDown from './onKeyDown'
+
 export default {
+  onKeyDown,
   getNew: () =>
     Block.create({
       type: 'listItem'
     }),
-
   renderNode: ifElse(
     compose(
       isBlock('listItem'),

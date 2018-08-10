@@ -15,6 +15,9 @@ import { ParagraphButton } from '../paragraph/ui'
 import { SubheadButton } from '../subhead/ui'
 import { UnorderedListButton } from '../unorderedList/ui'
 import { OrderedListButton } from './ui'
+import { BoldButton } from '../bold/ui'
+import { ItalicButton } from '../italic/ui'
+import { LinkButton } from '../link/ui'
 
 const toFlatBlockConversion = (
   change,
@@ -76,6 +79,22 @@ export default {
             editor={editor}
           />
           <OrderedListButton
+            node={node}
+            editor={editor}
+          />
+        </SelectionPath.OptionGroup>
+        <SelectionPath.OptionGroup
+          label={'Format'}
+        >
+          <BoldButton
+            node={node}
+            editor={editor}
+          />
+          <ItalicButton
+            node={node}
+            editor={editor}
+          />
+          <LinkButton
             node={node}
             editor={editor}
           />
