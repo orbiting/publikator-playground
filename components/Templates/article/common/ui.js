@@ -5,6 +5,7 @@ import { InsertFigureButton } from '../figure/ui'
 import { InsertInfoBoxButton } from '../infoBox/ui'
 import { SubButton } from '../subscript/ui'
 import { SupButton } from '../superscript/ui'
+import { UnorderedListButton } from '../unorderedList/ui'
 
 export const BlockButtons = ({
   node,
@@ -16,6 +17,10 @@ export const BlockButtons = ({
       editor={editor}
     />
     <SubheadButton node={node} editor={editor} />
+    <UnorderedListButton
+      node={node}
+      editor={editor}
+    />
   </OptionGroup>
 )
 

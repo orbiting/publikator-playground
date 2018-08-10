@@ -69,11 +69,18 @@ export const convertBlock = (
   node,
   block,
   conversionStrategy
-) =>
-  change.setNodeByKey(
+) => {
+  console.log(
+    change.setNodeByKey(
+      node.key,
+      conversionStrategy(change, node, block)
+    ).value.document
+  )
+  return change.setNodeByKey(
     node.key,
     conversionStrategy(change, node, block)
   )
+}
 
 export const addMark = (change, mark) => {
   return change.addMark(mark)

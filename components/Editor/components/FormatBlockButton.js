@@ -23,16 +23,22 @@ const clickHandler = ({
   editor,
   node,
   block,
-  conversionStrategy = defaultConversionStrategy
+  conversionStrategy
 }) => isActive => {
   return (
     !isActive &&
-    editor.change(
-      convertBlock,
-      node,
-      block,
-      conversionStrategy
-    )
+    (!conversionStrategy
+      ? editor.change(
+          convertBlock,
+          node,
+          block,
+          defaultConversionStrategy
+        )
+      : editor.change(
+          conversionStrategy,
+          node,
+          block
+        ))
   )
 }
 
