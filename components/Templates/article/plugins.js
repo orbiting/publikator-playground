@@ -8,6 +8,7 @@ import Cover from './cover'
 import CaptionPlugin from './caption'
 import BoldPlugin from './bold'
 import UnorderedListPlugin from './unorderedList'
+import OrderedListPlugin from './orderedList'
 import ListItemPlugin from './listItem'
 import SuperscriptPlugin from './superscript'
 import SubscriptPlugin from './subscript'
@@ -34,6 +35,7 @@ export default [
   CaptionPlugin,
   ParagraphPlugin,
   SubheadPlugin,
+  OrderedListPlugin,
   UnorderedListPlugin,
   ListItemPlugin,
   LinkPlugin,

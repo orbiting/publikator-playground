@@ -70,12 +70,6 @@ export const convertBlock = (
   block,
   conversionStrategy
 ) => {
-  console.log(
-    change.setNodeByKey(
-      node.key,
-      conversionStrategy(change, node, block)
-    ).value.document
-  )
   return change.setNodeByKey(
     node.key,
     conversionStrategy(change, node, block)

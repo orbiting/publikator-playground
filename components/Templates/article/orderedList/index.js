@@ -13,17 +13,17 @@ import {
 } from '../common/ui'
 import { ParagraphButton } from '../paragraph/ui'
 import { SubheadButton } from '../subhead/ui'
-import { OrderedListButton } from '../orderedList/ui'
-import { UnorderedListButton } from './ui'
+import { UnorderedListButton } from '../unorderedList/ui'
+import { OrderedListButton } from './ui'
 
 const toFlatBlockConversion = (
   change,
   node,
   block
 ) => {
-  if (block === 'orderedList') {
+  if (block === 'unorderedList') {
     return change.setNodeByKey(node.key, {
-      type: 'orderedList'
+      type: 'unorderedList'
     })
   }
 
@@ -41,7 +41,7 @@ const toFlatBlockConversion = (
 export default {
   renderNode: ifElse(
     compose(
-      isBlock('unorderedList'),
+      isBlock('orderedList'),
       safeProp('node')
     ),
     ({ node, children, attributes, editor }) => [
@@ -85,9 +85,9 @@ export default {
           editor={editor}
         />
       </SelectionPath.Options>,
-      <Editorial.UL key="content" {...attributes}>
+      <Editorial.OL key="content" {...attributes}>
         {children}
-      </Editorial.UL>
+      </Editorial.OL>
     ],
     always(undefined)
   )
