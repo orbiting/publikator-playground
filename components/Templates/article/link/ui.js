@@ -1,21 +1,28 @@
+import { compose } from 'ramda'
 import {
   fontStyles,
-  colors,
   A
 } from '@project-r/styleguide'
+
 import { css } from 'glamor'
 import LinkIcon from 'react-icons/lib/fa/chain'
 import ExternalLinkIcon from 'react-icons/lib/fa/external-link'
 import DocumentLinkIcon from 'react-icons/lib/fa/file-text-o'
 import AuthorLinkIcon from 'react-icons/lib/fa/user'
+import EditIcon from 'react-icons/lib/fa/pencil'
+import OkIcon from 'react-icons/lib/fa/check'
 
 import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
+import Button from '@orbiting/publikator-editor/components/Button'
 import withNodeData from '@orbiting/publikator-editor/hoc/withNodeData'
 import ToggleInlineButton from '@orbiting/publikator-editor/components/ToggleInlineButton'
 import TextInput from '@orbiting/publikator-editor/components/TextInput'
+import { withEditMode } from '@orbiting/publikator-editor/apps/editMode'
 
 const styles = {
-  card: {},
+  card: css({
+    marginBottom: '15px'
+  }),
   cardLink: css({
     ...fontStyles.sansSerifRegular16,
     display: 'block'
@@ -42,15 +49,17 @@ const getUrlType = str =>
       ? 'Dokument'
       : 'Link'
 
-export const LinkButton = props => (
-  <ToggleInlineButton
-    inline={'link'}
-    {...props}
-    {...buttonStyles.iconButton}
-  >
-    <LinkIcon size={22} />
-  </ToggleInlineButton>
-)
+export const LinkButton = props => {
+  return (
+    <ToggleInlineButton
+      inline={'link'}
+      {...props}
+      {...buttonStyles.iconButton}
+    >
+      <LinkIcon size={22} />
+    </ToggleInlineButton>
+  )
+}
 
 export const LinkUrlInput = withNodeData('url')(
   props => <TextInput label="URL" {...props} />
@@ -58,10 +67,10 @@ export const LinkUrlInput = withNodeData('url')(
 
 export const LinkTitleInput = withNodeData(
   'title'
-)(props => <TextInput label="Titel" {...props} />)
+)(props => <TextInput label="Title" {...props} />)
 
 export const LinkCard = ({ node }) => (
-  <div>
+  <div {...styles.card}>
     <span {...styles.cardLink}>
       <span>
         {shortString(
@@ -78,8 +87,66 @@ export const LinkCard = ({ node }) => (
         target="_blank"
         href={node.data.get('url')}
       >
-        Profil
+        In neuem Tab öffnen
       </A>
     </span>
   </div>
 )
+
+export const LinkForm = compose(
+  withEditMode({ namespace: 'link' })
+)(props => {
+  const {
+    node,
+    editor,
+    isEditing,
+    focusRef,
+    startEditing,
+    finishEditing
+  } = props
+  const showForm =
+    !node.data.get('url') || isEditing
+  return (
+    <div>
+      {showForm && (
+        <form
+          onSubmit={e => {
+            e.preventDefault()
+            finishEditing()
+          }}
+        >
+          <LinkUrlInput
+            node={node}
+            editor={editor}
+            renderInput={inputProps => (
+              <input
+                {...inputProps}
+                ref={focusRef}
+              />
+            )}
+          />
+          <LinkTitleInput
+            node={node}
+            editor={editor}
+          />
+          <Button
+            type="submit"
+            {...buttonStyles.iconButton}
+            onClick={finishEditing}
+          >
+            <OkIcon size="16" />
+          </Button>
+        </form>
+      )}
+      {!showForm && <LinkCard node={node} />}
+      {!showForm && (
+        <Button
+          {...buttonStyles.iconButton}
+          onClick={startEditing}
+        >
+          <EditIcon size="22" />
+        </Button>
+      )}
+    </div>
+  )
+})

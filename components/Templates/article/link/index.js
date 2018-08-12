@@ -8,22 +8,21 @@ import {
 } from '@orbiting/publikator-editor/lib'
 
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
-import {
-  LinkUrlInput,
-  LinkTitleInput,
-  LinkCard
-} from './ui'
+import { LinkForm } from './ui'
 
 export default {
   renderNode: ifElse(
-    compose(isInline('link'), safeProp('node')),
+    compose(
+      isInline('link'),
+      safeProp('node')
+    ),
     ({ node, children, attributes, editor }) => [
       <SelectionPath.Options key="ui" node={node}>
         <SelectionPath.OptionGroup
           label="Link"
           primary
         >
-          <LinkCard node={node} />
+          <LinkForm node={node} editor={editor} />
         </SelectionPath.OptionGroup>
       </SelectionPath.Options>,
       <Editorial.A
