@@ -1,6 +1,5 @@
 import { compose } from 'ramda'
 import React, { Component } from 'react'
-import { findDOMNode } from 'react-dom'
 import PropTypes from 'prop-types'
 import { css } from 'glamor'
 import { fontFamilies } from '@project-r/styleguide'
