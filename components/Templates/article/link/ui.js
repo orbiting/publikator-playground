@@ -76,7 +76,7 @@ export const LinkCard = ({ data }) => (
     <span {...styles.cardLink}>
       <span>
         {shortString(
-          40,
+          20,
           data.get('title') ||
             shortUrl(data.get('url'))
         )}
@@ -86,7 +86,7 @@ export const LinkCard = ({ data }) => (
       {getUrlType(data.get('url'))}
       {' | '}
       <A target="_blank" href={data.get('url')}>
-        Profil
+        In neuem Tab öffnen
       </A>
     </span>
   </div>
@@ -187,9 +187,9 @@ export const LinkUI = compose(
       <LinkForm
         initialValues={data.toJS()}
         onSubmit={v => {
-          focusRef.focus()
           finishEditing()
           onChange(v)
+          focusRef.focus()
         }}
       />
     )
