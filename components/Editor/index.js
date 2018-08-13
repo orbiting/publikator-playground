@@ -1,4 +1,3 @@
-import { compose } from 'ramda'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'glamor'
@@ -6,18 +5,10 @@ import { fontFamilies } from '@project-r/styleguide'
 
 import { Editor as SlateEditor } from 'slate-react'
 import { withApp } from './apps/value'
-import {
-  withEditMode,
-  DEFAULT_NAMESPACE
-} from './apps/editMode'
+
 import SelectionPath from './components/SelectionPath'
 
-const Editor = compose(
-  withApp,
-  withEditMode({ namespace: DEFAULT_NAMESPACE })
-)(({ focusRef, ...props }) => (
-  <SlateEditor {...props} ref={focusRef} />
-))
+const Editor = withApp(SlateEditor)
 
 import 'glamor/reset'
 
