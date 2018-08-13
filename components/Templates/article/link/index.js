@@ -8,7 +8,13 @@ import {
 } from '@orbiting/publikator-editor/lib'
 
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
-import { LinkForm } from './ui'
+import {
+  LinkUrlInput,
+  LinkTitleInput,
+  LinkCard,
+  LinkForm,
+  LinkUI
+} from './ui'
 
 export default {
   renderNode: ifElse(
@@ -22,7 +28,11 @@ export default {
           label="Link"
           primary
         >
-          <LinkForm node={node} editor={editor} />
+          <LinkUI
+            node={node}
+            editor={editor}
+            focusRef={editor}
+          />
         </SelectionPath.OptionGroup>
       </SelectionPath.Options>,
       <Editorial.A
