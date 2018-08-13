@@ -1,7 +1,9 @@
-import { reducer as valueReducer } from './apps/value'
-import { reducer as selectionPathReducer } from './apps/selectionPath'
+import { reducer as value } from './apps/value'
+import { reducer as selectionPath } from './apps/selectionPath'
+import { reducer as editMode } from './apps/editMode'
 
 export default {
-  selectionPath: selectionPathReducer,
-  value: valueReducer
+  selectionPath,
+  value,
+  editMode
 }

@@ -1,18 +1,25 @@
+import { compose } from 'ramda'
 import {
   fontStyles,
   colors,
   A
 } from '@project-r/styleguide'
 import { css } from 'glamor'
+
+import { reduxForm, Field } from 'redux-form'
+
 import LinkIcon from 'react-icons/lib/fa/chain'
 import ExternalLinkIcon from 'react-icons/lib/fa/external-link'
 import DocumentLinkIcon from 'react-icons/lib/fa/file-text-o'
 import AuthorLinkIcon from 'react-icons/lib/fa/user'
+import EditIcon from 'react-icons/lib/fa/pencil'
 
 import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
-import withNodeData from '@orbiting/publikator-editor/hoc/withNodeData'
 import ToggleInlineButton from '@orbiting/publikator-editor/components/ToggleInlineButton'
 import TextInput from '@orbiting/publikator-editor/components/TextInput'
+import Button from '@orbiting/publikator-editor/components/Button'
+import withNodeData from '@orbiting/publikator-editor/hoc/withNodeData'
+import { withEditMode } from '@orbiting/publikator-editor/apps/editMode'
 
 const styles = {
   card: {},
@@ -60,26 +67,127 @@ export const LinkTitleInput = withNodeData(
   'title'
 )(props => <TextInput label="Titel" {...props} />)
 
-export const LinkCard = ({ node }) => (
+export const LinkCard = ({ data }) => (
   <div>
     <span {...styles.cardLink}>
       <span>
         {shortString(
-          20,
-          node.data.get('title') ||
-            shortUrl(node.data.get('url'))
+          40,
+          data.get('title') ||
+            shortUrl(data.get('url'))
         )}
       </span>
     </span>
     <span {...styles.cardLabel}>
-      {getUrlType(node.data.get('url'))}
+      {getUrlType(data.get('url'))}
       {' | '}
-      <A
-        target="_blank"
-        href={node.data.get('url')}
-      >
+      <A target="_blank" href={data.get('url')}>
         Profil
       </A>
     </span>
   </div>
+)
+
+const renderField = ({
+  input,
+  label,
+  type,
+  meta: { touched, error }
+}) => (
+  <TextInput
+    renderInput={props => (
+      <input
+        autoComplete="off"
+        {...props}
+        {...input}
+      />
+    )}
+    type={type}
+    label={label}
+    {...input}
+    error={touched && error}
+  />
+)
+
+export const LinkForm = reduxForm({
+  form: 'link',
+  enableReinitialize: true
+})(
+  ({
+    handleSubmit,
+    pristine,
+    reset,
+    submitting
+  }) => {
+    return (
+      <form onSubmit={handleSubmit}>
+        <Field
+          name="url"
+          type="text"
+          component={renderField}
+          label="URL"
+        />
+        <Field
+          name="title"
+          type="text"
+          component={renderField}
+          label="Titel"
+        />
+        <div>
+          <button
+            {...buttonStyles.iconButton}
+            type="submit"
+            disabled={submitting}
+          >
+            ok
+          </button>
+          <button
+            {...buttonStyles.iconButton}
+            type="button"
+            disabled={pristine || submitting}
+            onClick={reset}
+          >
+            Clear Values
+          </button>
+        </div>
+      </form>
+    )
+  }
+)
+
+export const LinkUI = compose(
+  withNodeData(),
+  withEditMode({
+    namespace: 'link'
+  })
+)(
+  ({
+    isInEditMode,
+    startEditing,
+    finishEditing,
+    value: data,
+    onChange,
+    focusRef
+  }) => {
+    return !isInEditMode ? (
+      <div>
+        <LinkCard data={data} />
+        <Button
+          {...buttonStyles.iconButton}
+          onClick={startEditing}
+        >
+          <EditIcon size="12" />
+        </Button>
+      </div>
+    ) : (
+      <LinkForm
+        initialValues={data.toJS()}
+        onSubmit={v => {
+          focusRef.focus()
+          finishEditing()
+          onChange(v)
+        }}
+      />
+    )
+  }
 )
