@@ -2,35 +2,35 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'glamor'
 import ArrowIcon from 'react-icons/lib/fa/angle-right'
-import {
-  fontStyles,
-  colors
-} from '@project-r/styleguide'
-
+import { compose } from 'ramda'
 import { withApp } from '../../apps/selectionPath'
+import { withTheme } from '../../apps/theme'
 
-const styles = {
-  container: css({
-    backgroundColor: colors.secondaryBg,
-    padding: '0 20px',
-    width: 'max-content',
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'row',
-    // ...fontStyles.sansSerifRegular15,
-    lineHeight: '55px'
-    // borderBottom: `1px solid ${colors.divider}`
-  }),
-  nodeLink: css({
-    ...fontStyles.sansSerifRegular16,
-    cursor: 'pointer',
-    '&[data-active="true"]': {
-      color: colors.primary,
-      cursor: 'default',
-      textDecoration: 'underline'
-    }
-  })
-}
+const withStyles = withTheme(({ theme }) => {
+  return {
+    container: css(
+      theme.layout.container,
+      css({
+        maxWidth: `none`,
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'row',
+        lineHeight: '55px'
+      })
+    ),
+    nodeLink: css(
+      theme.buttons.labelButton,
+      css({
+        ...theme.fontStyles.sansSerifRegular16,
+        '&[data-active="true"]': {
+          color: theme.colors.primary,
+          cursor: 'default',
+          textDecoration: 'underline'
+        }
+      })
+    )
+  }
+})
 
 const mouseDownHandler = (
   node,
@@ -43,7 +43,8 @@ const mouseDownHandler = (
 const SelectionPathMenu = ({
   selectedNode,
   selectionPath,
-  onSelect
+  onSelect,
+  styles
 }) => {
   if (!selectionPath) {
     return (
@@ -83,4 +84,7 @@ SelectionPathMenu.propTypes = {
   onSelect: PropTypes.func.isRequired
 }
 
-export default withApp(SelectionPathMenu)
+export default compose(
+  withApp,
+  withStyles
+)(SelectionPathMenu)

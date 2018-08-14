@@ -23,7 +23,8 @@ import {
   safePropEq,
   safePath,
   safeProp,
-  notIsNil
+  notIsNil,
+  mergeResults
 } from '../../../lib/transform/common'
 
 import {

@@ -1,50 +1,26 @@
-import {
-  Label,
-  colors
-} from '@project-r/styleguide'
-import { css } from 'glamor'
-import PropTypes from 'prop-types'
-
-const styles = {
-  container: css({
-    width: 'max-content',
-    backgroundColor: colors.secondaryBg,
-    padding: '12px 20px 12px 20px'
-  }),
-  options: css({
-    marginTop: '12px',
-    '& > button:not(:first-child)': {
-      paddingLeft: '12px'
-    }
-  }),
-  primary: css({
-    borderTop: `1px solid ${colors.secondary}`,
-    margin: '5px 0'
-  })
-}
+import { Label } from '@project-r/styleguide'
+import { withTheme } from '../../apps/theme'
 
 const OptionGroup = ({
   label,
   primary,
   children,
+  styles,
   ...props
 }) => {
+  const layoutStyles = styles.layout
+
   return (
-    <div {...styles.container} {...props}>
+    <div {...layoutStyles.container} {...props}>
       <Label>{label}</Label>
-      {primary && <hr {...styles.primary} />}
-      <div {...styles.options}>{children}</div>
+      {primary && (
+        <hr {...layoutStyles.hairline} />
+      )}
+      <div {...layoutStyles.actions}>
+        {children}
+      </div>
     </div>
   )
 }
 
-OptionGroup.propTypes = {
-  label: PropTypes.string.isRequired,
-  primary: PropTypes.bool
-}
-
-OptionGroup.defaultProps = {
-  primary: false
-}
-
-export default OptionGroup
+export default withTheme()(OptionGroup)

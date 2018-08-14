@@ -1,54 +1,24 @@
-import {
-  Label,
-  colors
-} from '@project-r/styleguide'
-import { css } from 'glamor'
-import PropTypes from 'prop-types'
-
-const styles = {
-  container: css({
-    width: 'max-content',
-    backgroundColor: '#fff',
-    border: `1px solid ${colors.divider}`,
-    margin: '-5px 0 0 5px',
-    padding: '12px 20px 12px 20px'
-  }),
-  options: css({
-    marginTop: '12px',
-    '& > button:not(:first-child)': {
-      paddingLeft: '12px'
-    }
-  }),
-  label: css({
-    display: 'flex',
-    justifyContent: 'space-between'
-  }),
-  hr: css({
-    borderTop: `1px solid ${colors.divider}`,
-    margin: '5px 0 15px 0'
-  })
-}
+import { Label } from '@project-r/styleguide'
+import { withTheme } from '../../apps/theme'
 
 const Form = ({
   label,
   children,
   action,
+  styles,
   ...props
 }) => {
+  const layoutStyles = styles.layout
   return (
-    <div {...styles.container} {...props}>
-      <div {...styles.label}>
+    <div {...layoutStyles.container} {...props}>
+      <div {...layoutStyles.sectionHeading}>
         <Label>{label}</Label>
         {action}
       </div>
-      <hr {...styles.hr} />
-      <div {...styles.options}>{children}</div>
+      <hr {...layoutStyles.hairline} />
+      {children}
     </div>
   )
 }
 
-Form.propTypes = {
-  label: PropTypes.string.isRequired
-}
-
-export default Form
+export default withTheme()(Form)

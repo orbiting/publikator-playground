@@ -39,7 +39,7 @@ export const labelButton = css({
   }
 })
 
-export default {
+export default () => ({
   iconButton,
   labelButton
-}
+})

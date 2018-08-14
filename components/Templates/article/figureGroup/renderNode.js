@@ -27,7 +27,10 @@ export default ifElse(
         key="ui"
         node={node}
       >
-        <SelectionPath.OptionGroup label="Bildergruppe">
+        <SelectionPath.OptionGroup
+          primary
+          label="Bildergruppe"
+        >
           <SizeButton
             name={null}
             node={node}

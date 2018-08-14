@@ -1,39 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { css } from 'glamor'
-import { fontFamilies } from '@project-r/styleguide'
-
 import { Editor as SlateEditor } from 'slate-react'
 import { withApp } from './apps/value'
+import { withTheme } from './apps/theme'
 
 import SelectionPath from './components/SelectionPath'
 
 const Editor = withApp(SlateEditor)
 
-import 'glamor/reset'
-
-css.global('html', { boxSizing: 'border-box' })
-css.global('*, *:before, *:after', {
-  boxSizing: 'inherit'
-})
-
-css.global('body', {
-  fontFamily: fontFamilies.sansSerifRegular
-})
-
-const styles = {
-  ui: css({
-    position: 'fixed',
-    width: 0,
-    zIndex: 9999
-  })
-}
-
 class PublikatorEditor extends Component {
   render() {
+    const { styles } = this.props
     return (
       <div>
-        <div {...styles.ui}>
+        <div {...styles.layout.ui}>
           <SelectionPath.Menu />
           <SelectionPath.Container />
         </div>
@@ -54,4 +34,4 @@ PublikatorEditor.propTypes = {
   plugins: PropTypes.array.isRequired
 }
 
-export default PublikatorEditor
+export default withTheme()(PublikatorEditor)
