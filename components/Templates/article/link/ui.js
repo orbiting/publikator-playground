@@ -1,6 +1,7 @@
 import { compose } from 'ramda'
 import {
   fontStyles,
+  Label,
   A
 } from '@project-r/styleguide'
 
@@ -9,11 +10,9 @@ import { css } from 'glamor'
 import { reduxForm, Field } from 'redux-form'
 
 import LinkIcon from 'react-icons/lib/fa/chain'
-import ExternalLinkIcon from 'react-icons/lib/fa/external-link'
-import DocumentLinkIcon from 'react-icons/lib/fa/file-text-o'
-import AuthorLinkIcon from 'react-icons/lib/fa/user'
-import EditIcon from 'react-icons/lib/fa/pencil'
+import CloseIcon from 'react-icons/lib/md/close'
 
+import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
 import ToggleInlineButton from '@orbiting/publikator-editor/components/ToggleInlineButton'
 import TextInput from '@orbiting/publikator-editor/components/TextInput'
@@ -63,14 +62,6 @@ export const LinkButton = props => {
   )
 }
 
-export const LinkUrlInput = withNodeData('url')(
-  props => <TextInput label="URL" {...props} />
-)
-
-export const LinkTitleInput = withNodeData(
-  'title'
-)(props => <TextInput label="Title" {...props} />)
-
 export const LinkCard = ({ data }) => (
   <div>
     <span {...styles.cardLink}>
@@ -82,13 +73,13 @@ export const LinkCard = ({ data }) => (
         )}
       </span>
     </span>
-    <span {...styles.cardLabel}>
+    <Label>
       {getUrlType(data.get('url'))}
       {' | '}
       <A target="_blank" href={data.get('url')}>
         In neuem Tab öffnen
       </A>
-    </span>
+    </Label>
   </div>
 )
 
@@ -138,21 +129,22 @@ export const LinkForm = reduxForm({
           label="Titel"
         />
         <div>
-          <button
-            {...buttonStyles.iconButton}
+          <Button
+            {...buttonStyles.labelButton}
             type="submit"
             disabled={submitting}
+            onClick={() => {}}
           >
-            ok
-          </button>
-          <button
-            {...buttonStyles.iconButton}
+            OK
+          </Button>
+          <Button
+            {...buttonStyles.labelButton}
             type="button"
             disabled={pristine || submitting}
             onClick={reset}
           >
-            Clear Values
-          </button>
+            Rückgängig
+          </Button>
         </div>
       </form>
     )
@@ -174,24 +166,42 @@ export const LinkUI = compose(
     focusRef
   }) => {
     return !isInEditMode ? (
-      <div>
+      <SelectionPath.OptionGroup
+        label="Link"
+        primary
+      >
         <LinkCard data={data} />
         <Button
           {...buttonStyles.iconButton}
           onClick={startEditing}
         >
-          <EditIcon size="12" />
+          Bearbeiten
         </Button>
-      </div>
+      </SelectionPath.OptionGroup>
     ) : (
-      <LinkForm
-        initialValues={data.toJS()}
-        onSubmit={v => {
-          finishEditing()
-          onChange(v)
-          focusRef.focus()
-        }}
-      />
+      <SelectionPath.Form
+        label="Link bearbeiten"
+        action={
+          <Button
+            {...buttonStyles.iconButton}
+            onClick={() => {
+              finishEditing()
+              focusRef.focus()
+            }}
+          >
+            <CloseIcon size="18" />
+          </Button>
+        }
+      >
+        <LinkForm
+          initialValues={data.toJS()}
+          onSubmit={v => {
+            finishEditing()
+            onChange(v)
+            focusRef.focus()
+          }}
+        />
+      </SelectionPath.Form>
     )
   }
 )

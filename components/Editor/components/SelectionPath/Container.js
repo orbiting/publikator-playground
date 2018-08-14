@@ -3,7 +3,6 @@ import { css } from 'glamor'
 import { ID } from './Options'
 
 const styles = {
-  container: css({}),
   content: css({
     width: 0,
     '&:empty': {

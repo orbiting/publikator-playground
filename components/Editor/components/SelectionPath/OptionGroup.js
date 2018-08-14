@@ -18,7 +18,7 @@ const styles = {
     }
   }),
   primary: css({
-    borderTop: `1px solid ${colors.textColor}`,
+    borderTop: `1px solid ${colors.secondary}`,
     margin: '5px 0'
   })
 }

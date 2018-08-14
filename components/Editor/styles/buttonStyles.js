@@ -20,6 +20,27 @@ export const iconButton = css({
   }
 })
 
+export const labelButton = css({
+  color: colors.textColor,
+  border: 'none',
+  display: 'inline-flex',
+  alignItems: 'center',
+  flexDirection: 'row',
+  cursor: 'pointer',
+  fontSize: '14px',
+  lineHeight: '17px',
+  padding: '2px 5px 1px 5px',
+  backgroundColor: 'transparent',
+  transition: 'color .2s, background-color 2s',
+  '&[disabled]': {
+    color: colors.disabled
+  },
+  '&:hover': {
+    color: colors.primary
+  }
+})
+
 export default {
-  iconButton
+  iconButton,
+  labelButton
 }

@@ -47,7 +47,7 @@ const containerStyle = css({
   position: 'relative',
   display: 'inline-block',
   ...fontStyles.sansSerifRegular16,
-  marginBottom: 15
+  marginBottom: 22
 })
 const labelTextStyle = css({
   position: 'absolute',
