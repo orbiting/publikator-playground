@@ -38,8 +38,8 @@ export default [
   OrderedListPlugin,
   UnorderedListPlugin,
   ListItemPlugin,
-  LinkPlugin,
-  // SuperscriptPlugin,
-  // SubscriptPlugin,
-  // ItalicPlugin
+  // LinkPlugin,
+  SuperscriptPlugin,
+  SubscriptPlugin,
+  ItalicPlugin,
 ]
