@@ -33,24 +33,24 @@ export default ifElse(
         node={node}
         editor={editor}
       />
-      node.data.get('size') === 'edgeToEdge' ? (
-      <div
-        key="content-edgeToEdge"
-        {...styles.edgeToEdge}
-      >
-        <Figure {...attributes}>
+      {node.data.get('size') === 'edgeToEdge' ? (
+        <div
+          key="content-edgeToEdge"
+          {...styles.edgeToEdge}
+        >
+          <Figure {...attributes}>
+            {children}
+          </Figure>
+        </div>
+      ) : (
+        <Figure
+          key="content"
+          {...attributes}
+          size={node.data.get('size')}
+        >
           {children}
         </Figure>
-      </div>
-      ) : (
-      <Figure
-        key="content"
-        {...attributes}
-        size={node.data.get('size')}
-      >
-        {children}
-      </Figure>
-      )
+      )}
     </Fragment>
   ),
   always(undefined)

@@ -1,9 +1,11 @@
 import React from 'react'
+import { compose } from 'ramda'
 import Icon from 'react-icon-base'
 
-import withNodeData from '@orbiting/publikator-editor/hoc/withNodeData'
 import ToggleButton from '@orbiting/publikator-editor/components/ToggleButton'
-import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
+
+import { withNodeData } from '@orbiting/publikator-editor/apps/nodeData'
+import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 
 export const DefaultIcon = props => (
   <Icon size={24} viewBox="0 0 24 24" {...props}>
@@ -65,7 +67,10 @@ export const EdgeToEdgeIcon = props => (
   </Icon>
 )
 
-const withSize = withNodeData('size')
+const withSize = compose(
+  withNodeData({ fieldName: 'size' }),
+  withTheme()
+)
 
 export const SizeButton = withSize(
   ({
@@ -73,6 +78,7 @@ export const SizeButton = withSize(
     name,
     value,
     onChange,
+    styles,
     ...props
   }) => {
     const active = value === name
@@ -81,7 +87,7 @@ export const SizeButton = withSize(
         active={active}
         disabled={active}
         onClick={() => onChange(name)}
-        {...buttonStyles.iconButton}
+        {...styles.buttons.iconButton}
         {...props}
       >
         {children}

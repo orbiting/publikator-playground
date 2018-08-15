@@ -1,6 +1,5 @@
 import ParagraphIcon from 'react-icons/lib/fa/paragraph'
 import { Label } from '@project-r/styleguide'
-import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
 import FormatBlockButton from '@orbiting/publikator-editor/components/FormatBlockButton'
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
@@ -8,7 +7,7 @@ import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 import {
   BlockButtons,
   TextButtons,
-  InsertButtons
+  InsertButtons,
 } from '../common/ui'
 import { BoldButton } from '../bold/ui'
 import { ItalicButton } from '../italic/ui'
@@ -19,7 +18,7 @@ export const ParagraphButton = withTheme()(
     <FormatBlockButton
       block={'paragraph'}
       {...props}
-      {...buttonStyles.iconButton}
+      {...props.styles.buttons.iconButton}
     >
       <ParagraphIcon size={22} />
     </FormatBlockButton>

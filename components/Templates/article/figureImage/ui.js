@@ -2,13 +2,14 @@ import { Label } from '@project-r/styleguide'
 import ChangeImageIcon from 'react-icons/lib/fa/exchange'
 
 import ImageInput from '@orbiting/publikator-editor/components/ImageInput'
-import withNodeData from '@orbiting/publikator-editor/hoc/withNodeData'
+import { withNodeData } from '@orbiting/publikator-editor/apps/nodeData'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 
-const SelectImageButton = withNodeData('url')(
-  ImageInput
-)
+export const SelectImageButton = withNodeData({
+  fieldName: 'url',
+})(ImageInput)
+
 export const FigureImageUI = withTheme()(
   ({ node, editor, styles }) => (
     <SelectionPath.Selected

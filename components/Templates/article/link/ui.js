@@ -1,19 +1,16 @@
 import { compose } from 'ramda'
 import { Label, A } from '@project-r/styleguide'
-
 import { css } from 'glamor'
-
 import { reduxForm, Field } from 'redux-form'
 
 import LinkIcon from 'react-icons/lib/fa/chain'
 import CloseIcon from 'react-icons/lib/md/close'
 
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
-import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
 import ToggleInlineButton from '@orbiting/publikator-editor/components/ToggleInlineButton'
 import TextInput from '@orbiting/publikator-editor/components/TextInput'
 import Button from '@orbiting/publikator-editor/components/Button'
-import withNodeData from '@orbiting/publikator-editor/hoc/withNodeData'
+import { withNodeData } from '@orbiting/publikator-editor/apps/nodeData'
 import { withEditMode } from '@orbiting/publikator-editor/apps/editMode'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 
@@ -34,17 +31,17 @@ const getUrlType = str =>
       ? 'Dokument'
       : 'Link'
 
-export const LinkButton = props => {
+export const LinkButton = withTheme()(props => {
   return (
     <ToggleInlineButton
       inline={'link'}
       {...props}
-      {...buttonStyles.iconButton}
+      {...props.styles.buttons.iconButton}
     >
       <LinkIcon size={22} />
     </ToggleInlineButton>
   )
-}
+})
 
 const withCardStyles = withTheme(({ theme }) => ({
   card: css({
@@ -115,6 +112,7 @@ export const LinkForm = compose(
     pristine,
     reset,
     submitting,
+    styles,
   }) => {
     return (
       <form onSubmit={handleSubmit}>
@@ -132,7 +130,7 @@ export const LinkForm = compose(
         />
         <div>
           <Button
-            {...buttonStyles.labelButton}
+            {...styles.buttons.labelButton}
             type="submit"
             disabled={submitting}
             onClick={() => {}}
@@ -140,7 +138,7 @@ export const LinkForm = compose(
             OK
           </Button>
           <Button
-            {...buttonStyles.labelButton}
+            {...styles.buttons.labelButton}
             type="button"
             disabled={pristine || submitting}
             onClick={reset}
@@ -155,14 +153,13 @@ export const LinkForm = compose(
 
 export const LinkUI = compose(
   withTheme(),
-  withNodeData(),
+  withNodeData({ passProps: true }),
   withEditMode({
     namespace: 'link',
   })
 )(
   ({
     node,
-    editor,
     isInEditMode,
     startEditing,
     finishEditing,
@@ -171,46 +168,45 @@ export const LinkUI = compose(
     styles,
   }) => {
     return (
-      // <SelectionPath.Selected node={node}>{
-      !isInEditMode ? (
-        <div {...styles.layout.container}>
-          <div {...styles.sectionHeader}>
-            <Label>Link</Label>
-          </div>
-          <LinkCard data={data} />
-          <Button
-            {...styles.buttons.iconButton}
-            onClick={startEditing}
-          >
-            Bearbeiten
-          </Button>
-        </div>
-      ) : (
-        <div {...styles.layout.container}>
-          <div {...styles.sectionHeader}>
-            <Label>Link</Label>
+      <SelectionPath.Selected node={node}>
+        {!isInEditMode ? (
+          <div {...styles.layout.container}>
+            <div {...styles.sectionHeader}>
+              <Label>Link</Label>
+            </div>
+            <LinkCard data={data} />
             <Button
               {...styles.buttons.iconButton}
-              onClick={() => {
-                finishEditing()
-                // editor.focus()
-              }}
+              onClick={startEditing}
             >
-              <CloseIcon size="18" />
+              Bearbeiten
             </Button>
           </div>
-          <hr {...styles.layout.hairline} />
-          <LinkForm
-            initialValues={data.toJS()}
-            onSubmit={v => {
-              finishEditing()
-              onChange(v)
-              // editor.focus()
-            }}
-          />
-        </div>
-      )
-      // }</SelectionPath.Selected>
+        ) : (
+          <div {...styles.layout.container}>
+            <div {...styles.sectionHeader}>
+              <Label>Link</Label>
+              <Button
+                {...styles.buttons.iconButton}
+                onClick={() => {
+                  finishEditing()
+                  // editor.focus()
+                }}
+              >
+                <CloseIcon size="18" />
+              </Button>
+            </div>
+            <hr {...styles.layout.hairline} />
+            <LinkForm
+              initialValues={data.toJS()}
+              onSubmit={v => {
+                finishEditing()
+                onChange(v)
+              }}
+            />
+          </div>
+        )}
+      </SelectionPath.Selected>
     )
   }
 )

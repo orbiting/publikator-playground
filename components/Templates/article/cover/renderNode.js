@@ -4,7 +4,7 @@ import { compose, always, ifElse } from 'ramda'
 
 import {
   safeProp,
-  isBlock
+  isBlock,
 } from '@orbiting/publikator-editor/lib'
 
 import { CoverUI } from './ui'

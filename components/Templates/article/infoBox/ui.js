@@ -13,12 +13,12 @@ import { isBlock } from '@orbiting/publikator-editor/lib'
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 import SetValueButton from '@orbiting/publikator-editor/components/SetValueButton'
 import ToggleButton from '@orbiting/publikator-editor/components/ToggleButton'
-import withNodeData from '@orbiting/publikator-editor/hoc/withNodeData'
+import { withNodeData } from '@orbiting/publikator-editor/apps/nodeData'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 
 import {
   removeBlock,
-  insertBlockAfter
+  insertBlockAfter,
 } from '@orbiting/publikator-editor/changes'
 
 import getNewFigure from '../infoBoxFigure/getNew'
@@ -26,14 +26,14 @@ import getNewFigure from '../infoBoxFigure/getNew'
 import {
   BreakoutLeftIcon,
   FloatLeftIcon,
-  DefaultIcon
+  DefaultIcon,
 } from '../common/breakouts'
 
 import {
   TinyIcon,
   SmallIcon,
   MediumIcon,
-  LargeIcon
+  LargeIcon,
 } from '../common/sizes'
 
 import { BoldButton } from '../bold/ui'
@@ -52,13 +52,13 @@ export const InsertInfoBoxButton = withTheme()(
   )
 )
 
-const BreakoutButton = withNodeData('size')(
-  SetValueButton
-)
+const BreakoutButton = withNodeData({
+  fieldName: 'size',
+})(SetValueButton)
 
-const FigureSizeButton = withNodeData(
-  'figureSize'
-)(SetValueButton)
+const FigureSizeButton = withNodeData({
+  fieldName: 'figureSize',
+})(SetValueButton)
 
 const FigureToggleButton = withTheme()(
   ({ node, editor, styles }) => {
@@ -202,7 +202,7 @@ export const InfoBoxUI = withTheme()(
 
 export const InfoBoxTitleUI = ({
   node,
-  editor
+  editor,
 }) => (
   <SelectionPath.Selected node={node}>
     <TextButtons editor={editor} />

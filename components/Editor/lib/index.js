@@ -15,7 +15,7 @@ import {
   reduce,
   invoker,
   uncurryN,
-  when
+  when,
 } from 'ramda'
 
 import {
@@ -24,14 +24,14 @@ import {
   safePath,
   safeProp,
   notIsNil,
-  mergeResults
+  mergeResults,
 } from '../../../lib/transform/common'
 
 import {
   isBlock,
   isMark,
   isInline,
-  isDocument
+  isDocument,
 } from '../../../lib/transform/slate'
 
 export {
@@ -39,7 +39,8 @@ export {
   safePropEq,
   safePath,
   safeProp,
-  notIsNil
+  notIsNil,
+  mergeResults,
 }
 
 export { isBlock, isMark, isInline, isDocument }
@@ -89,7 +90,7 @@ export const getEditor = safeProp('editor')
 
 export const getNumNodes = safePath([
   'nodes',
-  'size'
+  'size',
 ])
 
 export const getFurthestOf = curry(
@@ -102,7 +103,7 @@ export const getFurthestOf = curry(
         compose(
           safeProp('key'),
           getter
-        )
+        ),
       ]
     )
 )
@@ -117,7 +118,7 @@ export const getClosestOf = curry(
         compose(
           safeProp('key'),
           getter
-        )
+        ),
       ]
     )
 )
@@ -136,7 +137,7 @@ export const getChildIndexOf = getter =>
       compose(
         safeProp('key'),
         getter
-      )
+      ),
     ]
   )
 
@@ -148,7 +149,7 @@ export const getNextBlockOf = getter =>
       compose(
         safeProp('key'),
         getter
-      )
+      ),
     ]
   )
 
@@ -160,7 +161,7 @@ export const getPreviousBlockOf = getter =>
       compose(
         safeProp('key'),
         getter
-      )
+      ),
     ]
   )
 
@@ -172,7 +173,7 @@ export const getParentOf = getter =>
       compose(
         safeProp('key'),
         getter
-      )
+      ),
     ]
   )
 
