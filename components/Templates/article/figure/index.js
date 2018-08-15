@@ -5,5 +5,5 @@ import getNew from './getNew'
 export default {
   renderNode,
   onKeyDown,
-  getNew
+  getNew,
 }

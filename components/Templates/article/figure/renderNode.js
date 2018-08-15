@@ -1,20 +1,12 @@
+import React, { Fragment } from 'react'
 import { Figure } from '@project-r/styleguide'
 import { compose, always, ifElse } from 'ramda'
 import { css } from 'glamor'
 
 import {
   safeProp,
-  isBlock
+  isBlock,
 } from '@orbiting/publikator-editor/lib'
-
-import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
-
-import {
-  SizeButton,
-  BreakoutIcon,
-  DefaultIcon,
-  EdgeToEdgeIcon
-} from '../common/breakouts.js'
 
 const styles = {
   edgeToEdge: css({
@@ -22,61 +14,44 @@ const styles = {
     marginLeft: '-15px',
     [`@media only screen and (min-width: 665px)`]: {
       marginLeft: `calc(-100vw / 2 + 665px / 2)`,
-      marginRight: `calc(-100vw / 2 + 665px / 2)`
-    }
-  })
+      marginRight: `calc(-100vw / 2 + 665px / 2)`,
+    },
+  }),
 }
+
+import { FigureUI } from './ui'
 
 export default ifElse(
   compose(
     isBlock('figure'),
     safeProp('node')
   ),
-  ({ node, attributes, children, editor }) => [
-    <SelectionPath.Options
-      key="ui"
-      node={node}
-      offset={2}
-    >
-      <SelectionPath.OptionGroup label="Bildgrösse">
-        <SizeButton
-          name={null}
-          node={node}
-          editor={editor}
-        >
-          <DefaultIcon />
-        </SizeButton>
-        <SizeButton
-          name={'breakout'}
-          node={node}
-          editor={editor}
-        >
-          <BreakoutIcon />
-        </SizeButton>
-        <SizeButton
-          name={'edgeToEdge'}
-          node={node}
-          editor={editor}
-        >
-          <EdgeToEdgeIcon />
-        </SizeButton>
-      </SelectionPath.OptionGroup>
-    </SelectionPath.Options>,
-    node.data.get('size') === 'edgeToEdge' ? (
-      <div {...styles.edgeToEdge} key="content">
-        <Figure {...attributes} key="content">
+  ({ node, attributes, children, editor }) => (
+    <Fragment>
+      <FigureUI
+        key="ui"
+        node={node}
+        editor={editor}
+      />
+      node.data.get('size') === 'edgeToEdge' ? (
+      <div
+        key="content-edgeToEdge"
+        {...styles.edgeToEdge}
+      >
+        <Figure {...attributes}>
           {children}
         </Figure>
       </div>
-    ) : (
+      ) : (
       <Figure
+        key="content"
         {...attributes}
         size={node.data.get('size')}
-        key="content"
       >
         {children}
       </Figure>
-    )
-  ],
+      )
+    </Fragment>
+  ),
   always(undefined)
 )

@@ -1,20 +1,20 @@
+import React, { Fragment } from 'react'
 import {
   FigureCaption,
-  FigureByline
+  FigureByline,
 } from '@project-r/styleguide'
 
 import { compose, always, ifElse } from 'ramda'
 
 import {
   safeProp,
-  isBlock
+  isBlock,
 } from '@orbiting/publikator-editor/lib'
 
-import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
-
-import { TextButtons } from '../common/ui'
-import { BoldButton } from '../bold/ui'
-import { LinkButton } from '../link/ui'
+import {
+  CaptionTextUI,
+  CaptionBylineUI,
+} from './ui'
 
 export default compose(
   ifElse(
@@ -22,62 +22,49 @@ export default compose(
       isBlock('caption'),
       safeProp('node')
     ),
-    ({ children, attributes }) => [
-      <FigureCaption
-        key="content"
-        {...attributes}
-      >
+    ({ children, attributes }) => (
+      <FigureCaption {...attributes}>
         {children}
       </FigureCaption>
-    ]
+    )
   ),
   ifElse(
     compose(
       isBlock('captionText'),
       safeProp('node')
     ),
-    ({ node, children, attributes, editor }) => [
-      <SelectionPath.Options
-        key="ui"
-        node={node}
-        offset={1}
-      >
-        <SelectionPath.OptionGroup label="Format">
-          <BoldButton editor={editor} />
-          <LinkButton editor={editor} />
-        </SelectionPath.OptionGroup>
-        <TextButtons
-          editor={editor}
+    ({ node, children, attributes, editor }) => (
+      <Fragment>
+        <CaptionTextUI
+          key="ui"
           node={node}
+          editor={editor}
         />
-      </SelectionPath.Options>,
-      <span key="content" {...attributes}>
-        {children}
-      </span>
-    ]
+        <span key="content" {...attributes}>
+          {children}
+        </span>
+      </Fragment>
+    )
   ),
   ifElse(
     compose(
       isBlock('captionByline'),
       safeProp('node')
     ),
-    ({ node, children, attributes, editor }) => [
-      <SelectionPath.Options
-        key="ui"
-        node={node}
-        offset={1}
-      >
-        <SelectionPath.OptionGroup label="Format">
-          <LinkButton editor={editor} />
-        </SelectionPath.OptionGroup>
-        <TextButtons
-          editor={editor}
+    ({ node, children, attributes, editor }) => (
+      <Fragment>
+        <CaptionBylineUI
+          key="ui"
           node={node}
+          editor={editor}
         />
-      </SelectionPath.Options>,
-      <FigureByline key="content" {...attributes}>
-        {children}
-      </FigureByline>
-    ]
+        <FigureByline
+          key="content"
+          {...attributes}
+        >
+          {children}
+        </FigureByline>
+      </Fragment>
+    )
   )
 )(always(undefined))

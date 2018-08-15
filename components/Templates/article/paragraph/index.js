@@ -1,3 +1,4 @@
+import React, { Fragment } from 'react'
 import { Editorial } from '@project-r/styleguide'
 import { ifElse, compose, always } from 'ramda'
 
@@ -6,15 +7,7 @@ import {
   safeProp
 } from '@orbiting/publikator-editor/lib'
 
-import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
-import {
-  BlockButtons,
-  TextButtons,
-  InsertButtons
-} from '../common/ui'
-import { BoldButton } from '../bold/ui'
-import { ItalicButton } from '../italic/ui'
-import { LinkButton } from '../link/ui'
+import { ParagraphUI } from './ui'
 
 export default {
   renderNode: ifElse(
@@ -22,45 +15,23 @@ export default {
       isBlock('paragraph'),
       safeProp('node')
     ),
-    ({ node, children, attributes, editor }) => [
-      <SelectionPath.Options
-        offset={1}
-        key="ui"
-        node={node}
-      >
-        <InsertButtons
+    ({ node, children, attributes, editor }) => (
+      <Fragment>
+        <ParagraphUI
+          key="ui"
+          offset={1}
           node={node}
           editor={editor}
         />
-        <BlockButtons
-          node={node}
-          editor={editor}
-        />
-        <SelectionPath.OptionGroup
-          label={'Format'}
+
+        <Editorial.P
+          key="content"
+          {...attributes}
         >
-          <BoldButton
-            node={node}
-            editor={editor}
-          />
-          <ItalicButton
-            node={node}
-            editor={editor}
-          />
-          <LinkButton
-            node={node}
-            editor={editor}
-          />
-        </SelectionPath.OptionGroup>
-        <TextButtons
-          node={node}
-          editor={editor}
-        />
-      </SelectionPath.Options>,
-      <Editorial.P key="content" {...attributes}>
-        {children}
-      </Editorial.P>
-    ],
+          {children}
+        </Editorial.P>
+      </Fragment>
+    ),
     always(undefined)
   )
 }

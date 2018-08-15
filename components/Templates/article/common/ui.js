@@ -1,4 +1,5 @@
-import OptionGroup from '@orbiting/publikator-editor/components/SelectionPath/OptionGroup'
+import { Label } from '@project-r/styleguide'
+import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 import { ParagraphButton } from '../paragraph/ui'
 import { SubheadButton } from '../subhead/ui'
 import { InsertFigureButton } from '../figure/ui'
@@ -8,46 +9,65 @@ import { SupButton } from '../superscript/ui'
 import { UnorderedListButton } from '../unorderedList/ui'
 import { OrderedListButton } from '../orderedList/ui'
 
-export const BlockButtons = ({
-  node,
-  editor
-}) => (
-  <OptionGroup label={'Block'}>
-    <ParagraphButton
-      node={node}
-      editor={editor}
-    />
-    <SubheadButton node={node} editor={editor} />
-    <UnorderedListButton
-      node={node}
-      editor={editor}
-    />
-    <OrderedListButton
-      node={node}
-      editor={editor}
-    />
-  </OptionGroup>
+export const BlockButtons = withTheme()(
+  ({ node, editor, styles }) => (
+    <div {...styles.layout.container}>
+      <div {...styles.layout.sectionHeader}>
+        <Label>Block</Label>
+      </div>
+
+      <div {...styles.layout.actions}>
+        <ParagraphButton
+          node={node}
+          editor={editor}
+        />
+        <SubheadButton
+          node={node}
+          editor={editor}
+        />
+        <UnorderedListButton
+          node={node}
+          editor={editor}
+        />
+        <OrderedListButton
+          node={node}
+          editor={editor}
+        />
+      </div>
+    </div>
+  )
 )
 
-export const InsertButtons = ({
-  node,
-  editor
-}) => (
-  <OptionGroup label={'Einfügen'}>
-    <InsertFigureButton
-      node={node}
-      editor={editor}
-    />
-    <InsertInfoBoxButton
-      node={node}
-      editor={editor}
-    />
-  </OptionGroup>
-)
+export const InsertButtons = withTheme()(
+  ({ node, editor, styles }) => (
+    <div {...styles.layout.container}>
+      <div {...styles.layout.sectionHeader}>
+        <Label>Einfügen</Label>
+      </div>
 
-export const TextButtons = ({ editor }) => (
-  <OptionGroup label={'Text'}>
-    <SupButton editor={editor} />
-    <SubButton editor={editor} />
-  </OptionGroup>
+      <div {...styles.layout.actions}>
+        <InsertFigureButton
+          node={node}
+          editor={editor}
+        />
+        <InsertInfoBoxButton
+          node={node}
+          editor={editor}
+        />
+      </div>
+    </div>
+  )
+)
+export const TextButtons = withTheme()(
+  ({ editor, styles }) => (
+    <div {...styles.layout.container}>
+      <div {...styles.layout.sectionHeader}>
+        <Label>Einfügen</Label>
+      </div>
+      <div {...styles.layout.actions}>
+        <SupButton editor={editor} />
+        <SubButton editor={editor} />
+      </div>
+    </div>
+  )
 )

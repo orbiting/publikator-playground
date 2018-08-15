@@ -1,9 +1,5 @@
 import { compose } from 'ramda'
-import {
-  fontStyles,
-  Label,
-  A
-} from '@project-r/styleguide'
+import { Label, A } from '@project-r/styleguide'
 
 import { css } from 'glamor'
 
@@ -19,19 +15,7 @@ import TextInput from '@orbiting/publikator-editor/components/TextInput'
 import Button from '@orbiting/publikator-editor/components/Button'
 import withNodeData from '@orbiting/publikator-editor/hoc/withNodeData'
 import { withEditMode } from '@orbiting/publikator-editor/apps/editMode'
-
-const styles = {
-  card: css({
-    marginBottom: '15px'
-  }),
-  cardLink: css({
-    ...fontStyles.sansSerifRegular16,
-    display: 'block'
-  }),
-  cardLabel: css({
-    ...fontStyles.sansSerifRegular12
-  })
-}
+import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 
 const shortString = (threshold, str) =>
   str && str.length > threshold
@@ -62,32 +46,47 @@ export const LinkButton = props => {
   )
 }
 
-export const LinkCard = ({ data }) => (
-  <div>
-    <span {...styles.cardLink}>
-      <span>
-        {shortString(
-          20,
-          data.get('title') ||
-            shortUrl(data.get('url'))
-        )}
+const withCardStyles = withTheme(({ theme }) => ({
+  card: css({
+    marginBottom: '15px',
+  }),
+  cardLink: css({
+    ...theme.fontStyles.sansSerifRegular16,
+    display: 'block',
+  }),
+  cardLabel: css({
+    ...theme.fontStyles.sansSerifRegular12,
+  }),
+}))
+
+export const LinkCard = withCardStyles(
+  ({ data, styles }) => (
+    <div>
+      <span {...styles.cardLink}>
+        <span>
+          {shortString(
+            20,
+            data.get('title') ||
+              shortUrl(data.get('url'))
+          )}
+        </span>
       </span>
-    </span>
-    <Label>
-      {getUrlType(data.get('url'))}
-      {' | '}
-      <A target="_blank" href={data.get('url')}>
-        In neuem Tab öffnen
-      </A>
-    </Label>
-  </div>
+      <Label>
+        {getUrlType(data.get('url'))}
+        {' | '}
+        <A target="_blank" href={data.get('url')}>
+          In neuem Tab öffnen
+        </A>
+      </Label>
+    </div>
+  )
 )
 
 const renderField = ({
   input,
   label,
   type,
-  meta: { touched, error }
+  meta: { touched, error },
 }) => (
   <TextInput
     renderInput={props => (
@@ -104,15 +103,18 @@ const renderField = ({
   />
 )
 
-export const LinkForm = reduxForm({
-  form: 'link',
-  enableReinitialize: true
-})(
+export const LinkForm = compose(
+  withTheme(),
+  reduxForm({
+    form: 'link',
+    enableReinitialize: true,
+  })
+)(
   ({
     handleSubmit,
     pristine,
     reset,
-    submitting
+    submitting,
   }) => {
     return (
       <form onSubmit={handleSubmit}>
@@ -152,56 +154,63 @@ export const LinkForm = reduxForm({
 )
 
 export const LinkUI = compose(
+  withTheme(),
   withNodeData(),
   withEditMode({
-    namespace: 'link'
+    namespace: 'link',
   })
 )(
   ({
+    node,
+    editor,
     isInEditMode,
     startEditing,
     finishEditing,
     value: data,
     onChange,
-    focusRef
+    styles,
   }) => {
-    return !isInEditMode ? (
-      <SelectionPath.OptionGroup
-        label="Link"
-        primary
-      >
-        <LinkCard data={data} />
-        <Button
-          {...buttonStyles.iconButton}
-          onClick={startEditing}
-        >
-          Bearbeiten
-        </Button>
-      </SelectionPath.OptionGroup>
-    ) : (
-      <SelectionPath.Form
-        label="Link bearbeiten"
-        action={
+    return (
+      // <SelectionPath.Selected node={node}>{
+      !isInEditMode ? (
+        <div {...styles.layout.container}>
+          <div {...styles.sectionHeader}>
+            <Label>Link</Label>
+          </div>
+          <LinkCard data={data} />
           <Button
-            {...buttonStyles.iconButton}
-            onClick={() => {
-              finishEditing()
-              focusRef.focus()
-            }}
+            {...styles.buttons.iconButton}
+            onClick={startEditing}
           >
-            <CloseIcon size="18" />
+            Bearbeiten
           </Button>
-        }
-      >
-        <LinkForm
-          initialValues={data.toJS()}
-          onSubmit={v => {
-            finishEditing()
-            onChange(v)
-            focusRef.focus()
-          }}
-        />
-      </SelectionPath.Form>
+        </div>
+      ) : (
+        <div {...styles.layout.container}>
+          <div {...styles.sectionHeader}>
+            <Label>Link</Label>
+            <Button
+              {...styles.buttons.iconButton}
+              onClick={() => {
+                finishEditing()
+                // editor.focus()
+              }}
+            >
+              <CloseIcon size="18" />
+            </Button>
+          </div>
+          <hr {...styles.layout.hairline} />
+          <LinkForm
+            initialValues={data.toJS()}
+            onSubmit={v => {
+              finishEditing()
+              onChange(v)
+              // editor.focus()
+            }}
+          />
+        </div>
+      )
+      // }</SelectionPath.Selected>
     )
   }
 )

@@ -40,6 +40,13 @@ const defaultFactories = {
   mediaQueries: () => mediaQueries
 }
 
+const api = {
+  relativeAttributes: obj => ({
+    style: { position: 'relative' },
+    ...obj
+  })
+}
+
 const initialConfig = {
   isVisible: true,
   align: 'left', // 'right'
@@ -98,12 +105,7 @@ export const withTheme = factory =>
             config: state.config
           })) ||
           {}),
-        api: {
-          relativeAttributes: obj => ({
-            style: { position: 'relative' },
-            ...obj
-          })
-        }
+        api
       }
     }),
     () => ({})

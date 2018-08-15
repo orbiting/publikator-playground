@@ -1,6 +1,6 @@
 import React from 'react'
-import { ID } from './Options'
+import { DOM_NODE_ID } from '../../apps/selectionPath'
 
 export default () => {
-  return <div id={ID} />
+  return <div id={DOM_NODE_ID} />
 }

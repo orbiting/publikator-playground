@@ -12,9 +12,7 @@ export default ifElse(
     safeProp('node')
   ),
   ({ attributes, children }) => (
-    <Figure {...attributes} key="content">
-      {children}
-    </Figure>
+    <Figure {...attributes}>{children}</Figure>
   ),
   always(undefined)
 )

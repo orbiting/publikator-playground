@@ -1,3 +1,4 @@
+import React, { Fragment } from 'react'
 import {
   Editorial,
   TitleBlock
@@ -9,10 +10,7 @@ import {
   isBlock
 } from '@orbiting/publikator-editor/lib'
 
-import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
-
-import { TextButtons } from '../common/ui'
-import { LinkButton } from '../link/ui'
+import { CreditsUI } from './ui'
 
 export default compose(
   ifElse(
@@ -48,28 +46,22 @@ export default compose(
       isBlock('credits'),
       safeProp('node')
     ),
-    ({ children, attributes, editor, node }) => [
-      <SelectionPath.Options
-        key="ui"
-        node={node}
-        offset={1}
-      >
-        <SelectionPath.OptionGroup label="Format">
-          <LinkButton editor={editor} />
-        </SelectionPath.OptionGroup>
-        <TextButtons
-          editor={editor}
+    ({ children, attributes, editor, node }) => (
+      <Fragment>
+        <CreditsUI
+          key="ui"
           node={node}
+          editor={editor}
         />
-      </SelectionPath.Options>,
-      <Editorial.Credit
-        key="content"
-        style={{ position: 'relative' }}
-        {...attributes}
-      >
-        {children}
-      </Editorial.Credit>
-    ]
+        <Editorial.Credit
+          key="content"
+          style={{ position: 'relative' }}
+          {...attributes}
+        >
+          {children}
+        </Editorial.Credit>
+      </Fragment>
+    )
   ),
   ifElse(
     compose(

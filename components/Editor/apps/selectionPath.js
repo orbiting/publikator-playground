@@ -5,6 +5,9 @@ import {
 } from '../lib/selection'
 
 import { CHANGE } from './value'
+
+export const DOM_NODE_ID =
+  'PUBLIKATOR_SELECTION_PATH'
 export const SELECT_NODE = 'SELECT_NODE'
 
 export const withSelectedStatus = connect(

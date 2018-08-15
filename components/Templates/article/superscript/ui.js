@@ -1,13 +1,13 @@
 import SupIcon from 'react-icons/lib/fa/superscript'
-import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
 import ToggleMarkButton from '@orbiting/publikator-editor/components/ToggleMarkButton'
+import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 
-export const SupButton = props => (
+export const SupButton = withTheme()(props => (
   <ToggleMarkButton
     mark={'sup'}
     {...props}
-    {...buttonStyles.iconButton}
+    {...props.styles.buttons.iconButton}
   >
-    <SupIcon size={22} /> 
+    <SupIcon size={22} />
   </ToggleMarkButton>
-)
+))

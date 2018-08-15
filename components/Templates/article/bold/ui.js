@@ -1,13 +1,13 @@
 import BoldIcon from 'react-icons/lib/fa/bold'
-import buttonStyles from '@orbiting/publikator-editor/styles/buttonStyles'
 import ToggleMarkButton from '@orbiting/publikator-editor/components/ToggleMarkButton'
+import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 
-export const BoldButton = props => (
+export const BoldButton = withTheme()(props => (
   <ToggleMarkButton
     mark={'bold'}
     {...props}
-    {...buttonStyles.iconButton}
+    {...props.styles.buttons.iconButton}
   >
     <BoldIcon size={22} />
   </ToggleMarkButton>
-)
+))

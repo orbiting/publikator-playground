@@ -1,3 +1,4 @@
+import React, { Fragment } from 'react'
 import { ifElse, compose, always } from 'ramda'
 import { Editorial } from '@project-r/styleguide'
 
@@ -6,40 +7,7 @@ import {
   safeProp
 } from '@orbiting/publikator-editor/lib'
 
-import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
-import {
-  TextButtons,
-  InsertButtons
-} from '../common/ui'
-import { ParagraphButton } from '../paragraph/ui'
-import { SubheadButton } from '../subhead/ui'
-import { OrderedListButton } from '../orderedList/ui'
-import { UnorderedListButton } from './ui'
-import { BoldButton } from '../bold/ui'
-import { ItalicButton } from '../italic/ui'
-import { LinkButton } from '../link/ui'
-
-const toFlatBlockConversion = (
-  change,
-  node,
-  block
-) => {
-  if (block === 'orderedList') {
-    return change.setNodeByKey(node.key, {
-      type: 'orderedList'
-    })
-  }
-
-  return node.nodes.reduce(
-    (t, listItem) =>
-      t
-        .setNodeByKey(listItem.key, {
-          type: block
-        })
-        .unwrapBlockByKey(listItem.key),
-    change
-  )
-}
+import { UnorderedListUI } from './ui'
 
 export default {
   renderNode: ifElse(
@@ -47,67 +15,21 @@ export default {
       isBlock('unorderedList'),
       safeProp('node')
     ),
-    ({ node, children, attributes, editor }) => [
-      <SelectionPath.Options
-        offset={1}
-        key="ui"
-        node={node}
-      >
-        <InsertButtons
+    ({ node, children, attributes, editor }) => (
+      <Fragment>
+        <UnorderedListUI
+          key="ui"
           node={node}
           editor={editor}
         />
-        <SelectionPath.OptionGroup
-          label={'Block'}
+        <Editorial.UL
+          key="content"
+          {...attributes}
         >
-          <ParagraphButton
-            node={node}
-            editor={editor}
-            conversionStrategy={
-              toFlatBlockConversion
-            }
-          />
-          <SubheadButton
-            node={node}
-            editor={editor}
-            conversionStrategy={
-              toFlatBlockConversion
-            }
-          />
-          <UnorderedListButton
-            node={node}
-            editor={editor}
-          />
-          <OrderedListButton
-            node={node}
-            editor={editor}
-          />
-        </SelectionPath.OptionGroup>
-        <SelectionPath.OptionGroup
-          label={'Format'}
-        >
-          <BoldButton
-            node={node}
-            editor={editor}
-          />
-          <ItalicButton
-            node={node}
-            editor={editor}
-          />
-          <LinkButton
-            node={node}
-            editor={editor}
-          />
-        </SelectionPath.OptionGroup>
-        <TextButtons
-          node={node}
-          editor={editor}
-        />
-      </SelectionPath.Options>,
-      <Editorial.UL key="content" {...attributes}>
-        {children}
-      </Editorial.UL>
-    ],
+          {children}
+        </Editorial.UL>
+      </Fragment>
+    ),
     always(undefined)
   )
 }

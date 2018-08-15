@@ -1,3 +1,4 @@
+import React, { Fragment } from 'react'
 import { Editorial } from '@project-r/styleguide'
 
 import { ifElse, compose, always } from 'ramda'
@@ -7,7 +8,6 @@ import {
   isInline
 } from '@orbiting/publikator-editor/lib'
 
-import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 import { LinkUI } from './ui'
 
 export default {
@@ -16,23 +16,23 @@ export default {
       isInline('link'),
       safeProp('node')
     ),
-    ({ node, children, attributes, editor }) => [
-      <SelectionPath.Options key="ui" node={node}>
+    ({ node, children, attributes, editor }) => (
+      <Fragment>
         <LinkUI
+          key="ui"
           node={node}
           editor={editor}
-          focusRef={editor}
         />
-      </SelectionPath.Options>,
-      <Editorial.A
-        key="content"
-        href={node.data.get('url')}
-        title={node.data.get('title')}
-        {...attributes}
-      >
-        {children}
-      </Editorial.A>
-    ],
+        <Editorial.A
+          key="content"
+          href={node.data.get('url')}
+          title={node.data.get('title')}
+          {...attributes}
+        >
+          {children}
+        </Editorial.A>
+      </Fragment>
+    ),
     always(undefined)
   )
 }

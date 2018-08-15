@@ -4,7 +4,7 @@ import { ifElse, compose, always } from 'ramda'
 
 import {
   isBlock,
-  safeProp
+  safeProp,
 } from '@orbiting/publikator-editor/lib'
 
 import onKeyDown from './onKeyDown'
@@ -13,7 +13,7 @@ export default {
   onKeyDown,
   getNew: () =>
     Block.create({
-      type: 'listItem'
+      type: 'listItem',
     }),
   renderNode: ifElse(
     compose(
@@ -21,10 +21,10 @@ export default {
       safeProp('node')
     ),
     ({ children, attributes }) => (
-      <Editorial.LI key="content" {...attributes}>
+      <Editorial.LI {...attributes}>
         {children}
       </Editorial.LI>
     ),
     always(undefined)
-  )
+  ),
 }
