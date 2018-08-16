@@ -34,7 +34,7 @@ export const withNodeData = ({
   fieldName = null,
   factory = defaultFactory,
   passProps = false,
-}) => {
+} = {}) => {
   const mapStateToProps = !fieldName
     ? mapFromFactory(factory)
     : mapToFieldFromFactory(fieldName, factory)

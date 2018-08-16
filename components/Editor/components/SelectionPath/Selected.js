@@ -1,11 +1,11 @@
 import React from 'react'
 import Slot from '../Slot'
 import {
-  withSelectedStatus,
+  withSelectionStatus,
   DOM_NODE_ID,
 } from '../../apps/selectionPath'
 
-const Selected = withSelectedStatus(
+const Selected = withSelectionStatus()(
   ({ children, isSelected }) => {
     return (
       (isSelected && (
