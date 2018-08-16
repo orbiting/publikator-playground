@@ -7,7 +7,7 @@ import ToggleButton from './ToggleButton'
 import { isInline } from '../lib'
 import {
   addInline,
-  removeInline
+  removeInline,
 } from '../changes'
 
 const cleanProps = compose(
@@ -19,14 +19,14 @@ const cleanProps = compose(
 
 const withValue = connect(
   state => ({
-    value: state.value
+    value: state.value,
   }),
   always({})
 )
 
 const clickHandler = ({
   editor,
-  inline
+  inline,
 }) => isActive => {
   return isActive
     ? editor.change(removeInline, inline)
@@ -41,7 +41,9 @@ export default withValue(props => {
   return (
     <ToggleButton
       active={active}
-      disabled={!active && value.isCollapsed}
+      disabled={
+        !active && value.selection.isCollapsed
+      }
       onClick={clickHandler(props)}
       {...cleanProps(props)}
     >

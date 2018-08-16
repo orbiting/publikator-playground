@@ -41,7 +41,7 @@ const onEnter = compose(
       hasEdgeInSelection([isBlock('figureImage')])
     ),
     compose(
-      change => change.collapseToEnd(),
+      change => change.moveToEnd(),
       getChange
     )
   ),
@@ -84,7 +84,7 @@ const onDeleteOrBackspace = compose(
       hasEdgeInSelection([isBlock('figureImage')])
     ),
     compose(
-      change => change.collapseToStart(),
+      change => change.moveToStart(),
       getChange
     )
   ),

@@ -16,12 +16,12 @@ const cleanProps = compose(
 )
 
 const withValue = connect(state => ({
-  value: state.value
+  value: state.value,
 }))
 
 const clickHandler = ({
   editor,
-  mark
+  mark,
 }) => isActive => {
   return isActive
     ? editor.change(removeMark, mark)
@@ -36,7 +36,9 @@ export default withValue(props => {
   return (
     <ToggleButton
       active={active}
-      disabled={!active && value.isCollapsed}
+      disabled={
+        !active && value.selection.isCollapsed
+      }
       onClick={clickHandler(props)}
       {...cleanProps(props)}
     >

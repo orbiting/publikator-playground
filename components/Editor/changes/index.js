@@ -7,7 +7,7 @@ export const focusNextBlock = (change, node) => {
     node.key
   )
   if (nextBlock) {
-    return change.collapseToStartOf(nextBlock)
+    return change.moveToStartOfNode(nextBlock)
   }
   return change
 }
@@ -18,7 +18,7 @@ export const focusNext = change => {
     value.endBlock.key
   )
   if (nextBlock) {
-    return change.collapseToStartOf(nextBlock)
+    return change.moveToStartOfNode(nextBlock)
   }
   return change
 }
@@ -29,7 +29,7 @@ export const focusPrevious = change => {
     value.startBlock.key
   )
   if (nextBlock) {
-    return change.collapseToEndOf(nextBlock)
+    return change.moveToEndOfNode(nextBlock)
   }
   return change
 }
@@ -43,7 +43,7 @@ export const focusPreviousBlock = (
     node.key
   )
   if (nextBlock) {
-    return change.collapseToEndOf(nextBlock)
+    return change.moveToEndOfNode(nextBlock)
   }
   return change
 }
@@ -84,11 +84,11 @@ export const removeMark = (change, mark) => {
   const value = change.value
   if (value.isEmpty) {
     const key = value.startKey
-    const offset = value.startOffset
+    const offset = value.selection.start.offset
     const text = value.texts.first()
     const {
       endOffset,
-      startOffset
+      startOffset,
     } = text.searchLeafAtOffset(offset)
 
     return change.removeMarkByKey(

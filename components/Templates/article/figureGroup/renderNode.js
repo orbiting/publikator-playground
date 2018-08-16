@@ -5,7 +5,7 @@ import { FigureGroup } from '@project-r/styleguide'
 import { ifElse, compose, always } from 'ramda'
 import {
   safeProp,
-  isBlock
+  isBlock,
 } from '@orbiting/publikator-editor/lib'
 
 import { FigureGroupUI } from './ui'
@@ -22,7 +22,7 @@ export default ifElse(
           key="ui"
           node={node}
           editor={editor}
-        />,
+        />
         <FigureGroup
           key="content"
           size={node.data.get('size')}

@@ -7,7 +7,7 @@ import {
   ifElse,
   either,
   always,
-  allPass
+  allPass,
 } from 'ramda'
 
 import { Block } from 'slate'
@@ -17,7 +17,7 @@ import {
   focusPrevious,
   insertBlockAfter,
   insertBlockBefore,
-  removeBlock
+  removeBlock,
 } from '@orbiting/publikator-editor/changes'
 
 import {
@@ -40,7 +40,7 @@ import {
   eventHandler,
   isEnter,
   isDelete,
-  isBackspace
+  isBackspace,
 } from '@orbiting/publikator-editor/lib'
 
 const onEnter = compose(
@@ -49,11 +49,11 @@ const onEnter = compose(
       isExpanded,
       hasEdgeInSelection([
         isBlock('captionText'),
-        isBlock('captionByline')
+        isBlock('captionByline'),
       ])
     ),
     compose(
-      change => change.collapseToEnd(),
+      change => change.moveToStart(),
       getChange
     )
   ),
@@ -80,9 +80,9 @@ const onEnter = compose(
               getChange,
               () =>
                 Block.create({
-                  type: 'captionByline'
+                  type: 'captionByline',
                 }),
-              getEndBlock
+              getEndBlock,
             ])
           )
         )
@@ -106,9 +106,9 @@ const onEnter = compose(
               getChange,
               () =>
                 Block.create({
-                  type: 'captionText'
+                  type: 'captionText',
                 }),
-              getStartBlock
+              getStartBlock,
             ])
           ),
           compose(
@@ -131,11 +131,11 @@ export const onDeleteOrBackspace = compose(
       isMixed,
       hasEdgeInSelection([
         isBlock('captionText'),
-        isBlock('captionByline')
+        isBlock('captionByline'),
       ])
     ),
     compose(
-      change => change.collapseToStart(),
+      change => change.moveToStart(),
       getChange
     )
   ),
@@ -147,13 +147,13 @@ export const onDeleteOrBackspace = compose(
         compose(
           equals(1),
           getNumNodes
-        )
+        ),
       ]),
       getParentOf(getStartBlock)
     ),
     converge(removeBlock, [
       getChange,
-      getParentOf(getStartBlock)
+      getParentOf(getStartBlock),
     ])
   )
 )
@@ -191,7 +191,7 @@ export const onBackspace = compose(
           focusNext,
           converge(removeBlock, [
             getChange,
-            getStartBlock
+            getStartBlock,
           ])
         )
       ),
@@ -234,7 +234,7 @@ export const onDelete = compose(
       compose(
         complement(isBlock('captionByline')),
         getNextBlockOf(getEndBlock)
-      )
+      ),
     ]),
     getChange
   )

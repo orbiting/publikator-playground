@@ -240,7 +240,7 @@ export const isCollapsedAtStartOf = getter =>
     isCollapsed,
     converge(
       (selection, block) =>
-        selection.hasStartAtStartOf(block),
+        selection.start.isAtStartOfNode(block),
       [getSelection, getter]
     )
   )
@@ -250,7 +250,7 @@ export const isCollapsedAtEndOf = getter =>
     isCollapsed,
     converge(
       (selection, block) =>
-        selection.hasEndAtEndOf(block),
+        selection.end.isAtEndOfNode(block),
       [getSelection, getter]
     )
   )

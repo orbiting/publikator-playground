@@ -8,7 +8,7 @@ const tree = new TreeUtils(
 )
 
 export const getSelectionPath = value => {
-  return List([value.startKey])
+  return List([value.selection.start.key])
     .map(key => tree.byId(value, key))
     .reduce(
       (memo, path) =>
@@ -36,5 +36,5 @@ export const isCompleteBlockSelected = value =>
   (value.document.getNextBlock(
     value.startBlock.key
   ) === value.endBlock &&
-    value.startOffset === 0 &&
-    value.endOffset === 0)
+    value.selection.start.offset === 0 &&
+    value.selection.end.offset === 0)

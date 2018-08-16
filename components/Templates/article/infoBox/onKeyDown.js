@@ -56,7 +56,7 @@ const onEnter = compose(
       ])
     ),
     compose(
-      change => change.collapseToEnd(),
+      change => change.moveToEnd(),
       getChange
     )
   ),
@@ -66,7 +66,7 @@ const onEnter = compose(
       hasEdgeInSelection([isBlock('infoBoxText')])
     ),
     compose(
-      change => change.collapseToEnd(),
+      change => change.moveToEnd(),
       getChange
     )
   ),
@@ -170,7 +170,7 @@ const onDeleteOrBackspace = compose(
       ])
     ),
     compose(
-      change => change.collapseToStart(),
+      change => change.moveToStart(),
       getChange
     )
   ),
