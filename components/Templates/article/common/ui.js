@@ -62,7 +62,7 @@ export const TextButtons = withTheme()(
   ({ editor, styles }) => (
     <div {...styles.layout.container}>
       <div {...styles.layout.sectionHeader}>
-        <Label>Einfügen</Label>
+        <Label>Text</Label>
       </div>
       <div {...styles.layout.actions}>
         <SupButton editor={editor} />

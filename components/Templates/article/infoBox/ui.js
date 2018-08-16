@@ -222,9 +222,9 @@ export const InfoBoxTextUI = withTheme()(
         <div {...styles.layout.actions}>
           <BoldButton editor={editor} />
           <LinkButton editor={editor} />
-          <TextButtons editor={editor} />
         </div>
       </div>
+      <TextButtons editor={editor} />
     </SelectionPath.Selected>
   )
 )
