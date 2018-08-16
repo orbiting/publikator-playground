@@ -6,6 +6,7 @@ export const ui = ({ isVisible, align }) =>
     display: !isVisible ? 'none' : 'flex',
     position: 'fixed',
     width: '0',
+    top: '0',
     zIndex: 9999,
     flexDirection: 'column',
     flexWrap: 'noWrap',
@@ -18,14 +19,14 @@ export const ui = ({ isVisible, align }) =>
         ? 'flex-end'
         : 'flex-start',
     '&:empty': {
-      height: 0
-    }
+      height: 0,
+    },
   })
 
 export const container = ({
   align, // 'right'
   style, // 'block'
-  maxWidth
+  maxWidth,
 }) =>
   css({
     maxWidth: `${maxWidth}px`,
@@ -49,16 +50,16 @@ export const container = ({
         ? '1px'
         : '0',
     right: align === 'right' ? 0 : 'auto',
-    padding: '12px 20px 12px 20px'
+    padding: '12px 20px 12px 20px',
   })
 
 export const section = css({
-  marginTop: '12px'
+  marginTop: '12px',
 })
 
 export const heading = css({
   display: 'flex',
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
 })
 
 export const sectionHeading = css(
@@ -68,7 +69,7 @@ export const sectionHeading = css(
 
 export const hairline = css({
   borderTop: `1px solid ${colors.divider}`,
-  margin: '5px 0'
+  margin: '5px 0',
 })
 
 export const horizontalGroup = css({
@@ -79,8 +80,8 @@ export const horizontalGroup = css({
   alignItems: 'baseline',
   alignContent: 'stretch',
   '& > *': {
-    margin: '0 6px'
-  }
+    margin: '0 6px',
+  },
 })
 
 export const actions = css(
@@ -96,5 +97,5 @@ export default config => ({
   sectionHeading,
   hairline,
   horizontalGroup,
-  actions
+  actions,
 })

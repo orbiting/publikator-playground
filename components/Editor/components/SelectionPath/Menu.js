@@ -15,7 +15,7 @@ const withStyles = withTheme(({ theme }) => {
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'row',
-        lineHeight: '55px'
+        lineHeight: '55px',
       })
     ),
     nodeLink: css(
@@ -25,10 +25,10 @@ const withStyles = withTheme(({ theme }) => {
         '&[data-active="true"]': {
           color: theme.colors.primary,
           cursor: 'default',
-          textDecoration: 'underline'
-        }
+          textDecoration: 'underline',
+        },
       })
-    )
+    ),
   }
 })
 
@@ -44,7 +44,7 @@ const SelectionPathMenu = ({
   selectedNode,
   selectionPath,
   onSelect,
-  styles
+  styles,
 }) => {
   if (!selectionPath) {
     return (
@@ -81,7 +81,7 @@ const SelectionPathMenu = ({
 SelectionPathMenu.propTypes = {
   selectedNode: PropTypes.object,
   selectionPath: PropTypes.object,
-  onSelect: PropTypes.func.isRequired
+  onSelect: PropTypes.func.isRequired,
 }
 
 export default compose(
