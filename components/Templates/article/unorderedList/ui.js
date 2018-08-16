@@ -1,4 +1,4 @@
-import Label from '@project-r/styleguide'
+import { Label } from '@project-r/styleguide'
 import UnorderedListIcon from 'react-icons/lib/fa/list-ul'
 import { isBlock } from '@orbiting/publikator-editor/lib'
 import FormatBlockButton from '@orbiting/publikator-editor/components/FormatBlockButton'
@@ -7,7 +7,7 @@ import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 
 import {
   TextButtons,
-  InsertButtons
+  InsertButtons,
 } from '../common/ui'
 import { ParagraphButton } from '../paragraph/ui'
 import { SubheadButton } from '../subhead/ui'
@@ -19,14 +19,14 @@ import { LinkButton } from '../link/ui'
 const conversionStrategy = (change, node) => {
   if (isBlock('orderedList', node)) {
     return change.setNodeByKey(node.key, {
-      type: 'unorderedList'
+      type: 'unorderedList',
     })
   }
 
   return change
     .setNodeByKey(node.key, { type: 'listItem' })
     .wrapBlockByKey(node.key, {
-      type: 'unorderedList'
+      type: 'unorderedList',
     })
 }
 
@@ -39,7 +39,7 @@ const toFlatBlockConversion = (
     (t, listItem) =>
       t
         .setNodeByKey(listItem.key, {
-          type: block
+          type: block,
         })
         .unwrapBlockByKey(listItem.key),
     change
@@ -51,7 +51,7 @@ export const UnorderedListButton = withTheme()(
     <FormatBlockButton
       {...props}
       {...props.styles.buttons.iconButton}
-      block={'orderedList'}
+      block={'unorderedList'}
       conversionStrategy={conversionStrategy}
     >
       <UnorderedListIcon size={22} />

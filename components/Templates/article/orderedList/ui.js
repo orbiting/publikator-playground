@@ -1,5 +1,7 @@
-import Label from '@project-r/styleguide'
+import { Text } from 'slate'
 import OrderedListIcon from 'react-icons/lib/fa/list-ol'
+import { Label } from '@project-r/styleguide'
+
 import { isBlock } from '@orbiting/publikator-editor/lib'
 import FormatBlockButton from '@orbiting/publikator-editor/components/FormatBlockButton'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
@@ -7,7 +9,7 @@ import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 
 import {
   TextButtons,
-  InsertButtons
+  InsertButtons,
 } from '../common/ui'
 import { ParagraphButton } from '../paragraph/ui'
 import { SubheadButton } from '../subhead/ui'
@@ -19,14 +21,17 @@ import { LinkButton } from '../link/ui'
 const conversionStrategy = (change, node) => {
   if (isBlock('unorderedList', node)) {
     return change.setNodeByKey(node.key, {
-      type: 'orderedList'
+      type: 'orderedList',
     })
   }
 
   return change
-    .setNodeByKey(node.key, { type: 'listItem' })
+    .setNodeByKey(node.key, {
+      type: 'listItem',
+      nodes: Text.create(node.text),
+    })
     .wrapBlockByKey(node.key, {
-      type: 'orderedList'
+      type: 'orderedList',
     })
 }
 
@@ -39,7 +44,7 @@ const toFlatBlockConversion = (
     (t, listItem) =>
       t
         .setNodeByKey(listItem.key, {
-          type: block
+          type: block,
         })
         .unwrapBlockByKey(listItem.key),
     change

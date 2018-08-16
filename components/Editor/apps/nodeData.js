@@ -17,11 +17,7 @@ const mapFromFactory = factory => (
   { editor, node }
 ) =>
   factory(node.data, value => {
-    editor.change(c => {
-      const t = updateData(c, node, value)
-      console.log(t.value)
-      return t
-    })
+    editor.change(updateData, node, value)
   })
 
 const defaultFactory = (value, onChange) => ({
