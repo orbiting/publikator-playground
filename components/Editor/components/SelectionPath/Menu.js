@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'glamor'
-import ArrowIcon from 'react-icons/lib/fa/angle-right'
+import { FaAngleRight as ArrowIcon } from 'react-icons/fa'
 import { compose } from 'ramda'
 import { withApp } from '../../apps/selectionPath'
 import { withTheme } from '../../apps/theme'

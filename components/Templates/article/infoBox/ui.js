@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
-import { InfoBoxIcon } from 'react-icons/fa'
+import { FaInfo as InfoBoxIcon } from 'react-icons/fa'
 
 import { Label } from '@project-r/styleguide'
 import InsertBlockButton from '@orbiting/publikator-editor/components/InsertBlockButton'
 
 import getNew from './getNew'
 
-import { NoImageIcon } from 'react-icons/fa'
-import { HasImageIcon } from 'react-icons/fa'
+import { FaClose as NoImageIcon } from 'react-icons/fa'
+import { FaCheck as HasImageIcon } from 'react-icons/fa'
 
 import { isBlock } from '@orbiting/publikator-editor/lib'
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
@@ -180,7 +180,8 @@ export const InfoBoxUI = withTheme()(
                     editor={editor}
                   >
                     <SmallIcon />
-                  </FigureSizeButton>,
+                  </FigureSizeButton>
+                  ,
                   <FigureSizeButton
                     key="tiny-button"
                     name="XS"

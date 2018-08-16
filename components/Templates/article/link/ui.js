@@ -3,8 +3,8 @@ import { Label, A } from '@project-r/styleguide'
 import { css } from 'glamor'
 import { reduxForm, Field } from 'redux-form'
 
-import { LinkIcon } from 'react-icons/fa'
-import { CloseIcon } from 'react-icons/md'
+import { FaLink as LinkIcon } from 'react-icons/fa'
+import { MdClose as CloseIcon } from 'react-icons/md'
 
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 import ToggleInlineButton from '@orbiting/publikator-editor/components/ToggleInlineButton'

@@ -1,4 +1,4 @@
-import { SupIcon } from 'react-icons/fa'
+import { FaSuperscript as SupIcon } from 'react-icons/fa'
 import ToggleMarkButton from '@orbiting/publikator-editor/components/ToggleMarkButton'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 

@@ -1,4 +1,4 @@
-import { ParagraphIcon } from 'react-icons/fa'
+import { FaParagraph as ParagraphIcon } from 'react-icons/fa'
 import { Label } from '@project-r/styleguide'
 import FormatBlockButton from '@orbiting/publikator-editor/components/FormatBlockButton'
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'

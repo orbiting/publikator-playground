@@ -1,5 +1,5 @@
 import { Label } from '@project-r/styleguide'
-import { UnorderedListIcon } from 'react-icons/fa'
+import { FaListUl as UnorderedListIcon } from 'react-icons/fa'
 import { isBlock } from '@orbiting/publikator-editor/lib'
 import FormatBlockButton from '@orbiting/publikator-editor/components/FormatBlockButton'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
