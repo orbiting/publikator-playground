@@ -1,4 +1,4 @@
-import SubIcon from 'react-icons/lib/fa/subscript'
+import { SubIcon } from 'react-icons/fa'
 import ToggleMarkButton from '@orbiting/publikator-editor/components/ToggleMarkButton'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 

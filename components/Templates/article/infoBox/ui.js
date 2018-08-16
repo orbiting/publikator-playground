@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
-import InfoBoxIcon from 'react-icons/lib/fa/info'
+import { InfoBoxIcon } from 'react-icons/fa'
 
 import { Label } from '@project-r/styleguide'
 import InsertBlockButton from '@orbiting/publikator-editor/components/InsertBlockButton'
 
 import getNew from './getNew'
 
-import NoImageIcon from 'react-icons/lib/fa/check'
-import HasImageIcon from 'react-icons/lib/fa/check-circle'
+import { NoImageIcon } from 'react-icons/fa'
+import { HasImageIcon } from 'react-icons/fa'
 
 import { isBlock } from '@orbiting/publikator-editor/lib'
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'

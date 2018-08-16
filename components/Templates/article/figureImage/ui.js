@@ -1,5 +1,5 @@
 import { Label } from '@project-r/styleguide'
-import ChangeImageIcon from 'react-icons/lib/fa/exchange'
+import { ChangeImageIcon } from 'react-icons/fa'
 
 import ImageInput from '@orbiting/publikator-editor/components/ImageInput'
 import { withNodeData } from '@orbiting/publikator-editor/apps/nodeData'

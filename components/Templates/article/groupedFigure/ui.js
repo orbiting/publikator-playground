@@ -1,4 +1,4 @@
-import ImageIcon from 'react-icons/lib/fa/image'
+import { ImageIcon } from 'react-icons/fa'
 import InsertBlockButton from '@orbiting/publikator-editor/components/InsertBlockButton'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 

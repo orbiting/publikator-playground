@@ -1,4 +1,4 @@
-import SubheadIcon from 'react-icons/lib/fa/header'
+import { SubheadIcon } from 'react-icons/fa'
 import FormatBlockButton from '@orbiting/publikator-editor/components/FormatBlockButton'
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'

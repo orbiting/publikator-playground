@@ -1,4 +1,4 @@
-import ItalicIcon from 'react-icons/lib/fa/italic'
+import { ItalicIcon } from 'react-icons/fa'
 import ToggleMarkButton from '@orbiting/publikator-editor/components/ToggleMarkButton'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 

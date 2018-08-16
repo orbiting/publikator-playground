@@ -1,5 +1,5 @@
 import { Label } from '@project-r/styleguide'
-import ImageIcon from 'react-icons/lib/fa/image'
+import { ImageIcon } from 'react-icons/fa'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 import InsertBlockButton from '@orbiting/publikator-editor/components/InsertBlockButton'
 import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'

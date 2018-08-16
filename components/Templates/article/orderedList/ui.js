@@ -1,5 +1,5 @@
 import { Text } from 'slate'
-import OrderedListIcon from 'react-icons/lib/fa/list-ol'
+import { OrderedListIcon } from 'react-icons/fa'
 import { Label } from '@project-r/styleguide'
 
 import { isBlock } from '@orbiting/publikator-editor/lib'
