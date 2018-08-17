@@ -102,6 +102,12 @@ const renderField = ({
 )
 
 export const LinkForm = compose(
+  withNodeData({
+    factory: (data, onChange) => ({
+      initialValues: data.toJS(),
+      onSubmit: onChange,
+    }),
+  }),
   withTheme(),
   reduxForm({
     form: 'link',
@@ -154,18 +160,16 @@ export const LinkForm = compose(
 
 export const LinkUI = compose(
   withTheme(),
-  withNodeData({ passProps: true }),
   withEditMode({
     namespace: 'link',
   })
 )(
   ({
     node,
+    editor,
     isInEditMode,
     startEditing,
     finishEditing,
-    value: data,
-    onChange,
     styles,
   }) => {
     return (
@@ -176,7 +180,7 @@ export const LinkUI = compose(
               <div {...styles.sectionHeader}>
                 <Label>Link</Label>
               </div>
-              <LinkCard data={data} />
+              <LinkCard data={node.data} />
               <Button
                 {...styles.buttons.iconButton}
                 onClick={startEditing}
@@ -192,7 +196,6 @@ export const LinkUI = compose(
                   {...styles.buttons.iconButton}
                   onClick={() => {
                     finishEditing()
-                    // editor.focus()
                   }}
                 >
                   <CloseIcon size="18" />
@@ -200,10 +203,10 @@ export const LinkUI = compose(
               </div>
               <hr {...styles.layout.hairline} />
               <LinkForm
-                initialValues={data.toJS()}
-                onSubmit={v => {
+                node={node}
+                editor={editor}
+                onSubmitSuccess={() => {
                   finishEditing()
-                  onChange(v)
                 }}
               />
             </div>
