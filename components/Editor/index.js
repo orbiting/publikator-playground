@@ -1,30 +1,24 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Editor as SlateEditor } from 'slate-react'
-import { withApp } from './apps/value'
-import { withTheme } from './apps/theme'
-import { DOM_NODE_ID as SELECTION_PATH_ID } from './apps/selectionPath'
 
-import SelectionPath from './components/SelectionPath'
+import { withApp } from './apps/value'
+import UI from './components/UI'
 
 const Editor = withApp(SlateEditor)
 
 class PublikatorEditor extends Component {
   render() {
-    const { styles } = this.props
     return (
-      <div>
-        <div {...styles.layout.ui}>
-          <SelectionPath.Menu />
-          <div id={SELECTION_PATH_ID} />
-        </div>
+      <Fragment>
+        <UI />
         <Editor
           spellCheck={false}
           autoFocus={false}
           plugins={this.props.plugins}
           initialValue={this.props.initialValue}
         />
-      </div>
+      </Fragment>
     )
   }
 }
@@ -35,4 +29,4 @@ PublikatorEditor.propTypes = {
   plugins: PropTypes.array.isRequired,
 }
 
-export default withTheme()(PublikatorEditor)
+export default PublikatorEditor

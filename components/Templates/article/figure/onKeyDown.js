@@ -4,7 +4,7 @@ import {
   both,
   ifElse,
   always,
-  allPass
+  allPass,
 } from 'ramda'
 
 import { removeBlock } from '@orbiting/publikator-editor/changes'
@@ -18,7 +18,7 @@ import {
   eventHandler,
   isDelete,
   isBackspace,
-  isBlock
+  isBlock,
 } from '@orbiting/publikator-editor/lib'
 
 const onDeleteOrBackspace = compose(
@@ -32,12 +32,12 @@ const onDeleteOrBackspace = compose(
       compose(
         both(isBlock('figure'), hasEmptyText),
         getParentOf(getStartBlock)
-      )
+      ),
     ]),
     converge(removeBlock, [
       getChange,
       getParentOf(getStartBlock),
-      always({ url: '' })
+      always({ url: '' }),
     ])
   )
 )

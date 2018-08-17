@@ -2,7 +2,8 @@ import { Label } from '@project-r/styleguide'
 import { FaImage as ImageIcon } from 'react-icons/fa'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 import InsertBlockButton from '@orbiting/publikator-editor/components/InsertBlockButton'
-import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
+import Selected from '@orbiting/publikator-editor/components/Selected'
+import { SidebarTop } from '@orbiting/publikator-editor/components/UI'
 
 import {
   SizeButton,
@@ -28,35 +29,34 @@ export const InsertFigureButton = withTheme()(
 
 export const FigureGroupUI = withTheme()(
   ({ node, editor, styles }) => (
-    <SelectionPath.Selected
-      offset={3}
-      node={node}
-    >
-      <div {...styles.layout.container}>
-        <div {...styles.layout.headerSection}>
-          <Label>Bildergruppe</Label>
+    <Selected offset={3} node={node}>
+      <SidebarTop>
+        <div {...styles.layout.container}>
+          <div {...styles.layout.headerSection}>
+            <Label>Bildergruppe</Label>
+          </div>
+          <hr {...styles.layout.hairline} />
+          <div {...styles.layout.headerSection}>
+            <Label>Grösse</Label>
+          </div>
+          <div {...styles.layout.section}>
+            <SizeButton
+              name={null}
+              node={node}
+              editor={editor}
+            >
+              <DefaultIcon />
+            </SizeButton>
+            <SizeButton
+              name={'breakout'}
+              node={node}
+              editor={editor}
+            >
+              <BreakoutIcon />
+            </SizeButton>
+          </div>
         </div>
-        <hr {...styles.layout.hairline} />
-        <div {...styles.layout.headerSection}>
-          <Label>Grösse</Label>
-        </div>
-        <div {...styles.layout.section}>
-          <SizeButton
-            name={null}
-            node={node}
-            editor={editor}
-          >
-            <DefaultIcon />
-          </SizeButton>
-          <SizeButton
-            name={'breakout'}
-            node={node}
-            editor={editor}
-          >
-            <BreakoutIcon />
-          </SizeButton>
-        </div>
-      </div>
-    </SelectionPath.Selected>
+      </SidebarTop>
+    </Selected>
   )
 )

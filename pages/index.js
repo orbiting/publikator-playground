@@ -15,7 +15,7 @@ export default () => (
       document: deserialize(
         Article.fromMdast,
         parse(initial)
-      )
+      ),
     })}
   />
 )

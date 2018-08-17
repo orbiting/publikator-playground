@@ -1,6 +1,10 @@
 import { Label } from '@project-r/styleguide'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
-import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
+import Selected from '@orbiting/publikator-editor/components/Selected'
+import {
+  SidebarFormatOptions,
+  SidebarTextOptions,
+} from '@orbiting/publikator-editor/components/UI'
 
 import { TextButtons } from '../common/ui'
 import { BoldButton } from '../bold/ui'
@@ -9,24 +13,25 @@ import { LinkButton } from '../link/ui'
 export const CaptionTextUI = withTheme()(
   ({ styles, node, editor }) => {
     return (
-      <SelectionPath.Selected
-        node={node}
-        offset={1}
-      >
-        <div {...styles.layout.container}>
-          <div {...styles.layout.sectionHeader}>
-            <Label>Format</Label>
+      <Selected node={node} offset={1}>
+        <SidebarFormatOptions>
+          <div {...styles.layout.container}>
+            <div {...styles.layout.sectionHeader}>
+              <Label>Format</Label>
+            </div>
+            <div {...styles.layout.section}>
+              <BoldButton editor={editor} />
+              <LinkButton editor={editor} />
+            </div>
           </div>
-          <div {...styles.layout.section}>
-            <BoldButton editor={editor} />
-            <LinkButton editor={editor} />
-          </div>
-        </div>
-        <TextButtons
-          editor={editor}
-          node={node}
-        />
-      </SelectionPath.Selected>
+        </SidebarFormatOptions>
+        <SidebarTextOptions>
+          <TextButtons
+            editor={editor}
+            node={node}
+          />
+        </SidebarTextOptions>
+      </Selected>
     )
   }
 )
@@ -34,23 +39,24 @@ export const CaptionTextUI = withTheme()(
 export const CaptionBylineUI = withTheme()(
   ({ styles, node, editor }) => {
     return (
-      <SelectionPath.Selected
-        node={node}
-        offset={1}
-      >
-        <div {...styles.layout.container}>
-          <div {...styles.layout.sectionHeader}>
-            <Label>Format</Label>
+      <Selected node={node} offset={1}>
+        <SidebarFormatOptions>
+          <div {...styles.layout.container}>
+            <div {...styles.layout.sectionHeader}>
+              <Label>Format</Label>
+            </div>
+            <div {...styles.layout.actions}>
+              <LinkButton editor={editor} />
+            </div>
           </div>
-          <div {...styles.layout.actions}>
-            <LinkButton editor={editor} />
-          </div>
-        </div>
-        <TextButtons
-          editor={editor}
-          node={node}
-        />
-      </SelectionPath.Selected>
+        </SidebarFormatOptions>
+        <SidebarTextOptions>
+          <TextButtons
+            editor={editor}
+            node={node}
+          />
+        </SidebarTextOptions>
+      </Selected>
     )
   }
 )

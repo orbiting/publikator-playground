@@ -1,8 +1,14 @@
 import { FaParagraph as ParagraphIcon } from 'react-icons/fa'
 import { Label } from '@project-r/styleguide'
 import FormatBlockButton from '@orbiting/publikator-editor/components/FormatBlockButton'
-import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
+import Selected from '@orbiting/publikator-editor/components/Selected'
+import {
+  SidebarTextOptions,
+  SidebarInsertOptions,
+  SidebarBlockOptions,
+  SidebarFormatOptions,
+} from '@orbiting/publikator-editor/components/UI'
 
 import {
   BlockButtons,
@@ -27,35 +33,46 @@ export const ParagraphButton = withTheme()(
 
 export const ParagraphUI = withTheme()(
   ({ node, editor, styles }) => (
-    <SelectionPath.Selected
-      offset={1}
-      node={node}
-    >
-      <InsertButtons
-        node={node}
-        editor={editor}
-      />
-      <BlockButtons node={node} editor={editor} />
-      <div {...styles.layout.container}>
-        <div {...styles.layout.sectionHeader}>
-          <Label>Format</Label>
+    <Selected offset={1} node={node}>
+      <SidebarInsertOptions>
+        <InsertButtons
+          node={node}
+          editor={editor}
+        />
+      </SidebarInsertOptions>
+      <SidebarBlockOptions>
+        <BlockButtons
+          node={node}
+          editor={editor}
+        />
+      </SidebarBlockOptions>
+      <SidebarFormatOptions>
+        <div {...styles.layout.container}>
+          <div {...styles.layout.sectionHeader}>
+            <Label>Format</Label>
+          </div>
+          <div {...styles.layout.actions}>
+            <BoldButton
+              node={node}
+              editor={editor}
+            />
+            <ItalicButton
+              node={node}
+              editor={editor}
+            />
+            <LinkButton
+              node={node}
+              editor={editor}
+            />
+          </div>
         </div>
-        <div {...styles.layout.actions}>
-          <BoldButton
-            node={node}
-            editor={editor}
-          />
-          <ItalicButton
-            node={node}
-            editor={editor}
-          />
-          <LinkButton
-            node={node}
-            editor={editor}
-          />
-        </div>
-      </div>
-      <TextButtons node={node} editor={editor} />
-    </SelectionPath.Selected>
+      </SidebarFormatOptions>
+      <SidebarTextOptions>
+        <TextButtons
+          node={node}
+          editor={editor}
+        />
+      </SidebarTextOptions>
+    </Selected>
   )
 )

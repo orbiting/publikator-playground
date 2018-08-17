@@ -1,7 +1,12 @@
 import { FaHeading as SubheadIcon } from 'react-icons/fa'
 import FormatBlockButton from '@orbiting/publikator-editor/components/FormatBlockButton'
-import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
+import Selected from '@orbiting/publikator-editor/components/Selected'
+import {
+  SidebarTextOptions,
+  SidebarInsertOptions,
+  SidebarBlockOptions,
+} from '@orbiting/publikator-editor/components/UI'
 
 import {
   BlockButtons,
@@ -22,9 +27,18 @@ export const SubheadButton = withTheme()(
 )
 
 export const SubheadUI = ({ node, editor }) => (
-  <SelectionPath.Selected offset={1} node={node}>
-    <InsertButtons node={node} editor={editor} />
-    <BlockButtons node={node} editor={editor} />
-    <TextButtons node={node} editor={editor} />
-  </SelectionPath.Selected>
+  <Selected offset={1} node={node}>
+    <SidebarInsertOptions>
+      <InsertButtons
+        node={node}
+        editor={editor}
+      />
+    </SidebarInsertOptions>
+    <SidebarBlockOptions>
+      <BlockButtons node={node} editor={editor} />
+    </SidebarBlockOptions>
+    <SidebarTextOptions>
+      <TextButtons node={node} editor={editor} />
+    </SidebarTextOptions>
+  </Selected>
 )

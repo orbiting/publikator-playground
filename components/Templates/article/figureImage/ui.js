@@ -4,7 +4,8 @@ import { FaFileImage as ChangeImageIcon } from 'react-icons/fa'
 import ImageInput from '@orbiting/publikator-editor/components/ImageInput'
 import { withNodeData } from '@orbiting/publikator-editor/apps/nodeData'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
-import SelectionPath from '@orbiting/publikator-editor/components/SelectionPath'
+import Selected from '@orbiting/publikator-editor/components/Selected'
+import { SidebarTop } from '@orbiting/publikator-editor/components/UI'
 
 export const SelectImageButton = withNodeData({
   fieldName: 'url',
@@ -12,22 +13,21 @@ export const SelectImageButton = withNodeData({
 
 export const FigureImageUI = withTheme()(
   ({ node, editor, styles }) => (
-    <SelectionPath.Selected
-      offset={3}
-      node={node}
-    >
-      <div {...styles.layout.container}>
-        <div {...styles.layout.headerSection}>
-          <Label>Bildergruppe</Label>
+    <Selected offset={3} node={node}>
+      <SidebarTop>
+        <div {...styles.layout.container}>
+          <div {...styles.layout.headerSection}>
+            <Label>Bild</Label>
+          </div>
+          <SelectImageButton
+            node={node}
+            editor={editor}
+            {...styles.buttons.iconButton}
+          >
+            <ChangeImageIcon size={22} />
+          </SelectImageButton>
         </div>
-        <SelectImageButton
-          node={node}
-          editor={editor}
-          {...styles.buttons.iconButton}
-        >
-          <ChangeImageIcon size={22} />
-        </SelectImageButton>
-      </div>
-    </SelectionPath.Selected>
+      </SidebarTop>
+    </Selected>
   )
 )
