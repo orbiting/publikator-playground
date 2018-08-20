@@ -7,7 +7,7 @@ import {
   either,
   add,
   always,
-  allPass
+  allPass,
 } from 'ramda'
 
 import { Block } from 'slate'
@@ -16,7 +16,7 @@ import {
   focusNext,
   focusPrevious,
   insertBlockAfter,
-  removeBlock
+  removeBlock,
 } from '@orbiting/publikator-editor/changes'
 
 import {
@@ -42,17 +42,17 @@ import {
   notIsNil,
   isCollapsedAtStart,
   isCollapsedAtEnd,
-  getPreviousBlockOf
+  getPreviousBlockOf,
 } from '@orbiting/publikator-editor/lib'
 
-import getNewFigure from '../figure/getNew'
+import getNewFigure from '../infoBoxFigure/getNew'
 
 const onEnter = compose(
   ifElse(
     both(
       isExpanded,
       hasEdgeInSelection([
-        isBlock('infoBoxTitle')
+        isBlock('infoBoxTitle'),
       ])
     ),
     compose(
@@ -92,7 +92,7 @@ const onEnter = compose(
         converge(insertBlockAfter, [
           getChange,
           getNewFigure,
-          getStartBlock
+          getStartBlock,
         ])
       )
     )
@@ -107,7 +107,7 @@ const onEnter = compose(
       compose(
         isBlock('infoBox'),
         getNthAncestorOf(3, getStartBlock)
-      )
+      ),
     ]),
     ifElse(
       compose(
@@ -124,9 +124,9 @@ const onEnter = compose(
           getChange,
           () =>
             Block.create({
-              type: 'infoBoxText'
+              type: 'infoBoxText',
             }),
-          getStartBlock
+          getStartBlock,
         ])
       )
     )
@@ -147,14 +147,14 @@ const onEnter = compose(
           add(-1),
           getNumNodes,
           getParentOf(getStartBlock)
-        )
-      ])
+        ),
+      ]),
     ]),
     compose(
       focusNext,
       converge(removeBlock, [
         getChange,
-        getStartBlock
+        getStartBlock,
       ])
     )
   )
@@ -166,7 +166,7 @@ const onDeleteOrBackspace = compose(
       isMixed,
       hasEdgeInSelection([
         isBlock('infoBoxText'),
-        isBlock('infoBoxTitle')
+        isBlock('infoBoxTitle'),
       ])
     ),
     compose(
@@ -184,7 +184,7 @@ const onDeleteOrBackspace = compose(
           compose(
             equals(1),
             getNumNodes
-          )
+          ),
         ]),
         getClosestOf(
           isBlock('infoBox'),
@@ -197,7 +197,7 @@ const onDeleteOrBackspace = compose(
       getClosestOf(
         isBlock('infoBox'),
         getStartBlock
-      )
+      ),
     ])
   )
 )
@@ -233,11 +233,11 @@ const onBackspace = compose(
           isBlock('captionByline')
         ),
         getPreviousBlockOf(getStartBlock)
-      )
+      ),
     ]),
     converge(removeBlock, [
       getChange,
-      getStartBlock
+      getStartBlock,
     ])
   )
 )(always(undefined))
@@ -270,11 +270,11 @@ const onDelete = compose(
           isBlock('captionByline')
         ),
         getStartBlock
-      )
+      ),
     ]),
     converge(removeBlock, [
       getChange,
-      getStartBlock
+      getStartBlock,
     ])
   )
 )(always(undefined))
