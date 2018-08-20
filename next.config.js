@@ -6,7 +6,7 @@ require('dotenv').config({
   path:
     process.env.NODE_ENV === 'production'
       ? '.env'
-      : '.env'
+      : '.env',
 })
 
 module.exports = {
@@ -28,13 +28,21 @@ module.exports = {
     config.resolve.alias = {
       '@orbiting/transform': path.resolve(
         __dirname,
-        'lib/transform/'
+        'packages/transform/'
       ),
       '@orbiting/publikator-editor': path.resolve(
         __dirname,
-        'components/Editor/'
-      )
+        'packages/editor/'
+      ),
+      '@orbiting/publikator-modules': path.resolve(
+        __dirname,
+        'packages/modules/'
+      ),
+      '@orbiting/publikator-templates': path.resolve(
+        __dirname,
+        'packages/templates/'
+      ),
     }
     return config
-  }
+  },
 }

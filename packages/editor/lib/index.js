@@ -25,14 +25,14 @@ import {
   safeProp,
   notIsNil,
   mergeResults,
-} from '../../../lib/transform/common'
+} from '@orbiting/transform/common'
 
 import {
   isBlock,
   isMark,
   isInline,
   isDocument,
-} from '../../../lib/transform/slate'
+} from '@orbiting/transform/slate'
 
 export {
   log,

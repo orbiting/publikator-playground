@@ -2,7 +2,7 @@ import { Editorial } from '@project-r/styleguide'
 import { ifElse, compose, always } from 'ramda'
 import {
   safeProp,
-  isMark
+  isMark,
 } from '@orbiting/publikator-editor/lib'
 
 export default {
@@ -19,5 +19,5 @@ export default {
       )
     },
     always(undefined)
-  )
+  ),
 }
