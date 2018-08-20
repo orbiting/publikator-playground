@@ -5,7 +5,7 @@ import { mergeResults } from '@orbiting/transform/common'
 import {
   normalize,
   getOrNew,
-  getOrSkipAt
+  getOrSkipAt,
 } from '@orbiting/transform/normalize'
 
 const titleFromMdast = ifElse(
@@ -29,8 +29,8 @@ const getNew = mergeResults(
     nodes: [
       S.toBlock('title')(),
       S.toBlock('lead')(),
-      S.toBlock('credits')()
-    ]
+      S.toBlock('credits')(),
+    ],
   })
 )
 
@@ -80,5 +80,5 @@ const toMdast = compose(
 export default {
   getNew,
   fromMdast,
-  toMdast
+  toMdast,
 }

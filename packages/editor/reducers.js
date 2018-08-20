@@ -7,5 +7,5 @@ export default {
   selectionPath,
   value,
   editMode,
-  theme
+  theme,
 }

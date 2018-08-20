@@ -5,7 +5,7 @@ import {
   split,
   intersperse,
   map,
-  objOf
+  objOf,
 } from 'ramda'
 
 import { safeProp } from '@orbiting/transform/common'
@@ -37,5 +37,5 @@ export default {
       split('\n'),
       safeProp('value')
     )
-  )
+  ),
 }

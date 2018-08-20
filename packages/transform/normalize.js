@@ -5,7 +5,7 @@ import {
   mapAccum,
   always,
   ifElse,
-  nth
+  nth,
 } from 'ramda'
 
 import { notIsNil } from './common'
@@ -16,7 +16,7 @@ export const getJust = rule => (
   next
 ) => [
   index + 1,
-  rule(always(null))(nodes[index], next)
+  rule(always(null))(nodes[index], next),
 ]
 
 export const getOrNew = (constructFn, rule) => (
@@ -25,7 +25,7 @@ export const getOrNew = (constructFn, rule) => (
   next
 ) => [
   index + 1,
-  rule(constructFn)(nodes[index], next)
+  rule(constructFn)(nodes[index], next),
 ]
 
 export const getOrSkip = rule => (
@@ -82,7 +82,7 @@ export const getIfNotEmpty = (
     isEmptyFn,
     always(null),
     rule(always(null))
-  )(nodes[index], next)
+  )(nodes[index], next),
 ]
 
 export const normalize = (...normalizers) => (

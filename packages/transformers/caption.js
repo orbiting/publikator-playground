@@ -2,7 +2,7 @@ import {
   ifElse,
   init,
   last,
-  compose
+  compose,
 } from 'ramda'
 import S from '@orbiting/transform/slate'
 import M from '@orbiting/transform/mdast'
@@ -27,7 +27,7 @@ const fromMdast = ifElse(
             ? {
                 object: 'block',
                 type: 'captionText',
-                nodes: next(textNodes)
+                nodes: next(textNodes),
               }
             : []
         )
@@ -36,7 +36,7 @@ const fromMdast = ifElse(
             ? {
                 object: 'block',
                 type: 'captionByline',
-                nodes: next(byline.children)
+                nodes: next(byline.children),
               }
             : []
         )
@@ -62,5 +62,5 @@ const toMdast = compose(
 
 export default {
   fromMdast,
-  toMdast
+  toMdast,
 }

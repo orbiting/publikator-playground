@@ -7,20 +7,20 @@ import {
   isNil,
   complement,
   equals,
-  always
+  always,
 } from 'ramda'
 
 import {
   normalize,
   getJust,
-  getOrNew
+  getOrNew,
 } from '@orbiting/transform/normalize'
 
 import S from '@orbiting/transform/slate'
 import M from '@orbiting/transform/mdast'
 import {
   mergeResults,
-  safePath
+  safePath,
 } from '@orbiting/transform/common'
 
 import Caption from './caption'
@@ -66,5 +66,5 @@ const toMdast = compose(
 
 export default {
   fromMdast,
-  toMdast
+  toMdast,
 }

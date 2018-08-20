@@ -4,7 +4,7 @@ import {
   ifElse,
   flip,
   equals,
-  type as typeOf
+  type as typeOf,
 } from 'ramda'
 
 import { cleanFlatMap, log } from './common'

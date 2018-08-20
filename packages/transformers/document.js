@@ -7,7 +7,7 @@ import {
   normalize,
   getOrSkip,
   getMany,
-  getOrNew
+  getOrNew,
 } from '@orbiting/transform/normalize'
 
 import Cover from './cover'
@@ -35,7 +35,7 @@ const fromMdast = ifElse(
       )
     ),
     node => ({
-      data: node.meta
+      data: node.meta,
     })
   )
 )
@@ -47,5 +47,5 @@ const toMdast = ifElse(
 
 export default {
   fromMdast,
-  toMdast
+  toMdast,
 }

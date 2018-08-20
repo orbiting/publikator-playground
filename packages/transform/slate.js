@@ -15,7 +15,7 @@ import {
   when,
   reduceRight,
   merge,
-  both
+  both,
 } from 'ramda'
 
 import {
@@ -24,7 +24,7 @@ import {
   safePropEq,
   safePath,
   safeProp,
-  mergeResults
+  mergeResults,
 } from './common'
 
 export const isType = safePropEq('type')
@@ -104,7 +104,7 @@ export const prepareLeaf = leaf =>
       (parent, child) => {
         return merge(parent, {
           object: 'mark',
-          nodes: [child]
+          nodes: [child],
         })
       },
       { object: 'text', value: leaf.text }
@@ -132,11 +132,11 @@ export const withNestedMarks = transformer =>
   )
 
 export const toObject = object => () => ({
-  object
+  object,
 })
 
 export const ofType = type => () => ({
-  type
+  type,
 })
 
 export const toBlock = type =>
@@ -152,18 +152,18 @@ export const toText = node => ({
   object: 'text',
   leaves: [
     {
-      text: node.value
-    }
-  ]
+      text: node.value,
+    },
+  ],
 })
 
 export const asVoid = () => ({
-  isVoid: true
+  isVoid: true,
 })
 
 export const withNodes = (node, next) => {
   return {
-    nodes: next(safeProp('children', node))
+    nodes: next(safeProp('children', node)),
   }
 }
 
@@ -175,19 +175,19 @@ export const withNormalizedNodes = normalizer => (
     nodes: normalizer(
       safeProp('children', node),
       next
-    )
+    ),
   }
 }
 
 export const withData = node => ({
-  data: node.data
+  data: node.data,
 })
 
 export const withLinkData = node => ({
   data: {
     title: node.title,
-    url: node.url
-  }
+    url: node.url,
+  },
 })
 
 export const withImageParagraphData = node => ({
@@ -197,8 +197,8 @@ export const withImageParagraphData = node => ({
       ['children', 0, 'title'],
       node
     ),
-    alt: safePath(['children', 0, 'alt'], node)
-  }
+    alt: safePath(['children', 0, 'alt'], node),
+  },
 })
 
 export default {
@@ -221,5 +221,5 @@ export default {
   withNormalizedNodes,
   withData,
   withLinkData,
-  withImageParagraphData
+  withImageParagraphData,
 }

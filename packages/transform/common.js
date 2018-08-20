@@ -18,7 +18,7 @@ import {
   lensPath,
   view,
   always,
-  prop
+  prop,
 } from 'ramda'
 
 export const update = uncurryN(

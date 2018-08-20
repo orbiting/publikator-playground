@@ -55,5 +55,5 @@ export default {
     Cover.toMdast,
     FigureImage.toMdast,
     FigureGroup.toMdast
-  )
+  ),
 }

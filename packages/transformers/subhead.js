@@ -16,5 +16,5 @@ const toMdast = ifElse(
 
 export default {
   fromMdast,
-  toMdast
+  toMdast,
 }

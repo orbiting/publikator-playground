@@ -8,7 +8,7 @@ import {
   getJust,
   getOrNew,
   getOrSkip,
-  getMany
+  getMany,
 } from '@orbiting/transform/normalize'
 
 import Caption from './caption'
@@ -94,5 +94,5 @@ const toMdast = compose(
 
 export default {
   fromMdast,
-  toMdast
+  toMdast,
 }

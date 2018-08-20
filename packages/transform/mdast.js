@@ -5,7 +5,7 @@ import {
   allPass,
   head,
   type as typeOf,
-  equals
+  equals,
 } from 'ramda'
 
 import {
@@ -13,7 +13,7 @@ import {
   safeProp,
   safePath,
   safePropEq,
-  mergeResults
+  mergeResults,
 } from './common'
 
 export const getChildren = safeProp('children')
@@ -62,7 +62,7 @@ export const isText = isType('text')
 export const isZone = uncurryN(2, identifier =>
   allPass([
     isType('zone'),
-    hasIdentifier(identifier)
+    hasIdentifier(identifier),
   ])
 )
 
@@ -78,7 +78,7 @@ export const isImageParagraph = allPass([
   compose(
     isType('image'),
     getFirstChild
-  )
+  ),
 ])
 
 export const isHeading = uncurryN(2, depth =>
@@ -86,7 +86,7 @@ export const isHeading = uncurryN(2, depth =>
 )
 
 export const toType = type => () => ({
-  type
+  type,
 })
 
 export const toParagraph = toType('paragraph')
@@ -106,20 +106,20 @@ export const toSup = toType('sup')
 export const toRoot = mergeResults(
   toType('root'),
   node => ({
-    meta: node.data
+    meta: node.data,
   })
 )
 
 export const toZone = identifer => node => ({
   type: 'zone',
   identifer,
-  data: node.data
+  data: node.data,
 })
 
 export const toLink = node => ({
   type: 'link',
   title: safePath(['data', 'title'], node),
-  url: safePath(['data', 'url'], node)
+  url: safePath(['data', 'url'], node),
 })
 
 export const toImageParagraph = node => ({
@@ -129,25 +129,25 @@ export const toImageParagraph = node => ({
       type: 'image',
       url: safePath(['data', 'url'], node),
       title: safePath(['data', 'title'], node),
-      alt: safePath(['data', 'alt'], node)
-    }
-  ]
+      alt: safePath(['data', 'alt'], node),
+    },
+  ],
 })
 
 export const toHeading = depth => () => ({
   type: 'heading',
-  depth
+  depth,
 })
 
 export const toText = node => {
   return {
     type: 'text',
-    value: safeProp('value', node)
+    value: safeProp('value', node),
   }
 }
 
 export const withChildren = (node, next) => ({
-  children: next(node.nodes)
+  children: next(node.nodes),
 })
 
 export const withNormalizedChildren = normalizer => (
@@ -158,7 +158,7 @@ export const withNormalizedChildren = normalizer => (
     children: normalizer(
       safeProp('nodes', node),
       next
-    )
+    ),
   }
 }
 
@@ -196,5 +196,5 @@ export default {
   toRoot,
   withChildren,
   withNormalizedChildren,
-  withChildren
+  withChildren,
 }

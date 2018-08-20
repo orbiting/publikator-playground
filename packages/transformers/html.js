@@ -8,25 +8,25 @@ import {
   objOf,
   converge,
   map,
-  concat
+  concat,
 } from 'ramda'
 import S from '@orbiting/transform/slate'
 import M from '@orbiting/transform/mdast'
 import {
   getMany,
-  normalize
+  normalize,
 } from '@orbiting/transform/normalize'
 import {
   safeProp,
   mergeResults,
-  safePath
+  safePath,
 } from '@orbiting/transform/common'
 
 const imageFromMdast = ifElse(
   M.isImageParagraph,
   applySpec({
     url: safePath(['children', 0, 'url']),
-    ref: safePath(['children', 0, 'alt'])
+    ref: safePath(['children', 0, 'alt']),
   })
 )
 
@@ -36,9 +36,9 @@ const imageToMdast = node => ({
     {
       type: 'image',
       url: safeProp('url', node),
-      alt: safeProp('alt', node)
-    }
-  ]
+      alt: safeProp('alt', node),
+    },
+  ],
 })
 
 const codeFromMdast = ifElse(
@@ -49,7 +49,7 @@ const codeFromMdast = ifElse(
 const codeToMdast = value => ({
   type: 'code',
   lang: 'html',
-  value
+  value,
 })
 
 const fromMdast = ifElse(
@@ -65,8 +65,8 @@ const fromMdast = ifElse(
           code: compose(
             codeFromMdast(always('')),
             last
-          )(children)
-        }
+          )(children),
+        },
       }),
       defaultTo([]),
       safeProp('children')
@@ -92,7 +92,7 @@ const toMdast = ifElse(
           Array.of,
           codeToMdast,
           safePath(['data', 'code'])
-        )
+        ),
       ])
     )
   )
@@ -100,5 +100,5 @@ const toMdast = ifElse(
 
 export default {
   fromMdast,
-  toMdast
+  toMdast,
 }
