@@ -1,41 +1,41 @@
-import LinkPlugin from '@orbiting/publikator-modules/link'
-import FigureGroupPlugin from '@orbiting/publikator-modules/figureGroup'
-import FigurePlugin from '@orbiting/publikator-modules/figure'
-import FigureImage from '@orbiting/publikator-modules/figureImage'
-import Cover from '@orbiting/publikator-modules/cover'
-import CaptionPlugin from '@orbiting/publikator-modules/caption'
-import BoldPlugin from '@orbiting/publikator-modules/bold'
-import UnorderedListPlugin from '@orbiting/publikator-modules/unorderedList'
-import OrderedListPlugin from '@orbiting/publikator-modules/orderedList'
-import ListItemPlugin from '@orbiting/publikator-modules/listItem'
-import SuperscriptPlugin from '@orbiting/publikator-modules/superscript'
-import SubscriptPlugin from '@orbiting/publikator-modules/subscript'
-import ItalicPlugin from '@orbiting/publikator-modules/italic'
-import ParagraphPlugin from '@orbiting/publikator-modules/paragraph'
-import SubheadPlugin from '@orbiting/publikator-modules/subhead'
-import TitleBlockPlugin from '@orbiting/publikator-modules/titleBlock'
+import Link from '@orbiting/publikator-plugins/link'
+import FigureGroup from '@orbiting/publikator-plugins/figureGroup'
+import Figure from '@orbiting/publikator-plugins/figure'
+import FigureImage from '@orbiting/publikator-plugins/figureImage'
+import Cover from '@orbiting/publikator-plugins/cover'
+import Caption from '@orbiting/publikator-plugins/caption'
+import Bold from '@orbiting/publikator-plugins/bold'
+import UnorderedList from '@orbiting/publikator-plugins/unorderedList'
+import OrderedList from '@orbiting/publikator-plugins/orderedList'
+import ListItem from '@orbiting/publikator-plugins/listItem'
+import Superscript from '@orbiting/publikator-plugins/superscript'
+import Subscript from '@orbiting/publikator-plugins/subscript'
+import Italic from '@orbiting/publikator-plugins/italic'
+import Paragraph from '@orbiting/publikator-plugins/paragraph'
+import Subhead from '@orbiting/publikator-plugins/subhead'
+import TitleBlock from '@orbiting/publikator-plugins/titleBlock'
 
-import InfoboxPlugin from '@orbiting/publikator-modules/infoBox'
+import Infobox from '@orbiting/publikator-plugins/infoBox'
 
-import CenterPlugin from '@orbiting/publikator-modules/center'
+import Center from '@orbiting/publikator-plugins/center'
 
 export default [
-  BoldPlugin,
-  CenterPlugin,
-  FigureGroupPlugin,
-  InfoboxPlugin,
-  TitleBlockPlugin,
+  Bold,
+  Center,
+  FigureGroup,
+  Infobox,
+  TitleBlock,
   Cover,
-  FigurePlugin,
+  Figure,
   FigureImage,
-  CaptionPlugin,
-  ParagraphPlugin,
-  SubheadPlugin,
-  OrderedListPlugin,
-  UnorderedListPlugin,
-  ListItemPlugin,
-  LinkPlugin,
-  SuperscriptPlugin,
-  SubscriptPlugin,
-  ItalicPlugin,
+  Caption,
+  Paragraph,
+  Subhead,
+  OrderedList,
+  UnorderedList,
+  ListItem,
+  Link,
+  Superscript,
+  Subscript,
+  Italic,
 ]

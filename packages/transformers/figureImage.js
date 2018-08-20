@@ -11,8 +11,8 @@ const getNew = mergeResults(
     data: {
       url: '',
       title: '',
-      alt: ''
-    }
+      alt: '',
+    },
   })
 )
 
@@ -29,5 +29,5 @@ const toMdast = ifElse(
 export default {
   fromMdast,
   toMdast,
-  getNew
+  getNew,
 }

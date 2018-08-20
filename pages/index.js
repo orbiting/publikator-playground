@@ -5,7 +5,7 @@ import { parse } from '@orbiting/remark-preset'
 import initial from './usa'
 
 import plugins from '@orbiting/publikator-templates/article/plugins'
-import Article from '../lib/transformers'
+import Rule from '@orbiting/publikator-templates/article/rules'
 import { deserialize } from '../lib/serializer'
 
 export default () => (
@@ -13,7 +13,7 @@ export default () => (
     plugins={plugins}
     initialValue={Value.fromJSON({
       document: deserialize(
-        Article.fromMdast,
+        Rule.fromMdast,
         parse(initial)
       ),
     })}

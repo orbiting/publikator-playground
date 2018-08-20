@@ -2,25 +2,25 @@ import React from 'react'
 
 import initial from './usa'
 
-import Article from '../lib/transformers'
+import Article from '@orbiting/publikator-transformers'
 import {
   deserialize,
-  serialize
+  serialize,
 } from '../lib/serializer'
-import { prettyPrint } from '../lib/transform/common'
+import { prettyPrint } from '@orbiting/transform/common'
 import {
   parse,
-  stringify
+  stringify,
 } from '@orbiting/remark-preset'
 
 const containerStyle = {
-  width: 'max-content'
+  width: 'max-content',
 }
 
 const columnStyle = {
   float: 'left',
   width: '500px',
-  overflow: 'hidden'
+  overflow: 'hidden',
 }
 
 const deserializeArticle = deserialize(
@@ -53,8 +53,8 @@ export default () => (
       style={{
         ...columnStyle,
         ...{
-          whiteSpace: 'pre-wrap'
-        }
+          whiteSpace: 'pre-wrap',
+        },
       }}
     >
       {prettyPrint(

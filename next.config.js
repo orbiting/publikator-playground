@@ -34,13 +34,17 @@ module.exports = {
         __dirname,
         'packages/editor/'
       ),
-      '@orbiting/publikator-modules': path.resolve(
+      '@orbiting/publikator-plugins': path.resolve(
         __dirname,
-        'packages/modules/'
+        'packages/plugins/'
       ),
       '@orbiting/publikator-templates': path.resolve(
         __dirname,
         'packages/templates/'
+      ),
+      '@orbiting/publikator-transformers': path.resolve(
+        __dirname,
+        'packages/transformers/'
       ),
     }
     return config
