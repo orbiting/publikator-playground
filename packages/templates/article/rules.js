@@ -1,9 +1,18 @@
-import { compose } from 'ramda'
+import { compose, ifElse } from 'ramda'
+
+import S from '@orbiting/transform/slate'
+import M from '@orbiting/transform/mdast'
+import { mergeResults } from '@orbiting/transform/common'
+import {
+  normalize,
+  getOrSkip,
+  getMany,
+  getOrNew,
+} from '@orbiting/transform/normalize'
 
 import Bold from '@orbiting/publikator-transformers/bold'
 import Italic from '@orbiting/publikator-transformers/italic'
 import Center from '@orbiting/publikator-transformers/center'
-import Document from '@orbiting/publikator-transformers/document'
 import Figure from '@orbiting/publikator-transformers/figure'
 import Link from '@orbiting/publikator-transformers/link'
 import Paragraph from '@orbiting/publikator-transformers/paragraph'
@@ -19,12 +28,42 @@ import FigureGroup from '@orbiting/publikator-transformers/figureGroup'
 import Cover from '@orbiting/publikator-transformers/cover'
 import FigureImage from '@orbiting/publikator-transformers/figureImage'
 
+const articleFromMdast = ifElse(
+  M.isRoot,
+  mergeResults(
+    S.toObject('document'),
+    S.withNormalizedNodes(
+      normalize(
+        getOrSkip(Cover.fromMdast),
+        getOrNew(
+          TitleBlock.getNew,
+          TitleBlock.fromMdast
+        ),
+        getMany(
+          compose(
+            Figure.fromMdast,
+            Center.fromMdast
+          )
+        )
+      )
+    ),
+    node => ({
+      data: node.meta,
+    })
+  )
+)
+
+const articleToMdast = ifElse(
+  S.isDocument,
+  mergeResults(M.toRoot, M.withChildren)
+)
+
 export default {
   fromMdast: compose(
     Bold.fromMdast,
     Italic.fromMdast,
     Center.fromMdast,
-    Document.fromMdast,
+    articleFromMdast,
     Figure.fromMdast,
     Link.fromMdast,
     Paragraph.fromMdast,
@@ -40,7 +79,7 @@ export default {
     Bold.toMdast,
     Italic.toMdast,
     Center.toMdast,
-    Document.toMdast,
+    articleToMdast,
     Figure.toMdast,
     Link.toMdast,
     Paragraph.toMdast,
