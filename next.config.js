@@ -1,5 +1,4 @@
 const path = require('path')
-const Visualizer = require('webpack-visualizer-plugin')
 const webpack = require('webpack')
 
 require('dotenv').config({
@@ -24,7 +23,6 @@ module.exports = {
     config.plugins.push(
       new webpack.DefinePlugin(env)
     )
-    config.plugins.push(new Visualizer())
     config.resolve.alias = {
       '@orbiting/transform': path.resolve(
         __dirname,

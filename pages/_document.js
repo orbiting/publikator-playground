@@ -1,7 +1,7 @@
 import Document, {
   Head,
   Main,
-  NextScript
+  NextScript,
 } from 'next/document'
 import { renderStatic } from 'glamor/server'
 import { fontFaces } from '@project-r/styleguide'
@@ -13,7 +13,7 @@ export default class MyDocument extends Document {
     return {
       ...page,
       ...styles,
-      env: require('../lib/settings')
+      env: require('../lib/settings'),
     }
   }
   constructor(props) {
@@ -38,13 +38,13 @@ export default class MyDocument extends Document {
           />
           <style
             dangerouslySetInnerHTML={{
-              __html: fontFaces()
+              __html: fontFaces(),
             }}
           />
           {css ? (
             <style
               dangerouslySetInnerHTML={{
-                __html: css
+                __html: css,
               }}
             />
           ) : null}
