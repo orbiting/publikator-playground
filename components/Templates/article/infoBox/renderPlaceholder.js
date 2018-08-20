@@ -2,7 +2,7 @@ import {
   compose,
   ifElse,
   always,
-  both
+  both,
 } from 'ramda'
 
 import Placeholder from '@orbiting/publikator-editor/components/Placeholder'
@@ -10,7 +10,7 @@ import Placeholder from '@orbiting/publikator-editor/components/Placeholder'
 import {
   safeProp,
   isBlock,
-  hasEmptyText
+  hasEmptyText,
 } from '@orbiting/publikator-editor/lib'
 
 export default compose(

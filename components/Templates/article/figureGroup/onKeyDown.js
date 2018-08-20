@@ -5,7 +5,7 @@ import {
   ifElse,
   always,
   allPass,
-  either
+  either,
 } from 'ramda'
 
 import { removeBlock } from '@orbiting/publikator-editor/changes'
@@ -20,7 +20,7 @@ import {
   isDelete,
   isBackspace,
   isBlock,
-  getClosestOf
+  getClosestOf,
 } from '@orbiting/publikator-editor/lib'
 
 const onDeleteOrBackspace = compose(
@@ -36,7 +36,7 @@ const onDeleteOrBackspace = compose(
       ),
       compose(
         both(
-          isBlock('groupedFigure'),
+          isBlock('figureGroupFigure'),
           hasEmptyText
         ),
         getParentOf(getStartBlock)
@@ -50,12 +50,33 @@ const onDeleteOrBackspace = compose(
           isBlock('figureGroup'),
           getStartBlock
         )
-      )
+      ),
     ]),
     converge(removeBlock, [
       getChange,
       getParentOf(getStartBlock),
-      always({ url: '' })
+      always({ url: '' }),
+    ])
+  ),
+  ifElse(
+    allPass([
+      isCollapsed,
+      compose(
+        isBlock('figureImage'),
+        getStartBlock
+      ),
+      compose(
+        both(
+          isBlock('figureGroupFigure'),
+          hasEmptyText
+        ),
+        getParentOf(getStartBlock)
+      ),
+    ]),
+    converge(removeBlock, [
+      getChange,
+      getParentOf(getStartBlock),
+      always({ url: '' }),
     ])
   )
 )

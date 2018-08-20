@@ -4,8 +4,6 @@ import { FaInfo as InfoBoxIcon } from 'react-icons/fa'
 import { Label } from '@project-r/styleguide'
 import InsertBlockButton from '@orbiting/publikator-editor/components/InsertBlockButton'
 
-import getNew from './getNew'
-
 import { MdClose as NoImageIcon } from 'react-icons/md'
 import { FaCheck as HasImageIcon } from 'react-icons/fa'
 
@@ -13,11 +11,13 @@ import { isBlock } from '@orbiting/publikator-editor/lib'
 import SetValueButton from '@orbiting/publikator-editor/components/SetValueButton'
 import ToggleButton from '@orbiting/publikator-editor/components/ToggleButton'
 import Selected from '@orbiting/publikator-editor/components/Selected'
+
 import {
   SidebarTop,
   SidebarTextOptions,
   SidebarFormatOptions,
 } from '@orbiting/publikator-editor/components/UI'
+
 import { withNodeData } from '@orbiting/publikator-editor/apps/nodeData'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 
@@ -26,7 +26,9 @@ import {
   insertBlockAfter,
 } from '@orbiting/publikator-editor/changes'
 
-import getNewFigure from '../infoBoxFigure/getNew'
+import getNew, {
+  getNewInfoboxFigure,
+} from './getNew'
 
 import {
   BreakoutLeftIcon,
@@ -84,7 +86,7 @@ const FigureToggleButton = withTheme()(
             ? editor.change(removeBlock, figure)
             : editor.change(
                 insertBlockAfter,
-                getNewFigure(),
+                getNewInfoboxFigure(),
                 node.nodes.first()
               )
         }

@@ -1,5 +1,15 @@
 import { Block } from 'slate'
-import getNewFigure from '../infoBoxFigure/getNew'
+import Caption from '../caption'
+import FigureImage from '../figureImage'
+
+export const getNewInfoboxFigure = () =>
+  Block.create({
+    type: 'infoBoxFigure',
+    nodes: [
+      FigureImage.getNew(),
+      Caption.getNew(),
+    ],
+  })
 
 export default () =>
   Block.create({
@@ -8,7 +18,7 @@ export default () =>
       Block.create({
         type: 'infoBoxTitle',
       }),
-      getNewFigure(),
+      getNewInfoboxFigure(),
       Block.create({
         type: 'infoBoxText',
       }),

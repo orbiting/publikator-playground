@@ -7,5 +7,5 @@ export default {
   renderNode,
   renderPlaceholder,
   onKeyDown,
-  getNew
+  getNew,
 }

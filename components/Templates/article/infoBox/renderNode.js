@@ -4,18 +4,18 @@ import { compose, ifElse, always } from 'ramda'
 import {
   InfoBox,
   InfoBoxTitle,
-  InfoBoxText
+  InfoBoxText,
 } from '@project-r/styleguide'
 
 import {
   safeProp,
-  isBlock
+  isBlock,
 } from '@orbiting/publikator-editor/lib'
 
 import {
   InfoBoxUI,
   InfoBoxTitleUI,
-  InfoBoxTextUI
+  InfoBoxTextUI,
 } from './ui'
 
 export default compose(
@@ -62,7 +62,7 @@ export default compose(
           key="content"
           attributes={{
             ...attributes,
-            style: { position: 'relative' }
+            style: { position: 'relative' },
           }}
         >
           {children}
@@ -86,7 +86,7 @@ export default compose(
           key="content"
           attributes={{
             ...attributes,
-            style: { position: 'relative' }
+            style: { position: 'relative' },
           }}
         >
           {children}
