@@ -14,13 +14,15 @@ const Template = dynamic({
         return {
           plugins: import('@orbiting/publikator-templates/article/plugins'),
           DocumentRule: import('@orbiting/publikator-templates/article/rule'),
+          // schemaFactory: import('@project-r/styleguide/lib/templates/Article'),
         }
     }
   },
   render: (
     { mdastDocument },
-    { plugins, DocumentRule }
+    { plugins, DocumentRule /*schemaFactory*/ }
   ) => {
+    // console.log(schemaFactory().rules[0])
     return (
       <Editor
         plugins={plugins}
