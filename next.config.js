@@ -44,6 +44,14 @@ module.exports = {
         __dirname,
         'packages/transformers/'
       ),
+      '@orbiting/next-app': path.resolve(
+        __dirname,
+        'packages/next-app/'
+      ),
+      '@self/settings': path.resolve(
+        __dirname,
+        'lib/settings'
+      ),
     }
     return config
   },

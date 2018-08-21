@@ -24,6 +24,7 @@
     "immutable": "^3.8.2",
     "immutable-treeutils": "^1.2.0",
     "isomorphic-unfetch": "^2.1.1",
+    "lodash.debounce": "^4.0.8",
     "mdast-react-render": "^1.2.0",
     "next": "^6.1.1",
     "prop-types": "^15.6.2",

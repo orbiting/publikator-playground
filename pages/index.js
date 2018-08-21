@@ -3,6 +3,7 @@ import React from 'react'
 import { Value } from 'slate'
 import { parse } from '@orbiting/remark-preset'
 import Editor from '@orbiting/publikator-editor'
+import RepoSearch from '@orbiting/publikator-editor/components/RepoSearch'
 import initial from './usa'
 
 import { deserialize } from '../lib/serializer'
@@ -14,25 +15,29 @@ const Template = dynamic({
         return {
           plugins: import('@orbiting/publikator-templates/article/plugins'),
           DocumentRule: import('@orbiting/publikator-templates/article/rule'),
-          // schemaFactory: import('@project-r/styleguide/lib/templates/Article'),
+          schemaFactory: import('@project-r/styleguide/lib/templates/Article'),
         }
     }
   },
   render: (
     { mdastDocument },
-    { plugins, DocumentRule /*schemaFactory*/ }
+    { plugins, DocumentRule }
   ) => {
-    // console.log(schemaFactory().rules[0])
     return (
-      <Editor
-        plugins={plugins}
-        initialValue={Value.fromJSON({
-          document: deserialize(
-            DocumentRule.fromMdast,
-            mdastDocument
-          ),
-        })}
-      />
+      <div>
+        <Editor
+          plugins={plugins}
+          initialValue={Value.fromJSON({
+            document: deserialize(
+              DocumentRule.fromMdast,
+              mdastDocument
+            ),
+          })}
+        />
+        <RepoSearch
+          onChange={v => console.log(v)}
+        />
+      </div>
     )
   },
 })
