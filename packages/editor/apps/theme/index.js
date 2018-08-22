@@ -4,7 +4,7 @@ import {
   colors,
   fontStyles,
   mediaQueries,
-  fontFamilies
+  fontFamilies,
 } from '@project-r/styleguide'
 import layoutFactory from './layout'
 import buttonsFactory from './buttons'
@@ -14,11 +14,11 @@ import { css } from 'glamor'
 
 css.global('html', { boxSizing: 'border-box' })
 css.global('*, *:before, *:after', {
-  boxSizing: 'inherit'
+  boxSizing: 'inherit',
 })
 
 css.global('body', {
-  fontFamily: fontFamilies.sansSerifRegular
+  fontFamily: fontFamilies.sansSerifRegular,
 })
 
 export const SET_THEME_CONFIG =
@@ -26,7 +26,7 @@ export const SET_THEME_CONFIG =
 
 export const setThemeConfig = values => ({
   type: SET_THEME_CONFIG,
-  payload: values
+  payload: values,
 })
 
 const applyFactories = (factories, config) =>
@@ -37,21 +37,21 @@ const defaultFactories = {
   buttons: buttonsFactory,
   colors: () => colors,
   fontStyles: () => fontStyles,
-  mediaQueries: () => mediaQueries
+  mediaQueries: () => mediaQueries,
 }
 
 const api = {
   relativeAttributes: obj => ({
     style: { position: 'relative' },
-    ...obj
-  })
+    ...obj,
+  }),
 }
 
 const initialConfig = {
   isVisible: true,
   align: 'left', // 'right'
   style: 'fluid', // 'block'
-  maxWidth: 200
+  maxWidth: 200,
 }
 
 const initialState = {
@@ -59,7 +59,7 @@ const initialState = {
   theme: applyFactories(
     defaultFactories,
     initialConfig
-  )
+  ),
 }
 
 export const reducer = (
@@ -73,11 +73,11 @@ export const reducer = (
         ...pick(
           Object.keys(initialConfig),
           payload
-        )
+        ),
       }
       return {
         theme: applyFactories(newConfig),
-        config: newConfig
+        config: newConfig,
       }
     default:
       return state
@@ -86,11 +86,11 @@ export const reducer = (
 
 export const withThemeConfig = connect(
   ({ theme: state }) => ({
-    themeConfig: state.config
+    themeConfig: state.config,
   }),
   dispatch => ({
     setThemeConfig: v =>
-      dispatch(setThemeConfig(v))
+      dispatch(setThemeConfig(v)),
   })
 )
 
@@ -98,15 +98,15 @@ export const withTheme = factory =>
   connect(
     ({ theme: state }) => ({
       styles: {
-        ...state.theme,
         ...((factory &&
           factory({
             theme: state.theme,
-            config: state.config
+            config: state.config,
           })) ||
           {}),
-        api
-      }
+        api,
+        ...state.theme,
+      },
     }),
     () => ({})
   )

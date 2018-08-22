@@ -13,11 +13,11 @@ export const iconButton = css({
   transition: 'color .2s',
   '&[disabled]': {
     cursor: 'default',
-    color: colors.disabled
+    color: colors.disabled,
   },
   '&[data-active="true"]': {
-    color: colors.primary
-  }
+    color: colors.primary,
+  },
 })
 
 export const labelButton = css({
@@ -32,14 +32,14 @@ export const labelButton = css({
   backgroundColor: 'transparent',
   transition: 'color .2s, background-color 2s',
   '&[disabled]': {
-    color: colors.disabled
+    color: colors.disabled,
   },
   '&:hover': {
-    color: colors.primary
-  }
+    color: colors.primary,
+  },
 })
 
 export default () => ({
   iconButton,
-  labelButton
+  labelButton,
 })

@@ -5,12 +5,12 @@ export const FINISH_EDITING = 'FINISH_EDITING'
 
 export const startEditing = namespace => ({
   type: START_EDITING,
-  payload: { namespace }
+  payload: { namespace },
 })
 
 export const finishEditing = namespace => ({
   type: FINISH_EDITING,
-  payload: { namespace }
+  payload: { namespace },
 })
 
 export const withEditMode = ({ namespace }) =>
@@ -19,7 +19,7 @@ export const withEditMode = ({ namespace }) =>
       return {
         isInEditMode:
           typeof state[namespace] !==
-            'undefined' && state[namespace]
+            'undefined' && state[namespace],
       }
     },
     dispatch => {
@@ -27,7 +27,7 @@ export const withEditMode = ({ namespace }) =>
         startEditing: () =>
           dispatch(startEditing(namespace)),
         finishEditing: () =>
-          dispatch(finishEditing(namespace))
+          dispatch(finishEditing(namespace)),
       }
     }
   )
@@ -40,12 +40,12 @@ export const reducer = (
     case START_EDITING:
       return {
         ...state,
-        [payload.namespace]: true
+        [payload.namespace]: true,
       }
     case FINISH_EDITING:
       return {
         ...state,
-        [payload.namespace]: false
+        [payload.namespace]: false,
       }
     default:
       return state
