@@ -672,9 +672,9 @@
     stringify-entities "^1.3.1"
     unified "^6.1.5"
 
-"@project-r/styleguide@^5.86.2":
-  version "5.86.2"
-  resolved "https://registry.yarnpkg.com/@project-r/styleguide/-/styleguide-5.86.2.tgz#f32aebbb7dd0992c876313b259faf9af7821c2d0"
+"@project-r/styleguide@^5.90.0":
+  version "5.90.0"
+  resolved "https://registry.yarnpkg.com/@project-r/styleguide/-/styleguide-5.90.0.tgz#7ac994f30be949202f571d6f71bdb0ac887fa83b"
   dependencies:
     react-icons "^2.2.7"
     react-swipeable "^4.3.0"
@@ -808,29 +808,29 @@ anymatch@^2.0.0:
     micromatch "^3.1.4"
     normalize-path "^2.1.1"
 
-apollo-cache-inmemory@^1.2.7:
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/apollo-cache-inmemory/-/apollo-cache-inmemory-1.2.7.tgz#80517c4b5e910022ab8d318f47d9364f99db8541"
+apollo-cache-inmemory@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/apollo-cache-inmemory/-/apollo-cache-inmemory-1.2.8.tgz#98be86fe7023dffd8ec86675c631a2b73e8c8308"
   dependencies:
-    apollo-cache "^1.1.14"
-    apollo-utilities "^1.0.18"
-    graphql-anywhere "^4.1.16"
+    apollo-cache "^1.1.15"
+    apollo-utilities "^1.0.19"
+    graphql-anywhere "^4.1.17"
 
-apollo-cache@^1.1.14:
-  version "1.1.14"
-  resolved "https://registry.yarnpkg.com/apollo-cache/-/apollo-cache-1.1.14.tgz#c7d54cdbc7f544161f78fa5e4bae56650e22f7ad"
+apollo-cache@^1.1.15:
+  version "1.1.15"
+  resolved "https://registry.yarnpkg.com/apollo-cache/-/apollo-cache-1.1.15.tgz#48d3a366047fc4b876c2036a79b0e070dee74cc1"
   dependencies:
-    apollo-utilities "^1.0.18"
+    apollo-utilities "^1.0.19"
 
-apollo-client@^2.3.8:
-  version "2.3.8"
-  resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-2.3.8.tgz#0384a7210eb601ab88b1c13750da076fc9255b95"
+apollo-client@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-2.4.0.tgz#438d2dc84316ee76032ae70fb7febe3c3d62a2fb"
   dependencies:
     "@types/zen-observable" "^0.8.0"
-    apollo-cache "^1.1.14"
+    apollo-cache "^1.1.15"
     apollo-link "^1.0.0"
     apollo-link-dedup "^1.0.0"
-    apollo-utilities "^1.0.18"
+    apollo-utilities "^1.0.19"
     symbol-observable "^1.0.2"
     zen-observable "^0.8.0"
   optionalDependencies:
@@ -875,9 +875,9 @@ apollo-utilities@^1.0.0:
   dependencies:
     fast-json-stable-stringify "^2.0.0"
 
-apollo-utilities@^1.0.18:
-  version "1.0.18"
-  resolved "https://registry.yarnpkg.com/apollo-utilities/-/apollo-utilities-1.0.18.tgz#e4ee91534283fde2b744a26caaea120fe6a94f67"
+apollo-utilities@^1.0.19:
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/apollo-utilities/-/apollo-utilities-1.0.19.tgz#f2d253bb8aa1395b62ded2f7749884233b5838e2"
   dependencies:
     fast-json-stable-stringify "^2.0.0"
 
@@ -2044,9 +2044,9 @@ dotenv@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.0.0.tgz#24e37c041741c5f4b25324958ebbc34bca965935"
 
-downshift@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/downshift/-/downshift-2.1.1.tgz#f257a43bd609f9da001422ab71cdb3d9246b86d3"
+downshift@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/downshift/-/downshift-2.1.4.tgz#bd23d3948fac9b632e0e0606b36b247a5308cb51"
   dependencies:
     compute-scroll-into-view "^1.0.2"
     prop-types "^15.6.0"
@@ -2152,7 +2152,7 @@ error-stack-parser@^2.0.0:
   dependencies:
     stackframe "^1.0.4"
 
-es-abstract@^1.10.0, es-abstract@^1.5.1, es-abstract@^1.7.0:
+es-abstract@^1.5.1, es-abstract@^1.7.0:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/es-abstract/-/es-abstract-1.12.0.tgz#9dbbdd27c6856f0001421ca18782d786bf8a6165"
   dependencies:
@@ -2276,9 +2276,9 @@ eslint-visitor-keys@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#3f3180fb2e291017716acb4c9d6d5b5c34a6a81d"
 
-eslint@^5.3.0:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-5.3.0.tgz#53695aca5213968aacdf970ccb231e42a2b285f8"
+eslint@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-5.4.0.tgz#d068ec03006bb9e06b429dc85f7e46c1b69fac62"
   dependencies:
     ajv "^6.5.0"
     babel-code-frame "^6.26.0"
@@ -2314,7 +2314,6 @@ eslint@^5.3.0:
     regexpp "^2.0.0"
     require-uncached "^1.0.3"
     semver "^5.5.0"
-    string.prototype.matchall "^2.0.0"
     strip-ansi "^4.0.0"
     strip-json-comments "^2.0.1"
     table "^4.0.3"
@@ -2910,11 +2909,11 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.4, graceful-fs@^4.1.6,
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
-graphql-anywhere@^4.1.16:
-  version "4.1.16"
-  resolved "https://registry.yarnpkg.com/graphql-anywhere/-/graphql-anywhere-4.1.16.tgz#82bb59643e30183cfb7b485ed4262a7b39d8a6c1"
+graphql-anywhere@^4.1.17:
+  version "4.1.17"
+  resolved "https://registry.yarnpkg.com/graphql-anywhere/-/graphql-anywhere-4.1.17.tgz#5c9128d0c5c1623dc46ecbdf0916845061f1965a"
   dependencies:
-    apollo-utilities "^1.0.18"
+    apollo-utilities "^1.0.19"
 
 graphql-tag@^2.9.2:
   version "2.9.2"
@@ -3874,6 +3873,10 @@ mem@^1.1.0:
   resolved "https://registry.yarnpkg.com/mem/-/mem-1.1.0.tgz#5edd52b485ca1d900fe64895505399a0dfa45f76"
   dependencies:
     mimic-fn "^1.0.0"
+
+memoize-one@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-4.0.0.tgz#fc5e2f1427a216676a62ec652cf7398cfad123db"
 
 memory-fs@^0.4.0, memory-fs@~0.4.1:
   version "0.4.1"
@@ -5263,12 +5266,6 @@ regex-not@^1.0.0, regex-not@^1.0.2:
     extend-shallow "^3.0.2"
     safe-regex "^1.1.0"
 
-regexp.prototype.flags@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/regexp.prototype.flags/-/regexp.prototype.flags-1.2.0.tgz#6b30724e306a27833eeb171b66ac8890ba37e41c"
-  dependencies:
-    define-properties "^1.1.2"
-
 regexpp@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-2.0.0.tgz#b2a7534a85ca1b033bcf5ce9ff8e56d4e0755365"
@@ -5664,15 +5661,15 @@ slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
 
-slate-base64-serializer@^0.2.52:
-  version "0.2.52"
-  resolved "https://registry.yarnpkg.com/slate-base64-serializer/-/slate-base64-serializer-0.2.52.tgz#37ce0ec006fc9d0118bc928be23035b4c9f0e1f5"
+slate-base64-serializer@^0.2.55:
+  version "0.2.55"
+  resolved "https://registry.yarnpkg.com/slate-base64-serializer/-/slate-base64-serializer-0.2.55.tgz#062c86eae945bf3d6c01d10485a0ee870c1c2e9f"
   dependencies:
     isomorphic-base64 "^1.0.2"
 
-slate-dev-environment@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/slate-dev-environment/-/slate-dev-environment-0.1.5.tgz#04471107c855c69ec4c2d078245c200d7cf04c82"
+slate-dev-environment@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/slate-dev-environment/-/slate-dev-environment-0.2.0.tgz#c43f4a5e13cccc16ad4c3015c8ad182b6e5b5b3a"
   dependencies:
     is-in-browser "^1.1.3"
 
@@ -5680,52 +5677,53 @@ slate-dev-logger@^0.1.43:
   version "0.1.43"
   resolved "https://registry.yarnpkg.com/slate-dev-logger/-/slate-dev-logger-0.1.43.tgz#77f6ca7207fcbf453a5516f3aa8b19794d1d26dc"
 
-slate-hotkeys@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/slate-hotkeys/-/slate-hotkeys-0.2.1.tgz#900e91cd208e2fb843b072bb88d5939eebf43300"
+slate-hotkeys@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/slate-hotkeys/-/slate-hotkeys-0.2.3.tgz#843a467421c643b4a1a3c240957c8adcfa99deb3"
   dependencies:
     is-hotkey "^0.1.3"
-    slate-dev-environment "^0.1.5"
+    slate-dev-environment "^0.2.0"
 
-slate-plain-serializer@^0.5.33:
-  version "0.5.33"
-  resolved "https://registry.yarnpkg.com/slate-plain-serializer/-/slate-plain-serializer-0.5.33.tgz#c13b8da8656d2270f2da427179f40d30ae1b69f6"
+slate-plain-serializer@^0.5.36:
+  version "0.5.36"
+  resolved "https://registry.yarnpkg.com/slate-plain-serializer/-/slate-plain-serializer-0.5.36.tgz#ea5ccfe1a0a27e88dcd552066943cea953a74007"
   dependencies:
     slate-dev-logger "^0.1.43"
 
-slate-prop-types@^0.4.50:
-  version "0.4.50"
-  resolved "https://registry.yarnpkg.com/slate-prop-types/-/slate-prop-types-0.4.50.tgz#2e69cb0a742e953fb2a38b85cbf7282dfd8f7548"
+slate-prop-types@^0.4.53:
+  version "0.4.53"
+  resolved "https://registry.yarnpkg.com/slate-prop-types/-/slate-prop-types-0.4.53.tgz#53d92f26dac3697162227c27e3fcda071ecf1864"
   dependencies:
     slate-dev-logger "^0.1.43"
 
-slate-react@^0.15.7:
-  version "0.15.7"
-  resolved "https://registry.yarnpkg.com/slate-react/-/slate-react-0.15.7.tgz#e73d399a90e85fa333c5f7b2454bad2300fdb7e5"
+slate-react@^0.16.1:
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/slate-react/-/slate-react-0.16.1.tgz#2796657e242dd0b3e269942eef3f7ee634387738"
   dependencies:
     debug "^3.1.0"
     get-window "^1.1.1"
     is-window "^1.0.2"
     keycode "^2.1.2"
     lodash "^4.1.1"
+    memoize-one "^4.0.0"
     prop-types "^15.5.8"
     react-immutable-proptypes "^2.1.0"
     react-portal "^3.1.0"
     selection-is-backward "^1.0.0"
-    slate-base64-serializer "^0.2.52"
-    slate-dev-environment "^0.1.5"
+    slate-base64-serializer "^0.2.55"
+    slate-dev-environment "^0.2.0"
     slate-dev-logger "^0.1.43"
-    slate-hotkeys "^0.2.1"
-    slate-plain-serializer "^0.5.33"
-    slate-prop-types "^0.4.50"
+    slate-hotkeys "^0.2.3"
+    slate-plain-serializer "^0.5.36"
+    slate-prop-types "^0.4.53"
 
-slate-schema-violations@^0.1.31:
-  version "0.1.31"
-  resolved "https://registry.yarnpkg.com/slate-schema-violations/-/slate-schema-violations-0.1.31.tgz#5bc608aa54c5dce58e7a4a4a293c8192bf158845"
+slate-schema-violations@^0.1.34:
+  version "0.1.34"
+  resolved "https://registry.yarnpkg.com/slate-schema-violations/-/slate-schema-violations-0.1.34.tgz#294a7d8a0429db0a265cf13fb423026cf41cc594"
 
-slate@^0.37.6:
-  version "0.37.6"
-  resolved "https://registry.yarnpkg.com/slate/-/slate-0.37.6.tgz#874b4246ee1c988c8ab37d19d19c02099a4d05ae"
+slate@^0.38.1:
+  version "0.38.1"
+  resolved "https://registry.yarnpkg.com/slate/-/slate-0.38.1.tgz#3ea5c831ae5801a5c9fb8fe86844340aad216aff"
   dependencies:
     debug "^3.1.0"
     direction "^0.1.5"
@@ -5734,7 +5732,7 @@ slate@^0.37.6:
     is-plain-object "^2.0.4"
     lodash "^4.17.4"
     slate-dev-logger "^0.1.43"
-    slate-schema-violations "^0.1.31"
+    slate-schema-violations "^0.1.34"
     type-of "^2.0.1"
 
 slice-ansi@1.0.0:
@@ -5948,16 +5946,6 @@ string-width@^1.0.1:
   dependencies:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^4.0.0"
-
-string.prototype.matchall@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/string.prototype.matchall/-/string.prototype.matchall-2.0.0.tgz#2af8fe3d2d6dc53ca2a59bd376b089c3c152b3c8"
-  dependencies:
-    define-properties "^1.1.2"
-    es-abstract "^1.10.0"
-    function-bind "^1.1.1"
-    has-symbols "^1.0.0"
-    regexp.prototype.flags "^1.2.0"
 
 string_decoder@^1.0.0, string_decoder@~1.1.1:
   version "1.1.1"
