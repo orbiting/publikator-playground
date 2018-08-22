@@ -3,53 +3,52 @@ import React from 'react'
 import { Value } from 'slate'
 import { parse } from '@orbiting/remark-preset'
 import Editor from '@orbiting/publikator-editor'
-import RepoSearch from '@orbiting/publikator-editor/components/RepoSearch'
-import { SchemaProvider } from '@orbiting/publikator-editor/components/Schema'
 import initial from './usa'
 
 import { deserialize } from '../lib/serializer'
 
 const Template = dynamic({
   modules: ({ mdastDocument }) => {
+    const template =
+      (mdastDocument &&
+        mdastDocument.meta &&
+        mdastDocument.meta.template) ||
+      'article'
+
     switch (mdastDocument.meta.template) {
       case 'article':
         return {
           plugins: import('@orbiting/publikator-templates/article/plugins'),
           DocumentRule: import('@orbiting/publikator-templates/article/rule'),
-          slateSchemaFactory: import('@orbiting/publikator-templates/article/schema'),
-          mdastSchemaFactory: import('@project-r/styleguide/lib/templates/Article'),
+          createEditorSchema: import('@orbiting/publikator-templates/article/schema'),
+          createSchema: import('@project-r/styleguide/lib/templates/Article'),
         }
     }
   },
+  ssr: false,
   render: (
     { mdastDocument },
     {
       plugins,
       DocumentRule,
-      slateSchemaFactory,
-      mdastSchemaFactory,
+      createEditorSchema,
+      createSchema,
     }
   ) => {
-    const schema = slateSchemaFactory(
-      mdastSchemaFactory()
+    const schema = createEditorSchema(
+      createSchema()
     )
     return (
-      <div>
-        <SchemaProvider schema={schema}>
-          <Editor
-            plugins={plugins}
-            initialValue={Value.fromJSON({
-              document: deserialize(
-                DocumentRule.fromMdast,
-                mdastDocument
-              ),
-            })}
-          />
-        </SchemaProvider>
-        <RepoSearch
-          onChange={v => console.log(v)}
-        />
-      </div>
+      <Editor
+        schema={schema}
+        plugins={plugins}
+        initialValue={Value.fromJSON({
+          document: deserialize(
+            DocumentRule.fromMdast,
+            mdastDocument
+          ),
+        })}
+      />
     )
   },
 })
