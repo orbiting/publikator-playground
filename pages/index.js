@@ -15,7 +15,7 @@ const Template = dynamic({
         mdastDocument.meta.template) ||
       'article'
 
-    switch (mdastDocument.meta.template) {
+    switch (template) {
       case 'article':
         return {
           plugins: import('@orbiting/publikator-templates/article/plugins'),
