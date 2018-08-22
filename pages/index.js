@@ -3,6 +3,7 @@ import React from 'react'
 import { Value } from 'slate'
 import { parse } from '@orbiting/remark-preset'
 import Editor from '@orbiting/publikator-editor'
+import EditorUI from '@orbiting/publikator-editor/components/UI'
 import initial from './usa'
 
 import { deserialize } from '../lib/serializer'
@@ -39,16 +40,19 @@ const Template = dynamic({
       createSchema()
     )
     return (
-      <Editor
-        schema={schema}
-        plugins={plugins}
-        initialValue={Value.fromJSON({
-          document: deserialize(
-            DocumentRule.fromMdast,
-            mdastDocument
-          ),
-        })}
-      />
+      <div>
+        <EditorUI />
+        <Editor
+          schema={schema}
+          plugins={plugins}
+          initialValue={Value.fromJSON({
+            document: deserialize(
+              DocumentRule.fromMdast,
+              mdastDocument
+            ),
+          })}
+        />
+      </div>
     )
   },
 })

@@ -5,8 +5,6 @@ import { Editor as SlateEditor } from 'slate-react'
 import { withApp } from './apps/value'
 import { SchemaProvider } from './components/Schema'
 
-import UI from './components/UI'
-
 const Editor = withApp(SlateEditor)
 
 class PublikatorEditor extends Component {
@@ -14,7 +12,6 @@ class PublikatorEditor extends Component {
     return (
       <SchemaProvider schema={this.props.schema}>
         <Fragment>
-          <UI />
           <Editor
             spellCheck={false}
             autoFocus={false}
