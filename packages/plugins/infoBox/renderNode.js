@@ -1,11 +1,7 @@
 import React, { Fragment } from 'react'
 import { compose, ifElse, always } from 'ramda'
 
-import {
-  InfoBox,
-  InfoBoxTitle,
-  InfoBoxText,
-} from '@project-r/styleguide'
+import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
 
 import {
   safeProp,
@@ -32,7 +28,8 @@ export default compose(
             node={node}
             editor={editor}
           />
-          <InfoBox
+          <SchemaComponent
+            name="infoBox"
             key="content"
             attributes={attributes}
             size={node.data.get('size')}
@@ -41,7 +38,7 @@ export default compose(
             )}
           >
             {children}
-          </InfoBox>
+          </SchemaComponent>
         </Fragment>
       )
     }
@@ -58,7 +55,8 @@ export default compose(
           node={node}
           editor={editor}
         />
-        <InfoBoxTitle
+        <SchemaComponent
+          name="infoBoxTitle"
           key="content"
           attributes={{
             ...attributes,
@@ -66,7 +64,7 @@ export default compose(
           }}
         >
           {children}
-        </InfoBoxTitle>
+        </SchemaComponent>
       </Fragment>
     )
   ),
@@ -82,7 +80,8 @@ export default compose(
           node={node}
           editor={editor}
         />
-        <InfoBoxText
+        <SchemaComponent
+          name="infoBoxText"
           key="content"
           attributes={{
             ...attributes,
@@ -90,7 +89,7 @@ export default compose(
           }}
         >
           {children}
-        </InfoBoxText>
+        </SchemaComponent>
       </Fragment>
     )
   )

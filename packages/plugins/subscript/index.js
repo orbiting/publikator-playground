@@ -1,8 +1,9 @@
-import { Sub } from '@project-r/styleguide'
+import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
+
 import { ifElse, compose, always } from 'ramda'
 import {
   safeProp,
-  isMark
+  isMark,
 } from '@orbiting/publikator-editor/lib'
 
 export default {
@@ -12,8 +13,10 @@ export default {
       safeProp('mark')
     ),
     ({ children, attributes }) => (
-      <Sub {...attributes}>{children}</Sub>
+      <SchemaComponent name="sub" {...attributes}>
+        {children}
+      </SchemaComponent>
     ),
     always(undefined)
-  )
+  ),
 }

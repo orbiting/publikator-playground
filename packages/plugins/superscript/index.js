@@ -1,16 +1,21 @@
-import { Sup } from '@project-r/styleguide'
+import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
 import { ifElse, compose, always } from 'ramda'
 import {
   safeProp,
-  isMark
+  isMark,
 } from '@orbiting/publikator-editor/lib'
 
 export default {
   renderMark: ifElse(
-    compose(isMark('sup'), safeProp('mark')),
+    compose(
+      isMark('sup'),
+      safeProp('mark')
+    ),
     ({ children, attributes }) => (
-      <Sup {...attributes}>{children}</Sup>
+      <SchemaComponent name="sup" {...attributes}>
+        {children}
+      </SchemaComponent>
     ),
     always(undefined)
-  )
+  ),
 }

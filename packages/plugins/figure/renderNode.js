@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Figure } from '@project-r/styleguide'
+import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
 import { compose, always, ifElse } from 'ramda'
 import { css } from 'glamor'
 
@@ -38,18 +38,22 @@ export default ifElse(
           key="content-edgeToEdge"
           {...styles.edgeToEdge}
         >
-          <Figure {...attributes}>
+          <SchemaComponent
+            name="figure"
+            {...attributes}
+          >
             {children}
-          </Figure>
+          </SchemaComponent>
         </div>
       ) : (
-        <Figure
+        <SchemaComponent
+          name="figure"
           key="content"
           {...attributes}
           size={node.data.get('size')}
         >
           {children}
-        </Figure>
+        </SchemaComponent>
       )}
     </Fragment>
   ),

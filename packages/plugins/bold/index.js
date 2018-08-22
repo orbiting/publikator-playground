@@ -1,4 +1,5 @@
-import { Editorial } from '@project-r/styleguide'
+import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
+
 import { ifElse, compose, always } from 'ramda'
 import {
   safeProp,
@@ -13,9 +14,12 @@ export default {
     ),
     ({ children, attributes }) => {
       return (
-        <Editorial.Emphasis {...attributes}>
+        <SchemaComponent
+          name="bold"
+          {...attributes}
+        >
           {children}
-        </Editorial.Emphasis>
+        </SchemaComponent>
       )
     },
     always(undefined)

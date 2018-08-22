@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { compose, ifElse, always } from 'ramda'
-import { FigureImage } from '@project-r/styleguide'
+import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
 import {
   safeProp,
   isBlock,
@@ -29,14 +29,15 @@ export default ifElse(
         editor={editor}
       >
         {!!node.data.get('url') ? (
-          <FigureImage
+          <SchemaComponent
+            name="figureImage"
             src={node.data.get('url')}
             title={node.data.get('title')}
             title={node.data.get('alt')}
             {...attributes}
           />
         ) : (
-          <FigureImage
+          <SchemaComponent
             src="static/images/placeholder.png"
             {...attributes}
           />

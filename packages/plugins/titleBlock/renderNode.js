@@ -1,13 +1,10 @@
 import React, { Fragment } from 'react'
-import {
-  Editorial,
-  TitleBlock
-} from '@project-r/styleguide'
+import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
 import { compose, ifElse, always } from 'ramda'
 
 import {
   safeProp,
-  isBlock
+  isBlock,
 } from '@orbiting/publikator-editor/lib'
 
 import { CreditsUI } from './ui'
@@ -19,12 +16,13 @@ export default compose(
       safeProp('node')
     ),
     ({ children, attributes }) => (
-      <Editorial.Headline
+      <SchemaComponent
+        name="title"
         style={{ position: 'relative' }}
         {...attributes}
       >
         {children}
-      </Editorial.Headline>
+      </SchemaComponent>
     )
   ),
   ifElse(
@@ -33,12 +31,13 @@ export default compose(
       safeProp('node')
     ),
     ({ children, attributes }) => (
-      <Editorial.Lead
+      <SchemaComponent
+        name="lead"
         style={{ position: 'relative' }}
         {...attributes}
       >
         {children}
-      </Editorial.Lead>
+      </SchemaComponent>
     )
   ),
   ifElse(
@@ -53,13 +52,14 @@ export default compose(
           node={node}
           editor={editor}
         />
-        <Editorial.Credit
+        <SchemaComponent
+          name="credits"
           key="content"
           style={{ position: 'relative' }}
           {...attributes}
         >
           {children}
-        </Editorial.Credit>
+        </SchemaComponent>
       </Fragment>
     )
   ),
@@ -69,9 +69,12 @@ export default compose(
       safeProp('node')
     ),
     ({ children, attributes }) => (
-      <TitleBlock {...attributes}>
+      <SchemaComponent
+        name="titleBlock"
+        {...attributes}
+      >
         {children}
-      </TitleBlock>
+      </SchemaComponent>
     )
   )
 )(always(undefined))

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { FigureCover } from '@project-r/styleguide'
+import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
 import { compose, always, ifElse } from 'ramda'
 
 import {
@@ -21,7 +21,8 @@ export default ifElse(
         node={node}
         editor={editor}
       />
-      <FigureCover
+      <SchemaComponent
+        name="cover"
         key="content"
         {...attributes}
         size={
@@ -31,7 +32,7 @@ export default ifElse(
         }
       >
         {children}
-      </FigureCover>
+      </SchemaComponent>
     </Fragment>
   ),
   always(undefined)

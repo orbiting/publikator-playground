@@ -1,16 +1,24 @@
-import { Center } from '@project-r/styleguide'
+import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
 import { ifElse, always, compose } from 'ramda'
 import {
   isBlock,
-  safeProp
+  safeProp,
 } from '@orbiting/publikator-editor/lib'
 
 export default {
   renderNode: ifElse(
-    compose(isBlock('center'), safeProp('node')),
+    compose(
+      isBlock('center'),
+      safeProp('node')
+    ),
     ({ attributes, children }) => (
-      <Center {...attributes}>{children}</Center>
+      <SchemaComponent
+        name="center"
+        {...attributes}
+      >
+        {children}
+      </SchemaComponent>
     ),
     always(undefined)
-  )
+  ),
 }

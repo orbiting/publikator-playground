@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
-import { Editorial } from '@project-r/styleguide'
+import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
 
 import { ifElse, compose, always } from 'ramda'
 
 import {
   safeProp,
-  isInline
+  isInline,
 } from '@orbiting/publikator-editor/lib'
 
 import { LinkUI } from './ui'
@@ -23,16 +23,17 @@ export default {
           node={node}
           editor={editor}
         />
-        <Editorial.A
+        <SchemaComponent
           key="content"
+          name="link"
           href={node.data.get('url')}
           title={node.data.get('title')}
           {...attributes}
         >
           {children}
-        </Editorial.A>
+        </SchemaComponent>
       </Fragment>
     ),
     always(undefined)
-  )
+  ),
 }

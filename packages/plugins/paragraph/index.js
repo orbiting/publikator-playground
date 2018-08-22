@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
-import { Editorial } from '@project-r/styleguide'
+import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
 import { ifElse, compose, always } from 'ramda'
 
 import {
   isBlock,
-  safeProp
+  safeProp,
 } from '@orbiting/publikator-editor/lib'
 
 import { ParagraphUI } from './ui'
@@ -24,14 +24,15 @@ export default {
           editor={editor}
         />
 
-        <Editorial.P
+        <SchemaComponent
           key="content"
+          name="paragraph"
           {...attributes}
         >
           {children}
-        </Editorial.P>
+        </SchemaComponent>
       </Fragment>
     ),
     always(undefined)
-  )
+  ),
 }

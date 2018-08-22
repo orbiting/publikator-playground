@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
-import { Editorial } from '@project-r/styleguide'
+import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
 import { ifElse, compose, always } from 'ramda'
 
 import {
   isBlock,
-  safeProp
+  safeProp,
 } from '@orbiting/publikator-editor/lib'
 
 import { SubheadUI } from './ui'
@@ -22,14 +22,15 @@ export default {
           node={node}
           editor={editor}
         />
-        <Editorial.Subhead
+        <SchemaComponent
+          name="subhead"
           key="content"
           {...attributes}
         >
           {children}
-        </Editorial.Subhead>
+        </SchemaComponent>
       </Fragment>
     ),
     always(undefined)
-  )
+  ),
 }

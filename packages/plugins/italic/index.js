@@ -1,18 +1,24 @@
-import { Editorial } from '@project-r/styleguide'
+import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
 import { ifElse, compose, always } from 'ramda'
 import {
   safeProp,
-  isMark
+  isMark,
 } from '@orbiting/publikator-editor/lib'
 
 export default {
   renderMark: ifElse(
-    compose(isMark('italic'), safeProp('mark')),
+    compose(
+      isMark('italic'),
+      safeProp('mark')
+    ),
     ({ children, attributes }) => (
-      <Editorial.Cursive {...attributes}>
+      <SchemaComponent
+        name="italic"
+        {...attributes}
+      >
         {children}
-      </Editorial.Cursive>
+      </SchemaComponent>
     ),
     always(undefined)
-  )
+  ),
 }

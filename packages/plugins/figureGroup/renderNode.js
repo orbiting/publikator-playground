@@ -1,9 +1,6 @@
 import React, { Fragment } from 'react'
 
-import {
-  Figure,
-  FigureGroup,
-} from '@project-r/styleguide'
+import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
 
 import { ifElse, compose, always } from 'ramda'
 import {
@@ -27,14 +24,15 @@ export default compose(
             node={node}
             editor={editor}
           />
-          <FigureGroup
+          <SchemaComponent
+            name="figureGroup"
             key="content"
             size={node.data.get('size')}
             columns={node.data.get('columns')}
             {...attributes}
           >
             {children}
-          </FigureGroup>
+          </SchemaComponent>
         </Fragment>
       )
     }
@@ -45,7 +43,12 @@ export default compose(
       safeProp('node')
     ),
     ({ attributes, children }) => (
-      <Figure {...attributes}>{children}</Figure>
+      <SchemaComponent
+        name="figureGroupFigure"
+        {...attributes}
+      >
+        {children}
+      </SchemaComponent>
     )
   )
 )(always(undefined))

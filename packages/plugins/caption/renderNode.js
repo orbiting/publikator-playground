@@ -1,8 +1,5 @@
 import React, { Fragment } from 'react'
-import {
-  FigureCaption,
-  FigureByline,
-} from '@project-r/styleguide'
+import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
 
 import { compose, always, ifElse } from 'ramda'
 
@@ -23,9 +20,12 @@ export default compose(
       safeProp('node')
     ),
     ({ children, attributes }) => (
-      <FigureCaption {...attributes}>
+      <SchemaComponent
+        name="caption"
+        {...attributes}
+      >
         {children}
-      </FigureCaption>
+      </SchemaComponent>
     )
   ),
   ifElse(
@@ -58,12 +58,13 @@ export default compose(
           node={node}
           editor={editor}
         />
-        <FigureByline
+        <SchemaComponent
+          name="captionByline"
           key="content"
           {...attributes}
         >
           {children}
-        </FigureByline>
+        </SchemaComponent>
       </Fragment>
     )
   )

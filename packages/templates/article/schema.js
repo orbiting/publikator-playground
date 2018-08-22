@@ -30,8 +30,9 @@ const compatKeys = key => {
 
     case 'figure_INFOFIGURE':
       return 'infoBoxFigure'
-    case 'figureImage':
     case 'figuregroup':
+      return 'figureGroup'
+    case 'figureImage':
       return key
 
     /*
@@ -62,7 +63,7 @@ const compatKeys = key => {
     case 'paragraph_INFOP':
       return 'infoBoxText'
     case 'infobox':
-      return key
+      return 'infoBox'
 
     /*
       Links
