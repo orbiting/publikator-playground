@@ -1,8 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const mouseDownHandler = onClick => event => {
+const stop = event => {
   event.preventDefault()
+  event.stopPropagation()
+}
+
+const clickHandler = onClick => event => {
+  stop(event)
   onClick && onClick(event)
 }
 
@@ -12,7 +17,8 @@ const Button = ({
   ...props
 }) => (
   <button
-    onMouseDown={mouseDownHandler(onClick)}
+    onMouseDown={stop}
+    onClick={clickHandler(onClick)}
     {...props}
   >
     {children}
@@ -21,7 +27,7 @@ const Button = ({
 
 Button.propTypes = {
   disabled: PropTypes.bool,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 }
 
 export default Button
