@@ -6,12 +6,12 @@ import {
   ifElse,
   add,
   always,
-  allPass
+  allPass,
 } from 'ramda'
 
 import {
   focusNext,
-  removeBlock
+  removeBlock,
 } from '@orbiting/publikator-editor/changes'
 
 import {
@@ -24,7 +24,7 @@ import {
   isBlock,
   getNumNodes,
   getChildIndexOf,
-  isCollapsedAtStart
+  isCollapsedAtStart,
 } from '@orbiting/publikator-editor/lib'
 
 const onEnter = compose(
@@ -41,14 +41,14 @@ const onEnter = compose(
           add(-1),
           getNumNodes,
           getParentOf(getStartBlock)
-        )
-      ])
+        ),
+      ]),
     ]),
     compose(
       focusNext,
       converge(removeBlock, [
         getChange,
-        getStartBlock
+        getStartBlock,
       ])
     )
   )

@@ -46,6 +46,10 @@ const conversionStrategy = isOrdered => (
     })
     .wrapBlockByKey(node.key, {
       type: 'list',
+      data: {
+        ordered: isOrdered,
+        compact: true,
+      },
     })
 }
 
@@ -106,7 +110,7 @@ export const UnorderedListButton = withTheme()(
 export const ListUI = withTheme()(
   ({ node, editor, styles }) => {
     return (
-      <Selected offset={1} key="ui" node={node}>
+      <Selected offset={2} key="ui" node={node}>
         <SidebarInsertOptions>
           <InsertButtons
             node={node}
