@@ -6,8 +6,10 @@ import { InsertFigureButton } from '../figure/ui'
 import { InsertInfoBoxButton } from '../infoBox/ui'
 import { SubButton } from '../subscript/ui'
 import { SupButton } from '../superscript/ui'
-import { UnorderedListButton } from '../unorderedList/ui'
-import { OrderedListButton } from '../orderedList/ui'
+import {
+  OrderedListButton,
+  UnorderedListButton,
+} from '../list/ui'
 
 export const BlockButtons = withTheme()(
   ({ node, editor, styles }) => (

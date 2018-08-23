@@ -1,35 +1,37 @@
 import React, { Fragment } from 'react'
 import { ifElse, compose, always } from 'ramda'
-import { Editorial } from '@project-r/styleguide'
+import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
 
 import {
   isBlock,
-  safeProp
+  safeProp,
 } from '@orbiting/publikator-editor/lib'
 
-import { UnorderedListUI } from './ui'
+import { ListUI } from './ui'
 
 export default {
   renderNode: ifElse(
     compose(
-      isBlock('unorderedList'),
+      isBlock('list'),
       safeProp('node')
     ),
     ({ node, children, attributes, editor }) => (
       <Fragment>
-        <UnorderedListUI
+        <ListUI
           key="ui"
           node={node}
           editor={editor}
         />
-        <Editorial.UL
+        <SchemaComponent
+          name="list"
           key="content"
+          data={node.data.toJS()}
           {...attributes}
         >
           {children}
-        </Editorial.UL>
+        </SchemaComponent>
       </Fragment>
     ),
     always(undefined)
-  )
+  ),
 }

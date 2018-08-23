@@ -1,7 +1,12 @@
-import { Label } from '@project-r/styleguide'
+import { Text } from 'slate'
+import { FaListOl as OrderedListIcon } from 'react-icons/fa'
 import { FaListUl as UnorderedListIcon } from 'react-icons/fa'
+
+import { Label } from '@project-r/styleguide'
+
 import { isBlock } from '@orbiting/publikator-editor/lib'
 import FormatBlockButton from '@orbiting/publikator-editor/components/FormatBlockButton'
+
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 import Selected from '@orbiting/publikator-editor/components/Selected'
 import {
@@ -17,22 +22,30 @@ import {
 } from '../common/ui'
 import { ParagraphButton } from '../paragraph/ui'
 import { SubheadButton } from '../subhead/ui'
-import { OrderedListButton } from '../orderedList/ui'
 import { BoldButton } from '../bold/ui'
 import { ItalicButton } from '../italic/ui'
 import { LinkButton } from '../link/ui'
 
-const conversionStrategy = (change, node) => {
-  if (isBlock('orderedList', node)) {
-    return change.setNodeByKey(node.key, {
-      type: 'unorderedList',
+const conversionStrategy = isOrdered => (
+  change,
+  node
+) => {
+  if (isBlock('list', node)) {
+    const res = change.setNodeByKey(node.key, {
+      data: {
+        ordered: isOrdered,
+      },
     })
+    return res
   }
 
   return change
-    .setNodeByKey(node.key, { type: 'listItem' })
+    .setNodeByKey(node.key, {
+      type: 'listItem',
+      nodes: Text.create(node.text),
+    })
     .wrapBlockByKey(node.key, {
-      type: 'unorderedList',
+      type: 'list',
     })
 }
 
@@ -52,20 +65,45 @@ const toFlatBlockConversion = (
   )
 }
 
+export const OrderedListButton = withTheme()(
+  props => (
+    <FormatBlockButton
+      {...props}
+      {...props.styles.buttons.iconButton}
+      active={
+        isBlock('list', props.node) &&
+        props.node.data.get('ordered') === true
+      }
+      block={'list'}
+      conversionStrategy={conversionStrategy(
+        true
+      )}
+    >
+      <OrderedListIcon size={22} />
+    </FormatBlockButton>
+  )
+)
+
 export const UnorderedListButton = withTheme()(
   props => (
     <FormatBlockButton
       {...props}
       {...props.styles.buttons.iconButton}
-      block={'unorderedList'}
-      conversionStrategy={conversionStrategy}
+      active={
+        isBlock('list', props.node) &&
+        props.node.data.get('ordered') === false
+      }
+      block={'list'}
+      conversionStrategy={conversionStrategy(
+        false
+      )}
     >
       <UnorderedListIcon size={22} />
     </FormatBlockButton>
   )
 )
 
-export const UnorderedListUI = withTheme()(
+export const ListUI = withTheme()(
   ({ node, editor, styles }) => {
     return (
       <Selected offset={1} key="ui" node={node}>
@@ -75,6 +113,7 @@ export const UnorderedListUI = withTheme()(
             editor={editor}
           />
         </SidebarInsertOptions>
+
         <SidebarBlockOptions>
           <div {...styles.layout.container}>
             <div {...styles.layout.sectionHeader}>

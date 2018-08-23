@@ -5,9 +5,8 @@ import FigureImage from '@orbiting/publikator-plugins/figureImage'
 import Cover from '@orbiting/publikator-plugins/cover'
 import Caption from '@orbiting/publikator-plugins/caption'
 import Bold from '@orbiting/publikator-plugins/bold'
-import UnorderedList from '@orbiting/publikator-plugins/unorderedList'
-import OrderedList from '@orbiting/publikator-plugins/orderedList'
 import ListItem from '@orbiting/publikator-plugins/listItem'
+import List from '@orbiting/publikator-plugins/list'
 import Superscript from '@orbiting/publikator-plugins/superscript'
 import Subscript from '@orbiting/publikator-plugins/subscript'
 import Italic from '@orbiting/publikator-plugins/italic'
@@ -31,8 +30,7 @@ export default [
   Caption,
   Paragraph,
   Subhead,
-  OrderedList,
-  UnorderedList,
+  List,
   ListItem,
   Link,
   Superscript,
