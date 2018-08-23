@@ -52,33 +52,47 @@ const listItemToMdast = loose =>
     S.isBlock('listItem'),
     mergeResults(
       M.toType('listItem'),
-      M.withChildren,
-      () => ({
+      (node, next) => ({
         loose,
+        children: safeProp('nodes', node)
+          ? node.nodes.map(n => ({
+              ...M.toParagraph(),
+              children: next([n]),
+            }))
+          : 0,
+        ordered: safePath(
+          ['data', 'ordered'],
+          node
+        ),
       })
     )
   )
 
 const listToMdast = loose =>
-  ifElse(
-    S.isBlock('list'),
-    mergeResults(
-      M.toType('list'),
-      M.withNormalizedChildren((node, next) => {
-        const isLoose = notIsNil(loose)
-          ? loose
-          : !safePath(['data', 'compact'])
-        const decoratedNext = compose(
-          listItemToMdast(isLoose),
-          listToMdast(isLoose)
-        )(next)
-        return decoratedNext(
-          safeProp('nodes', node),
-          next
-        )
-      })
-    )
-  )
+  ifElse(S.isBlock('list'), (node, next) => {
+    const isLoose = notIsNil(loose)
+      ? loose
+      : !safePath(['data', 'compact'], node)
+
+    const decoratedNext = compose(
+      listItemToMdast(isLoose),
+      listToMdast(isLoose)
+    )(next)
+
+    return {
+      type: 'list',
+      children: safeProp('nodes', node)
+        ? node.nodes.map(n =>
+            decoratedNext(n, next)
+          )
+        : [],
+      loose: isLoose,
+      ordered: safePath(
+        ['data', 'ordered'],
+        node
+      ),
+    }
+  })
 
 export default {
   fromMdast,
