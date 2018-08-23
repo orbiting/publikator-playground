@@ -84,7 +84,7 @@ export default {
     articleToMdast,
     Figure.toMdast,
     Link.toMdast,
-    List.fromMdast,
+    List.toMdast,
     Paragraph.toMdast,
     Subhead.toMdast,
     Subscript.toMdast,
