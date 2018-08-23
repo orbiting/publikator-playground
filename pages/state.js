@@ -6,6 +6,7 @@ import Article from '@orbiting/publikator-templates/article/rule'
 import {
   deserialize,
   serialize,
+  toTyped,
 } from '../lib/serializer'
 import { prettyPrint } from '@orbiting/transform/common'
 import {
@@ -30,6 +31,8 @@ const deserializeArticle = deserialize(
 const serializeArticle = serialize(
   Article.toMdast
 )
+
+const toTypedArticle = toTyped(Article.fromMdast)
 
 export default () => (
   <div style={containerStyle}>
@@ -65,5 +68,13 @@ export default () => (
         )
       )}
     </pre>
+    <pre style={columnStyle}>
+      {prettyPrint(
+        toTypedArticle(parse(initial))
+      )}
+    </pre>
   </div>
 )
+/*
+
+*/
