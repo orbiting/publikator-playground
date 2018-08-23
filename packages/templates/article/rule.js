@@ -27,6 +27,7 @@ import HTML from '@orbiting/publikator-transformers/html'
 import FigureGroup from '@orbiting/publikator-transformers/figureGroup'
 import Cover from '@orbiting/publikator-transformers/cover'
 import FigureImage from '@orbiting/publikator-transformers/figureImage'
+import List from '@orbiting/publikator-transformers/list'
 
 const articleFromMdast = ifElse(
   M.isRoot,
@@ -66,6 +67,7 @@ export default {
     articleFromMdast,
     Figure.fromMdast,
     Link.fromMdast,
+    List.fromMdast,
     Paragraph.fromMdast,
     Subhead.fromMdast,
     Subscript.fromMdast,
@@ -82,6 +84,7 @@ export default {
     articleToMdast,
     Figure.toMdast,
     Link.toMdast,
+    List.fromMdast,
     Paragraph.toMdast,
     Subhead.toMdast,
     Subscript.toMdast,
