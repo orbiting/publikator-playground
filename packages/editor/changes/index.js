@@ -82,8 +82,8 @@ export const addMark = (change, mark) => {
 
 export const removeMark = (change, mark) => {
   const value = change.value
-  if (value.isEmpty) {
-    const key = value.startKey
+  if (value.selection.isEmpty) {
+    const key = value.selection.start.key
     const offset = value.selection.start.offset
     const text = value.texts.first()
     const {
