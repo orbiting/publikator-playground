@@ -262,6 +262,14 @@ Die Schmutzschicht auf den Zugfenstern von Amtrak Service 51 von New York nach C
 
 In diese Welt wollen wir uns stürzen, tief in dieses zerklüftete Amerika. In die Täler zwischen Rot und Blau, Demokraten und Republikanern, zwischen Gut und Böse, Tradition und Progression. Um zwischen den Klischees ein Stück Wahrhaftigkeit zu finden. In einem Land, in dem die Mitte nicht gehalten hat, das unsichtbare Gewebe einer Gesellschaft gerissen scheint. Ein Land, um dessen Seele eine Schlacht tobt.
 
+* Erstens
+* Zweitens
+* Drittens
+
+1. Erstens
+2. Zweitens
+3. Drittens
+
 Von New York bis an die Grenze ganz im Süden. Vom Golf von Mexiko quer über den Kontinent nach Los Angeles: West Virginia, Atlanta, Texas, Phoenix. In 28 Tagen von Küste zu Küste. Wir wollen Amerikanerinnen und Amerikaner treffen, mit all ihren Widersprüchen: schwarze Cowboys, antirassistische Rednecks und linke Waffennarren. Ob die arbeitslosen Kohlenkumpel immer noch jubilieren, denen Donald Trump Jobs, Jobs, Jobs versprochen hat? Wie geht es einer schwarzen Feministin in diesem Amerika der toxischen Männlichkeit? Und all die unauffälligen Leute dazwischen: Kümmert sie das alles noch, oder marschieren sie schon im Takt von Trumps getwitterten Tiraden in die politische Apathie?
 
 Es ist ein Amerika in Aufruhr. Eine USA, deren globales Standing als Weltmacht wackelt. Mit einem Präsidenten, der zur Amtseinführung für den Zustand seines Landes drastische Worte fand: Blutbad und Gemetzel. Auszehrung und Verfall. Ein Amerika, auf das sich die Welt nicht mehr verlassen könne, wie Angela Merkel feststellte, als sie ein paar Monate später aus einem Bierzelt in Bayern quasi die transatlantische Allianz aufkündete.
