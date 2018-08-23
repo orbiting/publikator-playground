@@ -22,7 +22,7 @@ const Template = dynamic({
           plugins: import('@orbiting/publikator-templates/article/plugins'),
           DocumentRule: import('@orbiting/publikator-templates/article/rule'),
           createEditorSchema: import('@orbiting/publikator-templates/article/schema'),
-          createSchema: import('@project-r/styleguide/lib/templates/Article'),
+          createRenderSchema: import('@project-r/styleguide/lib/templates/Article'),
         }
     }
   },
@@ -33,17 +33,19 @@ const Template = dynamic({
       plugins,
       DocumentRule,
       createEditorSchema,
-      createSchema,
+      createRenderSchema,
     }
   ) => {
-    const schema = createEditorSchema(
-      createSchema()
+    const renderSchema = createRenderSchema()
+    const editorSchema = createEditorSchema(
+      renderSchema
     )
+
     return (
       <div>
         <EditorUI />
         <Editor
-          schema={schema}
+          schema={editorSchema}
           plugins={plugins}
           initialValue={Value.fromJSON({
             document: deserialize(
