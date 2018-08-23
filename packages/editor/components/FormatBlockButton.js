@@ -23,7 +23,7 @@ const clickHandler = ({
   editor,
   node,
   block,
-  conversionStrategy
+  conversionStrategy,
 }) => isActive => {
   return (
     !isActive &&
@@ -43,13 +43,16 @@ const clickHandler = ({
 }
 
 export default props => {
-  const { children, node, block } = props
-  const active = isBlock(block, node)
+  const { children, node, block, active } = props
+  const isActive =
+    typeof active !== 'undefined'
+      ? active
+      : isBlock(block, node)
   return (
     <ToggleButton
       {...cleanProps(props)}
-      active={active}
-      disabled={active}
+      active={isActive}
+      disabled={isActive}
       onClick={clickHandler(props)}
     >
       {children}
