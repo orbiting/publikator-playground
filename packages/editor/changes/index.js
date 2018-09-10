@@ -82,9 +82,8 @@ export const addMark = (change, mark) => {
 
 export const removeMark = (change, mark) => {
   const value = change.value
-  console.log(mark)
 
-  if (value.selection.isEmpty()) {
+  if (value.selection.isCollapsed) {
     const key = value.selection.start.key
     const offset = value.selection.start.offset
     const text = value.texts.first()

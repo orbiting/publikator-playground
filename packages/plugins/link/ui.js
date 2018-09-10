@@ -140,7 +140,6 @@ export const LinkForm = compose(
             {...styles.buttons.labelButton}
             type="submit"
             disabled={submitting}
-            onClick={() => {}}
           >
             OK
           </Button>
@@ -182,7 +181,7 @@ export const LinkUI = compose(
               </div>
               <LinkCard data={node.data} />
               <Button
-                {...styles.buttons.iconButton}
+                {...styles.buttons.labelButton}
                 onClick={startEditing}
               >
                 Bearbeiten
