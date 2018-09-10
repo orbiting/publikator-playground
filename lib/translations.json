@@ -1,0 +1,778 @@
+{
+  "updated": "2018-07-17T10:13:16.747Z",
+  "title": "live",
+  "data": [
+    {
+      "key": "app/name",
+      "value": "Publikator"
+    },
+    {
+      "key": "signIn/button",
+      "value": "anmelden"
+    },
+    {
+      "key": "signIn/email/label",
+      "value": "E-Mail-Adresse"
+    },
+    {
+      "key": "signIn/success",
+      "value": "Erfolgreich eingeloggt als {nameOrEmail} ({seconds}s)"
+    },
+    {
+      "key": "signIn/polling",
+      "value": "Jetzt müssen Sie noch Ihre Mailadresse bestätigen. Wir haben Ihnen ein kurzes Mail an die Adresse {email} geschickt. Dieses enthält fett gedruckt die drei seltsamen Wörter: <b>«{phrase}»</b>.<br /><br /> Gehen Sie zu Ihrem Postfach, öffnen Sie das Mail, kontrollieren Sie, ob dort die drei gleichen seltsamen Wörter stehen. Sind es dieselben, klicken Sie den Link darunter. <br /><br />(Die Sache mit den drei Wörtern ist leider nötig. Es ist eine Sicherheitsmassnahme, damit niemand mit Ihrer Mailadresse Unfug treiben kann.)"
+    },
+    {
+      "key": "signIn/cancel",
+      "value": "abbrechen"
+    },
+    {
+      "key": "signIn/email/error/empty",
+      "value": "E-Mail fehlt"
+    },
+    {
+      "key": "signIn/email/error/invalid",
+      "value": "E-Mail ungültig"
+    },
+    {
+      "key": "signOut/label",
+      "value": "abmelden"
+    },
+    {
+      "key": "signOut/error",
+      "value": "Unbekannter Fehler"
+    },
+    {
+      "key": "me/signedinAs",
+      "value": "Sie sind angemeldet als: {nameOrEmail}"
+    },
+    {
+      "key": "withAuthorization/title",
+      "value": "Geschützter Bereich"
+    },
+    {
+      "key": "withAuthorization/authorizedRoles",
+      "value": "Zugelassene Rollen: {roles}"
+    },
+    {
+      "key": "repo/add/title",
+      "value": "Neuer Artikel"
+    },
+    {
+      "key": "repo/add/titleField/label",
+      "value": "Titel"
+    },
+    {
+      "key": "repo/add/titleField/error",
+      "value": "Titel fehlt"
+    },
+    {
+      "key": "repo/add/titleField/error/tooLong",
+      "value": "Titel zu lange"
+    },
+    {
+      "key": "repo/add/alreadyExists",
+      "value": "Es gibt bereits ein Dokument mit diesem Titel. Beim Erstellen muss der Titel pro Vorlage einzigartig sein."
+    },
+    {
+      "key": "repo/add/submit",
+      "value": "erstellen"
+    },
+    {
+      "key": "repo/add/template/newsletter",
+      "value": "Project R Newsletter"
+    },
+    {
+      "key": "repo/add/template/editorialNewsletter",
+      "value": "Republik Newsletter"
+    },
+    {
+      "key": "repo/add/template/neutrum",
+      "value": "Neutrum"
+    },
+    {
+      "key": "repo/add/template/article",
+      "value": "Artikel"
+    },
+    {
+      "key": "repo/add/template/front",
+      "value": "Front"
+    },
+    {
+      "key": "repo/add/template/format",
+      "value": "Format"
+    },
+    {
+      "key": "repo/add/template/discussion",
+      "value": "Diskussion"
+    },
+    {
+      "key": "repo/add/template/dossier",
+      "value": "Dossier"
+    },
+    {
+      "key": "repo/phase/draft",
+      "value": "Entwurf"
+    },
+    {
+      "key": "repo/phase/conception",
+      "value": "Konzeption"
+    },
+    {
+      "key": "repo/phase/finalEditing",
+      "value": "Abschlussredaktion"
+    },
+    {
+      "key": "repo/phase/creation",
+      "value": "Kreation"
+    },
+    {
+      "key": "repo/phase/production",
+      "value": "Produktion"
+    },
+    {
+      "key": "repo/phase/proofReading",
+      "value": "Korrektorat"
+    },
+    {
+      "key": "repo/phase/finalControl",
+      "value": "Endkontrolle"
+    },
+    {
+      "key": "repo/phase/ready",
+      "value": "Ready"
+    },
+    {
+      "key": "repo/phase/scheduled",
+      "value": "Terminiert"
+    },
+    {
+      "key": "repo/phase/published",
+      "value": "Publiziert"
+    },
+    {
+      "key": "repo/search/field/label",
+      "value": "Suche"
+    },
+    {
+      "key": "repo/search/field/minLength",
+      "value": "Suche, minimal {count} Zeichen"
+    },
+    {
+      "key": "repo/search/noResults",
+      "value": "Keine Resultate"
+    },
+    {
+      "key": "repo/table/pageInfo/loadMore",
+      "value": "mehr laden"
+    },
+    {
+      "key": "repo/table/pageInfo/total",
+      "value": "Total {count} Artikel"
+    },
+    {
+      "key": "repo/table/pageInfo/loadedTotal",
+      "value": "die zuletzt bearbeiteten {loaded} von etwa {total} Artikel"
+    },
+    {
+      "key": "repo/table/col/title",
+      "value": "Titel"
+    },
+    {
+      "key": "repo/table/col/credits",
+      "value": "Autoren"
+    },
+    {
+      "key": "repo/table/col/phase",
+      "value": "Status"
+    },
+    {
+      "key": "repo/table/col/pushed",
+      "value": "Letzte Änderung"
+    },
+    {
+      "key": "repo/table/col/published",
+      "value": "Geplantes Publikationsdatum"
+    },
+    {
+      "key": "repo/table/col/creationDeadline",
+      "value": "Kreations-Deadline"
+    },
+    {
+      "key": "repo/table/col/productionDeadline",
+      "value": "Produktions-Deadline"
+    },
+    {
+      "key": "baseCommit/title",
+      "value": "Ausgangsversion:"
+    },
+    {
+      "key": "baseCommit/commitsBehind/-1",
+      "value": "Es gibt neuere Versionen"
+    },
+    {
+      "key": "baseCommit/commitsBehind/0",
+      "value": "Neueste Version"
+    },
+    {
+      "key": "baseCommit/commitsBehind/1",
+      "value": "Es gibt {count} neuere Version"
+    },
+    {
+      "key": "baseCommit/commitsBehind/other",
+      "value": "Es gibt {count} neuere Versionen"
+    },
+    {
+      "key": "checklist/title",
+      "value": "Checklist"
+    },
+    {
+      "key": "checklist/approvedFor",
+      "value": "{name} für"
+    },
+    {
+      "key": "checklist/labels/finalEditing",
+      "value": "Go Abschlussredaktion"
+    },
+    {
+      "key": "checklist/labels/startConception",
+      "value": "Go Konzeption"
+    },
+    {
+      "key": "checklist/labels/startCreation",
+      "value": "Go Kreation"
+    },
+    {
+      "key": "checklist/labels/startProduction",
+      "value": "Go Produktion"
+    },
+    {
+      "key": "checklist/labels/numbersOk",
+      "value": "Grafik und Zahlen OK"
+    },
+    {
+      "key": "checklist/labels/imagesOk",
+      "value": "Bild OK"
+    },
+    {
+      "key": "checklist/labels/startProofReading",
+      "value": "Go Korrektorat "
+    },
+    {
+      "key": "checklist/labels/factCheckOk",
+      "value": "Faktencheck OK"
+    },
+    {
+      "key": "checklist/labels/proofReadingOk",
+      "value": "Korrektorat OK"
+    },
+    {
+      "key": "checklist/labels/finalControl",
+      "value": "Endkontrolle OK"
+    },
+    {
+      "key": "checklist/labels/chiefEditor",
+      "value": "CR OK"
+    },
+    {
+      "key": "tree/commit/localVersion",
+      "value": "Nicht committete Änderungen"
+    },
+    {
+      "key": "tree/commit/publish",
+      "value": "Vorschau und Veröffentlichung"
+    },
+    {
+      "key": "repo/nav/edit",
+      "value": "Inhalt"
+    },
+    {
+      "key": "repo/nav/meta",
+      "value": "Metadaten"
+    },
+    {
+      "key": "repo/nav/tree",
+      "value": "Versionen"
+    },
+    {
+      "key": "repo/nav/publish",
+      "value": "Publizierung"
+    },
+    {
+      "key": "metaData/title",
+      "value": "Metadaten"
+    },
+    {
+      "key": "metaData/preview",
+      "value": "Vorschau"
+    },
+    {
+      "key": "metaData/field/title",
+      "value": "Titel"
+    },
+    {
+      "key": "metaData/field/publishDate",
+      "value": "Publikationsdatum"
+    },
+    {
+      "key": "metaData/field/feed",
+      "value": "Erscheint im Feed"
+    },
+    {
+      "key": "metaData/field/description",
+      "value": "Deskription"
+    },
+    {
+      "key": "metaData/field/image",
+      "value": "Bild"
+    },
+    {
+      "key": "metaData/field/slug",
+      "value": "Web-Slug"
+    },
+    {
+      "key": "metaData/field/slug/note",
+      "value": "Ergibt folgende URL: republik.ch{path}"
+    },
+    {
+      "key": "metaData/field/src",
+      "value": "Bild"
+    },
+    {
+      "key": "metaData/field/alt",
+      "value": "Bildbeschrieb"
+    },
+    {
+      "key": "metaData/field/label",
+      "value": "Label"
+    },
+    {
+      "key": "metaData/field/captionRight",
+      "value": "Bildlegende rechts"
+    },
+    {
+      "key": "metaData/field/emailSubject",
+      "value": "E-Mail-Betreff"
+    },
+    {
+      "key": "metaData/field/facebookTitle",
+      "value": "Facebook Titel"
+    },
+    {
+      "key": "metaData/field/facebookDescription",
+      "value": "Facebook Deskription"
+    },
+    {
+      "key": "metaData/field/facebookImage",
+      "value": "Facebook Bild"
+    },
+    {
+      "key": "metaData/field/twitterTitle",
+      "value": "Twitter Titel"
+    },
+    {
+      "key": "metaData/field/twitterDescription",
+      "value": "Twitter Deskription"
+    },
+    {
+      "key": "metaData/field/twitterImage",
+      "value": "Twitter Bild"
+    },
+    {
+      "key": "metaData/field/href",
+      "value": "URL"
+    },
+    {
+      "key": "metaData/field/href/document",
+      "value": "Verlinktes Dokument: "
+    },
+    {
+      "key": "metaData/field/center",
+      "value": "Zentriert"
+    },
+    {
+      "key": "metaData/field/figureFloat",
+      "value": "Für Text optimieren (Desktop Float)"
+    },
+    {
+      "key": "metaData/audio",
+      "value": "Audio-Version"
+    },
+    {
+      "key": "metaData/field/audioSourceMp3",
+      "value": ".mp3 URL (empfohlen)"
+    },
+    {
+      "key": "metaData/field/audioSourceAac",
+      "value": ".aac URL"
+    },
+    {
+      "key": "metaData/field/audioSourceOgg",
+      "value": ".ogg URL"
+    },
+    {
+      "key": "metaData/series/label",
+      "value": "Serie"
+    },
+    {
+      "key": "metaData/series/negative",
+      "value": "Keine"
+    },
+    {
+      "key": "metaData/series/master",
+      "value": "Master"
+    },
+    {
+      "key": "metaData/series/title/label",
+      "value": "Title"
+    },
+    {
+      "key": "metaData/series/episode",
+      "value": "Episode"
+    },
+    {
+      "key": "metaData/series/episodes/label",
+      "value": "Episode"
+    },
+    {
+      "key": "metaData/series/episodes/add",
+      "value": "Episode hinzufügen"
+    },
+    {
+      "key": "metaData/series/episodes/rm",
+      "value": "entfernen"
+    },
+    {
+      "key": "metaData/series/episodes/document",
+      "value": "Dokument"
+    },
+    {
+      "key": "metaData/series/coverText/anchor",
+      "value": "Text auf Cover"
+    },
+    {
+      "key": "metaData/series/coverText/offset",
+      "value": "Offset (CSS Units)"
+    },
+    {
+      "key": "metaData/series/coverText/color",
+      "value": "Farbe"
+    },
+    {
+      "key": "metaData/series/coverText/fontSize",
+      "value": "Schriftgrösse"
+    },
+    {
+      "key": "metaData/field/excludeFromGallery",
+      "value": "Von Galerie ausschliessen"
+    },
+    {
+      "key": "metaData/field/gallery",
+      "value": "Bilder als Galerie"
+    },
+    {
+      "key": "uncommittedChanges/unlock/confirm/1",
+      "value": "Durch paralleles arbeiten, entstehen zwei Versionen. Falls Sie das nicht wollen, sprechen Sie miteinander.\n\nWollen Sie das Dokument jetzt bearbeiten? {activeUsers} wird gestört und darüber informiert."
+    },
+    {
+      "key": "uncommittedChanges/unlock/confirm/other",
+      "value": "Durch paralleles arbeiten, entstehen zwei Versionen. Falls Sie das nicht wollen, sprechen Sie miteinander.\n\nWollen Sie das Dokument jetzt bearbeiten? {activeUsers} werden gestört und darüber informiert."
+    },
+    {
+      "key": "uncommittedChanges/users/separator/last",
+      "value": " und "
+    },
+    {
+      "key": "uncommittedChanges/users/separator/other",
+      "value": ", "
+    },
+    {
+      "key": "uncommittedChanges/title",
+      "value": "Aktiv"
+    },
+    {
+      "key": "uncommittedChanges/empty",
+      "value": "Niemand"
+    },
+    {
+      "key": "uncommittedChanges/interruption/text/1",
+      "value": "{interruptingUsers} ist dazu gestossen und bearbeitet das Dokument jetzt auch."
+    },
+    {
+      "key": "uncommittedChanges/interruption/text/other",
+      "value": "{interruptingUsers} sind dazu gestossen und bearbeitet das Dokument jetzt auch."
+    },
+    {
+      "key": "uncommittedChanges/interruption/note",
+      "value": "Wenn Sie parallel arbeiten entstehen zwei Versionen, die später wieder zusammengeführt werden müssen. Falls Sie das nicht wollen, sprechen Sie miteinander."
+    },
+    {
+      "key": "uncommittedChanges/acknowledged",
+      "value": "Verstanden"
+    },
+    {
+      "key": "uncommittedChanges/revert",
+      "value": "Meine Änderungen verwerfen"
+    },
+    {
+      "key": "revert/confirm",
+      "value": "Sind Sie sicher, dass Sie alle bestehenden Änderungen verwerfen möchten?"
+    },
+    {
+      "key": "commitHistory/title",
+      "value": "Versionen"
+    },
+    {
+      "key": "commitHistory/more",
+      "value": "Mehr…"
+    },
+    {
+      "key": "commitHistory/none",
+      "value": "Keine Commits"
+    },
+    {
+      "key": "commit/button",
+      "value": "Commit"
+    },
+    {
+      "key": "commit/revert",
+      "value": "Verwerfen"
+    },
+    {
+      "key": "commit/unlock",
+      "value": "Bearbeiten"
+    },
+    {
+      "key": "commit/lock",
+      "value": "Abbrechen"
+    },
+    {
+      "key": "commit/promtMessage",
+      "value": "Commit-Message:"
+    },
+    {
+      "key": "commit/status/new",
+      "value": "Commite um das neue Dokument zu erstellen"
+    },
+    {
+      "key": "commit/status/new/short",
+      "value": "Neues Dokument erstellen"
+    },
+    {
+      "key": "commit/status/committed",
+      "value": "Keine Änderungen"
+    },
+    {
+      "key": "commit/status/readOnly",
+      "value": "Lesemodus"
+    },
+    {
+      "key": "commit/status/uncommitted",
+      "value": "Änderungen committen?"
+    },
+    {
+      "key": "commit/warn/canNotLock",
+      "value": "Aufgrund von lokalen Änderungen, konnte das Dokument nicht gesperrt werden."
+    },
+    {
+      "key": "commit/warn/noStorage",
+      "value": "Änderungen können nicht lokal gespeichert werden!"
+    },
+    {
+      "key": "commit/warn/localParseError",
+      "value": "Lokale Änderungen könnten nicht wiederhergestellt werden."
+    },
+    {
+      "key": "commit/warn/uncommittedChangesError",
+      "value": "Deine Aktivität konnte nicht gemolden werden."
+    },
+    {
+      "key": "commit/warn/failed",
+      "value": "Commit fehlgeschlagen:\n{error}"
+    },
+    {
+      "key": "commit/warn/missing",
+      "value": "Commit {commitId} nicht gefunden."
+    },
+    {
+      "key": "publish/title",
+      "value": "Veröffentlichung"
+    },
+    {
+      "key": "publish/preview/title",
+      "value": "Vorschau"
+    },
+    {
+      "key": "publish/preview/mobile",
+      "value": "Mobile"
+    },
+    {
+      "key": "publish/preview/desktop",
+      "value": "Desktop"
+    },
+    {
+      "key": "publish/commit/selected",
+      "value": "Ausgewählte Version"
+    },
+    {
+      "key": "publish/commit/change",
+      "value": "Version ändern"
+    },
+    {
+      "key": "publish/meta/date/label",
+      "value": "Publikationsdatum"
+    },
+    {
+      "key": "publish/meta/path/label",
+      "value": "URL"
+    },
+    {
+      "key": "publish/meta/path/value",
+      "value": "republik.ch{path}"
+    },
+    {
+      "key": "publish/trigger",
+      "value": "publizieren"
+    },
+    {
+      "key": "publish/label/prepublication",
+      "value": "Interne Publikation (Vorschau für Editoren)"
+    },
+    {
+      "key": "publish/label/updateMailchimp",
+      "value": "Mailchimp aktualisieren"
+    },
+    {
+      "key": "publish/label/scheduled",
+      "value": "Publikation terminieren"
+    },
+    {
+      "key": "publish/label/scheduledAt",
+      "value": "Publikationstermin"
+    },
+    {
+      "key": "publish/validation/hasErrors",
+      "value": "Diese Version kann nicht veröffentlicht werden:"
+    },
+    {
+      "key": "publish/validation/slug/empty",
+      "value": "Web-Slug fehlt"
+    },
+    {
+      "key": "publish/validation/publishDate/empty",
+      "value": "Publikationsdatum fehlt"
+    },
+    {
+      "key": "publish/validation/emailSubject/empty",
+      "value": "E-Mail-Betreff fehlt"
+    },
+    {
+      "key": "publish/error/unresolvedRepoIds",
+      "value": "In dem Dokument hat es Referenzen auf andere Dokumente die zum Zeitpunkt dieser Publikation noch nicht veröffentlicht sind. Dies sind folgende Dokumente:"
+    },
+    {
+      "key": "publish/error/unresolvedRepoIds/ignore",
+      "value": "ignorieren"
+    },
+    {
+      "key": "publish/error/unresolvedRepoIds/template",
+      "value": "Sie können diese Publikation nicht durchführen solange nicht alle Referenzen zur Veröffentlichung ferigegeben sind."
+    },
+    {
+      "key": "publication/current/title/1",
+      "value": "Publizierte Version"
+    },
+    {
+      "key": "publication/current/title/other",
+      "value": "Publizierte Versionen"
+    },
+    {
+      "key": "publication/current/prepublication",
+      "value": "Intern"
+    },
+    {
+      "key": "publication/current/scheduledAt",
+      "value": "terminiert auf {dateTime}"
+    },
+    {
+      "key": "publication/current/unpublish/action",
+      "value": "Veröffentlichung aufheben"
+    },
+    {
+      "key": "publication/current/unpublish/confirmAll",
+      "value": "Wollen sie wirklich alle veröffentlichten Versionen zurückziehen?"
+    },
+    {
+      "key": "dashboard/links",
+      "value": "gdrive,slack"
+    },
+    {
+      "key": "dashboard/links/gdrive/label",
+      "value": "Komandobrücke"
+    },
+    {
+      "key": "dashboard/links/gdrive/href",
+      "value": "wtfwtfwtf"
+    },
+    {
+      "key": "dashboard/links/slack/label",
+      "value": "Teamfunk"
+    },
+    {
+      "key": "dashboard/links/slack/href",
+      "value": "https://piratinnen.slack.com"
+    },
+    {
+      "key": "link/repo/search",
+      "value": "Artikel suchen"
+    },
+    {
+      "key": "styleguide/video/dnt/note",
+      "value": "Kleine Warnung: Dies ist ein {player}-Video. Wenn Sie das Video abspielen, kann {platform} Sie tracken."
+    },
+    {
+      "key": "styleguide/video/dnt/player/youtube",
+      "value": "YouTube"
+    },
+    {
+      "key": "styleguide/video/dnt/player/vimeo",
+      "value": "Vimeo"
+    },
+    {
+      "key": "image/upload/excessiveSize",
+      "value": "Wollen Sie wirklich dieses {sizeInMb}mb grosses {format} hochladen? Für JPEG ist mehr als {jpegMb}mb kaum sinvoll. Bei anderen Formaten ist mehr als {restMb}mb nicht sinnvoll (können kaum komprimiert werden im Vergleich zu JPEG)."
+    },
+    {
+      "key": "image/upload/notImage",
+      "value": "Dies ist kein Bild."
+    },
+    {
+      "key": "styleguide/charts/confidence95-legend",
+      "value": "95-Prozent-Konfidenzintervall"
+    },
+    {
+      "key": "styleguide/charts/y-cut",
+      "value": "Achse gekürzt"
+    },
+    {
+      "key": "styleguide/charts/error",
+      "value": "Diese Visualisierung ist kaputt. Die Ursache könnte eine falsche Konfiguration oder fehlenden und oder falsch formatierte Daten sein."
+    },
+    {
+      "key": "ui/sidebar/info/numCharacters",
+      "value": "Anzahl Zeichen"
+    },
+    {
+      "key": "styleguide/DynamicComponent/error",
+      "value": "Diese Komponente ist kaputt. Die Ursache könnte eine nicht erlaubte Grund-URL, eine falsche Konfiguration oder ein kaputtes Modul sein."
+    },
+    {
+      "key": "api/publish/disabled",
+      "value": "Artikel können derzeit nicht veröffentlicht werden."
+    },
+    {
+      "key": "api/unpublish/disabled",
+      "value": "Artikel können derzeit nicht zurückgezogen werden."
+    }
+  ]
+}

@@ -1,64 +1,41 @@
-import dynamic from 'next/dynamic'
 import React from 'react'
-import { Value } from 'slate'
-import { parse } from '@orbiting/remark-preset'
-import Editor from '@orbiting/publikator-editor'
-import EditorUI from '@orbiting/publikator-editor/components/UI'
-import initial from './usa'
+import { withRouter } from 'next/router'
+import { compose } from 'redux'
 
-import { deserialize } from '../lib/serializer'
+import withAuthorization from '../components/Auth/withAuthorization'
 
-const Template = dynamic({
-  modules: ({ mdastDocument }) => {
-    const template =
-      (mdastDocument &&
-        mdastDocument.meta &&
-        mdastDocument.meta.template) ||
-      'article'
+import Frame from '../components/Frame'
+import RepoTable from '../components/Repo/Table'
 
-    switch (template) {
-      case 'article':
-        return {
-          plugins: import('@orbiting/publikator-templates/article/plugins'),
-          DocumentRule: import('@orbiting/publikator-templates/article/rule'),
-          createEditorSchema: import('@orbiting/publikator-templates/article/schema'),
-          createRenderSchema: import('@project-r/styleguide/lib/templates/Article'),
-        }
-    }
-  },
-  ssr: false,
-  render: (
-    { mdastDocument },
-    {
-      plugins,
-      DocumentRule,
-      createEditorSchema,
-      createRenderSchema,
-    }
-  ) => {
-    const renderSchema = createRenderSchema()
-    const editorSchema = createEditorSchema(
-      renderSchema
-    )
-
-    return (
-      <div>
-        <EditorUI />
-        <Editor
-          schema={editorSchema}
-          plugins={plugins}
-          initialValue={Value.fromJSON({
-            document: deserialize(
-              DocumentRule.fromMdast,
-              mdastDocument
-            ),
-          })}
+const Index = ({ router: url }) => {
+  const [orderField, orderDirection] = (
+    url.query.orderBy || ''
+  )
+    .split('-')
+    .filter(Boolean)
+  return (
+    <Frame>
+      <Frame.Header>
+        <Frame.Header.Section align="left">
+          <Frame.Nav url={url} />
+        </Frame.Header.Section>
+        <Frame.Header.Section align="right">
+          <Frame.Me />
+        </Frame.Header.Section>
+      </Frame.Header>
+      <Frame.Body raw>
+        <RepoTable
+          orderField={orderField}
+          orderDirection={orderDirection}
+          phase={url.query.phase}
+          search={url.query.q}
         />
-      </div>
-    )
-  },
-})
+      </Frame.Body>
+    </Frame>
+  )
+}
 
-export default () => (
-  <Template mdastDocument={parse(initial)} />
-)
+export default compose(
+  withRouter,
+  withAuthorization(['editor'])
+)(Index)
