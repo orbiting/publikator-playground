@@ -1,3 +1,4 @@
+import { is } from 'immutable'
 import { dissoc } from 'ramda'
 import { connect } from 'react-redux'
 import {
@@ -78,12 +79,21 @@ export const reducer = (
         const selectionPath = getSelectionPath(
           value
         )
-        return {
-          selectionPath,
-          selectedNode: selectionPath.last(),
+        const currentKeys =
+          state.selectionPath &&
+          state.selectionPath.map(v => v.key)
+        const nextKeys =
+          selectionPath &&
+          selectionPath.map(v => v.key)
+
+        if (!is(currentKeys, nextKeys)) {
+          return {
+            selectionPath,
+            selectedNode: selectionPath.last(),
+          }
         }
       }
-      return initialState
+      return state
     case SELECT_NODE:
       return {
         ...state,
