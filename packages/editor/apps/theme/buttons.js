@@ -24,7 +24,7 @@ export const labelButton = css({
   color: colors.textColor,
   border: 'none',
   display: 'inline-flex',
-  alignItems: 'center',
+  outline: 'none',
   flexDirection: 'row',
   cursor: 'pointer',
   fontSize: '14px',
@@ -36,6 +36,9 @@ export const labelButton = css({
   },
   '&:hover': {
     color: colors.primary,
+  },
+  '&:active': {
+    outline: 'none',
   },
 })
 
