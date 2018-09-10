@@ -4,7 +4,7 @@ import { css, merge } from 'glamor'
 import {
   colors,
   mediaQueries,
-  fontStyles
+  fontStyles,
 } from '@project-r/styleguide'
 
 const xPadding = 0
@@ -31,14 +31,14 @@ const fieldStyle = css({
   borderRadius: 0,
   color: colors.text,
   ':focus': {
-    borderColor: colors.primary
-  }
+    borderColor: colors.primary,
+  },
 })
 const fieldErrorStyle = css({
   borderColor: colors.error,
   ':focus': {
-    borderColor: colors.error
-  }
+    borderColor: colors.error,
+  },
 })
 
 const containerStyle = css({
@@ -47,14 +47,14 @@ const containerStyle = css({
   position: 'relative',
   display: 'inline-block',
   ...fontStyles.sansSerifRegular16,
-  marginBottom: 22
+  marginBottom: 22,
 })
 const labelTextStyle = css({
   position: 'absolute',
   left: xPadding,
   top: lineHeight,
   color: colors.disabled,
-  transition: 'top 200ms, font-size 200ms'
+  transition: 'top 200ms, font-size 200ms',
 })
 const labelTextTopStyle = css({
   top: 1,
@@ -63,14 +63,14 @@ const labelTextTopStyle = css({
   [mediaQueries.mUp]: {
     top: 3,
     fontSize: 14,
-    lineHeight: '15px'
-  }
+    lineHeight: '15px',
+  },
 })
 const labelTextFocusedStyle = css({
-  color: colors.primary
+  color: colors.primary,
 })
 const labelTextErrorStyle = css({
-  color: colors.error
+  color: colors.error,
 })
 
 class Field extends Component {
@@ -80,7 +80,7 @@ class Field extends Component {
       isFocused: false,
       isValidating: false,
       isDirty: false,
-      value: ''
+      value: '',
     }
     this.inputRef = ref => (this.input = ref)
   }
@@ -92,7 +92,7 @@ class Field extends Component {
       label,
       error,
       renderInput,
-      isFocused: isFocusedFromProps
+      isFocused: isFocusedFromProps,
     } = this.props
 
     let simulationClassName
@@ -135,24 +135,26 @@ class Field extends Component {
           name,
           type,
           ref: this.inputRef,
+          onClick: event =>
+            event.stopPropagation(),
           onChange: event => {
             let v = event.target.value
             if (onChange) {
               onChange(v, isValidating)
               this.setState(() => ({
-                isDirty: true
+                isDirty: true,
               }))
             } else {
               this.setState(() => ({
                 isDirty: true,
-                value: v
+                value: v,
               }))
             }
           },
           value,
           onFocus: () =>
             this.setState(() => ({
-              isFocused: true
+              isFocused: true,
             })),
           onBlur: event => {
             const v = event.target.value
@@ -165,15 +167,15 @@ class Field extends Component {
             }
             this.setState(state => ({
               isFocused: false,
-              isValidating: state.isDirty
+              isValidating: state.isDirty,
             }))
           },
           className: [
             fStyle.toString(),
-            simulationClassName
+            simulationClassName,
           ]
             .filter(Boolean)
-            .join(' ')
+            .join(' '),
         })}
         <span {...labelStyle}>
           {error || label}
@@ -186,14 +188,14 @@ class Field extends Component {
 Field.propTypes = {
   error: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.bool
+    PropTypes.bool,
   ]),
   renderInput: PropTypes.func.isRequired,
-  isFocused: PropTypes.bool
+  isFocused: PropTypes.bool,
 }
 
 Field.defaultProps = {
-  renderInput: props => <input {...props} />
+  renderInput: props => <input {...props} />,
 }
 
 export default Field

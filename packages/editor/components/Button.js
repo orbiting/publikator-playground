@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const stop = event => {
-  event.preventDefault()
   event.stopPropagation()
 }
 
@@ -27,7 +26,7 @@ const Button = ({
 
 Button.propTypes = {
   disabled: PropTypes.bool,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 }
 
 export default Button
