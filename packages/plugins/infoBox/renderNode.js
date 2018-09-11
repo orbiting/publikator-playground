@@ -58,12 +58,16 @@ export default compose(
         <SchemaComponent
           name="infoBoxTitle"
           key="content"
-          attributes={{
-            ...attributes,
-            style: { position: 'relative' },
-          }}
+          attributes={attributes}
         >
-          {children}
+          <span
+            style={{
+              display: 'block',
+              position: 'relative',
+            }}
+          >
+            {children}
+          </span>
         </SchemaComponent>
       </Fragment>
     )
