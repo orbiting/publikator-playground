@@ -110,10 +110,9 @@ export const updateData = (
   node,
   data
 ) => {
-  return change.setNodeByKey(
-    node.key,
-    node.update('data', v => v.merge(data))
-  )
+  return change.setNodeByKey(node.key, {
+    data: node.data.merge(data),
+  })
 }
 
 export const insertBlock = (change, block) => {
