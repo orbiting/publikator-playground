@@ -23,7 +23,7 @@ export const SidebarFormatOptions = ({
 )
 
 const SIDEBAR_INSERT_OPTIONS =
-  'SIDEBAR_FORMAT_OPTIONS'
+  'SIDEBAR_INSERT_OPTIONS'
 export const SidebarInsertOptions = ({
   children,
 }) => (
@@ -33,7 +33,7 @@ export const SidebarInsertOptions = ({
 )
 
 const SIDEBAR_TEXT_OPTIONS =
-  'SIDEBAR_INSERT_OPTIONS'
+  'SIDEBAR_TEXT_OPTIONS'
 export const SidebarTextOptions = ({
   children,
 }) => (
