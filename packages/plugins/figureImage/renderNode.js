@@ -39,7 +39,7 @@ export default ifElse(
         ) : (
           <SchemaComponent
             name="figureImage"
-            src="static/images/placeholder.png"
+            src="/static/images/placeholder.png"
             {...attributes}
           />
         )}
