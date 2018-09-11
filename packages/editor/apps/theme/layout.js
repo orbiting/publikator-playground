@@ -7,6 +7,7 @@ export const ui = ({ isVisible, align }) =>
     position: 'fixed',
     width: '0',
     top: '0',
+    right: align === 'right' ? '0' : 'auto',
     zIndex: 9999,
     flexDirection: 'column',
     flexWrap: 'noWrap',
