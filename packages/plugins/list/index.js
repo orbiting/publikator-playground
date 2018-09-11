@@ -39,20 +39,20 @@ export default {
             {children}
           </SchemaComponent>
         </Fragment>
+      )
+    ),
+    ifElse(
+      compose(
+        isBlock('listItem'),
+        safeProp('node')
       ),
-      ifElse(
-        compose(
-          isBlock('listItem'),
-          safeProp('node')
-        ),
-        ({ children, attributes }) => (
-          <SchemaComponent
-            name="listItem"
-            {...attributes}
-          >
-            {children}
-          </SchemaComponent>
-        )
+      ({ children, attributes }) => (
+        <SchemaComponent
+          name="listItem"
+          {...attributes}
+        >
+          {children}
+        </SchemaComponent>
       )
     )
   )(always(undefined)),
