@@ -5,7 +5,7 @@ import {
   both,
   ifElse,
   either,
-  always
+  always,
 } from 'ramda'
 
 import { Block } from 'slate'
@@ -15,7 +15,7 @@ import {
   focusPrevious,
   insertBlockAfter,
   insertBlockBefore,
-  removeBlock
+  removeBlock,
 } from '@orbiting/publikator-editor/changes'
 
 import {
@@ -36,7 +36,7 @@ import {
   eventHandler,
   isEnter,
   isDelete,
-  isBackspace
+  isBackspace,
 } from '@orbiting/publikator-editor/lib'
 
 const onEnter = compose(
@@ -45,8 +45,9 @@ const onEnter = compose(
       isExpanded,
       hasEdgeInSelection([
         isBlock('title'),
+        isBlock('subject'),
         isBlock('lead'),
-        isBlock('credits')
+        isBlock('credits'),
       ])
     ),
     compose(
@@ -64,6 +65,33 @@ const onEnter = compose(
         ),
         ifElse(
           compose(
+            isBlock('subject'),
+            getNextBlockOf(getEndBlock)
+          ),
+          compose(
+            focusNext,
+            getChange
+          ),
+          compose(
+            focusNext,
+            converge(insertBlockAfter, [
+              getChange,
+              () =>
+                Block.create({
+                  type: 'subject',
+                }),
+              getEndBlock,
+            ])
+          )
+        )
+      ),
+      ifElse(
+        compose(
+          isBlock('subject'),
+          getStartBlock
+        ),
+        ifElse(
+          compose(
             isBlock('lead'),
             getNextBlockOf(getEndBlock)
           ),
@@ -77,9 +105,9 @@ const onEnter = compose(
               getChange,
               () =>
                 Block.create({
-                  type: 'lead'
+                  type: 'lead',
                 }),
-              getEndBlock
+              getEndBlock,
             ])
           )
         )
@@ -113,9 +141,9 @@ const onEnter = compose(
               getChange,
               () =>
                 Block.create({
-                  type: 'lead'
+                  type: 'lead',
                 }),
-              getStartBlock
+              getStartBlock,
             ])
           ),
           compose(
@@ -139,7 +167,7 @@ const onDeleteOrBackspace = compose(
       hasEdgeInSelection([
         isBlock('title'),
         isBlock('lead'),
-        isBlock('credits')
+        isBlock('credits'),
       ])
     ),
     compose(
@@ -213,7 +241,7 @@ const onBackspace = compose(
             ),
             converge(removeBlock, [
               getChange,
-              getPreviousBlockOf(getStartBlock)
+              getPreviousBlockOf(getStartBlock),
             ])
           )
         )(always(undefined))

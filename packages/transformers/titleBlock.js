@@ -5,6 +5,7 @@ import { mergeResults } from '@orbiting/transform/common'
 import {
   normalize,
   getOrNew,
+  getOrSkip,
   getOrSkipAt,
 } from '@orbiting/transform/normalize'
 
@@ -16,6 +17,11 @@ const titleFromMdast = ifElse(
 const leadFromMdast = ifElse(
   M.isParagraph,
   mergeResults(S.toBlock('lead'), S.withNodes)
+)
+
+const subjectFromMdast = ifElse(
+  M.isHeading(2),
+  mergeResults(S.toBlock('subject'), S.withNodes)
 )
 
 const creditsFromMdast = ifElse(
@@ -45,6 +51,7 @@ const fromMdast = ifElse(
           S.toBlock('title'),
           titleFromMdast
         ),
+        getOrSkip(subjectFromMdast),
         getOrSkipAt(-1, leadFromMdast),
         getOrNew(
           S.toBlock('credits'),
@@ -66,6 +73,10 @@ const toMdast = compose(
   ifElse(
     S.isBlock('title'),
     mergeResults(M.toHeading(1), M.withChildren)
+  ),
+  ifElse(
+    S.isBlock('subject'),
+    mergeResults(M.toHeading(2), M.withChildren)
   ),
   ifElse(
     S.isBlock('lead'),

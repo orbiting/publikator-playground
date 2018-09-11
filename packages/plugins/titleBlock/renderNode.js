@@ -27,6 +27,21 @@ export default compose(
   ),
   ifElse(
     compose(
+      isBlock('subject'),
+      safeProp('node')
+    ),
+    ({ children, attributes }) => (
+      <SchemaComponent
+        name="subject"
+        style={{ position: 'relative' }}
+        {...attributes}
+      >
+        {children}
+      </SchemaComponent>
+    )
+  ),
+  ifElse(
+    compose(
       isBlock('lead'),
       safeProp('node')
     ),

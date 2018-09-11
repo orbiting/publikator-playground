@@ -2,13 +2,13 @@ import {
   compose,
   ifElse,
   always,
-  both
+  both,
 } from 'ramda'
 
 import {
   safeProp,
   isBlock,
-  hasEmptyText
+  hasEmptyText,
 } from '@orbiting/publikator-editor/lib'
 
 import Placeholder from '@orbiting/publikator-editor/components/Placeholder'
@@ -20,6 +20,13 @@ export default compose(
       safeProp('node')
     ),
     () => <Placeholder>Titel</Placeholder>
+  ),
+  ifElse(
+    compose(
+      both(isBlock('subject'), hasEmptyText),
+      safeProp('node')
+    ),
+    () => <Placeholder>Spitzmarke</Placeholder>
   ),
   ifElse(
     compose(
