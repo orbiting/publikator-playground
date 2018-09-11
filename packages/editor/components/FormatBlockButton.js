@@ -16,7 +16,8 @@ const cleanProps = compose(
   dissoc('editor'),
   dissoc('node'),
   dissoc('block'),
-  dissoc('conversionStrategy')
+  dissoc('conversionStrategy'),
+  dissoc('styles')
 )
 
 const clickHandler = ({
@@ -48,11 +49,11 @@ export default props => {
     typeof active !== 'undefined'
       ? active
       : isBlock(block, node)
+
   return (
     <ToggleButton
       {...cleanProps(props)}
       active={isActive}
-      disabled={isActive}
       onClick={clickHandler(props)}
     >
       {children}

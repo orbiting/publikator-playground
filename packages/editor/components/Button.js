@@ -7,6 +7,7 @@ const stop = event => {
 
 const clickHandler = onClick => event => {
   stop(event)
+  console.log(event)
   onClick && onClick(event)
 }
 
@@ -16,7 +17,6 @@ const Button = ({
   ...props
 }) => (
   <button
-    onMouseDown={stop}
     onClick={clickHandler(onClick)}
     {...props}
   >

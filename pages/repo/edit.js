@@ -60,6 +60,8 @@ const EditPage = ({ router }) => {
         </Frame.Header.Section>
       </Frame.Header>
       <Frame.Body raw>
+        <EditorUI />
+
         <Query
           query={GET_COMMIT_BY_ID}
           skip={
@@ -89,7 +91,6 @@ const EditPage = ({ router }) => {
             />
           )}
         </Query>
-        <EditorUI />
       </Frame.Body>
     </Frame>
   )

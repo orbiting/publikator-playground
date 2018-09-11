@@ -49,7 +49,7 @@ const api = {
 
 const initialConfig = {
   isVisible: true,
-  align: 'left', // 'right'
+  align: 'right',
   style: 'fluid', // 'block'
   maxWidth: 200,
 }

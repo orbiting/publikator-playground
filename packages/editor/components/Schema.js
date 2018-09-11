@@ -25,7 +25,10 @@ export const SchemaComponent = ({
         <Comp {...props} />
       ) : (
         <div>
-          {`Missing Component for type ${name}`}
+          <span contentEditable={false}>
+            Missing Component in schema for type{' '}
+            <code>{name}</code>
+          </span>
           <div {...props} {...attributes} />
         </div>
       )

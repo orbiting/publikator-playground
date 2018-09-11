@@ -22,7 +22,7 @@ const ToggleButton = ({
 )
 
 ToggleButton.propTypes = {
-  active: PropTypes.bool.isRequired
+  active: PropTypes.bool.isRequired,
 }
 
 export default ToggleButton
