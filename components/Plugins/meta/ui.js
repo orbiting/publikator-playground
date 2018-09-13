@@ -16,7 +16,7 @@ import {
 
 import { withNodeData } from '@orbiting/publikator-editor/apps/nodeData'
 import { withTheme } from '@orbiting/publikator-editor/apps/theme'
-import RepoSearch from '@orbiting/publikator-editor/components/RepoSearch'
+import RepoSelect from './RepoSelect'
 import ImageInput from '@orbiting/publikator-editor/components/ImageInput'
 
 const withMetaStyles = withTheme(() => ({
@@ -73,7 +73,7 @@ const renderField = withMetaStyles(
       case 'discussion':
         return (
           <Fragment>
-            <RepoSearch
+            <RepoSelect
               label={label}
               {...input}
             />

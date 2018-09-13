@@ -10,7 +10,7 @@ import debounce from 'lodash.debounce'
 import {
   GITHUB_ORG,
   REPO_PREFIX,
-} from '@self/settings'
+} from '../../../lib/settings'
 
 export const filterRepos = gql`
   query searchRepo(
