@@ -2,10 +2,10 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Editor as SlateEditor } from 'slate-react'
 
-import { withApp } from './apps/value'
+import { withEditor } from './apps/value'
 import { SchemaProvider } from './components/Schema'
 
-const Editor = withApp(SlateEditor)
+const Editor = withEditor(SlateEditor)
 
 class PublikatorEditor extends Component {
   render() {

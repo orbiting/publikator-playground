@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
-import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
-import { withMeta } from '@orbiting/publikator-editor/apps/meta'
+import { SchemaComponent } from '../../Editor/components/Schema'
+import { withMeta } from '../../Editor/apps/meta'
 import { compose, ifElse, always } from 'ramda'
 
 import {
   safeProp,
   isBlock,
-} from '@orbiting/publikator-editor/lib'
+} from '../../Editor/lib'
 
 import { CreditsUI } from './ui'
 
@@ -24,7 +24,7 @@ const TitleBlock = withMetaFormat(
         {format && (
           <SchemaComponent
             name="format"
-            {...attributes}
+            contentEditable={false}
           >
             {format}
           </SchemaComponent>

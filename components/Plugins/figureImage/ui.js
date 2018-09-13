@@ -1,11 +1,11 @@
 import { Label } from '@project-r/styleguide'
 import { FaFileImage as ChangeImageIcon } from 'react-icons/fa'
 
-import ImageInput from '@orbiting/publikator-editor/components/ImageInput'
-import { withNodeData } from '@orbiting/publikator-editor/apps/nodeData'
-import { withTheme } from '@orbiting/publikator-editor/apps/theme'
-import Selected from '@orbiting/publikator-editor/components/Selected'
-import { SidebarTop } from '@orbiting/publikator-editor/components/UI'
+import ImageInput from '../../Editor/components/ImageInput'
+import { withNodeData } from '../../Editor/apps/nodeData'
+import { withTheme } from '../../Editor/apps/theme'
+import Selected from '../../Editor/components/Selected'
+import { SidebarTop } from '../../Editor/components/UI'
 
 export const SelectImageButton = withNodeData({
   fieldName: 'url',

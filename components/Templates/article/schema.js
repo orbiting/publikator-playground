@@ -1,4 +1,4 @@
-import { transform } from '@orbiting/transform/transform'
+import { transform } from '../../../lib/transform/transform'
 import { Map } from 'immutable'
 
 const compatKeys = key => {
@@ -91,7 +91,6 @@ const compatKeys = key => {
       return 'sup'
     default:
       console.log('missing', key)
-      null
   }
 }
 

@@ -1,12 +1,12 @@
 import { FaHeading as SubheadIcon } from 'react-icons/fa'
-import FormatBlockButton from '@orbiting/publikator-editor/components/FormatBlockButton'
-import { withTheme } from '@orbiting/publikator-editor/apps/theme'
-import Selected from '@orbiting/publikator-editor/components/Selected'
+import FormatBlockButton from '../../Editor/components/FormatBlockButton'
+import { withTheme } from '../../Editor/apps/theme'
+import Selected from '../../Editor/components/Selected'
 import {
   SidebarTextOptions,
   SidebarInsertOptions,
   SidebarBlockOptions,
-} from '@orbiting/publikator-editor/components/UI'
+} from '../../Editor/components/UI'
 
 import {
   BlockButtons,

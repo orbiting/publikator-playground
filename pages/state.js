@@ -2,7 +2,7 @@ import React from 'react'
 
 import initial from './usa'
 
-import Article from '@orbiting/publikator-templates/article/rule'
+import Article from '../components/Templates/article/DocumentRule'
 import {
   deserialize,
   serialize,

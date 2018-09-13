@@ -6,14 +6,14 @@ import { reduxForm, Field } from 'redux-form'
 import { FaLink as LinkIcon } from 'react-icons/fa'
 import { MdClose as CloseIcon } from 'react-icons/md'
 
-import ToggleInlineButton from '@orbiting/publikator-editor/components/ToggleInlineButton'
-import TextInput from '@orbiting/publikator-editor/components/TextInput'
-import Button from '@orbiting/publikator-editor/components/Button'
-import Selected from '@orbiting/publikator-editor/components/Selected'
-import { SidebarBottom } from '@orbiting/publikator-editor/components/UI'
-import { withNodeData } from '@orbiting/publikator-editor/apps/nodeData'
-import { withEditMode } from '@orbiting/publikator-editor/apps/editMode'
-import { withTheme } from '@orbiting/publikator-editor/apps/theme'
+import ToggleInlineButton from '../../Editor/components/ToggleInlineButton'
+import TextInput from '../../Editor/components/TextInput'
+import Button from '../../Editor/components/Button'
+import Selected from '../../Editor/components/Selected'
+import { SidebarBottom } from '../../Editor/components/UI'
+import { withNodeData } from '../../Editor/apps/nodeData'
+import { withEditMode } from '../../Editor/apps/editMode'
+import { withTheme } from '../../Editor/apps/theme'
 
 const shortString = (threshold, str) =>
   str && str.length > threshold

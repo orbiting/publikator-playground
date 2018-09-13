@@ -9,9 +9,9 @@ import {
   safeProp,
   hasEmptyText,
   isBlock
-} from '@orbiting/publikator-editor/lib'
+} from '../../Editor/lib'
 
-import { InlinePlaceholder } from '@orbiting/publikator-editor/components/Placeholder'
+import { InlinePlaceholder } from '../../Editor/components/Placeholder'
 
 export default compose(
   ifElse(

@@ -17,7 +17,7 @@ import {
   focusPrevious,
   insertBlockAfter,
   removeBlock,
-} from '@orbiting/publikator-editor/lib/changes'
+} from '../../Editor/lib/changes'
 
 import {
   isMixed,
@@ -43,7 +43,7 @@ import {
   isCollapsedAtStart,
   isCollapsedAtEnd,
   getPreviousBlockOf,
-} from '@orbiting/publikator-editor/lib'
+} from '../../Editor/lib'
 
 import { getNewInfoboxFigure } from './getNew'
 

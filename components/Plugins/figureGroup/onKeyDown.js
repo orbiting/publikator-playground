@@ -8,7 +8,7 @@ import {
   either,
 } from 'ramda'
 
-import { removeBlock } from '@orbiting/publikator-editor/lib/changes'
+import { removeBlock } from '../../Editor/lib/changes'
 
 import {
   getChange,
@@ -21,7 +21,7 @@ import {
   isBackspace,
   isBlock,
   getClosestOf,
-} from '@orbiting/publikator-editor/lib'
+} from '../../Editor/lib'
 
 const onDeleteOrBackspace = compose(
   ifElse(

@@ -1,9 +1,9 @@
-import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
+import { SchemaComponent } from '../../Editor/components/Schema'
 import { ifElse, compose, always } from 'ramda'
 import {
   safeProp,
   isMark,
-} from '@orbiting/publikator-editor/lib'
+} from '../../Editor/lib'
 
 export default {
   renderMark: ifElse(

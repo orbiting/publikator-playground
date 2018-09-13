@@ -9,7 +9,7 @@ import {
   colors,
 } from '@project-r/styleguide'
 
-import RepoSearch from '@orbiting/publikator-editor/components/RepoSearch'
+import RepoSearch from '../../Editor/components/RepoSearch'
 import { RepoLink } from '../../../lib/github'
 
 const styles = {

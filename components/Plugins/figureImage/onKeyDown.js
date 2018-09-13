@@ -14,7 +14,7 @@ import {
   focusPrevious,
   insertBlockAfter,
   updateData
-} from '@orbiting/publikator-editor/lib/changes'
+} from '../../Editor/lib/changes'
 
 import {
   isMixed,
@@ -30,7 +30,7 @@ import {
   isBackspace,
   iSafePath,
   isBlock
-} from '@orbiting/publikator-editor/lib'
+} from '../../Editor/lib'
 
 import getNewCaption from '../caption/getNew'
 

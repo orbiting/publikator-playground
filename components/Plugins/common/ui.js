@@ -1,5 +1,5 @@
 import { Label } from '@project-r/styleguide'
-import { withTheme } from '@orbiting/publikator-editor/apps/theme'
+import { withTheme } from '../../Editor/apps/theme'
 import { ParagraphButton } from '../paragraph/ui'
 import { SubheadButton } from '../subhead/ui'
 import { InsertFigureButton } from '../figure/ui'

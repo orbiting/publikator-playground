@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
-import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
+import { SchemaComponent } from '../../Editor/components/Schema'
 import { compose, always, ifElse } from 'ramda'
 import { css } from 'glamor'
 
 import {
   safeProp,
   isBlock,
-} from '@orbiting/publikator-editor/lib'
+} from '../../Editor/lib'
 
 const styles = {
   edgeToEdge: css({

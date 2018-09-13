@@ -1,7 +1,7 @@
 import {
   serialize,
   deserialize,
-} from '@orbiting/transform/serializer'
+} from '../../../lib/transform/serializer'
 import DocumentRule from './DocumentRule'
 import plugins from './plugins'
 

@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic'
 import React from 'react'
+import { Spinner } from '@project-r/styleguide'
 import { Value } from 'slate'
 
 const Template = dynamic({
@@ -20,6 +21,7 @@ const Template = dynamic({
     }
   },
   ssr: false,
+  loading: () => <Spinner />,
   render: (
     { mdastDocument, children },
     {

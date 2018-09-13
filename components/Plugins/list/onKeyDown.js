@@ -12,7 +12,7 @@ import {
 import {
   focusNext,
   removeBlock,
-} from '@orbiting/publikator-editor/lib/changes'
+} from '../../Editor/lib/changes'
 
 import {
   getChange,
@@ -25,7 +25,7 @@ import {
   getNumNodes,
   getChildIndexOf,
   isCollapsedAtStart,
-} from '@orbiting/publikator-editor/lib'
+} from '../../Editor/lib'
 
 const onEnter = compose(
   ifElse(

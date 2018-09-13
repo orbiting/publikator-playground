@@ -1,9 +1,9 @@
 import { Label } from '@project-r/styleguide'
 import { FaImage as ImageIcon } from 'react-icons/fa'
-import { withTheme } from '@orbiting/publikator-editor/apps/theme'
-import InsertBlockButton from '@orbiting/publikator-editor/components/InsertBlockButton'
-import Selected from '@orbiting/publikator-editor/components/Selected'
-import { SidebarTop } from '@orbiting/publikator-editor/components/UI'
+import { withTheme } from '../../Editor/apps/theme'
+import InsertBlockButton from '../../Editor/components/InsertBlockButton'
+import Selected from '../../Editor/components/Selected'
+import { SidebarTop } from '../../Editor/components/UI'
 
 import {
   SizeButton,

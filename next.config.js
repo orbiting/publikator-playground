@@ -24,10 +24,6 @@ module.exports = {
       new webpack.DefinePlugin(env)
     )
     config.resolve.alias = {
-      '@orbiting/transform': path.resolve(
-        __dirname,
-        'packages/transform/'
-      ),
       '@orbiting/publikator-editor': path.resolve(
         __dirname,
         'components/Editor/'
@@ -36,21 +32,9 @@ module.exports = {
         __dirname,
         'components/Plugins/'
       ),
-      '@orbiting/publikator-templates': path.resolve(
-        __dirname,
-        'components/Templates/'
-      ),
-      '@orbiting/publikator-transformers': path.resolve(
-        __dirname,
-        'components/Rules/'
-      ),
       '@orbiting/next-app': path.resolve(
         __dirname,
         'packages/next-app/'
-      ),
-      '@self/settings': path.resolve(
-        __dirname,
-        'lib/settings'
       ),
     }
     return config

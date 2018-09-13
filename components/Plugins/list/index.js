@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
 import { ifElse, compose, always } from 'ramda'
-import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
+import { SchemaComponent } from '../../Editor/components/Schema'
 import onKeyDown from './onKeyDown'
 
 import {
   isBlock,
   safeProp,
-} from '@orbiting/publikator-editor/lib'
+} from '../../Editor/lib'
 
 import { ListUI } from './ui'
 

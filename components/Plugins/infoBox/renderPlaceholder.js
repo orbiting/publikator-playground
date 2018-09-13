@@ -5,13 +5,13 @@ import {
   both,
 } from 'ramda'
 
-import Placeholder from '@orbiting/publikator-editor/components/Placeholder'
+import Placeholder from '../../Editor/components/Placeholder'
 
 import {
   safeProp,
   isBlock,
   hasEmptyText,
-} from '@orbiting/publikator-editor/lib'
+} from '../../Editor/lib'
 
 export default compose(
   ifElse(

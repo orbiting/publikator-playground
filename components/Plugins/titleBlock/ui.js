@@ -1,11 +1,11 @@
 import { Label } from '@project-r/styleguide'
 
-import { withTheme } from '@orbiting/publikator-editor/apps/theme'
-import Selected from '@orbiting/publikator-editor/components/Selected'
+import { withTheme } from '../../Editor/apps/theme'
+import Selected from '../../Editor/components/Selected'
 import {
   SidebarFormatOptions,
   SidebarTextOptions,
-} from '@orbiting/publikator-editor/components/UI'
+} from '../../Editor/components/UI'
 
 import { TextButtons } from '../common/ui'
 import { LinkButton } from '../link/ui'

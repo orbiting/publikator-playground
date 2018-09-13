@@ -7,7 +7,7 @@ import {
   allPass,
 } from 'ramda'
 
-import { removeBlock } from '@orbiting/publikator-editor/lib/changes'
+import { removeBlock } from '../../Editor/lib/changes'
 
 import {
   getChange,
@@ -19,7 +19,7 @@ import {
   isDelete,
   isBackspace,
   isBlock,
-} from '@orbiting/publikator-editor/lib'
+} from '../../Editor/lib'
 
 const onDeleteOrBackspace = compose(
   ifElse(

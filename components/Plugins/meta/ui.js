@@ -14,10 +14,10 @@ import {
   Label,
 } from '@project-r/styleguide'
 
-import { withNodeData } from '@orbiting/publikator-editor/apps/nodeData'
-import { withTheme } from '@orbiting/publikator-editor/apps/theme'
+import { withNodeData } from '../../Editor/apps/nodeData'
+import { withTheme } from '../../Editor/apps/theme'
 import RepoSelect from './RepoSelect'
-import ImageInput from '@orbiting/publikator-editor/components/ImageInput'
+import ImageInput from '../../Editor/components/ImageInput'
 
 const withMetaStyles = withTheme(() => ({
   autoSize: css({

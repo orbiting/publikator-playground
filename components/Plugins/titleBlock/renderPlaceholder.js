@@ -9,9 +9,9 @@ import {
   safeProp,
   isBlock,
   hasEmptyText,
-} from '@orbiting/publikator-editor/lib'
+} from '../../Editor/lib'
 
-import Placeholder from '@orbiting/publikator-editor/components/Placeholder'
+import Placeholder from '../../Editor/components/Placeholder'
 
 export default compose(
   ifElse(

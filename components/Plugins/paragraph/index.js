@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
-import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
+import { SchemaComponent } from '../../Editor/components/Schema'
 import { ifElse, compose, always } from 'ramda'
 
 import {
   isBlock,
   safeProp,
-} from '@orbiting/publikator-editor/lib'
+} from '../../Editor/lib'
 
 import { ParagraphUI } from './ui'
 

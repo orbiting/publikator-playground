@@ -1,9 +1,9 @@
-import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
+import { SchemaComponent } from '../../Editor/components/Schema'
 import { ifElse, always, compose } from 'ramda'
 import {
   isBlock,
   safeProp,
-} from '@orbiting/publikator-editor/lib'
+} from '../../Editor/lib'
 
 export default {
   renderNode: ifElse(

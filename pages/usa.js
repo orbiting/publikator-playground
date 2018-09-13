@@ -40,7 +40,7 @@ series:
     - document: 'https://github.com/republik/article-usa-4-nach-westen'
       image: static/images/cde608975a4e35b38840ddf09e49ab78f6cd9c8b.jpeg?size=1500x1001
       label: Episode IV
-      publishDate: '2018-01-26T05:30:00.000Z'
+      publishDate: '2018-01-26T05:30:00m.000Z'
       title: Wild Is the West
     - document: 'https://github.com/republik/article-usa-5-das-ende-von-etwas'
       image: static/images/801c152891cc63c159062bfc96a363cb446425b1.jpeg?size=1500x1001

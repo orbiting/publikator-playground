@@ -4,23 +4,23 @@ export const CHANGE = 'CHANGE'
 
 export const change = t => ({
   type: CHANGE,
-  payload: { change: t }
+  payload: { change: t },
 })
 
-export const withApp = connect(
+export const withEditor = connect(
   (
     { value: valueFromState },
     { initialValue }
   ) => {
     return {
-      value: valueFromState || initialValue
+      value: valueFromState || initialValue,
     }
   },
   dispatch => {
     return {
       onChange: t => {
         dispatch(change(t))
-      }
+      },
     }
   }
 )

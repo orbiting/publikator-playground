@@ -2,10 +2,10 @@ import React from 'react'
 import { compose } from 'ramda'
 import Icon from 'react-icon-base'
 
-import ToggleButton from '@orbiting/publikator-editor/components/ToggleButton'
+import ToggleButton from '../../Editor/components/ToggleButton'
 
-import { withNodeData } from '@orbiting/publikator-editor/apps/nodeData'
-import { withTheme } from '@orbiting/publikator-editor/apps/theme'
+import { withNodeData } from '../../Editor/apps/nodeData'
+import { withTheme } from '../../Editor/apps/theme'
 
 export const DefaultIcon = props => (
   <Icon size={24} viewBox="0 0 24 24" {...props}>

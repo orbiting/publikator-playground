@@ -2,29 +2,29 @@ import React, { Fragment } from 'react'
 import { FaInfo as InfoBoxIcon } from 'react-icons/fa'
 
 import { Label } from '@project-r/styleguide'
-import InsertBlockButton from '@orbiting/publikator-editor/components/InsertBlockButton'
+import InsertBlockButton from '../../Editor/components/InsertBlockButton'
 
 import { MdClose as NoImageIcon } from 'react-icons/md'
 import { FaCheck as HasImageIcon } from 'react-icons/fa'
 
-import { isBlock } from '@orbiting/publikator-editor/lib'
-import SetValueButton from '@orbiting/publikator-editor/components/SetValueButton'
-import ToggleButton from '@orbiting/publikator-editor/components/ToggleButton'
-import Selected from '@orbiting/publikator-editor/components/Selected'
+import { isBlock } from '../../Editor/lib'
+import SetValueButton from '../../Editor/components/SetValueButton'
+import ToggleButton from '../../Editor/components/ToggleButton'
+import Selected from '../../Editor/components/Selected'
 
 import {
   SidebarTop,
   SidebarTextOptions,
   SidebarFormatOptions,
-} from '@orbiting/publikator-editor/components/UI'
+} from '../../Editor/components/UI'
 
-import { withNodeData } from '@orbiting/publikator-editor/apps/nodeData'
-import { withTheme } from '@orbiting/publikator-editor/apps/theme'
+import { withNodeData } from '../../Editor/apps/nodeData'
+import { withTheme } from '../../Editor/apps/theme'
 
 import {
   removeBlock,
   insertBlockAfter,
-} from '@orbiting/publikator-editor/lib/changes'
+} from '../../Editor/lib/changes'
 
 import getNew, {
   getNewInfoboxFigure,

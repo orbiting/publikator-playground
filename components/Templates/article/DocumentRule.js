@@ -1,33 +1,33 @@
 import { compose, ifElse } from 'ramda'
 
-import S from '@orbiting/transform/slate'
-import M from '@orbiting/transform/mdast'
-import { mergeResults } from '@orbiting/transform/common'
+import S from '../../../lib/transform/slate'
+import M from '../../../lib/transform/mdast'
+import { mergeResults } from '../../../lib/transform/common'
 import {
   normalize,
   getOrSkip,
   getMany,
   getOrNew,
-} from '@orbiting/transform/normalize'
+} from '../../../lib/transform/normalize'
 
-import Bold from '@orbiting/publikator-transformers/bold'
-import Italic from '@orbiting/publikator-transformers/italic'
-import Center from '@orbiting/publikator-transformers/center'
-import Figure from '@orbiting/publikator-transformers/figure'
-import Link from '@orbiting/publikator-transformers/link'
-import Paragraph from '@orbiting/publikator-transformers/paragraph'
-import Subhead from '@orbiting/publikator-transformers/subhead'
-import Subscript from '@orbiting/publikator-transformers/subscript'
-import Superscript from '@orbiting/publikator-transformers/superscript'
-import Text from '@orbiting/publikator-transformers/text'
-import TitleBlock from '@orbiting/publikator-transformers/titleBlock'
-import InfoBox from '@orbiting/publikator-transformers/infoBox'
-import Caption from '@orbiting/publikator-transformers/caption'
-import HTML from '@orbiting/publikator-transformers/html'
-import FigureGroup from '@orbiting/publikator-transformers/figureGroup'
-import Cover from '@orbiting/publikator-transformers/cover'
-import FigureImage from '@orbiting/publikator-transformers/figureImage'
-import List from '@orbiting/publikator-transformers/list'
+import Bold from '../../../lib/rules/bold'
+import Italic from '../../../lib/rules/italic'
+import Center from '../../../lib/rules/center'
+import Figure from '../../../lib/rules/figure'
+import Link from '../../../lib/rules/link'
+import Paragraph from '../../../lib/rules/paragraph'
+import Subhead from '../../../lib/rules/subhead'
+import Subscript from '../../../lib/rules/subscript'
+import Superscript from '../../../lib/rules/superscript'
+import Text from '../../../lib/rules/text'
+import TitleBlock from '../../../lib/rules/titleBlock'
+import InfoBox from '../../../lib/rules/infoBox'
+import Caption from '../../../lib/rules/caption'
+import HTML from '../../../lib/rules/html'
+import FigureGroup from '../../../lib/rules/figureGroup'
+import Cover from '../../../lib/rules/cover'
+import FigureImage from '../../../lib/rules/figureImage'
+import List from '../../../lib/rules/list'
 
 const articleFromMdast = ifElse(
   M.isRoot,

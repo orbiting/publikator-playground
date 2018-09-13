@@ -1,6 +1,6 @@
 import { FaSubscript as SubIcon } from 'react-icons/fa'
-import ToggleMarkButton from '@orbiting/publikator-editor/components/ToggleMarkButton'
-import { withTheme } from '@orbiting/publikator-editor/apps/theme'
+import ToggleMarkButton from '../../Editor/components/ToggleMarkButton'
+import { withTheme } from '../../Editor/apps/theme'
 
 export const SubButton = withTheme()(props => (
   <ToggleMarkButton

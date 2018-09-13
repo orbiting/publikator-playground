@@ -4,17 +4,17 @@ import { FaListUl as UnorderedListIcon } from 'react-icons/fa'
 
 import { Label } from '@project-r/styleguide'
 
-import { isBlock } from '@orbiting/publikator-editor/lib'
-import FormatBlockButton from '@orbiting/publikator-editor/components/FormatBlockButton'
+import { isBlock } from '../../Editor/lib'
+import FormatBlockButton from '../../Editor/components/FormatBlockButton'
 
-import { withTheme } from '@orbiting/publikator-editor/apps/theme'
-import Selected from '@orbiting/publikator-editor/components/Selected'
+import { withTheme } from '../../Editor/apps/theme'
+import Selected from '../../Editor/components/Selected'
 import {
   SidebarTextOptions,
   SidebarInsertOptions,
   SidebarBlockOptions,
   SidebarFormatOptions,
-} from '@orbiting/publikator-editor/components/UI'
+} from '../../Editor/components/UI'
 
 import {
   TextButtons,

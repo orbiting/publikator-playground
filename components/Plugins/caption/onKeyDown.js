@@ -18,7 +18,7 @@ import {
   insertBlockAfter,
   insertBlockBefore,
   removeBlock,
-} from '@orbiting/publikator-editor/lib/changes'
+} from '../../Editor/lib/changes'
 
 import {
   isBlock,
@@ -41,7 +41,7 @@ import {
   isEnter,
   isDelete,
   isBackspace,
-} from '@orbiting/publikator-editor/lib'
+} from '../../Editor/lib'
 
 const onEnter = compose(
   ifElse(

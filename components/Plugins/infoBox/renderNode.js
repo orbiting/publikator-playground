@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
 import { compose, ifElse, always } from 'ramda'
 
-import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
+import { SchemaComponent } from '../../Editor/components/Schema'
 
 import {
   safeProp,
   isBlock,
-} from '@orbiting/publikator-editor/lib'
+} from '../../Editor/lib'
 
 import {
   InfoBoxUI,
