@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { compose } from 'redux'
 import { withRouter } from 'next/router'
 import gql from 'graphql-tag'
@@ -6,6 +6,9 @@ import { Query } from 'react-apollo'
 
 import Editor from '@orbiting/publikator-editor'
 import EditorUI from '@orbiting/publikator-editor/components/UI'
+
+import VersionControl from '../../components/VersionControl'
+import Sidebar from '../../components/Sidebar'
 
 import {
   EditPageRepo,
@@ -35,7 +38,9 @@ export const GET_COMMIT_BY_ID = gql`
 `
 
 const EditPage = ({ router }) => {
-  const isNew = router.query.commitId === 'new'
+  const { repoId, commitId } = router.query
+  const isNew = commitId === 'new'
+
   const nav = (
     <RepoNav
       route="repo/edit"
@@ -60,36 +65,65 @@ const EditPage = ({ router }) => {
         </Frame.Header.Section>
       </Frame.Header>
       <Frame.Body raw>
-        <EditorUI />
-
         <Query
           query={GET_COMMIT_BY_ID}
-          skip={
-            router.query.commitId === 'new' ||
-            !router.query.commitId
-          }
+          skip={isNew || !commitId}
           variables={{
             repoId: router.query.repoId,
             commitId: router.query.commitId,
           }}
         >
-          {({ loading, data }) => (
-            <Loader
-              loading={loading}
-              render={() => (
-                <Template
-                  mdastDocument={
-                    data.repo.commit.document
-                      .content
-                  }
-                >
-                  {editorProps => (
-                    <Editor {...editorProps} />
-                  )}
-                </Template>
-              )}
-            />
-          )}
+          {({ loading, data }) => {
+            const { repo } = data
+            return (
+              <Loader
+                loading={loading}
+                render={() => (
+                  <Fragment>
+                    <Template
+                      mdastDocument={
+                        data.repo.commit.document
+                          .content
+                      }
+                    >
+                      {editorProps => (
+                        <Editor
+                          {...editorProps}
+                        />
+                      )}
+                    </Template>
+                    <Sidebar
+                      selectedTabId={'edit'}
+                      isOpen
+                    >
+                      {
+                        <Sidebar.Tab
+                          tabId="edit"
+                          label="Editieren"
+                        >
+                          <EditorUI />
+                        </Sidebar.Tab>
+                      }
+                      <Sidebar.Tab
+                        tabId="workflow"
+                        label="Workflow"
+                      >
+                        <VersionControl
+                          repoId={repoId}
+                          commit={
+                            repo &&
+                            (repo.commit ||
+                              repo.latestCommit)
+                          }
+                          isNew={isNew}
+                        />
+                      </Sidebar.Tab>
+                    </Sidebar>
+                  </Fragment>
+                )}
+              />
+            )
+          }}
         </Query>
       </Frame.Body>
     </Frame>

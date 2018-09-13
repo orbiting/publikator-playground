@@ -1,10 +1,10 @@
+import { Fragment } from 'react'
 import { compose } from 'ramda'
 import { Label, A } from '@project-r/styleguide'
 import { css } from 'glamor'
 import { reduxForm, Field } from 'redux-form'
 
 import { FaLink as LinkIcon } from 'react-icons/fa'
-import { MdClose as CloseIcon } from 'react-icons/md'
 
 import ToggleInlineButton from '../../Editor/components/ToggleInlineButton'
 import TextInput from '../../Editor/components/TextInput'
@@ -63,7 +63,7 @@ export const LinkCard = withCardStyles(
       <span {...styles.cardLink}>
         <span>
           {shortString(
-            20,
+            60,
             data.get('title') ||
               shortUrl(data.get('url'))
           )}
@@ -174,33 +174,22 @@ export const LinkUI = compose(
     return (
       <Selected node={node}>
         <SidebarBottom>
-          {!isInEditMode ? (
-            <div {...styles.layout.container}>
-              <div {...styles.sectionHeader}>
-                <Label>Link</Label>
-              </div>
-              <LinkCard data={node.data} />
-              <Button
-                {...styles.buttons.labelButton}
-                onClick={startEditing}
-              >
-                Bearbeiten
-              </Button>
+          <div {...styles.layout.container}>
+            <div {...styles.sectionHeader}>
+              <Label>Link</Label>
             </div>
-          ) : (
-            <div {...styles.layout.container}>
-              <div {...styles.sectionHeader}>
-                <Label>Link</Label>
+            <hr {...styles.layout.hairline} />
+            {!isInEditMode ? (
+              <Fragment>
+                <LinkCard data={node.data} />
                 <Button
-                  {...styles.buttons.iconButton}
-                  onClick={() => {
-                    finishEditing()
-                  }}
+                  {...styles.buttons.labelButton}
+                  onClick={startEditing}
                 >
-                  <CloseIcon size="18" />
+                  Bearbeiten
                 </Button>
-              </div>
-              <hr {...styles.layout.hairline} />
+              </Fragment>
+            ) : (
               <LinkForm
                 node={node}
                 editor={editor}
@@ -208,8 +197,8 @@ export const LinkUI = compose(
                   finishEditing()
                 }}
               />
-            </div>
-          )}
+            )}
+          </div>
         </SidebarBottom>
       </Selected>
     )

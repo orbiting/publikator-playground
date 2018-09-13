@@ -1,24 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from 'glamor'
+import { css, merge } from 'glamor'
 import { FaAngleRight as ArrowIcon } from 'react-icons/fa'
 import { compose } from 'ramda'
+import { Label } from '@project-r/styleguide'
 import { withApp } from '../apps/selectionPath'
 import { withTheme } from '../apps/theme'
 
 const withStyles = withTheme(({ theme }) => {
   return {
-    container: css(
+    container: merge(
       theme.layout.container,
       css({
         maxWidth: `none`,
         display: 'flex',
-        alignItems: 'center',
-        flexDirection: 'row',
-        lineHeight: '55px',
+        alignItems: 'flex-start',
+        flexDirection: 'column',
+        lineHeight: '16px',
       })
     ),
-    nodeLink: css(
+    item: css({
+      display: 'flex',
+      marginTop: '6px',
+      alignItems: 'center',
+      flexDirection: 'row',
+    }),
+    nodeLink: merge(
       theme.buttons.labelButton,
       css({
         ...theme.fontStyles.sansSerifRegular16,
@@ -55,13 +62,12 @@ const SelectionPathMenu = ({
   }
   return (
     <div {...styles.container}>
+      <div {...styles.layout.headerSection}>
+        <Label>Auswahl</Label>
+      </div>
       {selectionPath.map((n, i) => (
-        <span key={n.key}>
-          {i > 0 && (
-            <ArrowIcon
-              style={{ margin: '0 15px' }}
-            />
-          )}
+        <span key={n.key} {...styles.item}>
+          {i > 0 && <ArrowIcon />}
           <a
             {...styles.nodeLink}
             onMouseDown={mouseDownHandler(

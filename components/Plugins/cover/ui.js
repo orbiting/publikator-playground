@@ -1,7 +1,7 @@
 import { Label } from '@project-r/styleguide'
 import { withTheme } from '../../Editor/apps/theme'
 import Selected from '../../Editor/components/Selected'
-import { SidebarTop } from '../../Editor/components/UI'
+import { SidebarBottom } from '../../Editor/components/UI'
 
 import {
   SizeButton,
@@ -14,12 +14,12 @@ export const CoverUI = withTheme()(
   ({ styles, node, editor }) => {
     return (
       <Selected node={node} offset={2}>
-        <SidebarTop>
+        <SidebarBottom>
           <div {...styles.layout.container}>
             <div {...styles.layout.sectionHeader}>
               <Label>Cover</Label>
             </div>
-            <hr {...styles.layout.hairlines} />
+            <hr {...styles.layout.hairline} />
             <div {...styles.layout.sectionHeader}>
               <Label>Grösse</Label>
             </div>
@@ -47,7 +47,7 @@ export const CoverUI = withTheme()(
               </SizeButton>
             </div>
           </div>
-        </SidebarTop>
+        </SidebarBottom>
       </Selected>
     )
   }

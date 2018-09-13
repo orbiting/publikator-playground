@@ -13,7 +13,7 @@ import ToggleButton from '../../Editor/components/ToggleButton'
 import Selected from '../../Editor/components/Selected'
 
 import {
-  SidebarTop,
+  SidebarBottom,
   SidebarTextOptions,
   SidebarFormatOptions,
 } from '../../Editor/components/UI'
@@ -107,7 +107,7 @@ export const InfoBoxUI = withTheme()(
     const infoBoxSize = node.data.get('size')
     return (
       <Selected node={node} offset={3}>
-        <SidebarTop>
+        <SidebarBottom>
           <div {...styles.layout.container}>
             <div {...styles.layout.sectionHeader}>
               <Label>Infobox</Label>
@@ -160,7 +160,7 @@ export const InfoBoxUI = withTheme()(
               <div
                 {...styles.layout.sectionHeader}
               >
-                <Label>Mit Bild?</Label>
+                <Label>Bild-Grösse</Label>
               </div>
               <div {...styles.layout.actions}>
                 <FigureSizeButton
@@ -191,7 +191,6 @@ export const InfoBoxUI = withTheme()(
                     >
                       <SmallIcon />
                     </FigureSizeButton>
-                    ,
                     <FigureSizeButton
                       key="tiny-button"
                       name="XS"
@@ -207,7 +206,7 @@ export const InfoBoxUI = withTheme()(
               </div>
             </div>
           )}
-        </SidebarTop>
+        </SidebarBottom>
       </Selected>
     )
   }

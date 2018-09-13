@@ -50,8 +50,8 @@ const api = {
 const initialConfig = {
   isVisible: true,
   align: 'right',
-  style: 'fluid', // 'block'
-  maxWidth: 200,
+  style: 'block',
+  maxWidth: 270,
 }
 
 const initialState = {

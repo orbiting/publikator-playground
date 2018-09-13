@@ -3,7 +3,9 @@ import { colors } from '@project-r/styleguide'
 
 export const button = css({
   border: 'none',
-  cursor: 'pointer',
+  '&:not([disabled])': {
+    cursor: 'pointer',
+  },
   outline: 'none',
   '&:active': {
     outline: 'none',
@@ -36,14 +38,17 @@ export const labelButton = merge(
     color: colors.textColor,
     display: 'inline-flex',
     flexDirection: 'row',
+    flexDirection: 'row',
     fontSize: '14px',
-    lineHeight: '17px',
+    lineHeight: '28px',
+    padding: 0,
+    marginRight: '14px',
     backgroundColor: 'transparent',
     transition: 'color .2s, background-color 2s',
     '&[disabled]': {
       color: colors.disabled,
     },
-    '&:hover': {
+    '&:hover:not([disabled])': {
       color: colors.primary,
     },
   })

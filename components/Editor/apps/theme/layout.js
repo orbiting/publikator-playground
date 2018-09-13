@@ -1,14 +1,17 @@
 import { css } from 'glamor'
-import { colors } from '@project-r/styleguide'
+import {
+  colors,
+  mediaQueries,
+} from '@project-r/styleguide'
 
-export const ui = ({ isVisible, align }) =>
+export const ui = ({ align }) =>
   css({
-    display: !isVisible ? 'none' : 'flex',
-    position: 'fixed',
-    width: '0',
-    top: '80px',
-    right: align === 'right' ? '0' : 'auto',
-    zIndex: 9999,
+    // display: !isVisible ? 'none' : 'flex',
+    // // position: 'fixed',
+    // width: '0',
+    // top: '80px',
+    // right: align === 'right' ? '0' : 'auto',
+    // zIndex: 9999,
     flexDirection: 'column',
     flexWrap: 'noWrap',
     alignItems:
@@ -30,11 +33,7 @@ export const container = ({
   maxWidth,
 }) =>
   css({
-    maxWidth: `${maxWidth}px`,
-    backgroundColor:
-      style === 'block'
-        ? '#fff'
-        : colors.secondaryBg,
+    maxWidth: `245px`,
     width:
       style === 'block'
         ? `${maxWidth}px`
@@ -51,7 +50,7 @@ export const container = ({
         ? '1px'
         : '0',
     right: align === 'right' ? 0 : 'auto',
-    padding: '12px 20px 12px 20px',
+    marginBottom: '20px',
   })
 
 export const section = css({
@@ -68,9 +67,20 @@ export const sectionHeading = css(
   heading
 )
 
+export const outline = css({
+  border: `3px solid ${colors.primary}`,
+  position: 'absolute',
+  zIndex: 1,
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+})
+
 export const hairline = css({
-  borderTop: `1px solid ${colors.divider}`,
-  margin: '5px 0',
+  borderTop: `1px solid ${colors.disabled}`,
+  margin: '7px 0',
+  width: '100%',
 })
 
 export const horizontalGroup = css({
@@ -95,6 +105,7 @@ export default config => ({
   container: container(config),
   section,
   heading,
+  outline,
   sectionHeading,
   hairline,
   horizontalGroup,

@@ -9,12 +9,19 @@ const getNew = () =>
     data: {
       url: '',
       title: '',
-      alt: ''
-    }
+      alt: '',
+    },
   })
 
 export default {
   onKeyDown,
   renderNode,
-  getNew
+  schema: {
+    blocks: {
+      figureImage: {
+        isVoid: true,
+      },
+    },
+  },
+  getNew,
 }

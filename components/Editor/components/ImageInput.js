@@ -30,6 +30,7 @@ export default ({
   // eslint-disable-next-line
   value, // remove invalid props to pass
   onChange,
+  useAltKey = false,
   children,
   ...props
 }) => {
@@ -38,22 +39,24 @@ export default ({
     <label
       onClick={e => {
         return (
-          e.altKey === true ||
-          (e.preventDefault() &&
-            e.stopPropagation())
+          useAltKey &&
+          (e.altKey === true ||
+            e.preventDefault())
         )
       }}
       htmlFor={`fileinput-${key}`}
       {...props}
     >
       {children}
-      <input
-        onChange={readImage(onChange)}
-        style={{ display: 'none' }}
-        id={`fileinput-${key}`}
-        type="file"
-        accept="image/*"
-      />
+      {
+        <input
+          onChange={readImage(onChange)}
+          style={{ display: 'none' }}
+          id={`fileinput-${key}`}
+          type="file"
+          accept="image/*"
+        />
+      }
     </label>
   )
 }

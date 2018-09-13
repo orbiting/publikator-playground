@@ -5,7 +5,7 @@ import ImageInput from '../../Editor/components/ImageInput'
 import { withNodeData } from '../../Editor/apps/nodeData'
 import { withTheme } from '../../Editor/apps/theme'
 import Selected from '../../Editor/components/Selected'
-import { SidebarTop } from '../../Editor/components/UI'
+import { SidebarBottom } from '../../Editor/components/UI'
 
 export const SelectImageButton = withNodeData({
   fieldName: 'url',
@@ -14,20 +14,22 @@ export const SelectImageButton = withNodeData({
 export const FigureImageUI = withTheme()(
   ({ node, editor, styles }) => (
     <Selected offset={3} node={node}>
-      <SidebarTop>
+      <SidebarBottom>
         <div {...styles.layout.container}>
           <div {...styles.layout.headerSection}>
-            <Label>Bild</Label>
+            <Label>Bild auswählen</Label>
           </div>
-          <SelectImageButton
-            node={node}
-            editor={editor}
-            {...styles.buttons.iconButton}
-          >
-            <ChangeImageIcon size={22} />
-          </SelectImageButton>
+          <div {...styles.layout.actions}>
+            <SelectImageButton
+              node={node}
+              editor={editor}
+              {...styles.buttons.iconButton}
+            >
+              <ChangeImageIcon size={22} />
+            </SelectImageButton>
+          </div>
         </div>
-      </SidebarTop>
+      </SidebarBottom>
     </Selected>
   )
 )

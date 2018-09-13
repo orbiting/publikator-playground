@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Portal, {
-  getOwnerDocument
+  getOwnerDocument,
 } from './Portal'
 
 const getContainer = (id, doc) => {
   const el = doc.getElementById(id)
-  if (!el) {
-    throw new Error(
-      `Can't mount Slot. DOMNode with id "${id}" not found.`
-    )
+  if (!!el) {
+    return el
   }
-  return el
+  console.warn(
+    `Can't mount Slot. DOMNode with id "${id}" not found.`
+  )
 }
 
 class Slot extends Component {
@@ -43,7 +43,7 @@ class Slot extends Component {
 Slot.propTypes = {
   id: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
-  onRendered: PropTypes.func
+  onRendered: PropTypes.func,
 }
 
 export default Slot
