@@ -8,7 +8,7 @@ import { isInline } from '../lib'
 import {
   addInline,
   removeInline,
-} from '../changes'
+} from '../lib/changes'
 
 const cleanProps = compose(
   dissoc('children'),

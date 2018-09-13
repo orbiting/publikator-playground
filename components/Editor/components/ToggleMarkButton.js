@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import ToggleButton from './ToggleButton'
 import { isMark } from '../lib'
-import { addMark, removeMark } from '../changes'
+import { addMark, removeMark } from '../lib/changes'
 
 const cleanProps = compose(
   dissoc('children'),

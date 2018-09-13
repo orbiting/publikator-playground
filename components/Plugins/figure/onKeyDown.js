@@ -7,7 +7,7 @@ import {
   allPass,
 } from 'ramda'
 
-import { removeBlock } from '@orbiting/publikator-editor/changes'
+import { removeBlock } from '@orbiting/publikator-editor/lib/changes'
 
 import {
   getChange,

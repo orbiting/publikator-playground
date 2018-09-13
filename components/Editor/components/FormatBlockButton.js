@@ -3,7 +3,7 @@ import { dissoc, compose } from 'ramda'
 import React from 'react'
 import ToggleButton from './ToggleButton'
 import { isBlock } from '../lib'
-import { convertBlock } from '../changes'
+import { convertBlock } from '../lib/changes'
 
 const defaultConversionStrategy = (
   change,

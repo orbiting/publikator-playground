@@ -24,7 +24,7 @@ import { withTheme } from '@orbiting/publikator-editor/apps/theme'
 import {
   removeBlock,
   insertBlockAfter,
-} from '@orbiting/publikator-editor/changes'
+} from '@orbiting/publikator-editor/lib/changes'
 
 import getNew, {
   getNewInfoboxFigure,

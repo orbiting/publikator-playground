@@ -115,6 +115,13 @@ export const updateData = (
   })
 }
 
+export const updateMeta = (change, data) => {
+  const document = change.value.document
+  return change.setNodeByKey(document.key, {
+    data: document.data.merge(data),
+  })
+}
+
 export const insertBlock = (change, block) => {
   return change.insertBlock(block)
 }

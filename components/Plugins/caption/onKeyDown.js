@@ -18,7 +18,7 @@ import {
   insertBlockAfter,
   insertBlockBefore,
   removeBlock,
-} from '@orbiting/publikator-editor/changes'
+} from '@orbiting/publikator-editor/lib/changes'
 
 import {
   isBlock,

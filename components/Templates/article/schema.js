@@ -90,6 +90,7 @@ const compatKeys = key => {
     case 'mark_sup':
       return 'sup'
     default:
+      console.log('missing', key)
       null
   }
 }

@@ -12,7 +12,7 @@ import {
 import {
   focusNext,
   removeBlock,
-} from '@orbiting/publikator-editor/changes'
+} from '@orbiting/publikator-editor/lib/changes'
 
 import {
   getChange,

@@ -1,23 +1,26 @@
 import { compose, dissoc } from 'ramda'
-import { updateData } from '../lib/changes'
+import { updateMeta } from '../lib/changes'
 import { connect } from 'react-redux'
 
 const mapToFieldFromFactory = (
   fieldName,
   factory
-) => (state, { editor, node }) =>
-  factory(node.data.get(fieldName), value => {
-    editor.change(updateData, node, {
-      [fieldName]: value,
-    })
-  })
+) => (state, { editor }) =>
+  factory(
+    editor.value.document.data.get(fieldName),
+    value => {
+      editor.change(updateMeta, {
+        [fieldName]: value,
+      })
+    }
+  )
 
 const mapFromFactory = factory => (
   state,
-  { editor, node }
+  { editor }
 ) =>
-  factory(node.data, value => {
-    editor.change(updateData, node, value)
+  factory(editor.value.document.data, value => {
+    editor.change(updateMeta, value)
   })
 
 const defaultFactory = (value, onChange) => ({
@@ -25,12 +28,9 @@ const defaultFactory = (value, onChange) => ({
   onChange,
 })
 
-const cleanProps = compose(
-  dissoc('node'),
-  dissoc('editor')
-)
+const cleanProps = compose(dissoc('editor'))
 
-export const withNodeData = ({
+export const withMeta = ({
   fieldName = null,
   factory = defaultFactory,
   passProps = false,

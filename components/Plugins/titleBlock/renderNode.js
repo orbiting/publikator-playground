@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { SchemaComponent } from '@orbiting/publikator-editor/components/Schema'
+import { withMeta } from '@orbiting/publikator-editor/apps/meta'
 import { compose, ifElse, always } from 'ramda'
 
 import {
@@ -8,6 +9,32 @@ import {
 } from '@orbiting/publikator-editor/lib'
 
 import { CreditsUI } from './ui'
+
+const withMetaFormat = withMeta({
+  fieldName: 'format',
+})
+
+const TitleBlock = withMetaFormat(
+  ({ children, attributes, value: format }) => {
+    return (
+      <SchemaComponent
+        name="titleBlock"
+        {...attributes}
+      >
+        {format && (
+          <SchemaComponent
+            name="format"
+            {...attributes}
+          >
+            {format}
+          </SchemaComponent>
+        )}
+
+        {children}
+      </SchemaComponent>
+    )
+  }
+)
 
 export default compose(
   ifElse(
@@ -83,13 +110,6 @@ export default compose(
       isBlock('titleBlock'),
       safeProp('node')
     ),
-    ({ children, attributes }) => (
-      <SchemaComponent
-        name="titleBlock"
-        {...attributes}
-      >
-        {children}
-      </SchemaComponent>
-    )
+    props => <TitleBlock {...props} />
   )
 )(always(undefined))

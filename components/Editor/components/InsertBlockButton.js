@@ -5,7 +5,7 @@ import Button from './Button'
 import {
   insertBlock,
   insertBlockAfter
-} from '../changes'
+} from '../lib/changes'
 
 const cleanProps = compose(
   dissoc('children'),
