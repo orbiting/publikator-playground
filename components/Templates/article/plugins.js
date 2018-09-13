@@ -14,6 +14,7 @@ import Subhead from '@orbiting/publikator-plugins/subhead'
 import TitleBlock from '@orbiting/publikator-plugins/titleBlock'
 
 import Infobox from '@orbiting/publikator-plugins/infoBox'
+import Meta from '@orbiting/publikator-plugins/meta'
 
 import Center from '@orbiting/publikator-plugins/center'
 
@@ -34,4 +35,5 @@ export default [
   Superscript,
   Subscript,
   Italic,
+  Meta,
 ]

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
+import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
-
 import {
   Autocomplete,
   InlineSpinner,
@@ -13,7 +12,7 @@ import {
   REPO_PREFIX,
 } from '@self/settings'
 
-export const GET_FILTERED_REPOS = gql`
+export const filterRepos = gql`
   query searchRepo(
     $after: String
     $search: String
@@ -37,8 +36,8 @@ export const GET_FILTERED_REPOS = gql`
             meta {
               title
               image
-              template
               description
+              subject
               credits
               kind
               color
@@ -58,6 +57,66 @@ export const GET_FILTERED_REPOS = gql`
     }
   }
 `
+
+const ConnectedAutoComplete = graphql(
+  filterRepos,
+  {
+    skip: props => !props.filter,
+    options: ({ search }) => ({
+      variables: { search: search },
+    }),
+    props: props => {
+      if (props.data.loading)
+        return { data: props.data, items: [] }
+      const {
+        data: { repos: { nodes = [] } = {} },
+      } = props
+      return {
+        data: props.data,
+        items: nodes.map(v => ({
+          value: v,
+          text:
+            v.latestCommit.document.meta.title ||
+            v.id.replace(
+              [
+                GITHUB_ORG,
+                REPO_PREFIX || '',
+              ].join('/'),
+              ''
+            ),
+        })),
+      }
+    },
+  }
+)(props => {
+  const showLoader =
+    props.data && props.data.loading
+  return (
+    <span
+      style={{
+        position: 'relative',
+        display: 'block',
+      }}
+    >
+      <Autocomplete
+        key="autocomplete"
+        {...props}
+      />
+      {!!showLoader && (
+        <span
+          style={{
+            position: 'absolute',
+            top: '21px',
+            right: '0px',
+            zIndex: 500,
+          }}
+        >
+          <InlineSpinner size={35} />
+        </span>
+      )}
+    </span>
+  )
+})
 
 const safeValue = value =>
   typeof value === 'string'
@@ -125,64 +184,15 @@ export default class RepoSearch extends Component {
     const { filter, value, search } = this.state
 
     return (
-      <Query
-        query={GET_FILTERED_REPOS}
-        variables={{ search }}
-        skip={!filter}
-      >
-        {({ loading, data /*error*/ }) => {
-          const {
-            repos: { nodes = [] } = {},
-          } = data
-          const items = loading
-            ? []
-            : nodes.map(v => ({
-                value: v,
-                text:
-                  v.latestCommit.document.meta
-                    .title ||
-                  v.id.replace(
-                    [
-                      GITHUB_ORG,
-                      REPO_PREFIX || '',
-                    ].join('/'),
-                    ''
-                  ),
-              }))
-
-          return (
-            <span
-              style={{
-                position: 'relative',
-                display: 'block',
-              }}
-            >
-              <Autocomplete
-                filter={filter}
-                value={value}
-                items={items}
-                label={this.props.label}
-                onChange={this.changeHandler}
-                onFilterChange={
-                  this.filterChangeHandler
-                }
-              />
-              {loading && (
-                <span
-                  style={{
-                    position: 'absolute',
-                    top: '21px',
-                    right: '0px',
-                    zIndex: 500,
-                  }}
-                >
-                  <InlineSpinner size={35} />
-                </span>
-              )}
-            </span>
-          )
-        }}
-      </Query>
+      <ConnectedAutoComplete
+        label={this.props.label}
+        filter={filter}
+        value={value}
+        search={search}
+        items={[]}
+        onChange={this.changeHandler}
+        onFilterChange={this.filterChangeHandler}
+      />
     )
   }
 }

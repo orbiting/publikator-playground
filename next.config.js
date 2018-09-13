@@ -30,19 +30,19 @@ module.exports = {
       ),
       '@orbiting/publikator-editor': path.resolve(
         __dirname,
-        'packages/editor/'
+        'components/Editor/'
       ),
       '@orbiting/publikator-plugins': path.resolve(
         __dirname,
-        'packages/plugins/'
+        'components/Plugins/'
       ),
       '@orbiting/publikator-templates': path.resolve(
         __dirname,
-        'packages/templates/'
+        'components/Templates/'
       ),
       '@orbiting/publikator-transformers': path.resolve(
         __dirname,
-        'packages/transformers/'
+        'components/Rules/'
       ),
       '@orbiting/next-app': path.resolve(
         __dirname,
