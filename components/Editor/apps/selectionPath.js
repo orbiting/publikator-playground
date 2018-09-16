@@ -6,7 +6,7 @@ import {
   isCompleteBlockSelected,
 } from '../lib/selection'
 
-import { CHANGE } from './value'
+import { CHANGE } from './document'
 
 export const DOM_NODE_ID =
   'PUBLIKATOR_SELECTION_PATH'
@@ -74,7 +74,9 @@ export const reducer = (
   switch (type) {
     case CHANGE:
       value = payload.change.value
-
+      if (!value.document) {
+        return state
+      }
       if (isCompleteBlockSelected(value)) {
         const selectionPath = getSelectionPath(
           value

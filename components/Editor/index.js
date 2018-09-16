@@ -1,34 +1,25 @@
-import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
-import { Editor as SlateEditor } from 'slate-react'
+import { Component } from 'react'
+import { Provider as ReduxProvider } from 'react-redux'
 
-import { withEditor } from './apps/value'
-import { SchemaProvider } from './components/Schema'
+import Editor from './components/Editor'
+import EditorUI from './components/UI'
+import createStore from './createStore'
 
-const Editor = withEditor(SlateEditor)
+export { Editor, EditorUI }
 
-class PublikatorEditor extends Component {
+export class EditorStateProvider extends Component {
+  constructor(props) {
+    super(props)
+    this.store = createStore()
+    this.onChange = () => {}
+    this.store.subscribe(this.onChange)
+  }
+
   render() {
     return (
-      <SchemaProvider schema={this.props.schema}>
-        <Fragment>
-          <Editor
-            spellCheck={false}
-            autoFocus={false}
-            plugins={this.props.plugins}
-            initialValue={this.props.initialValue}
-          />
-        </Fragment>
-      </SchemaProvider>
+      <ReduxProvider store={this.store}>
+        {this.props.children}
+      </ReduxProvider>
     )
   }
 }
-
-PublikatorEditor.propTypes = {
-  onChange: PropTypes.func,
-  initialValue: PropTypes.object.isRequired,
-  plugins: PropTypes.array.isRequired,
-  schema: PropTypes.object.isRequired,
-}
-
-export default PublikatorEditor

@@ -1,11 +1,14 @@
 import { compose, dissoc } from 'ramda'
 
 import React from 'react'
-import { connect } from 'react-redux'
+import { withValue } from '../apps/document'
 
 import ToggleButton from './ToggleButton'
 import { isMark } from '../lib'
-import { addMark, removeMark } from '../lib/changes'
+import {
+  addMark,
+  removeMark,
+} from '../lib/changes'
 
 const cleanProps = compose(
   dissoc('children'),
@@ -14,10 +17,6 @@ const cleanProps = compose(
   dissoc('value'),
   dissoc('dispatch')
 )
-
-const withValue = connect(state => ({
-  value: state.value,
-}))
 
 const clickHandler = ({
   editor,

@@ -1,8 +1,8 @@
-import { compose, dissoc, always } from 'ramda'
+import { compose, dissoc } from 'ramda'
 
 import React from 'react'
-import { connect } from 'react-redux'
 
+import { withValue } from '../apps/document'
 import ToggleButton from './ToggleButton'
 import { isInline } from '../lib'
 import {
@@ -15,13 +15,6 @@ const cleanProps = compose(
   dissoc('editor'),
   dissoc('inline'),
   dissoc('value')
-)
-
-const withValue = connect(
-  state => ({
-    value: state.value,
-  }),
-  always({})
 )
 
 const clickHandler = ({

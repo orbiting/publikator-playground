@@ -10,6 +10,7 @@ const tree = new TreeUtils(
 export const getSelectionPath = value => {
   return List([value.selection.start.key])
     .map(key => tree.byId(value, key))
+    .filter(Boolean)
     .reduce(
       (memo, path) =>
         memo
